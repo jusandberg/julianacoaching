@@ -11,10 +11,10 @@
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#4285F4; --green:#34A853; --yellow:#FBBC05; --teal:#0F9F9A;
-  --teal-d:#0B7B76; --sage:#34A853; --sage-d:#2D6B5A; --cyan:#4285F4; --cyan-d:#0277A8;
+  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
+  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
-  --grad:linear-gradient(90deg,#4285F4,#0F9F9A 45%,#34A853 80%,#FBBC05);
+  --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Inter',sans-serif;background:#FFFFFF;color:var(--ink);line-height:1.65;overflow-x:hidden;}
@@ -24,7 +24,7 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);padding:.9rem 1.2rem;display:flex;align-items:center;gap:.8rem;}
 .back-btn{font-size:.85rem;font-weight:600;color:var(--grey);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s;}
 .topbar-title{font-family:'Inter';font-weight:700;font-size:.95rem;color:var(--ink);margin-right:auto;}
-.phase-badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(15,159,154,.08);color:var(--teal-d);padding:.3rem .75rem;border-radius:999px;white-space:nowrap;}
+.phase-badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(101,116,130,.08);color:var(--teal-d);padding:.3rem .75rem;border-radius:999px;white-space:nowrap;}
 
 /* â”€â”€ LAYOUT â”€â”€ */
 .wrap{padding:1rem 1.2rem 5rem;max-width:680px;margin:0 auto;}
@@ -43,7 +43,7 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 /* â”€â”€ ACCORDION â”€â”€ */
 /* INTERACTIVE EQ COMPASS */
 .eq-compass{margin:0 0 1.6rem;padding:1.35rem;background:linear-gradient(145deg,#fff,#f5faf9);border:1px solid var(--line);border-radius:26px;box-shadow:0 16px 45px rgba(7,16,20,.09);overflow:hidden;position:relative;}
-.eq-compass::before{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(15,159,154,.1);border-radius:50%;left:-145px;top:-155px;pointer-events:none;}
+.eq-compass::before{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(101,116,130,.1);border-radius:50%;left:-145px;top:-155px;pointer-events:none;}
 .compass-title{text-align:center;font-size:1.25rem;font-weight:800;margin:0 0 .25rem;position:relative;letter-spacing:-.015em;}
 .compass-copy{text-align:center;font-size:.9rem;color:var(--muted);line-height:1.5;margin:0 auto 1.1rem;max-width:35rem;position:relative;}
 .compass-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:.8rem;position:relative;}
@@ -94,7 +94,7 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .hilo{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.2rem;}
 @media(max-width:400px){.hilo{grid-template-columns:1fr;}}
 .hilo-box{border-radius:14px;padding:1rem;}
-.hilo-box.hi{background:rgba(15,159,154,.07);border:1px solid rgba(15,159,154,.18);}
+.hilo-box.hi{background:rgba(101,116,130,.07);border:1px solid rgba(101,116,130,.18);}
 .hilo-box.lo{background:rgba(7,16,20,.03);border:1px solid rgba(7,16,20,.09);}
 .hilo-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem;}
 .hilo-box.hi .hilo-label{color:var(--teal-d);}
@@ -111,8 +111,8 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .ref-q{font-size:.9rem;color:var(--ink);font-style:italic;line-height:1.65;}
 
 /* â”€â”€ NEXT BUTTON â”€â”€ */
-.next-btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--teal-d);background:rgba(15,159,154,.1);border:none;border-radius:999px;padding:.45rem 1rem;cursor:pointer;touch-action:manipulation;transition:background .15s;}
-.next-btn:active{background:rgba(15,159,154,.2);}
+.next-btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--teal-d);background:rgba(101,116,130,.1);border:none;border-radius:999px;padding:.45rem 1rem;cursor:pointer;touch-action:manipulation;transition:background .15s;}
+.next-btn:active{background:rgba(101,116,130,.2);}
 
 /* â”€â”€ CTA â”€â”€ */
 .cta-wrap{display:none;}
@@ -126,12 +126,12 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .cta-card h4{font-size:.92rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.45rem;}
 .cta-card p{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:.9rem;}
 .cta-card .price{font-family:'Inter';font-weight:800;font-size:1.1rem;color:var(--teal-d);margin-bottom:.75rem;}
-.btn-book{display:block;font-family:'Inter';font-weight:700;font-size:.95rem;color:#fff;background:var(--teal);border-radius:999px;padding:.9rem;text-align:center;text-decoration:none;box-shadow:0 8px 22px rgba(15,159,154,.32);}
-.btn-discover{display:block;font-family:'Inter';font-weight:700;font-size:.95rem;color:var(--teal-d);background:transparent;border:1.5px solid rgba(15,159,154,.3);border-radius:999px;padding:.9rem;text-align:center;text-decoration:none;}
+.btn-book{display:block;font-family:'Inter';font-weight:700;font-size:.95rem;color:#fff;background:var(--teal);border-radius:999px;padding:.9rem;text-align:center;text-decoration:none;box-shadow:0 8px 22px rgba(101,116,130,.32);}
+.btn-discover{display:block;font-family:'Inter';font-weight:700;font-size:.95rem;color:var(--teal-d);background:transparent;border:1.5px solid rgba(101,116,130,.3);border-radius:999px;padding:.9rem;text-align:center;text-decoration:none;}
 .eq-note{font-size:.76rem;color:var(--muted);text-align:center;line-height:1.65;margin-top:.8rem;}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
-.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(15,159,154,.07);padding:.4rem 1rem;border-radius:980px;}
+.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(101,116,130,.07);padding:.4rem 1rem;border-radius:980px;}
 .nav-pill .pdot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
 .back-btn:hover{color:var(--teal);}
 
@@ -140,8 +140,8 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .hero{position:relative;text-align:center;padding:4rem 1.5rem 2rem;overflow:hidden;}
 .hero .ring{position:absolute;border-radius:50%;border:1.5px solid;pointer-events:none;z-index:0;}
 .hero .dot{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
-.hero .r1{width:200px;height:200px;border-color:rgba(66,133,244,.16);top:-60px;left:-50px;}
-.hero .r2{width:120px;height:120px;border-color:rgba(15,159,154,.2);top:40px;right:-20px;}
+.hero .r1{width:200px;height:200px;border-color:rgba(101,116,130,.16);top:-60px;left:-50px;}
+.hero .r2{width:120px;height:120px;border-color:rgba(101,116,130,.2);top:40px;right:-20px;}
 .hero .d1{width:10px;height:10px;background:var(--yellow);top:70px;left:15%;opacity:.7;}
 .hero .d2{width:8px;height:8px;background:var(--teal);bottom:30px;right:18%;}
 .hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
@@ -238,7 +238,7 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 var DATA = [
   {
     key: 'sp',
-    color: '#0F9F9A',
+    color: '#657482',
     name: 'Self-Perception',
     tag: 'How clearly you see yourself',
     icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>',
@@ -250,7 +250,7 @@ var DATA = [
   },
   {
     key: 'se',
-    color: '#06B6D4',
+    color: '#D9B75E',
     name: 'Self-Expression',
     tag: 'How authentically you show up',
     icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
@@ -262,7 +262,7 @@ var DATA = [
   },
   {
     key: 'ip',
-    color: '#2D6B5A',
+    color: '#657482',
     name: 'Interpersonal',
     tag: 'How you connect with others',
     icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
@@ -358,7 +358,7 @@ function buildAccordion() {
     var iconBg = d.color + '20';
     var nextBtn = d.next
       ? '<button class="next-btn" onclick="openItem(\'' + d.next + '\')">Explore ' + DATA[idx+1].name + ' <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>'
-      : '<button class="next-btn" onclick="showCTA()" style="background:linear-gradient(135deg,rgba(15,159,154,.15),rgba(6,182,212,.1));">See what comes next <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>';
+      : '<button class="next-btn" onclick="showCTA()" style="background:linear-gradient(135deg,rgba(101,116,130,.15),rgba(217,183,94,.1));">See what comes next <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>';
 
     item.innerHTML =
       '<div class="acc-header" onclick="toggleItem(\'' + d.key + '\')" style="--item-color:' + d.color + '">' +
@@ -454,4 +454,5 @@ buildAccordion();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
