@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="88" viewBox="0 0 390 88" role="img" aria-labelledby="title desc">
+  <title id="title">The U Method logo option D</title>
+  <desc id="desc">Minimal linear U logo with slate and gold accents.</desc>
+  <g transform="translate(8 9)">
+    <path d="M12 12h46v46H12z" fill="none" stroke="#101419" stroke-width="2"/>
+    <path d="M24 21v20c0 8 5 14 12 14s12-6 12-14V21" fill="none" stroke="#D9B75E" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M58 12l8-8M12 58l-8 8" stroke="#657482" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="92" y="42" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="820" letter-spacing="-1.1">The U Method</text>
+  <text x="94" y="68" fill="#657482" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="720" letter-spacing=".8">COACHING BY JULIANA</text>
+</svg>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Story Options | The U Method</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .story-options-page {
+      padding: 64px 0 96px;
+    }
+
+    .option-block {
+      margin-bottom: 34px;
+      padding: clamp(24px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .option-block > .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .option-intro {
+      max-width: 860px;
+      margin-bottom: 42px;
+    }
+
+    .story-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .story-step {
+      min-height: 220px;
+      padding: 22px;
+      border: 1px dashed rgba(101, 116, 130, .32);
+      border-radius: var(--radius);
+      background: #f8f9fa;
+    }
+
+    .story-step span,
+    .mini-card span,
+    .manifesto-card span {
+      display: block;
+      margin-bottom: 18px;
+      color: #92752c;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .story-step h3,
+    .mini-card h3 {
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.08;
+    }
+
+    .story-step p,
+    .mini-card p,
+    .manifesto-card p,
+    .compact-creds li {
+      color: var(--muted);
+    }
+
+    .two-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8f9fa;
+    }
+
+    .manifesto-card {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .7fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .manifesto-card blockquote {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(30px, 4vw, 58px);
+      font-weight: 850;
+      line-height: 1.04;
+    }
+
+    .compact-creds {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-creds li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab-demo {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tab-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tab-pill {
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font: inherit;
+      font-weight: 850;
+    }
+
+    .tab-pill.active {
+      border-color: rgba(217, 183, 94, .7);
+      background: #f7f3e8;
+    }
+
+    .tab-panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8f9fa;
+    }
+
+    @media (max-width: 760px) {
+      .story-timeline,
+      .two-card-grid,
+      .manifesto-card {
+        grid-template-columns: 1fr;
+      }
+
+      .story-timeline {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 12px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .story-step {
+        flex: 0 0 min(82vw, 320px);
+        scroll-snap-align: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="The U Method"></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a aria-current="page" href="./about.html">About</a></li>
+        <li><a href="./what-is-coaching.html">What is coaching</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+        <li><a class="nav-cta" href="./booking.html">Book</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="story-options-page">
+    <div class="wrap">
+      <div class="option-intro">
+        <div class="eyebrow">Story section options</div>
+        <h1>Ways to make the About story lighter.</h1>
+        <p class="lead">Same core content, different formats. These are meant to help you choose the feel.</p>
+      </div>
+
+      <section class="option-block">
+        <div class="eyebrow">Option 1 - Timeline</div>
+        <div class="story-timeline">
+          <article class="story-step">
+            <span>01</span>
+            <h3>Learning &amp; development</h3>
+            <p>Years spent helping people lead, communicate, and navigate change inside fast-moving tech companies.</p>
+          </article>
+          <article class="story-step">
+            <span>02</span>
+            <h3>What I noticed</h3>
+            <p>The deepest growth happened when people felt safe enough to slow down and hear themselves clearly.</p>
+          </article>
+          <article class="story-step">
+            <span>03</span>
+            <h3>Why coaching</h3>
+            <p>Coaching became the place where the work got personal, grounded, and human.</p>
+          </article>
+          <article class="story-step">
+            <span>04</span>
+            <h3>The U Method</h3>
+            <p>A practice built around clarity, emotional intelligence, self-trust, and real-life movement.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="option-block">
+        <div class="eyebrow">Option 2 - Two cards</div>
+        <div class="two-card-grid">
+          <article class="mini-card">
+            <span>How I got here</span>
+            <h3>Helping people grow has been the through-line.</h3>
+            <p>I came to coaching through learning and development, designing programs that helped people lead, communicate, and navigate change.</p>
+          </article>
+          <article class="mini-card">
+            <span>How I coach</span>
+            <h3>You are not a problem to be fixed.</h3>
+            <p>My work helps people slow down, see themselves clearly, reconnect with their knowing, and take grounded action.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="option-block">
+        <div class="eyebrow">Option 3 - Manifesto + credentials</div>
+        <div class="manifesto-card">
+          <div>
+            <span>My story</span>
+            <blockquote>Growth begins when people feel safe enough to slow down, hear themselves clearly, and trust what they find.</blockquote>
+          </div>
+          <ul class="compact-creds">
+            <li>Certified Professional in Talent Development (CPTD&reg;)</li>
+            <li>Certified EQ-i 2.0&reg; and EQ 360&reg; practitioner</li>
+            <li>ICF coaching certification in progress</li>
+            <li>Senior talent development leader in high-growth tech</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="option-block">
+        <div class="eyebrow">Option 4 - Tabs</div>
+        <div class="tab-demo">
+          <div class="tab-row">
+            <button class="tab-pill active">My path</button>
+            <button class="tab-pill">My approach</button>
+            <button class="tab-pill">Credentials</button>
+          </div>
+          <div class="tab-panel">
+            <h3>My path</h3>
+            <p>I came to coaching through learning and development, where I kept seeing that meaningful growth rarely came from another framework. It came from moments of clarity, safety, and self-trust.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

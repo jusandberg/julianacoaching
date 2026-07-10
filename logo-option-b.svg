@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="88" viewBox="0 0 390 88" role="img" aria-labelledby="title desc">
+  <title id="title">The U Method logo option B</title>
+  <desc id="desc">Premium wordmark with gold U accent.</desc>
+  <rect x="5" y="16" width="56" height="56" rx="8" fill="#101419"/>
+  <path d="M23 30v17c0 8 5 13 12 13s12-5 12-13V30" fill="none" stroke="#D9B75E" stroke-width="5" stroke-linecap="round"/>
+  <path d="M67 16h1v56h-1z" fill="#D9DEE4"/>
+  <text x="90" y="43" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="760" letter-spacing="-1">The U Method</text>
+  <text x="92" y="68" fill="#657482" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="760" letter-spacing="1.3">COACHING BY JULIANA</text>
+</svg>

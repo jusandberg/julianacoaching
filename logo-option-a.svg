@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="88" viewBox="0 0 390 88" role="img" aria-labelledby="title desc">
+  <title id="title">The U Method logo option A</title>
+  <desc id="desc">Circular U monogram with slate and gold gradient.</desc>
+  <defs>
+    <linearGradient id="aGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#657482"/>
+      <stop offset=".46" stop-color="#D9B75E"/>
+      <stop offset="1" stop-color="#F3E4BD"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(5 5)">
+    <circle cx="39" cy="39" r="31" fill="#FBFCFD" stroke="#D9DEE4" stroke-width="1.5"/>
+    <circle cx="39" cy="39" r="29" fill="none" stroke="url(#aGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="150 34" transform="rotate(-42 39 39)"/>
+    <text x="39" y="49" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="31" font-weight="800" text-anchor="middle">U</text>
+    <circle cx="65" cy="12" r="4.5" fill="#D9B75E"/>
+  </g>
+  <text x="92" y="42" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="750" letter-spacing="-.8">The U Method</text>
+  <text x="94" y="68" fill="#657482" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing=".7">COACHING BY JULIANA</text>
+</svg>
