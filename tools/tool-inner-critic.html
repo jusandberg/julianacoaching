@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Inner Critic vs Coach Â· Coaching</title>
+<title>Inner Critic vs Coach · Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@ body{ font-family:'Inter',sans-serif; background:#FFFFFF; color:var(--ink);
   min-height:100%; line-height:1.65; overflow-x:hidden; }
 h1,h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 
-/* â”€â”€ TOP BAR â”€â”€ */
+/* ── TOP BAR ── */
 .topbar{
   position:sticky; top:0; z-index:10;
   background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);
@@ -36,10 +36,10 @@ h1,h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   text-transform:uppercase; background:rgba(217,183,94,.25);
   color:var(--sage-d); padding:.3rem .75rem; border-radius:999px; white-space:nowrap; }
 
-/* â”€â”€ MAIN CONTENT â”€â”€ */
+/* ── MAIN CONTENT ── */
 .wrap{ max-width:680px; margin:0 auto; padding:1rem 1.2rem 5rem; }
 
-/* â”€â”€ EXPLAINER CARDS â”€â”€ */
+/* ── EXPLAINER CARDS ── */
 .explainer{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-bottom:1.8rem; }
 @media(max-width:500px){ .explainer{ grid-template-columns:1fr; } }
 .explain-card{ border-radius:var(--radius); padding:1.2rem 1.3rem; }
@@ -51,7 +51,7 @@ h1,h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .explain-coach .explain-label{ color:var(--cyan-d); }
 .explain-card p{ font-size:.87rem; color:var(--muted); line-height:1.6; }
 
-/* â”€â”€ INPUT SECTION â”€â”€ */
+/* ── INPUT SECTION ── */
 .input-card{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.6rem; margin-bottom:1.2rem; }
 .input-card h2{ font-size:1.1rem; margin-bottom:.3rem; }
@@ -68,7 +68,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
   margin-top:.6rem; gap:.6rem; flex-wrap:wrap; }
 .char-count{ font-size:.75rem; color:var(--muted); }
 
-/* â”€â”€ EXAMPLE CHIPS â”€â”€ */
+/* ── EXAMPLE CHIPS ── */
 .ex-label{ font-size:.72rem; font-weight:700; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); margin-bottom:.55rem; }
 .ex-chips{ display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1.6rem; }
@@ -77,7 +77,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
   cursor:pointer; transition:all .18s; }
 .ex-chip:active{ border-color:var(--teal); color:var(--teal-d); }
 
-/* â”€â”€ BOTTOM BUTTON (fixed) â”€â”€ */
+/* ── BOTTOM BUTTON (fixed) ── */
 .btn-bar{ position:fixed; bottom:0; left:0; right:0;
   padding:1rem 1.2rem 1.4rem;
   background:linear-gradient(to top, var(--bg) 70%, transparent); }
@@ -91,7 +91,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
 .btn-primary:active{ transform:scale(.97); }
 .btn-primary:disabled{ opacity:.4; cursor:not-allowed; transform:none; box-shadow:none; }
 
-/* â”€â”€ LOADING â”€â”€ */
+/* ── LOADING ── */
 .loading{ display:none; text-align:center; padding:2.4rem 1.2rem; }
 .loading.show{ display:block; }
 .dots{ display:flex; gap:.35rem; justify-content:center; margin-bottom:.8rem; }
@@ -103,7 +103,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
 @keyframes dp{ 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
 #loading-text{ font-size:.9rem; color:var(--muted); }
 
-/* â”€â”€ RESULT â”€â”€ */
+/* ── RESULT ── */
 .result{ display:none; }
 .result.show{ display:block; animation:fadeUp .4s ease; }
 @keyframes fadeUp{ from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
@@ -153,7 +153,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
 }
 .try-again-btn:active{ background:rgba(7,16,20,.04); }
 
-/* â”€â”€ HISTORY â”€â”€ */
+/* ── HISTORY ── */
 .history{ display:none; margin-bottom:1.4rem; }
 .history h3{ font-size:.95rem; font-weight:700; margin-bottom:.7rem; }
 .history-item{ background:var(--card); border-radius:14px; box-shadow:var(--shadow); border:1px solid var(--line);
@@ -164,7 +164,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
 .hi-coach{ font-size:.86rem; color:var(--ink); font-weight:500;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-/* â”€â”€ CTA â”€â”€ */
+/* ── CTA ── */
 .cta-card{ background:linear-gradient(135deg,rgba(101,116,130,.1),rgba(217,183,94,.08) 50%,rgba(217,183,94,.1));
   border-radius:var(--radius); padding:1.8rem; text-align:center; margin-bottom:1.4rem; }
 .cta-card h3{ font-size:1.05rem; margin-bottom:.4rem; }
@@ -174,7 +174,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
   border-radius:999px; padding:.95rem 2rem; text-decoration:none;
   box-shadow:0 8px 22px rgba(101,116,130,.35); touch-action:manipulation; }
 
-/* â”€â”€ ERROR â”€â”€ */
+/* ── ERROR ── */
 .err-box{ background:#fff0f0; border:1.5px solid #fca5a5; border-radius:14px;
   padding:.9rem 1.1rem; margin-top:.8rem; font-size:.86rem; color:#b91c1c; line-height:1.6; }
 
@@ -270,7 +270,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
   <!-- LOADING -->
   <div class="loading" id="loading">
     <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-    <p id="loading-text">Your inner coach is finding the wordsâ€¦</p>
+    <p id="loading-text">Your inner coach is finding the words…</p>
   </div>
 
   <!-- RESULT -->
@@ -314,7 +314,7 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
       </div>
     </div>
 
-    <button class="try-again-btn" onclick="tryAnother()">â† Try another thought</button>
+    <button class="try-again-btn" onclick="tryAnother()">← Try another thought</button>
 
   </div>
 
@@ -335,14 +335,14 @@ textarea::placeholder{ color:var(--muted); font-size:.93rem; }
 
 <!-- FIXED BUTTON -->
 <div class="btn-bar" id="btn-bar">
-  <button class="btn-primary" id="reframe-btn" onclick="getReframe()" disabled>Get my reframe â†’</button>
+  <button class="btn-primary" id="reframe-btn" onclick="getReframe()" disabled>Get my reframe →</button>
 </div>
 
 <script>
-// â”€â”€ Gemini key, get free at aistudio.google.com â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Gemini key, get free at aistudio.google.com ──────────────
 const GEMINI_KEY = "PASTE_YOUR_GEMINI_KEY_HERE";
 
-// â”€â”€ Static data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Static data ───────────────────────────────────────────────
 const EXAMPLES = [
   "I always mess things up when it matters most.",
   "I\u2019m not smart enough to do this.",
@@ -407,7 +407,7 @@ const DEFAULT_REFRAME = {
 
 let sessionHistory = [];
 
-// â”€â”€ Build example chips â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Build example chips ───────────────────────────────────────
 const chipContainer = document.getElementById("ex-chips");
 EXAMPLES.forEach(ex => {
   const c = document.createElement("span");
@@ -421,7 +421,7 @@ EXAMPLES.forEach(ex => {
   chipContainer.appendChild(c);
 });
 
-// â”€â”€ Typing handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Typing handler ────────────────────────────────────────────
 document.getElementById("thought").addEventListener("input", onType);
 function onType(){
   const val = document.getElementById("thought").value;
@@ -430,13 +430,13 @@ function onType(){
   document.getElementById("err-box").innerHTML = "";
 }
 
-// â”€â”€ Static fallback â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Static fallback ───────────────────────────────────────────
 function findReframe(t){
   for(const r of REFRAMES){ if(r.match.test(t)) return r; }
   return DEFAULT_REFRAME;
 }
 
-// â”€â”€ Main reframe function â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Main reframe function ─────────────────────────────────────
 async function getReframe(){
   const thought = document.getElementById("thought").value.trim();
   if(!thought || thought.length < 8) return;
@@ -499,7 +499,7 @@ async function getReframe(){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
-// â”€â”€ Populate result â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Populate result ───────────────────────────────────────────
 function populateResult(thought, coach, pattern, p1, p2, p3){
   document.getElementById("critic-text").textContent = "\u201C" + thought + "\u201D";
   document.getElementById("coach-text").textContent = coach;
@@ -512,7 +512,7 @@ function populateResult(thought, coach, pattern, p1, p2, p3){
   setTimeout(() => r.classList.add("show"), 10);
 }
 
-// â”€â”€ History â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── History ───────────────────────────────────────────────────
 function addToHistory(critic, coach){
   sessionHistory.unshift({critic, coach});
   if(sessionHistory.length > 5) sessionHistory.pop();
@@ -538,7 +538,7 @@ function renderHistory(){
   });
 }
 
-// â”€â”€ Try another â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Try another ───────────────────────────────────────────────
 function tryAnother(){
   document.getElementById("result").classList.remove("show");
   document.getElementById("result").style.display = "none";
@@ -553,5 +553,6 @@ function tryAnother(){
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 

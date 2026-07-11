@@ -219,7 +219,7 @@ const CATEGORIES = [
 
 let values = CATEGORIES.map(() => 5);
 
-// â”€â”€ Build sliders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Build sliders ─────────────────────────────────────────────
 function buildSliders(){
   const container = document.getElementById('sliders');
   CATEGORIES.forEach((cat, i) => {
@@ -249,7 +249,7 @@ function resetAll(){
   updateResults();
 }
 
-// â”€â”€ Draw wheel, fully responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Draw wheel, fully responsive ────────────────────────────
 function drawWheel(){
   const canvas = document.getElementById('wheel-canvas');
   const ctx = canvas.getContext('2d');
@@ -348,7 +348,7 @@ function drawWheel(){
   ctx.textAlign = 'center';
 }
 
-// â”€â”€ Ring chart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Ring chart ────────────────────────────────────────────────
 function drawRing(avg){
   const canvas = document.getElementById('ring-canvas');
   const ctx = canvas.getContext('2d');
@@ -372,7 +372,7 @@ function drawRing(avg){
   ctx.stroke();
 }
 
-// â”€â”€ Update results â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Update results ────────────────────────────────────────────
 function updateResults(){
   const avg = values.reduce((a,b) => a+b, 0) / values.length;
   document.getElementById('avg-score').textContent = avg.toFixed(1);
@@ -390,7 +390,7 @@ function updateResults(){
   document.getElementById('weakest-area').innerHTML =
     CATEGORIES[minIdx].label + ' (' + values[minIdx] + '/10)';
 
-  // 3 lowest â†’ reflection prompts
+  // 3 lowest → reflection prompts
   const sorted = values.map((v,i) => ({v,i})).sort((a,b) => a.v - b.v);
   const el = document.getElementById('next-steps');
   el.innerHTML = '';
@@ -406,10 +406,10 @@ function updateResults(){
   }
 }
 
-// â”€â”€ Redraw on resize â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Redraw on resize ──────────────────────────────────────────
 window.addEventListener('resize', () => { drawWheel(); }, { passive:true });
 
-// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Init ──────────────────────────────────────────────────────
 buildSliders();
 // Small delay so layout is settled before measuring container width
 setTimeout(() => { drawWheel(); updateResults(); }, 60);
@@ -417,5 +417,6 @@ setTimeout(() => { drawWheel(); updateResults(); }, 60);
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Values Clarifier Â· Coaching</title>
+<title>Values Clarifier · Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@ body{ font-family:'Inter',sans-serif; background:#FFFFFF; color:var(--ink);
   min-height:100%; line-height:1.65; overflow-x:hidden; }
 h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 
-/* â”€â”€ TOP BAR â”€â”€ */
+/* ── TOP BAR ── */
 .topbar{
   position:sticky; top:0; z-index:10;
   background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);
@@ -36,7 +36,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   text-transform:uppercase; background:rgba(101,116,130,.08);
   color:var(--teal); padding:.3rem .75rem; border-radius:999px; white-space:nowrap; }
 
-/* â”€â”€ STEP INDICATORS â”€â”€ */
+/* ── STEP INDICATORS ── */
 .steps-bar{ display:flex; align-items:center; justify-content:center;
   gap:.4rem; padding:1rem 1.2rem .3rem; }
 .step-dot{ width:28px; height:28px; border-radius:50%; border:2px solid rgba(7,16,20,.15);
@@ -50,11 +50,11 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
 .steps-labels span.active{ color:var(--teal-d); }
 
-/* â”€â”€ STAGES â”€â”€ */
+/* ── STAGES ── */
 .stage{ display:none; padding:0 1.2rem 5rem; }
 .stage.active{ display:block; }
 
-/* â”€â”€ PROGRESS â”€â”€ */
+/* ── PROGRESS ── */
 .prog-card{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.2rem; margin-bottom:1.2rem; }
 .prog-row{ display:flex; justify-content:space-between; font-size:.82rem;
@@ -64,7 +64,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .prog-fill{ height:100%; background:linear-gradient(90deg,var(--teal),var(--cyan));
   border-radius:999px; transition:width .3s ease; }
 
-/* â”€â”€ BUCKETS â”€â”€ */
+/* ── BUCKETS ── */
 .bucket{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); margin-bottom:1rem; overflow:hidden; }
 .bucket-header{ padding:1rem 1.2rem; display:flex; align-items:center;
@@ -81,7 +81,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   background:rgba(7,16,20,.06); padding:.2rem .7rem; border-radius:999px; }
 .bucket-body{ padding:.6rem 1rem 1rem; border-top:1px solid rgba(7,16,20,.06); }
 
-/* â”€â”€ VALUE CHIPS â”€â”€ */
+/* ── VALUE CHIPS ── */
 .chips-zone{ display:flex; flex-wrap:wrap; gap:.4rem; min-height:28px; }
 .val-chip{
   font-size:.85rem; font-weight:500; padding:.45rem 1rem; border-radius:999px;
@@ -96,7 +96,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .chip-selected{ outline:2.5px solid var(--teal); outline-offset:2px; }
 .chip-hint{ font-size:.8rem; color:var(--muted); font-style:italic; padding:.2rem 0; }
 
-/* â”€â”€ ACTION SHEET (bottom sheet on tap) â”€â”€ */
+/* ── ACTION SHEET (bottom sheet on tap) ── */
 .sheet-overlay{ display:none; position:fixed; inset:0; background:rgba(7,16,20,.35);
   z-index:50; backdrop-filter:blur(2px); }
 .sheet-overlay.show{ display:block; }
@@ -127,7 +127,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .sbtn-c .sheet-icon{ background:rgba(7,16,20,.08); }
 .sbtn-cancel .sheet-icon{ background:rgba(7,16,20,.06); }
 
-/* â”€â”€ FIXED BOTTOM BTN â”€â”€ */
+/* ── FIXED BOTTOM BTN ── */
 .btn-bar{ position:fixed; bottom:0; left:0; right:0;
   padding:1rem 1.2rem 1.4rem;
   background:linear-gradient(to top, var(--bg) 70%, transparent); }
@@ -139,7 +139,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .btn-primary:active{ transform:scale(.97); }
 .btn-primary:disabled{ opacity:.4; cursor:not-allowed; transform:none; box-shadow:none; }
 
-/* â”€â”€ STAGE 2: NARROW â”€â”€ */
+/* ── STAGE 2: NARROW ── */
 .narrow-card{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.4rem; margin-bottom:1.2rem; }
 .narrow-card p{ font-size:.9rem; color:var(--muted); margin-bottom:1rem; }
@@ -160,7 +160,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   border-color:var(--teal); color:var(--teal-d); }
 .narrow-chip:active{ transform:scale(.95); }
 
-/* â”€â”€ STAGE 3: RESULTS â”€â”€ */
+/* ── STAGE 3: RESULTS ── */
 .result-card{ display:flex; align-items:flex-start; gap:.9rem;
   background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line);
   padding:1.2rem; margin-bottom:.9rem; }
@@ -261,7 +261,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   <span id="lbl-3">Reveal</span>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• STAGE 1: SORT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ STAGE 1: SORT ═══════════════ -->
 <div class="stage active" id="stage-sort">
   <div class="prog-card">
     <div class="prog-row">
@@ -281,11 +281,11 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
     <div class="sheet-title">Move <span id="sheet-val-name"></span> to:</div>
     <div class="sheet-btns">
       <button class="sheet-btn sbtn-a" onclick="moveSelected('a')">
-        <span class="sheet-icon">âœ¦</span>
+        <span class="sheet-icon">✦</span>
         <div><div style="font-size:.95rem;">Essential</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Can't live without this</div></div>
       </button>
       <button class="sheet-btn sbtn-b" onclick="moveSelected('b')">
-        <span class="sheet-icon">â†‘</span>
+        <span class="sheet-icon">↑</span>
         <div><div style="font-size:.95rem;">Important</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Really matters to me</div></div>
       </button>
       <button class="sheet-btn sbtn-c" onclick="moveSelected('c')">
@@ -293,7 +293,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
         <div><div style="font-size:.95rem;">Nice to have</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Good, but not core</div></div>
       </button>
       <button class="sheet-btn sbtn-cancel" onclick="closeSheet()">
-        <span class="sheet-icon">âœ•</span>
+        <span class="sheet-icon">✕</span>
         <div style="font-size:.95rem;">Cancel</div>
       </button>
     </div>
@@ -353,11 +353,11 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
 
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-sort" onclick="goToNarrow()" disabled>Next, Narrow down â†’</button>
+    <button class="btn-primary" id="btn-sort" onclick="goToNarrow()" disabled>Next, Narrow down →</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• STAGE 2: NARROW â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ STAGE 2: NARROW ═══════════════ -->
 <div class="stage" id="stage-narrow">
   <div class="narrow-card">
     <p id="narrow-label">Tap your top 5 from the values below.</p>
@@ -366,12 +366,12 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
     <div class="pool-chips" id="narrow-pool"></div>
   </div>
   <div class="btn-bar" style="display:flex;gap:.6rem;">
-    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;flex:.4;" onclick="goTo('sort')">â† Back</button>
-    <button class="btn-primary" id="btn-narrow" style="flex:1;" onclick="goToResults()" disabled>Reveal my top values â†’</button>
+    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;flex:.4;" onclick="goTo('sort')">← Back</button>
+    <button class="btn-primary" id="btn-narrow" style="flex:1;" onclick="goToResults()" disabled>Reveal my top values →</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• STAGE 3: RESULTS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ STAGE 3: RESULTS ═══════════════ -->
 <div class="stage" id="stage-results">
   <div style="margin-bottom:1.2rem;">
     <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:.3rem;">Your core values</h2>
@@ -461,13 +461,13 @@ let placements = {};
 let selectedId = null;
 let top5 = [];
 
-// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Init ──────────────────────────────────────────────────────
 function init(){
   VALUES.forEach(v => placements[v.id] = 'unsorted');
   renderAllZones();
 }
 
-// â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Render ────────────────────────────────────────────────────
 function renderAllZones(){
   ['unsorted','a','b','c'].forEach(t => renderZone(t));
   updateCounts();
@@ -538,7 +538,7 @@ function updateCounts(){
   document.getElementById('btn-sort').disabled = pool < 3;
 }
 
-// â”€â”€ Stage navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Stage navigation ──────────────────────────────────────────
 function goTo(stage){
   document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
   document.getElementById('stage-' + stage).classList.add('active');
@@ -654,5 +654,6 @@ init();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
