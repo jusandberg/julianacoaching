@@ -11,21 +11,21 @@
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#4285F4; --green:#34A853; --yellow:#FBBC05; --teal:#0F9F9A;
-  --grad:linear-gradient(90deg,#4285F4,#0F9F9A 45%,#34A853 80%,#FBBC05);
+  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
+  --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
   --radius:24px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
-::selection{background:rgba(15,159,154,.18);}
+::selection{background:rgba(101,116,130,.18);}
 img{display:block;max-width:100%;}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem 2.4rem;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);}
 .back-btn{font-size:.85rem;font-weight:600;color:var(--grey);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s;}
 .back-btn:hover{color:var(--teal);}
-.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(15,159,154,.07);padding:.4rem 1rem;border-radius:980px;}
+.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(101,116,130,.07);padding:.4rem 1rem;border-radius:980px;}
 .nav-pill .pdot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
 
 /* ACCENTS */
@@ -34,8 +34,8 @@ img{display:block;max-width:100%;}
 
 /* HERO HEADER */
 .hero{position:relative;text-align:center;padding:4rem 1.5rem 2rem;overflow:hidden;}
-.hero .ring1{width:200px;height:200px;border-color:rgba(66,133,244,.16);top:-60px;left:-50px;}
-.hero .ring2{width:120px;height:120px;border-color:rgba(15,159,154,.2);top:40px;right:-20px;}
+.hero .ring1{width:200px;height:200px;border-color:rgba(101,116,130,.16);top:-60px;left:-50px;}
+.hero .ring2{width:120px;height:120px;border-color:rgba(101,116,130,.2);top:40px;right:-20px;}
 .hero .dot1{width:10px;height:10px;background:var(--yellow);top:70px;left:15%;opacity:.7;}
 .hero .dot2{width:8px;height:8px;background:var(--teal);bottom:30px;right:18%;}
 .hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
@@ -70,7 +70,7 @@ img{display:block;max-width:100%;}
 .slider-label{font-size:.9rem;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:.5rem;}
 .slider-label svg{flex-shrink:0;}
 input[type="range"]{-webkit-appearance:none;width:100%;height:5px;border-radius:999px;background:var(--line);outline:none;cursor:pointer;}
-input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--teal);box-shadow:0 2px 8px rgba(15,159,154,.3);cursor:pointer;}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--teal);box-shadow:0 2px 8px rgba(101,116,130,.3);cursor:pointer;}
 input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;border:none;background:var(--teal);}
 .slider-val{font-weight:800;font-size:.95rem;color:var(--teal);text-align:right;}
 .reset-btn{display:block;width:100%;font-family:inherit;font-weight:600;font-size:.9rem;color:var(--grey);background:transparent;border:1px solid var(--line);border-radius:980px;padding:.8rem;cursor:pointer;margin-top:1rem;transition:background .2s,border-color .2s;}
@@ -80,8 +80,8 @@ input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;b
 .results-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.4rem;}
 @media(max-width:400px){.results-stats{grid-template-columns:1fr;}}
 .result-stat{border-radius:16px;padding:1.1rem;border:1px solid var(--line);}
-.result-stat.positive{background:rgba(52,168,83,.06);border-color:rgba(52,168,83,.2);}
-.result-stat.improve{background:rgba(251,188,5,.07);border-color:rgba(251,188,5,.25);}
+.result-stat.positive{background:rgba(101,116,130,.06);border-color:rgba(101,116,130,.2);}
+.result-stat.improve{background:rgba(217,183,94,.07);border-color:rgba(217,183,94,.25);}
 .result-stat .stat-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;}
 .result-stat.positive .stat-label{color:var(--green);}
 .result-stat.improve .stat-label{color:#C98F00;}
@@ -133,9 +133,9 @@ input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;b
 </div>
 
 <div class="wrap">
-  <div class="ring" style="width:240px;height:240px;border-color:rgba(15,159,154,.12);bottom:340px;right:-90px;"></div>
-  <div class="ring" style="width:160px;height:160px;border-color:rgba(66,133,244,.12);bottom:120px;left:-70px;"></div>
-  <div class="ring" style="width:90px;height:90px;border-color:rgba(52,168,83,.16);bottom:420px;left:-30px;"></div>
+  <div class="ring" style="width:240px;height:240px;border-color:rgba(101,116,130,.12);bottom:340px;right:-90px;"></div>
+  <div class="ring" style="width:160px;height:160px;border-color:rgba(101,116,130,.12);bottom:120px;left:-70px;"></div>
+  <div class="ring" style="width:90px;height:90px;border-color:rgba(101,116,130,.16);bottom:420px;left:-30px;"></div>
   <div class="dot" style="width:11px;height:11px;background:var(--yellow);bottom:300px;left:8%;opacity:.6;"></div>
   <div class="dot" style="width:9px;height:9px;background:var(--blue);bottom:200px;right:6%;opacity:.6;"></div>
   <div class="dot" style="width:8px;height:8px;background:var(--teal);bottom:480px;right:14%;"></div>
@@ -192,28 +192,28 @@ snapshotCard.parentNode.insertBefore(wheelCard, snapshotCard);
 
 const CATEGORIES = [
   { key:'health',       label:'Health & Fitness',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 9l-4 12M14 9l4 12M8 15h8"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 9l-4 12M14 9l4 12M8 15h8"/></svg>',
     tips:['What would better health look like for you in 30 days?','What\'s one small change to your routine that would make a real difference?','What barriers are keeping you from prioritising your physical wellbeing?'] },
   { key:'relationships',label:'Relationships',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
     tips:['Who in your life deserves more of your attention?','What kind of connection are you truly craving right now?','How authentic are you being in your closest relationships?'] },
   { key:'career',       label:'Career',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>',
     tips:['What would fulfilling work look like to you?','What skill or knowledge would unlock your next opportunity?','Are you growing in the direction you want to go?'] },
   { key:'finances',     label:'Finances',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
     tips:['What does financial security mean to you personally?','Where is money draining away that you\'re not aware of?','What financial goal excites you most right now?'] },
   { key:'personal',     label:'Personal Growth',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"/><path d="M12 12C12 8 15 5 19 5c0 4-3 7-7 7z"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/><path d="M9 20h6"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"/><path d="M12 12C12 8 15 5 19 5c0 4-3 7-7 7z"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/><path d="M9 20h6"/></svg>',
     tips:['What version of yourself are you working to become?','What have you learned about yourself recently?','What area of personal development calls to you most?'] },
   { key:'fun',          label:'Fun & Recreation',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8 8-4-4-6 6"/><path d="M14 7h6v6"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8 8-4-4-6 6"/><path d="M14 7h6v6"/></svg>',
     tips:['When was the last time you truly enjoyed yourself?','What activities make you lose track of time?','What would bring more joy into your everyday life?'] },
   { key:'environment',  label:'Environment',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
     tips:['How does your physical space make you feel right now?','What one change to your environment would improve your mood?','What does your ideal living or working space look like?'] },
   { key:'spirituality', label:'Spirituality',
-    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
     tips:['What gives your life meaning and purpose?','How connected do you feel to your deeper values?','What practices would help you feel more grounded?'] }
 ];
 
@@ -302,12 +302,12 @@ function drawWheel(){
   }
   ctx.closePath();
   const grad = ctx.createLinearGradient(cx-r, cy-r, cx+r, cy+r);
-  grad.addColorStop(0,   'rgba(15,159,154,.30)');
-  grad.addColorStop(.5,  'rgba(52,168,83,.28)');
-  grad.addColorStop(1,   'rgba(66,133,244,.30)');
+  grad.addColorStop(0,   'rgba(101,116,130,.30)');
+  grad.addColorStop(.5,  'rgba(101,116,130,.28)');
+  grad.addColorStop(1,   'rgba(101,116,130,.30)');
   ctx.fillStyle = grad;
   ctx.fill();
-  ctx.strokeStyle = 'rgba(15,159,154,.85)';
+  ctx.strokeStyle = 'rgba(101,116,130,.85)';
   ctx.lineWidth = 2;
   ctx.stroke();
 
@@ -317,7 +317,7 @@ function drawWheel(){
     const dist  = r * values[i]/10;
     ctx.beginPath();
     ctx.arc(cx + dist*Math.cos(angle), cy + dist*Math.sin(angle), 5, 0, Math.PI*2);
-    ctx.fillStyle = '#34A853';
+    ctx.fillStyle = '#657482';
     ctx.fill();
   }
 
@@ -363,7 +363,7 @@ function drawRing(avg){
   ctx.lineWidth = rO - rI;
   ctx.stroke();
   const g = ctx.createLinearGradient(cx-rO, cy, cx+rO, cy);
-  g.addColorStop(0, '#0F9F9A'); g.addColorStop(1, '#4285F4');
+  g.addColorStop(0, '#657482'); g.addColorStop(1, '#657482');
   ctx.beginPath();
   ctx.arc(cx, cy, rO - (rO-rI)/2, -Math.PI/2, -Math.PI/2 + pct*Math.PI*2);
   ctx.strokeStyle = g;
@@ -417,4 +417,5 @@ setTimeout(() => { drawWheel(); updateResults(); }, 60);
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 

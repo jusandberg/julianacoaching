@@ -11,10 +11,10 @@
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#4285F4; --green:#34A853; --yellow:#FBBC05; --teal:#0F9F9A;
-  --teal-d:#0B7B76; --sage:#34A853; --sage-d:#2D6B5A; --cyan:#4285F4; --cyan-d:#0277A8;
+  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
+  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
-  --grad:linear-gradient(90deg,#4285F4,#0F9F9A 45%,#34A853 80%,#FBBC05);
+  --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
 *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 html{ height:100%; }
@@ -33,7 +33,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .topbar-title{ font-family:'Inter'; font-weight:700; font-size:.95rem;
   color:var(--ink); margin-right:auto; }
 .phase-badge{ font-size:.68rem; font-weight:700; letter-spacing:.08em;
-  text-transform:uppercase; background:rgba(15,159,154,.08);
+  text-transform:uppercase; background:rgba(101,116,130,.08);
   color:var(--teal); padding:.3rem .75rem; border-radius:999px; white-space:nowrap; }
 
 /* â”€â”€ STEP INDICATORS â”€â”€ */
@@ -43,7 +43,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   display:flex; align-items:center; justify-content:center;
   font-family:'Inter'; font-weight:800; font-size:.78rem; color:var(--muted); }
 .step-dot.active{ background:var(--teal); border-color:var(--teal); color:#fff; }
-.step-dot.done{ background:rgba(15,159,154,.15); border-color:var(--teal); color:var(--teal-d); }
+.step-dot.done{ background:rgba(101,116,130,.15); border-color:var(--teal); color:var(--teal-d); }
 .step-connector{ flex:1; height:2px; background:rgba(7,16,20,.1); max-width:80px; }
 .step-connector.done{ background:var(--teal); }
 .steps-labels{ display:flex; justify-content:space-between; padding:0 1.2rem .8rem;
@@ -74,7 +74,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   touch-action:manipulation;
 }
 .activity-card:active{ transform:scale(.98); }
-.activity-card.tagged-gives{ border-color:rgba(15,159,154,.4); background:rgba(15,159,154,.05); }
+.activity-card.tagged-gives{ border-color:rgba(101,116,130,.4); background:rgba(101,116,130,.05); }
 .activity-card.tagged-drains{ border-color:rgba(194,24,91,.3); background:rgba(194,24,91,.04); }
 .activity-card.tagged-neutral{ border-color:rgba(74,98,112,.2); background:rgba(74,98,112,.03); }
 .activity-icon{ width:36px; height:36px; flex-shrink:0; display:flex;
@@ -86,7 +86,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   font-family:'Inter'; font-weight:800; font-size:.7rem;
   padding:.25rem .7rem; border-radius:999px; white-space:nowrap; flex-shrink:0;
 }
-.tag-gives{ background:rgba(15,159,154,.15); color:var(--teal-d); }
+.tag-gives{ background:rgba(101,116,130,.15); color:var(--teal-d); }
 .tag-drains{ background:rgba(194,24,91,.12); color:#B0145B; }
 .tag-neutral{ background:rgba(74,98,112,.1); color:var(--muted); }
 .tag-empty{ background:rgba(7,16,20,.06); color:var(--muted); font-weight:500; }
@@ -115,7 +115,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .btn-primary{ width:100%; font-family:'Inter'; font-weight:700; font-size:1rem;
   color:#fff; background:var(--teal);
   border:none; border-radius:999px; padding:1rem;
-  box-shadow:0 8px 22px rgba(15,159,154,.35); cursor:pointer;
+  box-shadow:0 8px 22px rgba(101,116,130,.35); cursor:pointer;
   touch-action:manipulation; transition:transform .15s; }
 .btn-primary:active{ transform:scale(.97); }
 .btn-back-inline{ width:100%; font-family:'Inter'; font-weight:600; font-size:.92rem;
@@ -142,13 +142,13 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   padding:.9rem 1.4rem; border-radius:16px; border:none; cursor:pointer;
   touch-action:manipulation; text-align:left; display:flex; align-items:center; gap:.8rem; }
 .sheet-btn:active{ transform:scale(.97); }
-.sbtn-gives{ background:rgba(15,159,154,.12); color:var(--teal-d); }
+.sbtn-gives{ background:rgba(101,116,130,.12); color:var(--teal-d); }
 .sbtn-drains{ background:rgba(194,24,91,.1); color:#B0145B; }
 .sbtn-neutral{ background:rgba(7,16,20,.05); color:var(--muted); }
 .sbtn-cancel{ background:rgba(7,16,20,.04); color:var(--muted); margin-top:.3rem; }
 .sbtn-icon{ width:28px; height:28px; border-radius:8px; display:flex;
   align-items:center; justify-content:center; font-size:1rem; }
-.sbtn-gives .sbtn-icon{ background:rgba(15,159,154,.2); }
+.sbtn-gives .sbtn-icon{ background:rgba(101,116,130,.2); }
 .sbtn-drains .sbtn-icon{ background:rgba(194,24,91,.15); }
 .sbtn-neutral .sbtn-icon{ background:rgba(7,16,20,.08); }
 .sbtn-cancel .sbtn-icon{ background:rgba(7,16,20,.06); }
@@ -162,7 +162,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .bar-label{ display:flex; justify-content:space-between; font-size:.8rem;
   font-weight:600; margin-bottom:.3rem; }
 .bar-track{ height:10px; background:rgba(7,16,20,.07); border-radius:999px; overflow:hidden; }
-.bar-fill-gives{ height:100%; background:linear-gradient(90deg,var(--teal),#3BBDB8);
+.bar-fill-gives{ height:100%; background:linear-gradient(90deg,var(--teal),#8B97A2);
   border-radius:999px; transition:width .8s cubic-bezier(.22,1,.36,1); }
 .bar-fill-drains{ height:100%; background:linear-gradient(90deg,#C2185B,#E91E63);
   border-radius:999px; transition:width .8s cubic-bezier(.22,1,.36,1); }
@@ -174,28 +174,28 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   display:flex; align-items:center; gap:.5rem; }
 .bucket-chips{ display:flex; flex-wrap:wrap; gap:.4rem; }
 .bucket-chip{ font-size:.8rem; font-weight:500; padding:.35rem .85rem; border-radius:999px; }
-.gives-chip{ background:rgba(15,159,154,.12); color:var(--teal-d); }
+.gives-chip{ background:rgba(101,116,130,.12); color:var(--teal-d); }
 .drains-chip{ background:rgba(194,24,91,.1); color:#B0145B; }
 
 .insight-card{ border-radius:16px; padding:1.2rem; margin-bottom:.8rem; }
-.insight-card.gives{ background:rgba(15,159,154,.07); border:1.5px solid rgba(15,159,154,.2); }
+.insight-card.gives{ background:rgba(101,116,130,.07); border:1.5px solid rgba(101,116,130,.2); }
 .insight-card.drains{ background:rgba(194,24,91,.05); border:1.5px solid rgba(194,24,91,.15); }
 .insight-card.neutral{ background:rgba(7,16,20,.04); border:1.5px solid rgba(7,16,20,.1); }
 .insight-icon{ font-size:1rem; margin-bottom:.4rem; }
 .insight-text{ font-size:.88rem; color:var(--muted); line-height:1.65; }
 .insight-text strong{ color:var(--ink); }
 
-.cta-card{ background:linear-gradient(135deg,rgba(15,159,154,.1),rgba(167,199,183,.08) 50%,rgba(6,182,212,.1));
+.cta-card{ background:linear-gradient(135deg,rgba(101,116,130,.1),rgba(217,183,94,.08) 50%,rgba(217,183,94,.1));
   border-radius:var(--radius); padding:1.8rem; text-align:center; margin-top:1.2rem; }
 .cta-card h3{ font-size:1.05rem; margin-bottom:.4rem; }
 .cta-card p{ font-size:.88rem; color:var(--muted); margin:.4rem 0 1.2rem; line-height:1.6; }
 .cta-btn{ display:inline-block; font-family:'Inter'; font-weight:700; font-size:.95rem;
   color:#fff; background:var(--teal);
   border-radius:999px; padding:.95rem 2rem; text-decoration:none;
-  box-shadow:0 8px 22px rgba(15,159,154,.35); }
+  box-shadow:0 8px 22px rgba(101,116,130,.35); }
 
 @media(prefers-reduced-motion:reduce){ *{ transition:none!important; animation:none!important; } }
-.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(15,159,154,.07);padding:.4rem 1rem;border-radius:980px;}
+.nav-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(101,116,130,.07);padding:.4rem 1rem;border-radius:980px;}
 .nav-pill .pdot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
 .back-btn:hover{color:var(--teal);}
 
@@ -204,8 +204,8 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .hero{position:relative;text-align:center;padding:4rem 1.5rem 2rem;overflow:hidden;}
 .hero .ring{position:absolute;border-radius:50%;border:1.5px solid;pointer-events:none;z-index:0;}
 .hero .dot{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
-.hero .r1{width:200px;height:200px;border-color:rgba(66,133,244,.16);top:-60px;left:-50px;}
-.hero .r2{width:120px;height:120px;border-color:rgba(15,159,154,.2);top:40px;right:-20px;}
+.hero .r1{width:200px;height:200px;border-color:rgba(101,116,130,.16);top:-60px;left:-50px;}
+.hero .r2{width:120px;height:120px;border-color:rgba(101,116,130,.2);top:40px;right:-20px;}
 .hero .d1{width:10px;height:10px;background:var(--yellow);top:70px;left:15%;opacity:.7;}
 .hero .d2{width:8px;height:8px;background:var(--teal);bottom:30px;right:18%;}
 .hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
@@ -362,33 +362,33 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 
 <script>
 const ACTIVITIES = [
-  { id:'a1',  name:'Deep focus work',             cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>' },
-  { id:'a2',  name:'Back-to-back meetings',        cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' },
-  { id:'a3',  name:'Creative projects',            cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>' },
-  { id:'a4',  name:'Admin and email',              cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>' },
-  { id:'a5',  name:'Presenting or teaching',       cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>' },
-  { id:'a6',  name:'Problem-solving alone',        cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3a1 1 0 0 0 1-1V4a2 2 0 0 1 4 0v2a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a2 2 0 0 0 0 4h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2a2 2 0 0 0-4 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a2 2 0 0 0 0-4H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>' },
-  { id:'a7',  name:'Helping a colleague',          cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.4 5.4 0 0 0-.42-7.81z"/></svg>' },
-  { id:'a8',  name:'Repetitive tasks',             cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>' },
-  { id:'a9',  name:'Large social events',          cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>' },
-  { id:'a10', name:'1-on-1 conversations',         cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
-  { id:'a11', name:'Family time',                  cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-1.5a3 3 0 0 0-3-3h-1"/></svg>' },
-  { id:'a12', name:'Conflict or tension',          cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' },
-  { id:'a13', name:'Time with close friends',      cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' },
-  { id:'a14', name:'Networking events',            cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>' },
-  { id:'a15', name:'Exercise or movement',         cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 9l-4 12M14 9l4 12M8 15h8"/></svg>' },
-  { id:'a16', name:'Poor sleep nights',            cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>' },
-  { id:'a17', name:'Cooking a real meal',          cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F9F9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2h18"/><path d="M3 2v6a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V2"/><path d="M3 22h18"/><path d="M12 14v8"/></svg>' },
-  { id:'a18', name:'Scrolling social media',       cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>' },
-  { id:'a19', name:'Reading for pleasure',         cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
-  { id:'a20', name:'Learning something new',       cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"/><path d="M12 12C12 8 15 5 19 5c0 4-3 7-7 7z"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/><path d="M9 20h6"/></svg>' },
-  { id:'a21', name:'Watching TV or films',         cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 2l-4 5-4-5"/></svg>' },
-  { id:'a22', name:'Meditation or stillness',      cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 21l3-7 4 2 4-2 3 7"/><path d="M7 14h10"/></svg>' },
-  { id:'a23', name:'Time in nature',               cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.5 9.5C9.5 14 6 15.5 3 16c4-6 10-7.5 14-7.5z"/></svg>' },
-  { id:'a24', name:'Journaling',                   cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7B76" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>' },
-  { id:'a25', name:'Tidying or organising',        cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7C7B7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>' },
-  { id:'a26', name:'Household chores',             cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7C7B7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>' },
-  { id:'a27', name:'Being creative at home',       cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7C7B7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>' },
+  { id:'a1',  name:'Deep focus work',             cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>' },
+  { id:'a2',  name:'Back-to-back meetings',        cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' },
+  { id:'a3',  name:'Creative projects',            cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>' },
+  { id:'a4',  name:'Admin and email',              cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>' },
+  { id:'a5',  name:'Presenting or teaching',       cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>' },
+  { id:'a6',  name:'Problem-solving alone',        cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3a1 1 0 0 0 1-1V4a2 2 0 0 1 4 0v2a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a2 2 0 0 0 0 4h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-2a2 2 0 0 0-4 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a2 2 0 0 0 0-4H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>' },
+  { id:'a7',  name:'Helping a colleague',          cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.4 5.4 0 0 0-.42-7.81z"/></svg>' },
+  { id:'a8',  name:'Repetitive tasks',             cat:'Work',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>' },
+  { id:'a9',  name:'Large social events',          cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>' },
+  { id:'a10', name:'1-on-1 conversations',         cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
+  { id:'a11', name:'Family time',                  cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-1.5a3 3 0 0 0-3-3h-1"/></svg>' },
+  { id:'a12', name:'Conflict or tension',          cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' },
+  { id:'a13', name:'Time with close friends',      cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' },
+  { id:'a14', name:'Networking events',            cat:'Social', icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>' },
+  { id:'a15', name:'Exercise or movement',         cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 9l-4 12M14 9l4 12M8 15h8"/></svg>' },
+  { id:'a16', name:'Poor sleep nights',            cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg>' },
+  { id:'a17', name:'Cooking a real meal',          cat:'Body',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#657482" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2h18"/><path d="M3 2v6a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6V2"/><path d="M3 22h18"/><path d="M12 14v8"/></svg>' },
+  { id:'a18', name:'Scrolling social media',       cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>' },
+  { id:'a19', name:'Reading for pleasure',         cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+  { id:'a20', name:'Learning something new',       cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8"/><path d="M12 12C12 8 15 5 19 5c0 4-3 7-7 7z"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/><path d="M9 20h6"/></svg>' },
+  { id:'a21', name:'Watching TV or films',         cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 2l-4 5-4-5"/></svg>' },
+  { id:'a22', name:'Meditation or stillness',      cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M5 21l3-7 4 2 4-2 3 7"/><path d="M7 14h10"/></svg>' },
+  { id:'a23', name:'Time in nature',               cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.5 9.5C9.5 14 6 15.5 3 16c4-6 10-7.5 14-7.5z"/></svg>' },
+  { id:'a24', name:'Journaling',                   cat:'Mind',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5F6C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>' },
+  { id:'a25', name:'Tidying or organising',        cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>' },
+  { id:'a26', name:'Household chores',             cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>' },
+  { id:'a27', name:'Being creative at home',       cat:'Home',   icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9B75E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>' },
   { id:'a28', name:'Commuting',                    cat:'Other',  icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A6270" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>' },
   { id:'a29', name:'Saying yes when you mean no',  cat:'Other',  icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A6270" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' },
   { id:'a30', name:'Working on a passion project', cat:'Other',  icon:'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A6270" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>' }
@@ -597,4 +597,5 @@ init();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
