@@ -10,6 +10,14 @@
   --mist-blue: #dbe6ed;
   --peach: #f7efe1;
   --soft-cream: #f7efe1;
+  --sage: #52685b;
+  --sage-soft: #e2e9e3;
+  --teal: #365f61;
+  --teal-soft: #dce9e9;
+  --clay: #80513f;
+  --clay-soft: #eaded8;
+  --plum: #5b4e63;
+  --plum-soft: #e5dfe7;
   --lilac: #c8d0d8;
   --lemon: #d9b75e;
   --green: #385768;
@@ -530,7 +538,34 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
+  border-top: 3px solid var(--card-accent, var(--line));
 }
+
+.card-grid > :nth-child(4n + 1) { --tone: var(--sage-soft); --card-accent: var(--sage); }
+.card-grid > :nth-child(4n + 2) { --tone: var(--teal-soft); --card-accent: var(--teal); }
+.card-grid > :nth-child(4n + 3) { --tone: var(--clay-soft); --card-accent: var(--clay); }
+.card-grid > :nth-child(4n + 4) { --tone: var(--plum-soft); --card-accent: var(--plum); }
+
+.card-grid > :nth-child(4n + 1) .number { color: var(--sage); }
+.card-grid > :nth-child(4n + 2) .number { color: var(--teal); }
+.card-grid > :nth-child(4n + 3) .number { color: var(--clay); }
+.card-grid > :nth-child(4n + 4) .number { color: var(--plum); }
+
+.card-grid > :nth-child(4n + 1) .tag { color: var(--sage); }
+.card-grid > :nth-child(4n + 2) .tag { color: var(--teal); }
+.card-grid > :nth-child(4n + 3) .tag { color: var(--clay); }
+.card-grid > :nth-child(4n + 4) .tag { color: var(--plum); }
+
+.step-list > :nth-child(4n + 1),
+.booking-list > :nth-child(4n + 1) { --tone: var(--sage-soft); --card-accent: var(--sage); }
+.step-list > :nth-child(4n + 2),
+.booking-list > :nth-child(4n + 2) { --tone: var(--teal-soft); --card-accent: var(--teal); }
+.step-list > :nth-child(4n + 3),
+.booking-list > :nth-child(4n + 3) { --tone: var(--clay-soft); --card-accent: var(--clay); }
+.step-list > :nth-child(4n + 4),
+.booking-list > :nth-child(4n + 4) { --tone: var(--plum-soft); --card-accent: var(--plum); }
+
+.booking-list .booking-card { border-top-color: var(--card-accent, var(--line)); }
 
 .feature-card:hover,
 .service-card:hover,
