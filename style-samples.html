@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=4">
   <title>Style Samples | The U Method</title>
   <link rel="stylesheet" href="./styles.css">
   <style>
@@ -41,6 +41,28 @@
       font-size: 12px;
       font-weight: 800;
     }
+
+    .gradient-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gradient-sample {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: var(--radius);
+      background: var(--gradient);
+      color: #fff;
+      box-shadow: 0 14px 34px rgba(16, 20, 25, .1);
+    }
+
+    .gradient-sample strong { font-size: 15px; }
+    .gradient-sample span { margin-top: 4px; font-size: 11px; font-weight: 700; opacity: .9; }
 
     .icon-row {
       display: flex;
@@ -126,6 +148,7 @@
     @media (max-width: 850px) {
       .sample-grid,
       .swatch-row,
+      .gradient-row,
       .image-sample {
         grid-template-columns: 1fr;
       }
@@ -135,7 +158,7 @@
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="The U Method"></a>
+<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
@@ -173,6 +196,36 @@
           <div class="swatch" style="--swatch:#365f61;--text:#fff;">Muted Teal #365f61</div>
           <div class="swatch" style="--swatch:#80513f;--text:#fff;">Soft Clay #80513f</div>
           <div class="swatch" style="--swatch:#5b4e63;--text:#fff;">Dusty Plum #5b4e63</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Gradients</div>
+          <h2>Quiet movement between brand tones.</h2>
+          <p class="lead">Use one gradient consistently within a feature. Slate to gold is the primary treatment for tool icons and signature brand moments.</p>
+        </div>
+        <div class="gradient-row">
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#385768 0%,#d9b75e 100%);">
+            <strong>Slate to Gold</strong><span>Primary · icons and signature moments</span>
+          </div>
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#657482 0%,#385768 100%);">
+            <strong>Slate to Blue-slate</strong><span>Structure · calm and clarity</span>
+          </div>
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#92752c 0%,#d9b75e 100%);">
+            <strong>Deep Gold to Gold</strong><span>Emphasis · warmth and progress</span>
+          </div>
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#365f61 0%,#52685b 100%);">
+            <strong>Teal to Sage</strong><span>Reflection · growth and grounding</span>
+          </div>
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#5b4e63 0%,#385768 100%);">
+            <strong>Plum to Blue-slate</strong><span>Inner work · depth and insight</span>
+          </div>
+          <div class="gradient-sample" style="--gradient:linear-gradient(135deg,#385768 0%,#d9b75e 58%,#f3e4bd 100%);">
+            <strong>Signature Arc</strong><span>Logo · slate, gold, and cream</span>
+          </div>
         </div>
       </div>
     </section>

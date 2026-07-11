@@ -1,25 +1,25 @@
 ﻿:root {
   --ink: #101419;
-  --muted: #4f5963;
+  --muted: #66707a;
   --soft: #e9edf0;
   --paper: #f8f9fa;
-  --line: #c8d0d8;
-  --mint: #8f6b00;
+  --line: #d9dee4;
+  --mint: #d9b75e;
   --blue: #dbe6ed;
   --blue-slate: #385768;
   --mist-blue: #dbe6ed;
   --peach: #f7efe1;
   --soft-cream: #f7efe1;
-  --sage: #425649;
+  --sage: #52685b;
   --sage-soft: #e2e9e3;
-  --teal: #294f51;
+  --teal: #365f61;
   --teal-soft: #dce9e9;
   --clay: #80513f;
   --clay-soft: #eaded8;
   --plum: #5b4e63;
   --plum-soft: #e5dfe7;
   --lilac: #c8d0d8;
-  --lemon: #8f6b00;
+  --lemon: #d9b75e;
   --green: #385768;
   --google-blue: #385768;
   --shadow: 0 24px 74px rgba(16, 20, 25, .12);
@@ -90,7 +90,7 @@ img {
 }
 
 .brand img {
-  width: 236px;
+  width: 214px;
   height: auto;
 }
 
@@ -109,7 +109,7 @@ img {
   align-items: center;
   padding: 0 12px;
   border-radius: 999px;
-  color: #2f3740;
+  color: #39414a;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
@@ -117,7 +117,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  background: #e1e7ec;
+  background: #edf0f2;
   color: var(--ink);
 }
 
@@ -337,6 +337,18 @@ h1 {
 .keyword-chip.black {
   background: #101419;
   color: #f8f9fa;
+}
+
+/* Unified signature treatment for coaching keyword chips */
+.keyword-chip.slate,
+.keyword-chip.slate-soft,
+.keyword-chip.cream,
+.keyword-chip.paper,
+.keyword-chip.gold,
+.keyword-chip.black {
+  background: linear-gradient(135deg, #385768 0%, #92752c 58%, #d9b75e 100%);
+  color: #fff;
+  box-shadow: none;
 }
 
 h2 {
@@ -1867,9 +1879,8 @@ h3 {
 
 .carousel-arrow:disabled {
   cursor: not-allowed;
-  opacity: 1;
-  color: #5f6872;
-  background: #f4f6f8;
+  opacity: .35;
+  background: #fff;
 }
 
 .carousel-arrow-side {
@@ -2321,7 +2332,7 @@ details p {
   }
 
   .brand img {
-    width: 208px;
+    width: 188px;
   }
 
   .menu-toggle {
@@ -2350,8 +2361,7 @@ details p {
     min-height: 48px;
     justify-content: center;
     border-radius: var(--radius);
-    background: #eef2f5;
-    color: var(--ink);
+    background: #f6f7f9;
     font-size: 15px;
   }
 
@@ -2733,21 +2743,4 @@ details p {
 
 
 
-
-
-
-/* Accessibility: clear keyboard focus and stronger contrast */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid #8f6b00;
-  outline-offset: 3px;
-}
-
-::placeholder {
-  color: #5f6872;
-  opacity: 1;
-}
 
