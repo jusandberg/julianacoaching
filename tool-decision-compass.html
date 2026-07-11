@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Decision Compass Â· Coaching</title>
+<title>Decision Compass, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
@@ -22,7 +22,7 @@ body{ font-family:'Inter',sans-serif; background:#FFFFFF; color:var(--ink);
   min-height:100%; line-height:1.65; overflow-x:hidden; }
 h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 
-/* â”€â”€ TOP BAR â”€â”€ */
+/* ── TOP BAR ── */
 .topbar{
   position:sticky; top:0; z-index:10;
   background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);
@@ -36,7 +36,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   text-transform:uppercase; background:rgba(101,116,130,.08);
   color:var(--teal); padding:.3rem .75rem; border-radius:999px; white-space:nowrap; }
 
-/* â”€â”€ STEP INDICATORS â”€â”€ */
+/* ── STEP INDICATORS ── */
 .steps-bar{ display:flex; align-items:center; justify-content:center;
   gap:.4rem; padding:1rem 1.2rem .3rem; }
 .step-dot{ width:28px; height:28px; border-radius:50%;
@@ -52,18 +52,18 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   letter-spacing:.08em; color:var(--muted); }
 .steps-labels span.active{ color:var(--teal-d); }
 
-/* â”€â”€ STAGES â”€â”€ */
+/* ── STAGES ── */
 .stage{ display:none; padding:0 1.2rem 6rem; }
 .stage.active{ display:block; animation:fadeUp .35s ease; }
 @keyframes fadeUp{ from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
 
-/* â”€â”€ CARDS â”€â”€ */
+/* ── CARDS ── */
 .card{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.5rem; margin-bottom:1.1rem; }
 .card h3{ font-size:1rem; font-weight:700; margin-bottom:.5rem; }
 .card p{ font-size:.9rem; color:var(--muted); line-height:1.65; }
 
-/* â”€â”€ INPUTS â”€â”€ */
+/* ── INPUTS ── */
 textarea, input[type="text"]{
   width:100%; font-family:'Inter',sans-serif; font-size:1rem; color:var(--ink);
   background:rgba(7,16,20,.03); border:1.5px solid rgba(7,16,20,.14);
@@ -75,7 +75,7 @@ input[type="text"]{ min-height:48px; }
 textarea:focus, input[type="text"]:focus{ border-color:var(--teal); }
 textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem; }
 
-/* â”€â”€ STAGE 1: THE DECISION â”€â”€ */
+/* ── STAGE 1: THE DECISION ── */
 .decision-card{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.5rem; margin-bottom:1.1rem; }
 .field-label{ font-family:'Inter'; font-weight:700; font-size:.88rem;
@@ -86,7 +86,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
 .option-input-wrap{ }
 .option-input-wrap .field-label{ font-size:.82rem; }
 
-/* â”€â”€ STAGE 2: YOUR VALUES â”€â”€ */
+/* ── STAGE 2: YOUR VALUES ── */
 .values-intro{ font-size:.9rem; color:var(--muted); margin-bottom:1rem; line-height:1.65; }
 .value-rows{ display:grid; gap:.7rem; }
 .value-row{ background:var(--card); border-radius:16px; box-shadow:var(--shadow); border:1px solid var(--line);
@@ -110,7 +110,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   border:none; border-radius:12px; padding:.7rem 1.1rem; cursor:pointer;
   white-space:nowrap; touch-action:manipulation; }
 
-/* â”€â”€ STAGE 3: SCORE â”€â”€ */
+/* ── STAGE 3: SCORE ── */
 .score-intro{ font-size:.88rem; color:var(--muted); margin-bottom:1rem; line-height:1.65; }
 .score-section{ background:var(--card); border-radius:var(--radius);
   box-shadow:var(--shadow); border:1px solid var(--line); padding:1.4rem; margin-bottom:1rem; }
@@ -134,7 +134,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
 .sbtn.active-mid{ background:rgba(217,183,94,.25); border-color:rgba(217,183,94,.4); color:var(--sage-d); }
 .sbtn.active-high{ background:rgba(101,116,130,.14); border-color:rgba(101,116,130,.3); color:var(--teal-d); }
 
-/* â”€â”€ RESULTS â”€â”€ */
+/* ── RESULTS ── */
 .result-hero{ border-radius:var(--radius); padding:2rem 1.6rem;
   text-align:center; margin-bottom:1.1rem; }
 .result-hero.clear{ background:linear-gradient(135deg,rgba(101,116,130,.1),rgba(217,183,94,.08));
@@ -194,7 +194,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   border-radius:999px; padding:.95rem 2rem; text-decoration:none;
   box-shadow:0 8px 22px rgba(101,116,130,.35); }
 
-/* â”€â”€ FIXED BTN â”€â”€ */
+/* ── FIXED BTN ── */
 .btn-bar{ position:fixed; bottom:0; left:0; right:0;
   padding:1rem 1.2rem 1.4rem;
   background:linear-gradient(to top, var(--bg) 70%, transparent);
@@ -281,7 +281,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   <span id="lbl-3">Score it</span>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• STAGE 1: THE DECISION â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ STAGE 1: THE DECISION ═══════════ -->
 <div class="stage active" id="stage-decision">
   <div class="card">
     <h3>What decision are you weighing?</h3>
@@ -307,11 +307,11 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-d" onclick="goToValues()" disabled>Next, Set your values â†’</button>
+    <button class="btn-primary" id="btn-d" onclick="goToValues()" disabled>Next, Set your values</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• STAGE 2: VALUES â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ STAGE 2: VALUES ═══════════ -->
 <div class="stage" id="stage-values">
   <p class="values-intro">These are the values this decision will be scored against. Each one has a weight, how much does it matter to you right now? Set 1 (nice to have) to 3 (essential).</p>
 
@@ -323,12 +323,12 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-back" onclick="goTo('decision')">â† Back</button>
-    <button class="btn-primary" onclick="goToScore()">Next, Score each option â†’</button>
+    <button class="btn-back" onclick="goTo('decision')"> Back</button>
+    <button class="btn-primary" onclick="goToScore()">Next, Score each option</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• STAGE 3: SCORE â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ STAGE 3: SCORE ═══════════ -->
 <div class="stage" id="stage-score">
   <p class="score-intro">For each value, rate how well each option honours it. 1 = barely, 2 = somewhat, 3 = fully. Go with your gut, your first instinct is usually right.</p>
 
@@ -349,12 +349,12 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-back" onclick="goTo('values')">â† Back</button>
-    <button class="btn-primary" id="btn-score" onclick="showResult()" disabled>See my compass result â†’</button>
+    <button class="btn-back" onclick="goTo('values')"> Back</button>
+    <button class="btn-primary" id="btn-score" onclick="showResult()" disabled>See my compass result</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• STAGE 4: RESULT â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ STAGE 4: RESULT ═══════════ -->
 <div class="stage" id="stage-result">
 
   <div class="result-hero" id="result-hero">
@@ -410,18 +410,18 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
 </div>
 
 <script>
-// â”€â”€ Default values â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Default values ────────────────────────────────────────────
 const DEFAULT_VALUES = [
   'Freedom', 'Growth', 'Security', 'Authenticity',
   'Family', 'Impact', 'Creativity', 'Balance'
 ];
 
 let values = DEFAULT_VALUES.map(v => ({ name: v, weight: 2 }));
-let scoresA = {}; // valueIndex â†’ 1|2|3
+let scoresA = {}; // valueIndex  1|2|3
 let scoresB = {};
 let optA = '', optB = '';
 
-// â”€â”€ Stage 1 validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Stage 1 validation ────────────────────────────────────────
 ['decision-text','option-a','option-b'].forEach(id => {
   document.getElementById(id).addEventListener('input', checkStage1);
 });
@@ -432,7 +432,7 @@ function checkStage1(){
   document.getElementById('btn-d').disabled = !(d.length > 5 && a.length > 1 && b.length > 1);
 }
 
-// â”€â”€ Step navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Step navigation ───────────────────────────────────────────
 function goTo(stage){
   document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
   document.getElementById('stage-'+stage).classList.add('active');
@@ -449,7 +449,7 @@ function goTo(stage){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// â”€â”€ Stage 2: Values â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Stage 2: Values ───────────────────────────────────────────
 function goToValues(){
   optA = document.getElementById('option-a').value.trim();
   optB = document.getElementById('option-b').value.trim();
@@ -490,7 +490,7 @@ function addValue(){
   renderValueRows();
 }
 
-// â”€â”€ Stage 3: Score â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Stage 3: Score ────────────────────────────────────────────
 function goToScore(){
   // Reset scores
   scoresA = {}; scoresB = {};
@@ -538,7 +538,7 @@ function checkScoreComplete(){
   document.getElementById('btn-score').disabled = !(allA && allB);
 }
 
-// â”€â”€ Stage 4: Result â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Stage 4: Result ───────────────────────────────────────────
 function showResult(){
   // Calculate weighted scores
   let totalA = 0, totalB = 0, maxPossible = 0;
@@ -595,9 +595,9 @@ function showResult(){
     const row = document.createElement('div');
     row.className = 'vb-row';
     row.innerHTML =
-      '<div class="vb-val">'+v.name+' <span style="font-size:.7rem;color:var(--muted);">Ã—'+v.weight+'</span></div>'+
-      '<div class="vb-score '+(aWins?'winner':bWins?'loser':'tied-score')+'">'+sa+(aWins?' âœ¦':'')+'</div>'+
-      '<div class="vb-score '+(bWins?'winner':aWins?'loser':'tied-score')+'">'+sb+(bWins?' âœ¦':'')+'</div>';
+      '<div class="vb-val">'+v.name+' <span style="font-size:.7rem;color:var(--muted);">×'+v.weight+'</span></div>'+
+      '<div class="vb-score '+(aWins?'winner':bWins?'loser':'tied-score')+'">'+sa+(aWins?' ✦':'')+'</div>'+
+      '<div class="vb-score '+(bWins?'winner':aWins?'loser':'tied-score')+'">'+sb+(bWins?' ✦':'')+'</div>';
     breakdown.appendChild(row);
   });
 
@@ -627,7 +627,7 @@ function showResult(){
   goTo('result');
 }
 
-// â”€â”€ Restart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Restart ───────────────────────────────────────────────────
 function restart(){
   values = DEFAULT_VALUES.map(v => ({name:v, weight:2}));
   scoresA = {}; scoresB = {};
@@ -639,11 +639,13 @@ function restart(){
   goTo('decision');
 }
 
-// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Init ──────────────────────────────────────────────────────
 renderValueRows();
 </script>
 <script src="page-nav.js"></script>
 </body>
 </html>
+
+
 
 

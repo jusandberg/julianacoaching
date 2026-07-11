@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>EQ Compass Â· Coaching</title>
+<title>EQ Compass, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
@@ -20,27 +20,27 @@
 body{font-family:'Inter',sans-serif;background:#FFFFFF;color:var(--ink);line-height:1.65;overflow-x:hidden;}
 h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 
-/* â”€â”€ TOP BAR â”€â”€ */
+/* ── TOP BAR ── */
 .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);padding:.9rem 1.2rem;display:flex;align-items:center;gap:.8rem;}
 .back-btn{font-size:.85rem;font-weight:600;color:var(--grey);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s;}
 .topbar-title{font-family:'Inter';font-weight:700;font-size:.95rem;color:var(--ink);margin-right:auto;}
 .phase-badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(101,116,130,.08);color:var(--teal-d);padding:.3rem .75rem;border-radius:999px;white-space:nowrap;}
 
-/* â”€â”€ LAYOUT â”€â”€ */
+/* ── LAYOUT ── */
 .wrap{padding:1rem 1.2rem 5rem;max-width:680px;margin:0 auto;}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-d);margin-bottom:.7rem;display:block;}
 .page-title{font-size:1.5rem;font-weight:800;margin-bottom:.6rem;line-height:1.2;}
 .page-title em{font-family:'Inter',sans-serif;font-style:italic;font-weight:500;color:var(--teal-d);}
 .page-sub{font-size:.92rem;color:var(--muted);margin-bottom:1.6rem;line-height:1.7;}
 
-/* â”€â”€ PROGRESS BAR â”€â”€ */
+/* ── PROGRESS BAR ── */
 .prog-wrap{margin-bottom:1.4rem;}
 .prog-row{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:.45rem;}
 .prog-row span:last-child{color:var(--teal-d);}
 .prog-track{height:6px;background:rgba(7,16,20,.08);border-radius:999px;overflow:hidden;}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--cyan));border-radius:999px;transition:width .5s cubic-bezier(.22,1,.36,1);width:0%;}
 
-/* â”€â”€ ACCORDION â”€â”€ */
+/* ── ACCORDION ── */
 /* INTERACTIVE EQ COMPASS */
 .eq-compass{margin:0 0 1.6rem;padding:1.35rem;background:linear-gradient(145deg,#fff,#f5faf9);border:1px solid var(--line);border-radius:26px;box-shadow:0 16px 45px rgba(7,16,20,.09);overflow:hidden;position:relative;}
 .eq-compass::before{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(101,116,130,.1);border-radius:50%;left:-145px;top:-155px;pointer-events:none;}
@@ -84,13 +84,13 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .acc-chevron{flex-shrink:0;transition:transform .3s cubic-bezier(.22,1,.36,1);color:var(--muted);}
 .acc-item.open .acc-chevron{transform:rotate(180deg);}
 
-/* â”€â”€ ACCORDION BODY â”€â”€ */
+/* ── ACCORDION BODY ── */
 .acc-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1);}
 .acc-body-inner{padding:0 1.2rem 1.4rem;}
 .divider{height:1px;background:rgba(7,16,20,.06);margin-bottom:1.2rem;}
 .what-text{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem;}
 
-/* â”€â”€ HIGH / LOW GRID â”€â”€ */
+/* ── HIGH / LOW GRID ── */
 .hilo{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.2rem;}
 @media(max-width:400px){.hilo{grid-template-columns:1fr;}}
 .hilo-box{border-radius:14px;padding:1rem;}
@@ -105,16 +105,16 @@ h2,h3,h4{font-family:'Inter',sans-serif;line-height:1.2;}
 .hilo-box.hi .hilo-list li::before{content:'\00B7';color:var(--teal);}
 .hilo-box.lo .hilo-list li::before{content:'\00B7';color:rgba(7,16,20,.25);}
 
-/* â”€â”€ REFLECTION â”€â”€ */
+/* ── REFLECTION ── */
 .reflection{border-radius:14px;padding:1rem 1.1rem;margin-bottom:.9rem;}
 .ref-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;}
 .ref-q{font-size:.9rem;color:var(--ink);font-style:italic;line-height:1.65;}
 
-/* â”€â”€ NEXT BUTTON â”€â”€ */
+/* ── NEXT BUTTON ── */
 .next-btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--teal-d);background:rgba(101,116,130,.1);border:none;border-radius:999px;padding:.45rem 1rem;cursor:pointer;touch-action:manipulation;transition:background .15s;}
 .next-btn:active{background:rgba(101,116,130,.2);}
 
-/* â”€â”€ CTA â”€â”€ */
+/* ── CTA ── */
 .cta-wrap{display:none;}
 .cta-wrap.show{display:block;animation:fadeUp .4s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
@@ -454,5 +454,7 @@ buildAccordion();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
+
 
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Archetype Quiz Â· Coaching</title>
+<title>Archetype Quiz, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
@@ -22,7 +22,7 @@ body{ font-family:'Inter',sans-serif; background:#FFFFFF; color:var(--ink);
   min-height:100%; line-height:1.65; overflow-x:hidden; }
 h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 
-/* â”€â”€ TOP BAR â”€â”€ */
+/* ── TOP BAR ── */
 .topbar{
   position:sticky; top:0; z-index:10;
   background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(20px);
@@ -36,12 +36,12 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   text-transform:uppercase; background:rgba(101,116,130,.08);
   color:var(--teal); padding:.3rem .75rem; border-radius:999px; white-space:nowrap; }
 
-/* â”€â”€ SCREENS â”€â”€ */
+/* ── SCREENS ── */
 .screen{ display:none; }
 .screen.active{ display:block; animation:fadeUp .35s ease; }
 @keyframes fadeUp{ from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:none;} }
 
-/* â”€â”€ INTRO SCREEN â”€â”€ */
+/* ── INTRO SCREEN ── */
 #screen-intro{ padding:1.4rem 1.2rem 5rem; }
 .intro-eyebrow{ font-size:.72rem; font-weight:700; letter-spacing:.18em;
   text-transform:uppercase; color:var(--teal-d); margin-bottom:.8rem; display:block; }
@@ -63,7 +63,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .arch-intro-card.explorer h4{ color:var(--explorer); }
 .arch-intro-card p{ font-size:.85rem; color:var(--muted); }
 
-/* â”€â”€ QUESTION SCREEN â”€â”€ */
+/* ── QUESTION SCREEN ── */
 #screen-quiz{ padding:0 1.2rem 6rem; }
 .prog-wrap{ padding:1rem 0 .4rem; }
 .prog-dots{ display:flex; gap:.3rem; margin-bottom:.3rem; }
@@ -101,7 +101,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .option.selected .opt-check{ display:block; }
 .opt-text{ font-size:.92rem; color:var(--ink); line-height:1.55; }
 
-/* â”€â”€ FIXED BTN â”€â”€ */
+/* ── FIXED BTN ── */
 .btn-bar{ position:fixed; bottom:0; left:0; right:0;
   padding:1rem 1.2rem 1.4rem;
   background:linear-gradient(to top, var(--bg) 70%, transparent); }
@@ -113,7 +113,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .btn-primary:active{ transform:scale(.97); }
 .btn-primary:disabled{ opacity:.35; cursor:not-allowed; transform:none; box-shadow:none; }
 
-/* â”€â”€ LOADING â”€â”€ */
+/* ── LOADING ── */
 #screen-loading{ padding:4rem 1.2rem; text-align:center; }
 .dots{ display:flex; gap:.4rem; justify-content:center; margin-bottom:1rem; }
 .dot{ width:11px; height:11px; border-radius:50%;
@@ -124,7 +124,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 @keyframes dp{ 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
 .loading-text{ font-size:.95rem; color:var(--muted); }
 
-/* â”€â”€ RESULT SCREEN â”€â”€ */
+/* ── RESULT SCREEN ── */
 #screen-result{ padding:1.2rem 1.2rem 3rem; }
 .result-hero{
   border-radius:var(--radius); padding:2.2rem 1.6rem; text-align:center;
@@ -156,7 +156,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 .result-section p{ font-size:.92rem; color:var(--muted); line-height:1.75; }
 .result-section ul{ list-style:none; display:grid; gap:.55rem; margin-top:.5rem; }
 .result-section li{ font-size:.9rem; color:var(--muted); padding-left:1.4rem; position:relative; }
-.result-section li::before{ content:'âœ¦'; position:absolute; left:0; font-size:.7rem; top:.25rem; }
+.result-section li::before{ content:'✦'; position:absolute; left:0; font-size:.7rem; top:.25rem; }
 .witness-color li::before{ color:var(--witness); }
 .guide-color li::before{ color:#657482; }
 .explorer-color li::before{ color:var(--explorer); }
@@ -264,7 +264,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• INTRO â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ INTRO ═══════════ -->
 <div class="screen active" id="screen-intro">
   <span class="intro-eyebrow">Discover your archetype</span>
   <h2 class="intro-title">Which inner force is <em>guiding you</em> right now?</h2>
@@ -277,32 +277,32 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>
         The Witness
       </h4>
-      <p>Presence Â· awareness Â· compassion. Notices thoughts and feelings without immediately becoming them.</p>
+      <p>Presence, awareness, compassion. Notices thoughts and feelings without immediately becoming them.</p>
     </div>
     <div class="arch-intro-card guide">
       <h4>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>
         The Inner Guide
       </h4>
-      <p>Intuition Â· stillness Â· inner wisdom. Listens for values, bodily signals, and quiet knowing.</p>
+      <p>Intuition, stillness, inner wisdom. Listens for values, bodily signals, and quiet knowing.</p>
     </div>
     <div class="arch-intro-card explorer">
       <h4>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3l9 9-9 9"/></svg>
         The Explorer
       </h4>
-      <p>Courage Â· wonder Â· trusting the unknown. Learns through movement, experimentation, and discovery.</p>
+      <p>Courage, wonder, trusting the unknown. Learns through movement, experimentation, and discovery.</p>
     </div>
   </div>
 
-  <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.6rem;">9 questions Â· about 3 minutes Â· no right or wrong answers. Go with your gut.</p>
+  <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.6rem;">9 questions, about 3 minutes, no right or wrong answers. Go with your gut.</p>
 
   <div class="btn-bar">
-    <button class="btn-primary" onclick="startQuiz()">Begin the quiz â†’</button>
+    <button class="btn-primary" onclick="startQuiz()">Begin the quiz</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• QUIZ â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ QUIZ ═══════════ -->
 <div class="screen" id="screen-quiz">
   <div class="prog-wrap">
     <div class="prog-dots" id="prog-dots"></div>
@@ -314,17 +314,17 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
   <div class="options" id="options"></div>
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-next" onclick="nextQ()" disabled>Next â†’</button>
+    <button class="btn-primary" id="btn-next" onclick="nextQ()" disabled>Next</button>
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• LOADING â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ LOADING ═══════════ -->
 <div class="screen" id="screen-loading">
   <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-  <p class="loading-text" id="loading-text">Reading your answersâ€¦</p>
+  <p class="loading-text" id="loading-text">Reading your answers…</p>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• RESULT â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════ RESULT ═══════════ -->
 <div class="screen" id="screen-result">
 
   <div class="result-hero" id="result-hero">
@@ -366,11 +366,11 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
 </div>
 
 <script>
-// â”€â”€ Quiz data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Quiz data ─────────────────────────────────────────────────
 // Each answer: [W=Witness, G=Guide, E=Explorer]
 const QUESTIONS = [
   {
-    text: "When something difficult happens, your first instinct is toâ€¦",
+    text: "When something difficult happens, your first instinct is to…",
     options: [
       { text: "Pause and observe what's arising inside you before reacting", scores: [3,1,0] },
       { text: "Go quiet and wait for an inner knowing to emerge", scores: [1,3,0] },
@@ -386,7 +386,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "In a moment of self-doubt, the voice that helps you most saysâ€¦",
+    text: "In a moment of self-doubt, the voice that helps you most says…",
     options: [
       { text: "\"Just notice the doubt, you don't have to believe everything you think\"", scores: [3,1,0] },
       { text: "\"Be still. The answer is already within you\"", scores: [1,3,0] },
@@ -394,7 +394,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "When you're at your best, people around you tend to experience you asâ€¦",
+    text: "When you're at your best, people around you tend to experience you as…",
     options: [
       { text: "Deeply present, someone who makes them feel truly seen", scores: [3,1,0] },
       { text: "Quietly wise, someone who always seems to know the right thing to say", scores: [0,3,1] },
@@ -402,7 +402,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "The idea that resonates most deeply with you right now isâ€¦",
+    text: "The idea that resonates most deeply with you right now is…",
     options: [
       { text: "Healing begins with compassionate self-awareness", scores: [3,0,1] },
       { text: "The answers I seek are already within me", scores: [1,3,0] },
@@ -410,7 +410,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "When you imagine your inner life as a landscape, it most resemblesâ€¦",
+    text: "When you imagine your inner life as a landscape, it most resembles…",
     options: [
       { text: "A still lake, reflecting everything clearly, undisturbed", scores: [3,1,0] },
       { text: "A forest path, quiet, layered, full of hidden meaning", scores: [1,3,0] },
@@ -426,7 +426,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "When making an important decision, you most trustâ€¦",
+    text: "When making an important decision, you most trust…",
     options: [
       { text: "What you notice in your body and emotional responses", scores: [3,1,0] },
       { text: "A quiet inner knowing that doesn't always have words", scores: [0,3,1] },
@@ -434,7 +434,7 @@ const QUESTIONS = [
     ]
   },
   {
-    text: "If your growth journey had a quality right now, it would beâ€¦",
+    text: "If your growth journey had a quality right now, it would be…",
     options: [
       { text: "Gentle and spacious, meeting myself with more kindness", scores: [3,1,0] },
       { text: "Deep and still, listening inward more than outward", scores: [1,3,0] },
@@ -496,12 +496,12 @@ const ARCHETYPES = {
 
 const SECONDARY_NAMES = { witness:"The Witness", guide:"The Inner Guide", explorer:"The Explorer" };
 
-// â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── State ─────────────────────────────────────────────────────
 let current = 0;
 let answers = []; // array of [W,G,E] score arrays
 let scores = { witness:0, guide:0, explorer:0 };
 
-// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Navigation ────────────────────────────────────────────────
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -515,7 +515,7 @@ function startQuiz(){
   showScreen('screen-quiz');
 }
 
-// â”€â”€ Progress dots â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Progress dots ─────────────────────────────────────────────
 function buildProgressDots(){
   const wrap = document.getElementById('prog-dots');
   wrap.innerHTML = '';
@@ -535,7 +535,7 @@ function updateDots(){
   document.getElementById('prog-label').textContent = 'Question '+(current+1)+' of '+QUESTIONS.length;
 }
 
-// â”€â”€ Render question â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Render question ───────────────────────────────────────────
 function renderQuestion(){
   const q = QUESTIONS[current];
   document.getElementById('q-num').textContent = 'Question '+(current+1)+' of '+QUESTIONS.length;
@@ -543,7 +543,7 @@ function renderQuestion(){
   const container = document.getElementById('options');
   container.innerHTML = '';
   document.getElementById('btn-next').disabled = true;
-  document.getElementById('btn-next').textContent = current===QUESTIONS.length-1 ? 'See my archetype â†’' : 'Next â†’';
+  document.getElementById('btn-next').textContent = current===QUESTIONS.length-1 ? 'See my archetype ' : 'Next ';
 
   // Shuffle options so answer patterns aren't predictable
   const shuffled = [...q.options].sort(() => Math.random()-.5);
@@ -585,10 +585,10 @@ function nextQ(){
   }
 }
 
-// â”€â”€ Calculate + reveal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Calculate + reveal ────────────────────────────────────────
 function revealResult(){
   showScreen('screen-loading');
-  const msgs = ['Reading your answersâ€¦','Listening for the patternâ€¦','Finding your archetypeâ€¦'];
+  const msgs = ['Reading your answers…','Listening for the pattern…','Finding your archetype…'];
   let mi=0;
   const lt = setInterval(()=>{ document.getElementById('loading-text').textContent=msgs[++mi%msgs.length]; },1000);
   setTimeout(()=>{ clearInterval(lt); buildResult(); showScreen('screen-result'); }, 2600);
@@ -647,7 +647,7 @@ function buildResult(){
   // Invitation
   document.getElementById('invitation-text').textContent = arch.invitation;
 
-  // â”€â”€ Between-archetypes nuance â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Between-archetypes nuance ──────────────────────────────
   const sorted = [
     {key:'witness', pct:wPct},
     {key:'guide',   pct:gPct},
@@ -736,5 +736,7 @@ function restart(){
 <script src="page-nav.js"></script>
 </body>
 </html>
+
+
 
 
