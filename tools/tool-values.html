@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Values Clarifier · Coaching</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
+<title>Values Clarifier, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
-  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--teal-d:#29494B; --sage:#718578; --sage-d:#52685B; --cyan:#4F7183; --cyan-d:#385768;
+--clay:#80513F; --clay-soft:#EADED8; --plum:#5B4E63; --plum-soft:#E5DFE7;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
@@ -282,20 +283,16 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
     <div class="sheet-btns">
       <button class="sheet-btn sbtn-a" onclick="moveSelected('a')">
         <span class="sheet-icon">✦</span>
-        <div><div style="font-size:.95rem;">Essential</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Can't live without this</div></div>
-      </button>
+        <div><div style="font-size:.95rem;">Essential</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Can't live without this</div></div></button>
       <button class="sheet-btn sbtn-b" onclick="moveSelected('b')">
         <span class="sheet-icon">↑</span>
-        <div><div style="font-size:.95rem;">Important</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Really matters to me</div></div>
-      </button>
+        <div><div style="font-size:.95rem;">Important</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Really matters to me</div></div></button>
       <button class="sheet-btn sbtn-c" onclick="moveSelected('c')">
         <span class="sheet-icon">&middot;</span>
-        <div><div style="font-size:.95rem;">Nice to have</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Good, but not core</div></div>
-      </button>
+        <div><div style="font-size:.95rem;">Nice to have</div><div style="font-size:.78rem;opacity:.7;font-weight:500;">Good, but not core</div></div></button>
       <button class="sheet-btn sbtn-cancel" onclick="closeSheet()">
         <span class="sheet-icon">✕</span>
-        <div style="font-size:.95rem;">Cancel</div>
-      </button>
+        <div style="font-size:.95rem;">Cancel</div></button>
     </div>
   </div>
 
@@ -353,7 +350,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
 
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-sort" onclick="goToNarrow()" disabled>Next, Narrow down →</button>
+    <button class="btn-primary" id="btn-sort" onclick="goToNarrow()" disabled>Next, Narrow down</button>
   </div>
 </div>
 
@@ -366,8 +363,8 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
     <div class="pool-chips" id="narrow-pool"></div>
   </div>
   <div class="btn-bar" style="display:flex;gap:.6rem;">
-    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;flex:.4;" onclick="goTo('sort')">← Back</button>
-    <button class="btn-primary" id="btn-narrow" style="flex:1;" onclick="goToResults()" disabled>Reveal my top values →</button>
+    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;flex:.4;" onclick="goTo('sort')"> Back</button>
+    <button class="btn-primary" id="btn-narrow" style="flex:1;" onclick="goToResults()" disabled>Reveal my top values</button>
   </div>
 </div>
 
@@ -654,6 +651,7 @@ init();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 

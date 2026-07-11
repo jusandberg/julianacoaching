@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Archetype Quiz · Coaching</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
+<title>Archetype Quiz, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
-  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--teal-d:#29494B; --sage:#718578; --sage-d:#52685B; --cyan:#4F7183; --cyan-d:#385768;
+--clay:#80513F; --clay-soft:#EADED8; --plum:#5B4E63; --plum-soft:#E5DFE7;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
@@ -277,28 +278,28 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>
         The Witness
       </h4>
-      <p>Presence · awareness · compassion. Notices thoughts and feelings without immediately becoming them.</p>
+      <p>Presence, awareness, compassion. Notices thoughts and feelings without immediately becoming them.</p>
     </div>
     <div class="arch-intro-card guide">
       <h4>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16 8 12 10 8 16 12 14 16 8"/></svg>
         The Inner Guide
       </h4>
-      <p>Intuition · stillness · inner wisdom. Listens for values, bodily signals, and quiet knowing.</p>
+      <p>Intuition, stillness, inner wisdom. Listens for values, bodily signals, and quiet knowing.</p>
     </div>
     <div class="arch-intro-card explorer">
       <h4>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3l9 9-9 9"/></svg>
         The Explorer
       </h4>
-      <p>Courage · wonder · trusting the unknown. Learns through movement, experimentation, and discovery.</p>
+      <p>Courage, wonder, trusting the unknown. Learns through movement, experimentation, and discovery.</p>
     </div>
   </div>
 
-  <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.6rem;">9 questions · about 3 minutes · no right or wrong answers. Go with your gut.</p>
+  <p style="font-size:.82rem;color:var(--muted);margin-bottom:1.6rem;">9 questions, about 3 minutes, no right or wrong answers. Go with your gut.</p>
 
   <div class="btn-bar">
-    <button class="btn-primary" onclick="startQuiz()">Begin the quiz →</button>
+    <button class="btn-primary" onclick="startQuiz()">Begin the quiz</button>
   </div>
 </div>
 
@@ -314,7 +315,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
   <div class="options" id="options"></div>
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-next" onclick="nextQ()" disabled>Next →</button>
+    <button class="btn-primary" id="btn-next" onclick="nextQ()" disabled>Next</button>
   </div>
 </div>
 
@@ -543,7 +544,7 @@ function renderQuestion(){
   const container = document.getElementById('options');
   container.innerHTML = '';
   document.getElementById('btn-next').disabled = true;
-  document.getElementById('btn-next').textContent = current===QUESTIONS.length-1 ? 'See my archetype →' : 'Next →';
+  document.getElementById('btn-next').textContent = current===QUESTIONS.length-1 ? 'See my archetype ' : 'Next ';
 
   // Shuffle options so answer patterns aren't predictable
   const shuffled = [...q.options].sort(() => Math.random()-.5);
@@ -736,6 +737,7 @@ function restart(){
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 

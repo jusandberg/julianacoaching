@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Goal Setting Canvas · Coaching</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
+<title>Goal Setting Canvas, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
-  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--teal-d:#29494B; --sage:#718578; --sage-d:#52685B; --cyan:#4F7183; --cyan-d:#385768;
+--clay:#80513F; --clay-soft:#EADED8; --plum:#5B4E63; --plum-soft:#E5DFE7;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
@@ -287,7 +288,7 @@ textarea::placeholder{ color:var(--muted); font-size:.95rem; }
   <p class="hint">Write it as it comes, even a fuzzy intention is a great starting point.</p>
   <textarea id="a-goal" placeholder="e.g. I want to change careers but I don't know where to start&#10;&#10;e.g. I want to launch my coaching practice this year&#10;&#10;e.g. I want to feel less anxious in leadership situations" rows="5"></textarea>
   <div class="btn-row">
-    <button class="btn-primary" id="btn-1" onclick="goTo(2)" disabled>Next →</button>
+    <button class="btn-primary" id="btn-1" onclick="goTo(2)" disabled>Next</button>
   </div>
 </div>
 
@@ -304,8 +305,8 @@ textarea::placeholder{ color:var(--muted); font-size:.95rem; }
   <div class="chips-note" id="chips-note"></div>
   <textarea id="a-why" placeholder="What would change in your life if this actually happened?" rows="3"></textarea>
   <div class="btn-row">
-    <button class="btn-back" onclick="goTo(1)">← Back</button>
-    <button class="btn-primary" id="btn-2" onclick="goTo(3)" disabled>Next →</button>
+    <button class="btn-back" onclick="goTo(1)"> Back</button>
+    <button class="btn-primary" id="btn-2" onclick="goTo(3)" disabled>Next</button>
   </div>
 </div>
 
@@ -320,8 +321,8 @@ textarea::placeholder{ color:var(--muted); font-size:.95rem; }
   <div class="chips" id="obs-chips"></div>
   <textarea id="a-obs" placeholder="Anything else? Add your own here..." rows="2" style="margin-top:.4rem;min-height:70px;"></textarea>
   <div class="btn-row">
-    <button class="btn-back" onclick="goTo(2)">← Back</button>
-    <button class="btn-primary" onclick="goTo(4)">Next →</button>
+    <button class="btn-back" onclick="goTo(2)"> Back</button>
+    <button class="btn-primary" onclick="goTo(4)">Next</button>
   </div>
 </div>
 
@@ -335,8 +336,8 @@ textarea::placeholder{ color:var(--muted); font-size:.95rem; }
   <p class="hint">Not the whole plan, just the very next thing. It should feel almost too small. That's how you know it's right.</p>
   <textarea id="a-step" placeholder="e.g. Block 30 minutes this week to write down what I actually want&#10;&#10;e.g. Send one message to someone already doing what I want to do&#10;&#10;e.g. Have one honest conversation with my manager" rows="5"></textarea>
   <div class="btn-row">
-    <button class="btn-back" onclick="goTo(3)">← Back</button>
-    <button class="btn-primary" id="btn-4" onclick="submit()" disabled>Build my canvas →</button>
+    <button class="btn-back" onclick="goTo(3)"> Back</button>
+    <button class="btn-primary" id="btn-4" onclick="submit()" disabled>Build my canvas</button>
   </div>
 </div>
 
@@ -611,6 +612,7 @@ function restart(){
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 

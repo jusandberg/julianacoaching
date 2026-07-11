@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Decision Compass · Coaching</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
+<title>Decision Compass, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
-  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--teal-d:#29494B; --sage:#718578; --sage-d:#52685B; --cyan:#4F7183; --cyan-d:#385768;
+--clay:#80513F; --clay-soft:#EADED8; --plum:#5B4E63; --plum-soft:#E5DFE7;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
@@ -307,7 +308,7 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-d" onclick="goToValues()" disabled>Next, Set your values →</button>
+    <button class="btn-primary" id="btn-d" onclick="goToValues()" disabled>Next, Set your values</button>
   </div>
 </div>
 
@@ -323,8 +324,8 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-back" onclick="goTo('decision')">← Back</button>
-    <button class="btn-primary" onclick="goToScore()">Next, Score each option →</button>
+    <button class="btn-back" onclick="goTo('decision')"> Back</button>
+    <button class="btn-primary" onclick="goToScore()">Next, Score each option</button>
   </div>
 </div>
 
@@ -349,8 +350,8 @@ textarea::placeholder, input::placeholder{ color:var(--muted); font-size:.93rem;
   </div>
 
   <div class="btn-bar">
-    <button class="btn-back" onclick="goTo('values')">← Back</button>
-    <button class="btn-primary" id="btn-score" onclick="showResult()" disabled>See my compass result →</button>
+    <button class="btn-back" onclick="goTo('values')"> Back</button>
+    <button class="btn-primary" id="btn-score" onclick="showResult()" disabled>See my compass result</button>
   </div>
 </div>
 
@@ -417,7 +418,7 @@ const DEFAULT_VALUES = [
 ];
 
 let values = DEFAULT_VALUES.map(v => ({ name: v, weight: 2 }));
-let scoresA = {}; // valueIndex → 1|2|3
+let scoresA = {}; // valueIndex  1|2|3
 let scoresB = {};
 let optA = '', optB = '';
 
@@ -645,6 +646,7 @@ renderValueRows();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 

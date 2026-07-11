@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
 <title>Wheel of Life, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,8 @@
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--clay:#80513F; --plum:#5B4E63;
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
   --radius:24px;
 }
@@ -390,7 +391,7 @@ function updateResults(){
   document.getElementById('weakest-area').innerHTML =
     CATEGORIES[minIdx].label + ' (' + values[minIdx] + '/10)';
 
-  // 3 lowest → reflection prompts
+  // 3 lowest  reflection prompts
   const sorted = values.map((v,i) => ({v,i})).sort((a,b) => a.v - b.v);
   const el = document.getElementById('next-steps');
   el.innerHTML = '';
@@ -417,6 +418,7 @@ setTimeout(() => { drawWheel(); updateResults(); }, 60);
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 

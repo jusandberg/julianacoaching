@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Energy Audit · Coaching</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=4">
+<title>Energy Audit, Coaching</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF; --ink:#1A1A1C; --grey:#6E6E73; --muted:#6E6E73; --line:#EAEAEF; --soft:#FAFAFB;
-  --blue:#DFE5EA; --green:#657482; --yellow:#D9B75E; --teal:#657482;
-  --teal-d:#4F5F6C; --sage:#D9B75E; --sage-d:#8B7338; --cyan:#657482; --cyan-d:#4F5F6C;
+--blue:#DBE6ED; --green:#52685B; --yellow:#D9B75E; --teal:#365F61;
+--teal-d:#29494B; --sage:#718578; --sage-d:#52685B; --cyan:#4F7183; --cyan-d:#385768;
+--clay:#80513F; --clay-soft:#EADED8; --plum:#5B4E63; --plum-soft:#E5DFE7;
   --card:#FFFFFF; --radius:24px; --shadow:0 4px 16px rgba(7,16,20,.05);
   --grad:linear-gradient(110deg,#657482 0%,#D9B75E 48%,#F3E4BD 100%);
 }
@@ -265,20 +266,16 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   <div class="sheet-btns">
     <button class="sheet-btn sbtn-gives" onclick="setTag(currentId,'gives')">
       <span class="sbtn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.09 12.96A1 1 0 0 0 5 14.5h5.5L10 22l9.91-10.96A1 1 0 0 0 19 9.5h-5.5L13 2z"/></svg></span>
-      <div><div>Gives energy</div><div class="sheet-desc">I feel better or energised after</div></div>
-    </button>
+      <div><div>Gives energy</div><div class="sheet-desc">I feel better or energised after</div></div></button>
     <button class="sheet-btn sbtn-drains" onclick="setTag(currentId,'drains')">
       <span class="sbtn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 0 4 4 4 9a4 4 0 0 1-8 0c0-2 1-4 1-4S7 9 7 12a5 5 0 0 0 10 0c0-6-5-10-5-10z"/></svg></span>
-      <div><div>Drains energy</div><div class="sheet-desc">I feel depleted or heavier after</div></div>
-    </button>
+      <div><div>Drains energy</div><div class="sheet-desc">I feel depleted or heavier after</div></div></button>
     <button class="sheet-btn sbtn-neutral" onclick="setTag(currentId,'neutral')">
       <span class="sbtn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      <div><div>Neutral</div><div class="sheet-desc">Doesn't noticeably affect my energy</div></div>
-    </button>
+      <div><div>Neutral</div><div class="sheet-desc">Doesn't noticeably affect my energy</div></div></button>
     <button class="sheet-btn sbtn-cancel" onclick="closeSheet()">
       <span class="sbtn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-      <div>Cancel</div>
-    </button>
+      <div>Cancel</div></button>
   </div>
 </div>
 
@@ -308,7 +305,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
 
   <div class="btn-bar">
-    <button class="btn-primary" id="btn-insights" onclick="goToInsights()">See my insights →</button>
+    <button class="btn-primary" id="btn-insights" onclick="goToInsights()">See my insights</button>
   </div>
 </div>
 
@@ -355,7 +352,7 @@ h2,h3,h4{ font-family:'Inter',sans-serif; line-height:1.15; }
   </div>
 
   <div class="btn-bar" style="display:flex;gap:.6rem;">
-    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;" onclick="goTo('tag')">← Back</button>
+    <button class="btn-primary" style="background:rgba(7,16,20,.07);color:var(--muted);box-shadow:none;" onclick="goTo('tag')"> Back</button>
     <button class="btn-primary" onclick="resetAll()">Start over</button>
   </div>
 </div>
@@ -460,7 +457,7 @@ function updateProgress(){
   document.getElementById('progress-pct').textContent = pct + '%';
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('btn-insights').textContent =
-    tagged < 5 ? 'Tag at least 5 to continue (' + tagged + '/5)' : 'See my insights →';
+    tagged < 5 ? 'Tag at least 5 to continue (' + tagged + '/5)' : 'See my insights ';
   document.getElementById('btn-insights').disabled = tagged < 5;
   if(tagged < 5) document.getElementById('btn-insights').style.opacity = '.5';
   else document.getElementById('btn-insights').style.opacity = '1';
@@ -597,6 +594,7 @@ init();
 <script src="page-nav.js"></script>
 </body>
 </html>
+
 
 
 
