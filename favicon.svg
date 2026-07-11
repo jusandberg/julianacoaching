@@ -1,5 +1,13 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="The U Method favicon">
-  <circle cx="32" cy="32" r="25" fill="none" stroke="#C59A16" stroke-width="7" stroke-linecap="round" stroke-dasharray="130 25" transform="rotate(-42 32 32)"/>
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#385768"/>
+      <stop offset="0.58" stop-color="#D9B75E"/>
+      <stop offset="1" stop-color="#F3E4BD"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="#FFFFFF"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" stroke-dasharray="130 25" transform="rotate(-42 32 32)"/>
   <text x="32" y="43" fill="#101419" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" text-anchor="middle">U</text>
-  <circle cx="51" cy="11" r="5.25" fill="#C59A16"/>
+  <circle cx="51" cy="11" r="5.25" fill="#385768"/>
 </svg>

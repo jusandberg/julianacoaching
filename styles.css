@@ -1,25 +1,25 @@
 ﻿:root {
   --ink: #101419;
-  --muted: #66707a;
+  --muted: #4f5963;
   --soft: #e9edf0;
   --paper: #f8f9fa;
-  --line: #d9dee4;
-  --mint: #d9b75e;
+  --line: #c8d0d8;
+  --mint: #8f6b00;
   --blue: #dbe6ed;
   --blue-slate: #385768;
   --mist-blue: #dbe6ed;
   --peach: #f7efe1;
   --soft-cream: #f7efe1;
-  --sage: #52685b;
+  --sage: #425649;
   --sage-soft: #e2e9e3;
-  --teal: #365f61;
+  --teal: #294f51;
   --teal-soft: #dce9e9;
   --clay: #80513f;
   --clay-soft: #eaded8;
   --plum: #5b4e63;
   --plum-soft: #e5dfe7;
   --lilac: #c8d0d8;
-  --lemon: #d9b75e;
+  --lemon: #8f6b00;
   --green: #385768;
   --google-blue: #385768;
   --shadow: 0 24px 74px rgba(16, 20, 25, .12);
@@ -109,7 +109,7 @@ img {
   align-items: center;
   padding: 0 12px;
   border-radius: 999px;
-  color: #39414a;
+  color: #2f3740;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
@@ -117,7 +117,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  background: #edf0f2;
+  background: #e1e7ec;
   color: var(--ink);
 }
 
@@ -1867,8 +1867,9 @@ h3 {
 
 .carousel-arrow:disabled {
   cursor: not-allowed;
-  opacity: .35;
-  background: #fff;
+  opacity: 1;
+  color: #5f6872;
+  background: #f4f6f8;
 }
 
 .carousel-arrow-side {
@@ -2349,7 +2350,8 @@ details p {
     min-height: 48px;
     justify-content: center;
     border-radius: var(--radius);
-    background: #f6f7f9;
+    background: #eef2f5;
+    color: var(--ink);
     font-size: 15px;
   }
 
@@ -2732,4 +2734,20 @@ details p {
 
 
 
+
+
+/* Accessibility: clear keyboard focus and stronger contrast */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #8f6b00;
+  outline-offset: 3px;
+}
+
+::placeholder {
+  color: #5f6872;
+  opacity: 1;
+}
 
