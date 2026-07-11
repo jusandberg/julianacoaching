@@ -2388,9 +2388,14 @@ details p {
   }
 
   .method-video-frame {
-    width: calc(100% + 28px);
-    margin-inline: -14px;
-    aspect-ratio: 4 / 4.8;
+    width: 100%;
+    margin-inline: 0;
+    aspect-ratio: 16 / 9;
+    max-height: 70svh;
+  }
+
+  .method-video-frame video {
+    object-fit: contain;
   }
 
   h1 {
