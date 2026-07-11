@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Hero's Journey | The U Method</title>
+  <meta name="description" content="An interactive reflection experience. Walk one full arc of change and discover which inner archetype guided you: The Witness, The Inner Guide, or The Explorer.">
+  <style>
+    /* ============================================================
+       THE U METHOD · DESIGN TOKENS (matches styles.css)
+       ============================================================ */
+    :root {
+      --ink: #101419;
+      --muted: #66707a;
+      --paper: #f8f9fa;
+      --line: #d9dee4;
+      --slate: #657482;
+      --gold: #d9b75e;
+      --gold-deep: #92752c;
+      --cream: #f3e4bd;
+      --blue: #dfe5ea;
+      --shadow: 0 24px 74px rgba(16, 20, 25, .12);
+      --grad: linear-gradient(110deg, #657482 0%, #d9b75e 48%, #f3e4bd 100%);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .wrap { width: min(880px, calc(100% - 40px)); margin: 0 auto; }
+
+    /* ============================================================
+       TOP BAR
+       ============================================================ */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 70px;
+      background: rgba(248, 249, 250, .9);
+      border-bottom: 1px solid rgba(16, 20, 25, .1);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--gold-deep); }
+
+    .nav-cta {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover { background: #000; }
+
+    /* ============================================================
+       SHARED TYPE
+       ============================================================ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(42px, 6.4vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -.03em;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+
+    .gradient-text {
+      background: var(--grad);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+      padding-bottom: .08em;
+    }
+
+    .lead {
+      max-width: 640px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.55;
+    }
+
+    .microcopy { color: var(--muted); font-size: 14px; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 22px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(17, 17, 19, .16);
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: #cfd4db;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ============================================================
+       FLOATING DECOR (matches site motif)
+       ============================================================ */
+    .decor-dot {
+      position: absolute;
+      display: block;
+      width: var(--dot-size, 24px);
+      height: var(--dot-size, 24px);
+      border-radius: 50%;
+      background: var(--dot-color, #657482);
+      opacity: .5;
+      box-shadow: 0 10px 28px rgba(16, 20, 25, .08);
+      animation: dotDrift 6.4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .dot-large { --dot-size: 34px; --dot-color: #657482; }
+    .dot-medium { --dot-size: 22px; --dot-color: #d9b75e; animation-delay: -2.6s; }
+    .dot-small { --dot-size: 18px; --dot-color: #f3e4bd; animation-delay: -1.8s; }
+
+    @keyframes dotDrift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(14px, -10px, 0); }
+    }
+
+    /* ============================================================
+       SCREENS
+       ============================================================ */
+    .screen {
+      position: relative;
+      display: none;
+      min-height: calc(100svh - 70px);
+      padding: 64px 0 84px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .screen.active { display: block; }
+
+    .screen > .wrap { position: relative; z-index: 1; }
+
+    /* ---------- Intro ---------- */
+    #screen-intro {
+      display: none;
+      background: linear-gradient(180deg, #fbfcfd 0%, #f4f0e5 100%);
+    }
+
+    #screen-intro.active { display: grid; align-items: center; }
+
+    .intro-archetypes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 34px;
+    }
+
+    .keyword-chip {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .keyword-chip::before {
+      content: none;
+    }
+
+    .archetype-mark {
+      display: grid;
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .56);
+    }
+
+    .archetype-mark svg { width: 22px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .keyword-chip.slate { background: rgba(101, 116, 130, .16); color: var(--slate); }
+    .keyword-chip.gold { background: var(--gold); color: var(--ink); }
+    .keyword-chip.cream { background: var(--cream); color: var(--gold-deep); }
+
+    .intro-note {
+      max-width: 560px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------- Journey ---------- */
+    .journey-head {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      margin-bottom: 20px;
+    }
+
+    .stage-label {
+      margin: 0;
+      color: var(--gold-deep);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .stage-count {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* The U-shaped progress path — the signature element */
+    .u-path-frame {
+      position: relative;
+      margin: 0 auto 10px;
+      width: 100%;
+      max-width: 880px;
+    }
+
+    .u-path-frame::after {
+      content: "";
+      position: absolute;
+      left: var(--traveler-x, 7%);
+      top: var(--traveler-y, 15%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(217, 183, 94, .13);
+      filter: blur(16px);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: left .9s cubic-bezier(.6, 0, .3, 1), top .9s cubic-bezier(.6, 0, .3, 1);
+    }
+
+    .u-path-frame svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+    .u-track { stroke: var(--line); stroke-width: 2.5; fill: none; }
+
+    .u-progress {
+      stroke: var(--gold);
+      stroke-width: 2.5;
+      fill: none;
+      transition: stroke-dashoffset .9s cubic-bezier(.6, 0, .3, 1);
+    }
+
+    .u-stage-dot { fill: #fff; stroke: var(--line); stroke-width: 2; transition: fill .5s ease, stroke .5s ease; }
+    .u-stage-dot.done { fill: var(--gold); stroke: var(--gold); }
+
+    .u-traveler {
+      fill: var(--cream);
+      stroke: var(--gold);
+      stroke-width: 1.6;
+      filter: drop-shadow(0 8px 14px rgba(217, 183, 94, .45));
+      transition: cx .9s cubic-bezier(.6, 0, .3, 1), cy .9s cubic-bezier(.6, 0, .3, 1);
+    }
+
+    .u-edge-label {
+      fill: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .u-complete-mark {
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .u-complete-mark.visible { opacity: 1; }
+    .u-complete-mark circle { fill: var(--gold); stroke: var(--gold); stroke-width: 1.5; }
+    .u-complete-mark path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Scene card */
+    .scene-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 44px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(16, 20, 25, .045);
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .scene-card.leaving { opacity: 0; transform: translateY(10px); }
+
+    .scene-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -56px;
+      top: -48px;
+      border-radius: 50%;
+      border: 1px solid rgba(217, 183, 94, .28);
+      pointer-events: none;
+    }
+
+    .scene-reflection {
+      margin: 0 0 18px;
+      padding-left: 16px;
+      border-left: 3px solid #385768;
+      color: #385768;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: clamp(28px, 5vw, 58px);
+      align-items: start;
+    }
+
+    .scene-narrative,
+    .scene-decision { min-width: 0; }
+
+    .scene-decision {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+    }
+
+    .scene-title {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3.4vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .scene-title:focus { outline: none; }
+
+    .scene-text {
+      max-width: 640px;
+      margin: 0 0 26px;
+      color: #30343a;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.6;
+    }
+
+    .choice-prompt {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .choices { display: grid; gap: 10px; }
+
+    .journey-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 16px; }
+    .back-button { min-height: 34px; padding: 0 12px; border: 1px solid #c8d4dc; border-radius: 999px; background: #eef3f6; color: #385768; font: 750 12px/1 inherit; cursor: pointer; }
+    .back-button:hover { background: #dbe6ed; color: var(--ink); border-color: #aebfc9; }
+    .back-button:disabled { visibility: hidden; }
+    .button:focus-visible, .back-button:focus-visible, .nav-cta:focus-visible, .brand:focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 3px; }
+    .choice[disabled] { cursor: wait; opacity: .72; }
+    .choice.selected { border-color: var(--gold); background: #f7f3e8; }
+    .choice.selected::before { border-color: var(--gold); background: var(--gold); }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 650;
+      line-height: 1.4;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+
+    .choice::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 2px solid var(--slate);
+      background: transparent;
+      transition: background .18s ease, border-color .18s ease;
+    }
+
+    .choice:hover,
+    .choice:focus-visible {
+      border-color: rgba(217, 183, 94, .7);
+      background: #f7f3e8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(16, 20, 25, .08);
+    }
+
+    .choice:hover::before,
+    .choice:focus-visible::before {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
+    .choice:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+
+    /* ---------- Results ---------- */
+    #screen-results { background: linear-gradient(180deg, #fbfcfd 0%, #f4f0e5 100%); }
+
+    .result-card {
+      position: relative;
+      overflow: hidden;
+      max-width: 720px;
+      padding: clamp(28px, 4.4vw, 48px);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .result-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .result-identity .archetype-mark {
+      width: 56px;
+      height: 56px;
+      background: var(--cream);
+      color: var(--gold-deep);
+    }
+
+    .result-identity .archetype-mark svg { width: 38px; height: 28px; }
+
+    .result-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -64px;
+      bottom: -58px;
+      border-radius: 50%;
+      border: 1px solid rgba(217, 183, 94, .3);
+      pointer-events: none;
+    }
+
+    .result-card p {
+      max-width: 560px;
+      margin: 0 0 18px;
+      color: #30343a;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.6;
+    }
+
+    .result-question {
+      margin: 26px 0 0;
+      padding: 18px;
+      border: 1px dashed rgba(101, 116, 130, .34);
+      border-radius: var(--radius);
+      background: rgba(243, 228, 189, .28);
+    }
+
+    .result-question span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold-deep);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .result-question p {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    .tally-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 26px;
+    }
+
+    .tally-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .tally-chip strong { color: var(--ink); font-weight: 900; }
+
+    .tally-chip.lead-chip {
+      border-color: rgba(217, 183, 94, .7);
+      background: var(--cream);
+      color: var(--gold-deep);
+    }
+
+    .tally-chip.lead-chip strong { color: var(--gold-deep); }
+
+    .result-cta {
+      max-width: 720px;
+      margin-top: 34px;
+    }
+
+    .result-cta p {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ============================================================
+       RESPONSIVE + MOTION
+       ============================================================ */
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 880px); }
+      .site-nav { height: 58px; }
+      .nav-inner { width: calc(100% - 28px); }
+      .brand { max-width: 68%; font-size: 14px; }
+      .brand span { display: none; }
+      .nav-cta { min-height: 38px; padding: 0 14px; }
+      .screen { min-height: calc(100svh - 58px); padding: 30px 0 48px; }
+      #screen-intro.active { align-items: start; }
+      h1 { font-size: clamp(38px, 12vw, 54px); }
+      .lead { margin-bottom: 20px; font-size: 16px; }
+      .intro-archetypes { margin-bottom: 24px; gap: 8px; }
+      .keyword-chip { min-height: 36px; padding: 0 13px; font-size: 13px; }
+      .journey-head { min-height: 46px; margin-bottom: 12px; padding: 0 42px; }
+      .stage-label { font-size: 12px; line-height: 1.35; }
+      .stage-count { font-size: 11px; }
+      .u-path-frame { max-width: none; margin-bottom: 6px; }
+      .scene-card { padding: 22px 18px; }
+      .scene-text { margin-bottom: 20px; font-size: 16px; line-height: 1.55; }
+      .choice { min-height: 58px; padding: 14px; }
+      .actions { display: grid; }
+      .button { width: 100%; }
+    }
+
+    @media (max-width: 849px) {
+      .scene-grid { grid-template-columns: 1fr; gap: 0; }
+      .scene-decision { display: block; }
+    }
+
+    @media (max-width: 380px) {
+      .u-path-frame { max-width: none; }
+      .scene-card { padding-inline: 15px; }
+      .choice { font-size: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .decor-dot { animation: none; }
+      .u-progress, .u-traveler, .scene-card, .choice, .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html">The U Method <span>· The Hero's Journey</span></a>
+      <a class="nav-cta" href="./booking.html">Book</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ INTRO ============ -->
+    <section class="screen active" id="screen-intro" aria-label="Introduction">
+      <span class="decor-dot dot-large" style="left:6%; top:20%;" aria-hidden="true"></span>
+      <span class="decor-dot dot-medium" style="right:10%; top:26%;" aria-hidden="true"></span>
+      <span class="decor-dot dot-small" style="right:22%; bottom:16%;" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="eyebrow">An interactive reflection</div>
+        <h1>Every change follows <span class="gradient-text">a shape.</span></h1>
+        <p class="lead">This is the Hero's Journey, the arc that runs through every story of real change: the descent into the unknown, the low point where something old is released, and the return with something true. In the next few minutes, you will walk one full arc of it yourself.</p>
+        <p class="lead">There are no right answers. Choose the response that feels most like you, and at the end you will discover which inner archetype guided your journey.</p>
+        <div class="intro-archetypes" aria-label="The three archetypes">
+          <span class="keyword-chip slate"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span>The Witness</span>
+          <span class="keyword-chip gold"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg></span>The Inner Guide</span>
+          <span class="keyword-chip cream"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg></span>The Explorer</span>
+        </div>
+        <div class="actions">
+          <button class="button" id="begin-btn" type="button">Begin the journey</button>
+        </div>
+        <p class="intro-note">Eight stages. About five minutes. Nothing is recorded, this journey lives only in your browser.</p>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="screen" id="screen-journey" aria-label="The journey">
+      <span class="decor-dot dot-medium" style="left:5%; bottom:18%;" aria-hidden="true"></span>
+      <span class="decor-dot dot-small" style="right:7%; top:18%;" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="journey-head">
+          <p class="stage-label" id="stage-label">Stage 01 · The Ordinary World</p>
+          <span class="stage-count" id="stage-count">1 of 8</span>
+        </div>
+
+        <div class="u-path-frame" aria-hidden="true">
+          <svg id="u-svg" viewBox="0 0 760 210">
+            <text class="u-edge-label" x="42" y="16">Departure</text>
+            <text class="u-edge-label" x="718" y="16" text-anchor="end">Return</text>
+            <path class="u-track" id="u-track" d="M 52 32 C 52 150, 190 184, 380 184 C 570 184, 708 150, 708 32"/>
+            <path class="u-progress" id="u-progress" d="M 52 32 C 52 150, 190 184, 380 184 C 570 184, 708 150, 708 32"/>
+            <g id="u-dots"></g>
+            <g id="u-complete-marks"></g>
+            <circle class="u-traveler" id="u-traveler" r="9"/>
+          </svg>
+        </div>
+
+        <article class="scene-card" id="scene-card">
+          <p class="scene-reflection" id="scene-reflection" hidden></p>
+          <div class="scene-grid">
+            <div class="scene-narrative">
+              <h2 class="scene-title" id="scene-title"></h2>
+              <p class="scene-text" id="scene-text"></p>
+            </div>
+            <div class="scene-decision">
+              <p class="choice-prompt">What do you do?</p>
+              <div class="choices" id="choices"></div>
+            </div>
+          </div>
+          <div class="journey-actions">
+            <button class="back-button" id="back-btn" type="button">← Previous stage</button>
+            <span class="microcopy" id="progress-status" role="status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="screen" id="screen-results" aria-label="Your result">
+      <span class="decor-dot dot-large" style="right:8%; top:16%;" aria-hidden="true"></span>
+      <span class="decor-dot dot-small" style="left:10%; bottom:20%;" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="eyebrow">The return</div>
+        <h1 id="result-title">Your guide was <span class="gradient-text">The Witness.</span></h1>
+        <div class="tally-row" id="tally-row"></div>
+        <div class="result-card">
+          <div class="result-identity" aria-hidden="true"><span class="archetype-mark" id="result-icon"></span></div>
+          <p id="result-body-1"></p>
+          <p id="result-body-2"></p>
+          <div class="result-question">
+            <span>Take this with you</span>
+            <p id="result-question"></p>
+          </div>
+        </div>
+        <div class="result-cta">
+          <p>Every real journey is easier with someone walking beside you. If something stirred during this reflection, coaching is a grounded place to explore it further.</p>
+          <div class="actions">
+            <a class="button" href="./booking.html">Book a discovery call</a>
+            <button class="button secondary" id="restart-btn" type="button">Walk the journey again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ==================================================================
+       STORY DATA — edit freely.
+       Each stage has: label, title, text, and three choices.
+       Each choice has: label (button text), type (witness | guide | explorer),
+       and reflection (the italic line shown at the top of the next stage).
+       ================================================================== */
+    const STAGES = [
+      {
+        label: "Stage 01 · The Ordinary World",
+        title: "The life you know by heart",
+        text: "Your days have a shape you could walk with your eyes closed. The same routes, the same roles, the same version of you showing up in each of them. It works. And yet lately a quiet question has started following you around: is this still mine? Today, in an ordinary moment, the question arrives again, and this time it does not leave.",
+        choices: [
+          { type: "witness", label: "Pause and simply notice the question, without rushing to answer it", reflection: "You chose to notice before acting. Awareness opened the door." },
+          { type: "guide", label: "Sit quietly and ask yourself what the question is really pointing to", reflection: "You turned inward and listened. Something in you already knows." },
+          { type: "explorer", label: "Break your routine today and see what the change stirs up", reflection: "You moved first and let the movement teach you." }
+        ]
+      },
+      {
+        label: "Stage 02 · The Call",
+        title: "Something arrives",
+        text: "It comes the way calls always do: disguised as ordinary life. An unexpected conversation. An opportunity you did not ask for. A loss that rearranges what matters. Whatever form it takes, it points toward a version of your life you have not lived yet, and it asks something of you.",
+        choices: [
+          { type: "witness", label: "Watch your own reaction closely, the excitement and the fear both", reflection: "You witnessed your whole response, not just the comfortable half." },
+          { type: "guide", label: "Check the call against what you most deeply value", reflection: "You measured the call against your own compass." },
+          { type: "explorer", label: "Say a small yes, one step toward it, just to learn more", reflection: "You answered with a step instead of a speech." }
+        ]
+      },
+      {
+        label: "Stage 03 · The Threshold",
+        title: "The voice that says not yet",
+        text: "Now comes the hesitation. A persuasive inner voice lists every reason to stay: the timing is wrong, others need you as you are, the person you might become is a stranger. This voice is not your enemy. It is the part of you that has kept you safe. But tonight you stand at the edge of the familiar, and the edge is asking for a decision.",
+        choices: [
+          { type: "witness", label: "Name the fear out loud so it becomes something you can see", reflection: "You gave the fear a name, and it shrank to its true size." },
+          { type: "guide", label: "Thank the protective voice, then ask what your future self would choose", reflection: "You honored the guardian and still chose the road." },
+          { type: "explorer", label: "Cross before the voice can finish its list", reflection: "You crossed while the courage was warm." }
+        ]
+      },
+      {
+        label: "Stage 04 · Tests and Allies",
+        title: "The road reveals its company",
+        text: "On the other side of the threshold, the tests begin. Old patterns resurface under new pressure. Doubt visits at inconvenient hours. But something else happens too: an unexpected ally appears, someone who sees where you are headed before you can describe it. Help, it turns out, was waiting for you to be on the road.",
+        choices: [
+          { type: "witness", label: "Study which tests repeat, because repetition is information", reflection: "You saw the pattern beneath the tests. That is where the lesson lives." },
+          { type: "guide", label: "Let the ally in, and tell them the truth about where you are", reflection: "You let yourself be accompanied. Strength is not the same as solitude." },
+          { type: "explorer", label: "Treat each test as practice and take the harder path on purpose", reflection: "You trained on the terrain itself." }
+        ]
+      },
+      {
+        label: "Stage 05 · The Ordeal",
+        title: "The bottom of the U",
+        text: "Then comes the low point, the deepest bend of the journey. The old identity no longer fits, and the new one has not yet formed. There is nothing to perform here and nowhere to hurry to. In every story worth telling, this is where the real exchange happens: something is released so that something truer can take its place.",
+        choices: [
+          { type: "witness", label: "Stay present with the discomfort instead of numbing or fleeing it", reflection: "You stayed. Presence in the dark is its own kind of light." },
+          { type: "guide", label: "Ask the stillness what is ready to be released", reflection: "You let go of what was finished carrying you." },
+          { type: "explorer", label: "Trust that the bottom is a turning point and keep moving through", reflection: "You walked through the low point instead of building a house in it." }
+        ]
+      },
+      {
+        label: "Stage 06 · The Reward",
+        title: "What the depth gave back",
+        text: "Slowly, the light changes. Out of the low point comes something you could not have forced: clarity. Not a plan with bullet points, but a knowing. You understand something about yourself that cannot be un-known now, and it is simpler than you expected. The journey down was the price. This is what it purchased.",
+        choices: [
+          { type: "witness", label: "Write the insight down exactly as it is, before life blurs it", reflection: "You captured the truth while it was still sharp." },
+          { type: "guide", label: "Feel where the knowing lives in your body and memorize it", reflection: "You anchored the insight somewhere deeper than words." },
+          { type: "explorer", label: "Test the insight immediately in one real decision", reflection: "You spent the clarity while it was fresh, and it multiplied." }
+        ]
+      },
+      {
+        label: "Stage 07 · The Road Back",
+        title: "Returning changed",
+        text: "The road home looks familiar, but you are not. The old routines are still there, and they have gravity. The people around you expect the person who left, not the one returning. This is the quiet test of every journey: whether the change survives contact with ordinary life.",
+        choices: [
+          { type: "witness", label: "Notice the exact moments the old patterns reach for you", reflection: "You watched the pull without obeying it." },
+          { type: "guide", label: "Decide in advance which parts of the old life still align, and which do not", reflection: "You returned with discernment, not just memories." },
+          { type: "explorer", label: "Change one visible thing right away so the return is real", reflection: "You made the inner shift outward, where life could see it." }
+        ]
+      },
+      {
+        label: "Stage 08 · The Return with the Elixir",
+        title: "What you bring back",
+        text: "Every hero returns carrying something the ordinary world needs, an elixir. Yours is not an object. It is the way you now see, the steadiness you found at the bottom of the U, the truth you can no longer pretend not to know. The final question of the journey is not whether you changed. It is what you will do with it.",
+        choices: [
+          { type: "witness", label: "Let the change show in how you pay attention to others", reflection: "" },
+          { type: "guide", label: "Live from the knowing quietly, and let your choices speak", reflection: "" },
+          { type: "explorer", label: "Begin the next journey, because you now know the shape of the road", reflection: "" }
+        ]
+      }
+    ];
+
+    /* ==================================================================
+       ARCHETYPE RESULTS — edit freely.
+       ================================================================== */
+    const RESULTS = {
+      witness: {
+        name: "The Witness",
+        body1: "Again and again, you chose to see clearly before moving. The Witness is the part of you that creates space between what happens and how you respond, and in that space, your freedom lives. You do not confuse the storm with the sky it passes through.",
+        body2: "Your growth edge is trust in motion: the Witness can watch so carefully that the moment to act slips by. The journey is asking you to let your clear seeing become clear doing.",
+        question: "Where in your life are you watching something that is now ready for a response?"
+      },
+      guide: {
+        name: "The Inner Guide",
+        body1: "At each turning point, you went inward first. The Inner Guide is the part of you that already knows, the quiet compass beneath the noise of shoulds and expectations. You make your decisions from alignment, not urgency, and that is rarer than it sounds.",
+        body2: "Your growth edge is voice: inner knowing wants to be lived out loud. The journey is asking you to trust your compass in front of other people, not only in private.",
+        question: "What is one thing you already know to be true that you have not yet said out loud?"
+      },
+      explorer: {
+        name: "The Explorer",
+        body1: "You moved toward the unknown, every time. The Explorer is the part of you that learns by living, that trusts the road to reveal itself one step at a time. Where others wait for certainty, you create it through motion.",
+        body2: "Your growth edge is stillness: not every threshold needs to be crossed at speed. The journey is asking you to sometimes pause at the edge, long enough to hear what the crossing is for.",
+        question: "What might you discover if you stayed still just a little longer than feels comfortable?"
+      },
+      integrated: {
+        name: "The Integrated Path",
+        body1: "You did not travel with one guide, you travelled with all three. You witnessed before you acted, you listened inward before you chose, and you moved when movement was the truest answer. That balance is not indecision. It is range.",
+        body2: "Your growth edge is knowing which guide each moment is calling for. The journey is asking you to keep all three voices at the table, and to notice which one you reach for when things get hard.",
+        question: "In the challenge you are facing right now, which of the three voices have you not yet consulted?"
+      }
+    };
+
+    /* ==================================================================
+       ENGINE
+       ================================================================== */
+    const screens = {
+      intro: document.getElementById("screen-intro"),
+      journey: document.getElementById("screen-journey"),
+      results: document.getElementById("screen-results")
+    };
+
+    const el = {
+      stageLabel: document.getElementById("stage-label"),
+      stageCount: document.getElementById("stage-count"),
+      sceneCard: document.getElementById("scene-card"),
+      sceneReflection: document.getElementById("scene-reflection"),
+      sceneTitle: document.getElementById("scene-title"),
+      sceneText: document.getElementById("scene-text"),
+      choices: document.getElementById("choices"),
+      track: document.getElementById("u-track"),
+      progress: document.getElementById("u-progress"),
+      dots: document.getElementById("u-dots"),
+      completeMarks: document.getElementById("u-complete-marks"),
+      traveler: document.getElementById("u-traveler"),
+      resultTitle: document.getElementById("result-title"),
+      resultBody1: document.getElementById("result-body-1"),
+      resultBody2: document.getElementById("result-body-2"),
+      resultQuestion: document.getElementById("result-question"),
+      resultIcon: document.getElementById("result-icon"),
+      tallyRow: document.getElementById("tally-row")
+    };
+
+    const ARCHETYPE_ICONS = {
+      witness: '<svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg>',
+      guide: '<svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg>',
+      explorer: '<svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg>',
+      integrated: '<svg viewBox="0 0 64 44"><path d="M8 8c0 22 10 30 24 30S56 30 56 8"/><circle cx="32" cy="38" r="3"/></svg>'
+    };
+
+    const backBtn = document.getElementById("back-btn");
+    const progressStatus = document.getElementById("progress-status");
+
+    let current = 0;
+    let tally = { witness: 0, guide: 0, explorer: 0 };
+    let pendingReflection = "";
+    let answers = [];
+    let locked = false;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- U path setup ---------- */
+    const trackLength = el.track.getTotalLength();
+    el.progress.style.strokeDasharray = trackLength;
+    el.progress.style.strokeDashoffset = trackLength;
+
+    const stagePoints = STAGES.map((_, i) => {
+      const t = i / (STAGES.length - 1);
+      return el.track.getPointAtLength(t * trackLength);
+    });
+
+    stagePoints.forEach((p, i) => {
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.setAttribute("cx", p.x);
+      dot.setAttribute("cy", p.y);
+      dot.setAttribute("r", 4.5);
+      dot.classList.add("u-stage-dot");
+      dot.dataset.index = i;
+      el.dots.appendChild(dot);
+
+      const mark = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      mark.setAttribute("transform", "translate(" + p.x + " " + p.y + ")");
+      mark.setAttribute("aria-hidden", "true");
+      mark.classList.add("u-complete-mark");
+      mark.dataset.index = i;
+      const markCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      markCircle.setAttribute("r", 6);
+      const markCheck = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      markCheck.setAttribute("d", "M -2.5 0 L -0.5 2 L 3 -2");
+      mark.appendChild(markCircle);
+      mark.appendChild(markCheck);
+      el.completeMarks.appendChild(mark);
+    });
+
+    function updatePath(stageIndex) {
+      const t = stageIndex / (STAGES.length - 1);
+      el.progress.style.strokeDashoffset = trackLength * (1 - t);
+      const p = stagePoints[stageIndex];
+      const svgBox = document.getElementById("u-svg").viewBox.baseVal;
+      el.track.parentElement.parentElement.style.setProperty("--traveler-x", (p.x / svgBox.width * 100) + "%");
+      el.track.parentElement.parentElement.style.setProperty("--traveler-y", (p.y / svgBox.height * 100) + "%");
+      el.traveler.setAttribute("cx", p.x);
+      el.traveler.setAttribute("cy", p.y);
+      el.dots.querySelectorAll(".u-stage-dot").forEach((d, i) => {
+        d.classList.toggle("done", i <= stageIndex);
+      });
+      el.completeMarks.querySelectorAll(".u-complete-mark").forEach((mark, i) => {
+        mark.classList.toggle("visible", Boolean(answers[i]));
+      });
+    }
+
+    /* ---------- Screens ---------- */
+    function showScreen(name) {
+      Object.values(screens).forEach(s => s.classList.remove("active"));
+      screens[name].classList.add("active");
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+
+    /* ---------- Scene rendering ---------- */
+    function renderStage(index) {
+      const stage = STAGES[index];
+      const num = String(index + 1).padStart(2, "0");
+      el.stageLabel.textContent = stage.label;
+      el.stageCount.textContent = (index + 1) + " of " + STAGES.length;
+
+      if (pendingReflection) {
+        el.sceneReflection.textContent = pendingReflection;
+        el.sceneReflection.hidden = false;
+      } else {
+        el.sceneReflection.hidden = true;
+      }
+
+      el.sceneTitle.textContent = stage.title;
+      el.sceneText.textContent = stage.text;
+      el.choices.innerHTML = "";
+
+      const orderedChoices = stage.choices.map((choice, i) =>
+        stage.choices[(i + index) % stage.choices.length]
+      );
+      orderedChoices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "choice";
+        btn.textContent = choice.label;
+        if (answers[index] && answers[index].type === choice.type) {
+          btn.classList.add("selected");
+          btn.setAttribute("aria-pressed", "true");
+        }
+        btn.addEventListener("click", () => pick(choice));
+        el.choices.appendChild(btn);
+      });
+
+      backBtn.disabled = index === 0;
+      progressStatus.textContent = "Stage " + (index + 1) + " of " + STAGES.length;
+      updatePath(index);
+    }
+
+    function pick(choice) {
+      if (locked) return;
+      locked = true;
+      el.choices.querySelectorAll("button").forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === choice.label) btn.classList.add("selected");
+      });
+      if (answers[current]) tally[answers[current].type] -= 1;
+      answers[current] = choice;
+      tally[choice.type] += 1;
+      updatePath(current);
+      pendingReflection = choice.reflection || "";
+
+      if (current >= STAGES.length - 1) {
+        transitionCard(() => { showResults(); locked = false; });
+        return;
+      }
+
+      current += 1;
+      transitionCard(() => {
+        renderStage(current);
+        locked = false;
+        el.sceneTitle.setAttribute("tabindex", "-1");
+        el.sceneTitle.focus({ preventScroll: true });
+      });
+    }
+
+    function transitionCard(after) {
+      if (reduceMotion) { after(); return; }
+      el.sceneCard.classList.add("leaving");
+      setTimeout(() => {
+        after();
+        el.sceneCard.classList.remove("leaving");
+      }, 350);
+    }
+
+    /* ---------- Results ---------- */
+    function showResults() {
+      const entries = [
+        ["witness", tally.witness],
+        ["guide", tally.guide],
+        ["explorer", tally.explorer]
+      ].sort((a, b) => b[1] - a[1]);
+
+      const topScore = entries[0][1];
+      const spread = entries[0][1] - entries[entries.length - 1][1];
+      const key = spread <= 1 ? "integrated" : entries[0][0];
+      const result = RESULTS[key];
+
+      el.resultTitle.innerHTML = (key === "integrated" ? "You walked " : "Your guide was ") +
+        '<span class="gradient-text">' + result.name + ".</span>";
+      el.resultBody1.textContent = result.body1;
+      el.resultBody2.textContent = result.body2;
+      el.resultQuestion.textContent = result.question;
+      el.resultIcon.innerHTML = ARCHETYPE_ICONS[key];
+
+      el.tallyRow.innerHTML = "";
+      const names = { witness: "The Witness", guide: "The Inner Guide", explorer: "The Explorer" };
+      entries.forEach(([type, score]) => {
+        const chip = document.createElement("span");
+        chip.className = "tally-chip" + (score === topScore ? " lead-chip" : "");
+        chip.innerHTML = names[type] + " <strong>" + score + "</strong>";
+        el.tallyRow.appendChild(chip);
+      });
+
+      showScreen("results");
+    }
+
+    /* ---------- Wiring ---------- */
+    document.getElementById("begin-btn").addEventListener("click", () => {
+      current = 0;
+      tally = { witness: 0, guide: 0, explorer: 0 };
+      pendingReflection = "";
+      answers = [];
+      locked = false;
+      renderStage(0);
+      showScreen("journey");
+    });
+
+    document.getElementById("restart-btn").addEventListener("click", () => {
+      current = 0;
+      tally = { witness: 0, guide: 0, explorer: 0 };
+      pendingReflection = "";
+      answers = [];
+      locked = false;
+      renderStage(0);
+      showScreen("journey");
+    });
+
+    backBtn.addEventListener("click", () => {
+      if (locked || current === 0) return;
+      current -= 1;
+      pendingReflection = current > 0 && answers[current - 1] ? answers[current - 1].reflection : "";
+      renderStage(current);
+      el.sceneTitle.setAttribute("tabindex", "-1");
+      el.sceneTitle.focus({ preventScroll: true });
+    });
+  </script>
+</body>
+</html>
