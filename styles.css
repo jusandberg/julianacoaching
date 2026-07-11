@@ -90,7 +90,7 @@ img {
 }
 
 .brand img {
-  width: 214px;
+  width: 236px;
   height: auto;
 }
 
@@ -2320,7 +2320,7 @@ details p {
   }
 
   .brand img {
-    width: 188px;
+    width: 208px;
   }
 
   .menu-toggle {
@@ -2728,6 +2728,7 @@ details p {
     transition: none;
   }
 }
+
 
 
 
