@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --ink: #101419;
   --muted: #66707a;
   --soft: #e9edf0;
@@ -481,7 +481,7 @@ h3 {
   object-position: center 28%;
   border-radius: 50%;
   opacity: .88;
-  mix-blend-mode: luminosity;
+  filter: grayscale(100%);
   box-shadow: var(--shadow);
 }
 
@@ -2816,7 +2816,3 @@ details p {
     transition: none;
   }
 }
-
-
-
-
