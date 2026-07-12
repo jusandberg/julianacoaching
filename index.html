@@ -163,25 +163,23 @@
       .hero-ring{animation:none}
     }
 
-  
+  </style>
+  <link rel="stylesheet" href="./styles.css?v=11">
+  <style>
     /* ============================================================
-       NAV & LOGO UPDATES (requested Jul 12)
-       - Bigger logo, desktop + mobile
-       - Hamburger icon instead of "+" (with X when open)
-       - Slower testimonial carousel on mobile
+       NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
+       even in the repo where the real stylesheet is present)
        ============================================================ */
-    .brand img{width:260px}
+    .brand img{width:260px!important}
     @media (max-width:760px){
-      .brand img{width:220px}
+      .brand img{width:220px!important}
     }
     .menu-toggle{position:relative;font-size:0}
     .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
     .menu-toggle .icon-x{display:none}
     .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
     .menu-toggle[aria-expanded="true"] .icon-x{display:block}
-
   </style>
-  <link rel="stylesheet" href="./styles.css?v=11">
 </head>
 <body class="home-slate-gold">
   <nav class="site-nav" aria-label="Primary navigation">
