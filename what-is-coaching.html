@@ -27,21 +27,38 @@
     @media (max-width:900px){ .wic-hero-bar{display:none} }
 
     /* ===== Who is coaching for: icon tile grid + single answer panel ===== */
-    .wic-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
-    .wic-tile-btn{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 6px;border-radius:16px;border:1.5px solid transparent;background:transparent;font:inherit;cursor:pointer;transition:border-color .2s ease,background .2s ease}
-    .wic-tile-btn[aria-pressed="true"]{border-color:#d9b75e;background:#f7f3e8}
-    .wic-tile{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--wic-tone,#385768),#d9b75e)}
-    .wic-tile svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
-    .wic-tile-btn span{font-size:12.5px;font-weight:700;color:#30343a;text-align:center;line-height:1.2}
-    .wic-panel{max-width:640px;margin:0 auto;text-align:center;padding:28px;background:#fff;border:1px solid var(--line);border-radius:16px}
-    .wic-panel h3{font-size:19px;margin-bottom:10px}
-    .wic-panel p{color:var(--muted);font-size:14.5px;margin:0}
-    .wic-panel .support-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px}
+    .wic-rows{display:flex;flex-direction:column;gap:34px;margin-bottom:6px}
+    .wic-row{display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+    .wic-icon-btn{display:flex;flex-direction:column;align-items:center;gap:11px;background:none;border:0;font:inherit;cursor:default;padding:6px;width:96px}
+    .wic-mark{position:relative;width:56px;height:56px;display:grid;place-items:center;color:var(--c)}
+    .wic-mark::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--c);opacity:.12;transition:opacity .2s ease,transform .2s ease}
+    .wic-mark svg{position:relative;width:25px;height:25px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+    .wic-icon-btn:hover .wic-mark::before,.wic-icon-btn:focus-visible .wic-mark::before{opacity:.22;transform:scale(1.12)}
+    .wic-icon-btn:hover .wic-mark svg,.wic-icon-btn:focus-visible .wic-mark svg{transform:translateY(-2px)}
+    .wic-icon-btn span.wic-lbl{font-size:13px;font-weight:750;color:#30343a;text-align:center;line-height:1.25}
+    @media (max-width:760px){
+      .wic-row{gap:18px}
+      .wic-icon-btn{width:78px}
+    }
     @media (max-width:860px){
       .wic-grid{grid-template-columns:repeat(3,1fr)}
     }
     @media (max-width:520px){
       .wic-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    }
+
+    /* ===== Fix: close the gap between the (now shorter) hero and this section ===== */
+    .wic-who-section{padding-top:32px!important}
+    @media (max-width:760px){
+      .wic-who-section{padding-top:22px!important}
+    }
+
+    /* ===== Fix: tighten spacing around the comparison section now that its
+       heading is removed ===== */
+    .wic-vs-section{padding-top:36px!important}
+    .wic-vs-section .section-head{margin-bottom:22px!important}
+    @media (max-width:760px){
+      .wic-vs-section{padding-top:26px!important}
     }
 
     /* ===== Coaching vs therapy: two panels, no "Versus" label ===== */
@@ -106,40 +123,39 @@
       </div>
     </header>
 
-    <section class="section">
+    <section class="section wic-who-section">
       <span class="balance-motif section-balance left" aria-hidden="true"><span class="balance-ball"></span></span>
       <span class="decor-dot dot-medium dot-section-right"></span>
       <div class="wrap coaching-fit">
         <div class="section-head">
           <div class="eyebrow">Who it supports</div>
-          <h2>Who Is Coaching For?</h2>
           <p class="lead">Coaching is for individuals who want to understand themselves more deeply and move through life with greater alignment.</p>
         </div>
-        <div class="wic-who" data-coaching-picker>
-          <div class="wic-grid" role="tablist" aria-label="Explore who coaching is for">
-            <button class="wic-tile-btn" type="button" aria-pressed="true" data-i="0" data-title="When you want to understand yourself more deeply." data-copy="Coaching helps you notice the patterns, needs, values, and inner signals shaping how you move through your life."><span class="wic-tile" style="--wic-tone:#385768"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/></svg></span><span>Self-understanding</span></button>
-            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="1" data-title="When life or identity is shifting." data-copy="Coaching gives you space to move through career changes, leadership growth, or personal transitions without losing yourself."><span class="wic-tile" style="--wic-tone:#52685b"><svg viewBox="0 0 24 24"><path d="M4 17c3-1 5-3 5-6s-2-5-5-6"/><path d="M20 17c-3-1-5-3-5-6s2-5 5-6"/><path d="M9 17h6"/></svg></span><span>Transitions</span></button>
-            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="2" data-title="When decisions feel loud." data-copy="Coaching helps you return to your values, capacity, and self-trust so your next step feels more aligned."><span class="wic-tile" style="--wic-tone:#365f61"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.2 8.8-2.2 5.6-5.6 2.2 2.2-5.6 5.6-2.2Z"/></svg></span><span>Decision-making</span></button>
-            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="3" data-title="When you need to say what is true." data-copy="Coaching supports clearer, more authentic communication so you can ask for what you need and name what matters."><span class="wic-tile" style="--wic-tone:#80513f"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4V5Z"/></svg></span><span>Communication</span></button>
-            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="4" data-title="When connection needs honesty." data-copy="Coaching helps you explore the patterns that shape boundaries, trust, repair, and healthier relationships."><span class="wic-tile" style="--wic-tone:#5b4e63"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span><span>Relationships</span></button>
-            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="5" data-title="When you are ready to grow differently." data-copy="Coaching supports personal and professional growth that feels integrated, practical, and connected to who you are becoming."><span class="wic-tile" style="--wic-tone:#7d6231"><svg viewBox="0 0 24 24"><path d="M12 21V9M12 9c-3 0-5-2-5-5 3 0 5 2 5 5Zm0 0c0-3 2-5 5-5 0 3-2 5-5 5Z"/></svg></span><span>Growth</span></button>
+        <div class="wic-rows" aria-label="Who coaching supports">
+          <div class="wic-row">
+            <div class="wic-icon-btn" aria-label="Decisions" style="--c:#385768"><span class="wic-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.2 8.8-2.2 5.6-5.6 2.2 2.2-5.6 5.6-2.2Z"/></svg></span><span class="wic-lbl">Decisions</span></div>
+            <div class="wic-icon-btn" aria-label="Transitions" style="--c:#52685b"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M4 17c3-1 5-3 5-6s-2-5-5-6"/><path d="M20 17c-3-1-5-3-5-6s2-5 5-6"/><path d="M9 17h6"/></svg></span><span class="wic-lbl">Transitions</span></div>
+            <div class="wic-icon-btn" aria-label="Confidence" style="--c:#365f61"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.6-3 7.7-7 8.5-4-.8-7-3.9-7-8.5V6l7-2.5Z"/><path d="m9.2 12 1.9 1.9 3.7-3.9"/></svg></span><span class="wic-lbl">Confidence</span></div>
+            <div class="wic-icon-btn" aria-label="Alignment" style="--c:#80513f"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M6 8h12M4 12h16M7 16h10"/></svg></span><span class="wic-lbl">Alignment</span></div>
+            <div class="wic-icon-btn" aria-label="Purpose" style="--c:#5b4e63"><span class="wic-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span><span class="wic-lbl">Purpose</span></div>
           </div>
-          <article class="wic-panel" role="tabpanel">
-            <h3 data-support-title>When you want to understand yourself more deeply.</h3>
-            <p data-support-copy>Coaching helps you notice the patterns, needs, values, and inner signals shaping how you move through your life.</p>
-            <p class="support-note">You do not need to be struggling to benefit from coaching &mdash; you simply need curiosity, openness, and a desire for greater alignment.</p>
-          </article>
+          <div class="wic-row">
+            <div class="wic-icon-btn" aria-label="Perspective" style="--c:#d9b75e"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="wic-lbl">Perspective</span></div>
+            <div class="wic-icon-btn" aria-label="Leadership" style="--c:#7d6231"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M4 21V4"/><path d="M4 5h13l-3 4 3 4H4"/></svg></span><span class="wic-lbl">Leadership</span></div>
+            <div class="wic-icon-btn" aria-label="Empowerment" style="--c:#385768"><span class="wic-mark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3.4M12 17.6V21M3 12h3.4M17.6 12H21M5.9 5.9l2.4 2.4M15.7 15.7l2.4 2.4M18.1 5.9l-2.4 2.4M8.3 15.7l-2.4 2.4"/></svg></span><span class="wic-lbl">Empowerment</span></div>
+            <div class="wic-icon-btn" aria-label="Communication" style="--c:#52685b"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4V5Z"/></svg></span><span class="wic-lbl">Communication</span></div>
+            <div class="wic-icon-btn" aria-label="Clarity" style="--c:#365f61"><span class="wic-mark"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3"/></svg></span><span class="wic-lbl">Clarity</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section soft">
+    <section class="section soft wic-vs-section">
       <span class="balance-motif section-balance right" aria-hidden="true"><span class="balance-ball"></span></span>
       <span class="decor-dot dot-small dot-section-left"></span>
       <div class="wrap">
         <div class="section-head center">
           <div class="eyebrow">Helpful distinctions</div>
-          <h2>Coaching versus therapy.</h2>
         </div>
         <div class="wic-vs">
           <div class="wic-vs-panel coach">
@@ -186,22 +202,6 @@
     </div>
   </footer>
   <script src="./script.js"></script>
-  <script>
-    (function () {
-      var picker = document.querySelector('[data-coaching-picker]');
-      if (!picker) return;
-      var tiles = picker.querySelectorAll('.wic-tile-btn');
-      var titleEl = picker.querySelector('[data-support-title]');
-      var copyEl = picker.querySelector('[data-support-copy]');
-      picker.addEventListener('click', function (e) {
-        var btn = e.target.closest('.wic-tile-btn');
-        if (!btn) return;
-        tiles.forEach(function (t) { t.setAttribute('aria-pressed', String(t === btn)); });
-        titleEl.textContent = btn.dataset.title;
-        copyEl.textContent = btn.dataset.copy;
-      });
-    })();
-  </script>
 
 </body>
 </html>
