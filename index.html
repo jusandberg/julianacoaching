@@ -116,29 +116,26 @@
       .balance-ball,.decor-dot{animation:none}
     }
 
-    /* ===== Testimonials: drifting strip ===== */
-    .tstm-section{position:relative;padding:36px 0 58px;overflow:hidden;isolation:isolate;background:#f7f3e8;border-top:1px solid #efe6cf;border-bottom:1px solid #efe6cf}
-    .tstm-section .section-head{margin-bottom:26px}
-    .tstm-belt-clip{position:relative;z-index:1;overflow:hidden}
-    .tstm-belt{display:flex;gap:16px;width:max-content;padding:8px 0 10px;animation:tstmBelt 55s linear infinite}
-    .tstm-section:hover .tstm-belt,.tstm-belt.paused{animation-play-state:paused}
-    .tstm-card{flex:0 0 380px;display:flex;flex-direction:column;gap:10px;margin:0;padding:24px 26px 20px;background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(16,20,25,.06)}
-    .tstm-card blockquote{margin:0;color:#2a3037;font-size:14.5px;font-weight:450;line-height:1.6;letter-spacing:-.005em;text-align:left}
-    .tstm-quote{display:block;height:20px;color:#d9b75e;font-family:Georgia,"Times New Roman",serif;font-size:46px;line-height:1}
-    .tstm-meta{margin:auto 0 0;padding-top:12px;border-top:1px solid #efe8d5;color:#92752c;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;text-align:left}
-    .tstm-hint{position:relative;z-index:1;margin:14px 0 0;text-align:center;color:var(--muted,#66707a);font-size:12.5px}
-    .tstm-dup{display:contents}
-    @keyframes tstmBelt{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* ===== Testimonials: editorial spotlight ===== */
+    .tstm-section{position:relative;padding:56px 0 60px;overflow:hidden;isolation:isolate;background:#fff}
+    .tstm-section .section-head{margin-bottom:36px}
+    .tstm-stage{position:relative;max-width:760px;margin:0 auto;padding:0 24px;min-height:200px}
+    .tstm-quote-block{position:absolute;inset:0 24px;opacity:0;transition:opacity .6s ease;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+    .tstm-quote-block.on{opacity:1;position:relative}
+    .tstm-quote-block blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,2.4vw,28px);line-height:1.5;color:#22262b;font-style:italic;letter-spacing:-.005em}
+    .tstm-rule{width:36px;height:1px;background:#d9b75e}
+    .tstm-who{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#66707a}
+    .tstm-nav{display:flex;justify-content:center;gap:10px;margin-top:32px}
+    .tstm-dot{width:6px;height:6px;border-radius:50%;border:0;background:#dcdfe3;padding:0;cursor:pointer;transition:.2s ease}
+    .tstm-dot.on{width:20px;border-radius:3px;background:#7d6231}
     @media (max-width:760px){
-      .tstm-section{padding:26px 0 40px}
-      .tstm-card{flex-basis:300px;padding:20px 20px 17px}
-      .tstm-card blockquote{font-size:13.5px}
-      .tstm-belt{gap:12px;animation-duration:85s}
+      .tstm-section{padding:44px 0 46px}
+      .tstm-section .section-head{margin-bottom:26px}
+      .tstm-quote-block blockquote{font-size:18px}
+      .tstm-stage{min-height:230px}
     }
     @media (prefers-reduced-motion:reduce){
-      .tstm-belt{animation:none;width:auto;overflow-x:auto;padding-inline:20px}
-      .tstm-belt > .tstm-dup{display:none}
-      .tstm-hint{display:none}
+      .tstm-quote-block{transition:none}
     }
 
     /* ===== Fix: remove the extra whitespace gap above testimonials =====
@@ -229,54 +226,19 @@
           <div class="eyebrow">Client reflections</div>
           <h2>What shifts when the work gets grounded.</h2>
         </div>
-      </div>
-      <div class="tstm-belt-clip">
-        <div class="tstm-belt" id="tstmBelt">
-          <article class="tstm-card">
-            <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-            <blockquote>I came into coaching feeling overwhelmed and stuck. Juliana helped me to understand my reactions, my needs, and how to lead myself through hard moments. This changed the way I relate to myself.</blockquote>
-            <p class="tstm-meta">Maya R., Ottawa, ON</p>
-          </article>
-          <article class="tstm-card">
-            <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-            <blockquote>Juliana is helping me to slow down, reconnect with myself, and make decisions from a grounded place instead of distress. I feel more confident, more centered, and more like myself.</blockquote>
-            <p class="tstm-meta">Sofia M., Toronto, ON</p>
-          </article>
-          <article class="tstm-card">
-            <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-            <blockquote>For the first time in years, I understood what was driving my patterns and felt equipped to change them. Every session felt supportive, calm, and surprisingly transformative.</blockquote>
-            <p class="tstm-meta">Amelia C., Vancouver, BC</p>
-          </article>
-          <article class="tstm-card">
-            <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-            <blockquote>This experience helped me untangle long-standing patterns and step into a stronger, clearer version of myself. Juliana holds space in a way that feels steady and safe, as she calls it brave space.</blockquote>
-            <p class="tstm-meta">Nadia L., Montreal, QC</p>
-          </article>
-          <div class="tstm-dup" aria-hidden="true">
-            <article class="tstm-card">
-              <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-              <blockquote>I came into coaching feeling overwhelmed and stuck. Juliana helped me to understand my reactions, my needs, and how to lead myself through hard moments. This changed the way I relate to myself.</blockquote>
-              <p class="tstm-meta">Maya R., Ottawa, ON</p>
-            </article>
-            <article class="tstm-card">
-              <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-              <blockquote>Juliana is helping me to slow down, reconnect with myself, and make decisions from a grounded place instead of distress. I feel more confident, more centered, and more like myself.</blockquote>
-              <p class="tstm-meta">Sofia M., Toronto, ON</p>
-            </article>
-            <article class="tstm-card">
-              <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-              <blockquote>For the first time in years, I understood what was driving my patterns and felt equipped to change them. Every session felt supportive, calm, and surprisingly transformative.</blockquote>
-              <p class="tstm-meta">Amelia C., Vancouver, BC</p>
-            </article>
-            <article class="tstm-card">
-              <span class="tstm-quote" aria-hidden="true">&ldquo;</span>
-              <blockquote>This experience helped me untangle long-standing patterns and step into a stronger, clearer version of myself. Juliana holds space in a way that feels steady and safe, as she calls it brave space.</blockquote>
-              <p class="tstm-meta">Nadia L., Montreal, QC</p>
-            </article>
-          </div>
+        <div class="tstm-stage" id="tstmStage">
+          <div class="tstm-quote-block on"><blockquote>&ldquo;I came into coaching feeling overwhelmed and stuck. Juliana helped me to understand my reactions, my needs, and how to lead myself through hard moments. This changed the way I relate to myself.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Maya R., Ottawa, ON</span></div>
+          <div class="tstm-quote-block"><blockquote>&ldquo;Juliana is helping me to slow down, reconnect with myself, and make decisions from a grounded place instead of distress. I feel more confident, more centered, and more like myself.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Sofia M., Toronto, ON</span></div>
+          <div class="tstm-quote-block"><blockquote>&ldquo;For the first time in years, I understood what was driving my patterns and felt equipped to change them. Every session felt supportive, calm, and surprisingly transformative.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Amelia C., Vancouver, BC</span></div>
+          <div class="tstm-quote-block"><blockquote>&ldquo;This experience helped me untangle long-standing patterns and step into a stronger, clearer version of myself. Juliana holds space in a way that feels steady and safe, as she calls it brave space.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Nadia L., Montreal, QC</span></div>
+        </div>
+        <div class="tstm-nav" id="tstmNav">
+          <button class="tstm-dot on" type="button" data-i="0" aria-label="Testimonial 1"></button>
+          <button class="tstm-dot" type="button" data-i="1" aria-label="Testimonial 2"></button>
+          <button class="tstm-dot" type="button" data-i="2" aria-label="Testimonial 3"></button>
+          <button class="tstm-dot" type="button" data-i="3" aria-label="Testimonial 4"></button>
         </div>
       </div>
-      <p class="tstm-hint">Hover or touch to pause</p>
     </section>
   </main>
 
@@ -310,12 +272,30 @@
   </script>
   <script>
     (function () {
-      var belt = document.getElementById('tstmBelt');
-      if (!belt) return;
-      belt.addEventListener('touchstart', function () { belt.classList.add('paused'); }, { passive: true });
-      belt.addEventListener('touchend', function () {
-        window.setTimeout(function () { belt.classList.remove('paused'); }, 2200);
-      }, { passive: true });
+      var stage = document.getElementById('tstmStage');
+      var nav = document.getElementById('tstmNav');
+      if (!stage || !nav) return;
+      var blocks = stage.querySelectorAll('.tstm-quote-block');
+      var dots = nav.querySelectorAll('.tstm-dot');
+      var i = 0, timer;
+      function go(n) {
+        i = n;
+        blocks.forEach(function (el, k) { el.classList.toggle('on', k === i); });
+        dots.forEach(function (el, k) { el.classList.toggle('on', k === i); });
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(function () { go((i + 1) % blocks.length); }, 5500);
+      }
+      nav.addEventListener('click', function (e) {
+        var b = e.target.closest('.tstm-dot');
+        if (!b) return;
+        go(Number(b.dataset.i));
+        restart();
+      });
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        restart();
+      }
     })();
   </script>
 </body>
