@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -120,7 +120,7 @@
     .tstm-section{position:relative;padding:36px 0 58px;overflow:hidden;isolation:isolate;background:#f7f3e8;border-top:1px solid #efe6cf;border-bottom:1px solid #efe6cf}
     .tstm-section .section-head{margin-bottom:26px}
     .tstm-belt-clip{position:relative;z-index:1;overflow:hidden}
-    .tstm-belt{display:flex;gap:16px;width:max-content;padding:8px 0 10px;animation:tstmBelt 48s linear infinite}
+    .tstm-belt{display:flex;gap:16px;width:max-content;padding:8px 0 10px;animation:tstmBelt 55s linear infinite}
     .tstm-section:hover .tstm-belt,.tstm-belt.paused{animation-play-state:paused}
     .tstm-card{flex:0 0 380px;display:flex;flex-direction:column;gap:10px;margin:0;padding:24px 26px 20px;background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(16,20,25,.06)}
     .tstm-card blockquote{margin:0;color:#2a3037;font-size:14.5px;font-weight:450;line-height:1.6;letter-spacing:-.005em;text-align:left}
@@ -133,7 +133,7 @@
       .tstm-section{padding:26px 0 40px}
       .tstm-card{flex-basis:300px;padding:20px 20px 17px}
       .tstm-card blockquote{font-size:13.5px}
-      .tstm-belt{gap:12px;animation-duration:38s}
+      .tstm-belt{gap:12px;animation-duration:85s}
     }
     @media (prefers-reduced-motion:reduce){
       .tstm-belt{animation:none;width:auto;overflow-x:auto;padding-inline:20px}
@@ -163,6 +163,23 @@
       .hero-ring{animation:none}
     }
 
+  
+    /* ============================================================
+       NAV & LOGO UPDATES (requested Jul 12)
+       - Bigger logo, desktop + mobile
+       - Hamburger icon instead of "+" (with X when open)
+       - Slower testimonial carousel on mobile
+       ============================================================ */
+    .brand img{width:260px}
+    @media (max-width:760px){
+      .brand img{width:220px}
+    }
+    .menu-toggle{position:relative;font-size:0}
+    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
+    .menu-toggle .icon-x{display:none}
+    .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
+    .menu-toggle[aria-expanded="true"] .icon-x{display:block}
+
   </style>
   <link rel="stylesheet" href="./styles.css?v=11">
 </head>
@@ -170,14 +187,14 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
 <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a aria-current="page" href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./what-is-coaching.html">What is coaching</a></li>
         <li><a href="./the-u-method.html">The U Method</a></li>
         <li><a href="./resources.html">Resources</a></li>
-        <li><a class="nav-cta" href="./booking.html">Book</a></li>
+        <li><a class="nav-cta" href="./booking.html">Appointments</a></li>
       </ul>
     </div>
   </nav>
@@ -305,7 +322,3 @@
   </script>
 </body>
 </html>
-
-
-
-
