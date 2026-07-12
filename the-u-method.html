@@ -35,6 +35,16 @@
     .menu-toggle .icon-x{display:none}
     .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
     .menu-toggle[aria-expanded="true"] .icon-x{display:block}
+
+    /* ===== Fix: close the gap between the hero and "The rhythm" section ===== */
+    .method-hero{padding-bottom:20px!important}
+    .method-video-section{padding-top:20px!important;padding-bottom:20px!important}
+    #archetypes{padding-top:20px!important}
+    @media (max-width:760px){
+      .method-hero{padding-bottom:14px!important}
+      .method-video-section{padding-top:14px!important;padding-bottom:14px!important}
+      #archetypes{padding-top:14px!important}
+    }
   </style>
 </head>
 <body>
@@ -75,7 +85,7 @@
         <div class="section-head center">
           <div class="eyebrow">The rhythm</div>
           <h2>Watch the method unfold.</h2>
-          <p class="lead">A simple, grounding arc for returning inward and moving forward with more clarity.</p>
+          <p class="lead">Watch what transformation looks like with the method.</p>
         </div>
         <div class="method-video-frame">
           <video src="./the-u-method-video.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-label="The U Method animated process"></video>
