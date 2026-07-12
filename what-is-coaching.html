@@ -28,6 +28,9 @@
 
     /* ===== Who is coaching for: icon tile grid + single answer panel ===== */
     .wic-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 20px;justify-items:center;margin-bottom:6px;max-width:640px;margin-inline:auto}
+    @media (min-width:761px){
+      .wic-rows{grid-template-columns:repeat(5,1fr);gap:32px 22px;max-width:760px}
+    }
     @media (max-width:520px){
       .wic-rows{gap:24px 10px}
       .wic-mark{width:48px;height:48px}
