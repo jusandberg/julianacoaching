@@ -118,21 +118,29 @@
 
     /* ===== Testimonials: editorial spotlight ===== */
     .tstm-section{position:relative;padding:56px 0 60px;overflow:hidden;isolation:isolate;background:#fff}
-    .tstm-section .section-head{margin-bottom:36px}
-    .tstm-stage{position:relative;max-width:760px;margin:0 auto;padding:0 24px;min-height:200px}
+    .tstm-section .section-head{margin-bottom:36px;position:relative;z-index:1}
+    .tstm-stage{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 24px;min-height:200px;box-sizing:border-box;cursor:pointer}
     .tstm-quote-block{position:absolute;inset:0 24px;opacity:0;transition:opacity .6s ease;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
     .tstm-quote-block.on{opacity:1;position:relative}
     .tstm-quote-block blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,2.4vw,28px);line-height:1.5;color:#22262b;font-style:italic;letter-spacing:-.005em}
     .tstm-rule{width:36px;height:1px;background:#d9b75e}
     .tstm-who{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#66707a}
-    .tstm-nav{display:flex;justify-content:center;gap:10px;margin-top:32px}
+    .tstm-nav{position:relative;z-index:1;display:flex;justify-content:center;gap:10px;margin-top:32px}
     .tstm-dot{width:6px;height:6px;border-radius:50%;border:0;background:#dcdfe3;padding:0;cursor:pointer;transition:.2s ease}
     .tstm-dot.on{width:20px;border-radius:3px;background:#7d6231}
+    .tstm-tap-hint{position:relative;z-index:1;display:none;margin:16px 0 0;text-align:center;color:#66707a;font-size:12px}
+    /* Decorative dot: sit just above the heading instead of overlapping the first word */
+    .tstm-section .dot-section-left{left:50%;top:14px;transform:translateX(-134px)}
     @media (max-width:760px){
-      .tstm-section{padding:44px 0 46px}
-      .tstm-section .section-head{margin-bottom:26px}
+      .tstm-section{padding:40px 0 40px}
+      .tstm-section .wrap{width:min(560px,calc(100% - 32px))}
+      .tstm-section .section-head{margin-bottom:22px}
       .tstm-quote-block blockquote{font-size:18px}
-      .tstm-stage{min-height:230px}
+      .tstm-stage{min-height:230px;padding:0 12px}
+      .tstm-quote-block{inset:0 12px}
+      .tstm-section .dot-section-left{left:20px;top:6px;transform:none;--dot-size:20px}
+      .tstm-section .dot-section-right{display:none}
+      .tstm-tap-hint{display:block}
     }
     @media (prefers-reduced-motion:reduce){
       .tstm-quote-block{transition:none}
@@ -238,6 +246,7 @@
           <button class="tstm-dot" type="button" data-i="2" aria-label="Testimonial 3"></button>
           <button class="tstm-dot" type="button" data-i="3" aria-label="Testimonial 4"></button>
         </div>
+        <p class="tstm-tap-hint">Tap to see the next reflection</p>
       </div>
     </section>
   </main>
@@ -291,6 +300,10 @@
         var b = e.target.closest('.tstm-dot');
         if (!b) return;
         go(Number(b.dataset.i));
+        restart();
+      });
+      stage.addEventListener('click', function () {
+        go((i + 1) % blocks.length);
         restart();
       });
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
