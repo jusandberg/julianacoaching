@@ -22,6 +22,44 @@
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <link rel="stylesheet" href="./styles.css?v=5">
   <style>
+    /* ===== Hero: gold vertical bar accent (desktop only) ===== */
+    .wic-hero-bar{position:absolute;left:-26px;top:4px;bottom:4px;width:3px;background:#d9b75e;border-radius:2px}
+    @media (max-width:900px){ .wic-hero-bar{display:none} }
+
+    /* ===== Who is coaching for: icon tile grid + single answer panel ===== */
+    .wic-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
+    .wic-tile-btn{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 6px;border-radius:16px;border:1.5px solid transparent;background:transparent;font:inherit;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+    .wic-tile-btn[aria-pressed="true"]{border-color:#d9b75e;background:#f7f3e8}
+    .wic-tile{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--wic-tone,#385768),#d9b75e)}
+    .wic-tile svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .wic-tile-btn span{font-size:12.5px;font-weight:700;color:#30343a;text-align:center;line-height:1.2}
+    .wic-panel{max-width:640px;margin:0 auto;text-align:center;padding:28px;background:#fff;border:1px solid var(--line);border-radius:16px}
+    .wic-panel h3{font-size:19px;margin-bottom:10px}
+    .wic-panel p{color:var(--muted);font-size:14.5px;margin:0}
+    .wic-panel .support-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px}
+    @media (max-width:860px){
+      .wic-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:520px){
+      .wic-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    }
+
+    /* ===== Coaching vs therapy: two panels, no "Versus" label ===== */
+    .wic-vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden}
+    .wic-vs-panel{padding:34px 32px}
+    .wic-vs-panel.coach{background:#385768;color:#fff}
+    .wic-vs-panel.therapy{background:#fff;color:#30343a;border:1px solid var(--line);border-left:0}
+    .wic-vs-panel h3{font-size:20px;margin-bottom:16px}
+    .wic-vs-panel ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin:0;padding:0}
+    .wic-vs-panel li{font-size:14.5px;padding-left:18px;position:relative}
+    .wic-vs-panel.coach li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:#d9b75e}
+    .wic-vs-panel.therapy li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:#c8d0d8}
+    @media (max-width:760px){
+      .wic-vs{grid-template-columns:1fr}
+      .wic-vs-panel.therapy{border-left:1px solid var(--line);border-top:0}
+    }
+  </style>
+  <style>
     /* ============================================================
        NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
        even in the repo where the real stylesheet is present)
@@ -58,7 +96,8 @@
       <span class="balance-motif page-balance top-right" aria-hidden="true"><span class="balance-ball"></span></span>
       <span class="decor-dot dot-large dot-hero-right"></span>
       <span class="decor-dot dot-small dot-hero-left"></span>
-      <div class="wrap page-hero-copy coaching-hero-copy">
+      <div class="wrap page-hero-copy coaching-hero-copy" style="position:relative;">
+        <span class="wic-hero-bar" aria-hidden="true"></span>
         <div class="eyebrow">Coaching explained</div>
         <h1>What Is Coaching?</h1>
         <div class="about-hero-intro">
@@ -85,16 +124,16 @@
           <h2>Who Is Coaching For?</h2>
           <p class="lead">Coaching is for individuals who want to understand themselves more deeply and move through life with greater alignment.</p>
         </div>
-        <div class="coaching-chip-explorer" data-coaching-picker>
-          <div class="coaching-chip-row" role="tablist" aria-label="Explore who coaching is for">
-            <button class="coaching-chip active" type="button" role="tab" aria-selected="true" data-support-option data-title="When you want to understand yourself more deeply." data-copy="Coaching helps you notice the patterns, needs, values, and inner signals shaping how you move through your life.">Self-understanding</button>
-            <button class="coaching-chip" type="button" role="tab" aria-selected="false" data-support-option data-title="When life or identity is shifting." data-copy="Coaching gives you space to move through career changes, leadership growth, or personal transitions without losing yourself.">Transitions</button>
-            <button class="coaching-chip" type="button" role="tab" aria-selected="false" data-support-option data-title="When decisions feel loud." data-copy="Coaching helps you return to your values, capacity, and self-trust so your next step feels more aligned.">Decision-making</button>
-            <button class="coaching-chip" type="button" role="tab" aria-selected="false" data-support-option data-title="When you need to say what is true." data-copy="Coaching supports clearer, more authentic communication so you can ask for what you need and name what matters.">Communication</button>
-            <button class="coaching-chip" type="button" role="tab" aria-selected="false" data-support-option data-title="When connection needs honesty." data-copy="Coaching helps you explore the patterns that shape boundaries, trust, repair, and healthier relationships.">Relationships</button>
-            <button class="coaching-chip" type="button" role="tab" aria-selected="false" data-support-option data-title="When you are ready to grow differently." data-copy="Coaching supports personal and professional growth that feels integrated, practical, and connected to who you are becoming.">Growth</button>
+        <div class="wic-who" data-coaching-picker>
+          <div class="wic-grid" role="tablist" aria-label="Explore who coaching is for">
+            <button class="wic-tile-btn" type="button" aria-pressed="true" data-i="0" data-title="When you want to understand yourself more deeply." data-copy="Coaching helps you notice the patterns, needs, values, and inner signals shaping how you move through your life."><span class="wic-tile" style="--wic-tone:#385768"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/></svg></span><span>Self-understanding</span></button>
+            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="1" data-title="When life or identity is shifting." data-copy="Coaching gives you space to move through career changes, leadership growth, or personal transitions without losing yourself."><span class="wic-tile" style="--wic-tone:#52685b"><svg viewBox="0 0 24 24"><path d="M4 17c3-1 5-3 5-6s-2-5-5-6"/><path d="M20 17c-3-1-5-3-5-6s2-5 5-6"/><path d="M9 17h6"/></svg></span><span>Transitions</span></button>
+            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="2" data-title="When decisions feel loud." data-copy="Coaching helps you return to your values, capacity, and self-trust so your next step feels more aligned."><span class="wic-tile" style="--wic-tone:#365f61"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.2 8.8-2.2 5.6-5.6 2.2 2.2-5.6 5.6-2.2Z"/></svg></span><span>Decision-making</span></button>
+            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="3" data-title="When you need to say what is true." data-copy="Coaching supports clearer, more authentic communication so you can ask for what you need and name what matters."><span class="wic-tile" style="--wic-tone:#80513f"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4V5Z"/></svg></span><span>Communication</span></button>
+            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="4" data-title="When connection needs honesty." data-copy="Coaching helps you explore the patterns that shape boundaries, trust, repair, and healthier relationships."><span class="wic-tile" style="--wic-tone:#5b4e63"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span><span>Relationships</span></button>
+            <button class="wic-tile-btn" type="button" aria-pressed="false" data-i="5" data-title="When you are ready to grow differently." data-copy="Coaching supports personal and professional growth that feels integrated, practical, and connected to who you are becoming."><span class="wic-tile" style="--wic-tone:#7d6231"><svg viewBox="0 0 24 24"><path d="M12 21V9M12 9c-3 0-5-2-5-5 3 0 5 2 5 5Zm0 0c0-3 2-5 5-5 0 3-2 5-5 5Z"/></svg></span><span>Growth</span></button>
           </div>
-          <article class="coaching-chip-panel" role="tabpanel">
+          <article class="wic-panel" role="tabpanel">
             <h3 data-support-title>When you want to understand yourself more deeply.</h3>
             <p data-support-copy>Coaching helps you notice the patterns, needs, values, and inner signals shaping how you move through your life.</p>
             <p class="support-note">You do not need to be struggling to benefit from coaching &mdash; you simply need curiosity, openness, and a desire for greater alignment.</p>
@@ -111,26 +150,25 @@
           <div class="eyebrow">Helpful distinctions</div>
           <h2>Coaching versus therapy.</h2>
         </div>
-        <div class="coaching-comparison">
-          <article class="feature-card comparison-card" style="--tone: var(--mint);">
-            <span class="tag">Coaching</span>
-            <ul class="check-list">
+        <div class="wic-vs">
+          <div class="wic-vs-panel coach">
+            <h3>Coaching</h3>
+            <ul>
               <li>Future-focused and goal-oriented</li>
               <li>Centered on self-awareness, clarity, and patterns</li>
               <li>Collaborative and non-directive</li>
               <li>Supports action, integration, and self-leadership</li>
               <li>Not clinical, diagnostic, or treatment-based</li>
             </ul>
-          </article>
-          <div class="versus-label" aria-hidden="true">Versus</div>
-          <article class="feature-card comparison-card" style="--tone: var(--lilac);">
-            <span class="tag">Therapy</span>
-            <ul class="check-list">
+          </div>
+          <div class="wic-vs-panel therapy">
+            <h3>Therapy</h3>
+            <ul>
               <li>Focuses on healing, mental health, and processing past or unresolved experiences</li>
               <li>Delivered by licensed mental health professionals</li>
               <li>May involve diagnosis, treatment, or clinical intervention</li>
             </ul>
-          </article>
+          </div>
         </div>
         <p class="comparison-note">Coaching and therapy both support personal growth, but they serve different purposes.</p>
       </div>
@@ -157,5 +195,22 @@
     </div>
   </footer>
   <script src="./script.js"></script>
+  <script>
+    (function () {
+      var picker = document.querySelector('[data-coaching-picker]');
+      if (!picker) return;
+      var tiles = picker.querySelectorAll('.wic-tile-btn');
+      var titleEl = picker.querySelector('[data-support-title]');
+      var copyEl = picker.querySelector('[data-support-copy]');
+      picker.addEventListener('click', function (e) {
+        var btn = e.target.closest('.wic-tile-btn');
+        if (!btn) return;
+        tiles.forEach(function (t) { t.setAttribute('aria-pressed', String(t === btn)); });
+        titleEl.textContent = btn.dataset.title;
+        copyEl.textContent = btn.dataset.copy;
+      });
+    })();
+  </script>
+
 </body>
 </html>
