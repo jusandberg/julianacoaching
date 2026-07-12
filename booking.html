@@ -1,379 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book | The U Method</title>
-  <meta name="description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and PortuguÃªs.">
+  <title>Booking | The U Method</title>
+  <meta name="description" content="Book a discovery call with Juliana Dos Santos to explore whether coaching is the right next step.">
   <link rel="canonical" href="https://jusandberg.github.io/julianacoaching/booking.html">
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=4">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The U Method">
   <meta property="og:url" content="https://jusandberg.github.io/julianacoaching/booking.html">
-  <meta property="og:title" content="Book | The U Method">
-  <meta property="og:description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and PortuguÃªs.">
+  <meta property="og:title" content="Book a Call | The U Method">
+  <meta property="og:description" content="Book a discovery call with Juliana Dos Santos to explore whether coaching is the right next step.">
   <meta property="og:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The U Method coaching by Juliana Dos Santos">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Book | The U Method">
-  <meta name="twitter:description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana.">
+  <meta name="twitter:title" content="Book a Call | The U Method">
+  <meta name="twitter:description" content="Book a discovery call with Juliana Dos Santos to explore whether coaching is the right next step.">
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
+  <link rel="stylesheet" href="./styles.css?v=5">
   <style>
     /* ============================================================
-       BASE FALLBACK STYLES
-       Exact copies of the core rules from styles.css so this page
-       renders correctly even if viewed standalone. In your repo,
-       styles.css loads after this block and takes precedence.
+       NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
+       even in the repo where the real stylesheet is present)
        ============================================================ */
-    :root{--ink:#101419;--muted:#66707a;--soft:#e9edf0;--paper:#f8f9fa;--line:#d9dee4;--mint:#8F6B00;--peach:#F7EFE1;--green:#385768;--shadow:0 24px 74px rgba(16,20,25,.12);--radius:8px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    body.nav-open{overflow:hidden}
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    h1,h2,h3,p{margin-top:0}
-    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
-    .site-nav{position:sticky;top:0;z-index:50;height:78px;background:rgba(248,249,250,.9);border-bottom:1px solid rgba(16,20,25,.1);backdrop-filter:blur(22px)}
-    .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-width:0;font-weight:800}
-    .brand img{width:214px;height:auto}
-    .nav-links{display:flex;align-items:center;gap:8px;list-style:none;padding:0;margin:0}
-    .nav-links a{display:inline-flex;min-height:40px;align-items:center;padding:0 12px;border-radius:999px;color:#39414a;font-size:13px;font-weight:700;text-decoration:none}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{background:#edf0f2;color:var(--ink)}
-    .nav-links .nav-cta{margin-left:4px;background:var(--ink);color:#fff}
-    .nav-links .nav-cta:hover,.nav-links .nav-cta[aria-current="page"]{background:#000;color:#fff}
-    .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:20px}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;color:#7D6231;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    .eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
-    .lead{max-width:690px;margin-bottom:30px;color:var(--muted);font-size:clamp(18px,2vw,22px);line-height:1.55}
-    .page-hero{padding:86px 0 62px;background:var(--paper)}
-    .section{position:relative;padding:94px 0;overflow:hidden;isolation:isolate}
-    .section>.wrap{position:relative;z-index:1}
-    .section-head{max-width:760px;margin-bottom:42px}
-    .site-footer{padding:38px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .footer-links{display:flex;flex-wrap:wrap;gap:14px}
-    .footer-links a{font-weight:750;text-decoration:none}
-    .balance-motif{position:absolute;pointer-events:none;z-index:0;width:var(--motif-width,320px);height:var(--motif-height,210px);opacity:.92}
-    .balance-ball,.decor-dot{position:absolute;display:block}
-    .balance-ball{width:var(--ball-size,146px);height:var(--ball-size,146px);left:50%;bottom:34px;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.28),transparent 36%),#F7EFE1;box-shadow:0 18px 46px rgba(217,183,94,.24);transform:translateX(-50%);animation:circleFloat 6s ease-in-out infinite}
-    .decor-dot{width:var(--dot-size,24px);height:var(--dot-size,24px);border-radius:50%;background:var(--dot-color,#385768);opacity:.54;box-shadow:0 10px 28px rgba(16,20,25,.08);animation:dotDrift 6.4s ease-in-out infinite;pointer-events:none;z-index:0}
-    .dot-large{--dot-size:34px;--dot-color:#385768}
-    .dot-small{--dot-size:18px;--dot-color:#F7EFE1;animation-delay:-1.8s}
-    .dot-hero-left{left:5%;top:24%}
-    .dot-hero-right{right:8%;top:16%}
-    .dot-section-right{right:6%;top:14%}
-    @keyframes circleFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(calc(-50% + 18px)) translateY(-12px)}}
-    @keyframes dotDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(14px,-10px,0)}}
+    .brand img{width:260px!important}
     @media (max-width:760px){
-      .site-nav{height:70px}
-      .brand img{width:188px}
-      .menu-toggle{display:inline-grid;place-items:center}
-      .nav-links{position:fixed;inset:70px 0 auto 0;display:none;max-height:calc(100svh - 70px);overflow:auto;padding:16px 20px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(18px)}
-      .nav-links.open{display:grid;gap:8px}
-      .nav-links a{min-height:48px;justify-content:center;border-radius:var(--radius);background:#f6f7f9;font-size:15px}
-      .nav-links .nav-cta{margin-left:0}
-      .page-hero{padding:58px 0 42px}
-      .footer-inner{align-items:flex-start;flex-direction:column}
+      .brand img{width:220px!important}
     }
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .balance-ball,.decor-dot{animation:none}
-    }
-  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #8F6B00;outline-offset:3px;}
-</style>
-  <link rel="stylesheet" href="./styles.css">
-  <style>
-    .brand .brand-text{display:none;font-weight:800;font-size:19px;letter-spacing:-.01em}
-    .brand .brand-text b{color:#7D6231}
-    .brand img:not([src]),.brand img[src=""]{display:none}
-    .brand:not(:has(img)) .brand-text{display:inline}
-    /* ---------- Booking hero ---------- */
-    .booking-hero{padding:58px 0 10px;text-align:center;background:var(--paper)}
-    .booking-hero .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
-    .booking-hero .eyebrow{justify-content:center}
-    .booking-hero h1{margin:10px auto 12px;font-size:clamp(34px,4.6vw,52px);letter-spacing:-.02em;line-height:1.04;text-align:center;width:100%}
-    .booking-hero .lead{max-width:460px;margin:0 auto;text-align:center}
-    .lang-line{margin-top:14px;font-size:13.5px;font-weight:700;color:#385768}
-    .lang-line span{opacity:.4;margin:0 8px}
-
-    /* ---------- Session toggle + calendar ---------- */
-    .booker{padding:18px 0 72px;background:var(--paper);text-align:center;position:relative}
-    .seg{display:inline-flex;background:#eceee7;border-radius:999px;padding:5px;gap:4px;margin-bottom:24px;max-width:100%}
-    .seg button{border:0;background:transparent;border-radius:999px;padding:12px 26px;font:inherit;font-weight:800;font-size:14px;color:var(--muted);cursor:pointer;transition:all .2s ease;white-space:nowrap}
-    .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(16,20,25,.12)}
-    .session-detail{max-width:480px;margin:0 auto 22px;display:flex;justify-content:center;gap:30px;font-size:14px;transition:opacity .18s ease}
-    .session-detail.fade{opacity:0}
-    .session-detail b{display:block;font-size:19px;letter-spacing:-.02em}
-    .session-detail span{color:var(--muted);font-size:12.5px}
-    .embed-panel{max-width:660px;margin:0 auto;transition:opacity .18s ease}
-    .embed-panel.fade{opacity:0}
-    .embed-panel[hidden]{display:none}
-    .gcal-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
-    .gcal-wrap iframe{display:block;width:100%;min-height:620px;border:0}
-
-    /* mock calendar preview (shown until the real embed replaces it) */
-    .mock-cal{padding:22px;background:#fff;text-align:left}
-    .mock-cal .mc-head{display:flex;justify-content:space-between;margin-bottom:11px;font-weight:800;font-size:13.5px}
-    .mock-cal .mc-head span:last-child{color:var(--muted);letter-spacing:.2em}
-    .mock-cal .mc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:12.5px}
-    .mock-cal .mc-dow{color:var(--muted);font-weight:800;padding:4px 0}
-    .mock-cal .mc-day{padding:8px 0;border-radius:8px}
-    .mock-cal .mc-day.off{color:#c3cad1}
-    .mock-cal .mc-day.avail{background:#f7efe1;font-weight:700}
-    .mock-cal .mc-day.sel{color:#fff;font-weight:800;background:var(--mc-accent,#385768)}
-    .mock-cal .mc-slots{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px;justify-content:center}
-    .mock-cal .mc-slot{font-size:12.5px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff}
-    .mock-cal .mc-slot.sel{color:#fff;border-color:transparent;background:var(--mc-accent,#385768)}
-    .mock-cal .mc-note{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
-    #embed-session .mock-cal{--mc-accent:#425649}
-    /* ---------- EQ services ---------- */
-    .eq-section{background:#fff;border-top:1px solid var(--line)}
-    .eq-intro{max-width:680px}
-    .eq-list{max-width:760px;margin-top:26px}
-    .eq-item{border-bottom:1px solid var(--line);padding:16px 4px}
-    .eq-item:first-of-type{border-top:1px solid var(--line)}
-    .eq-item summary{display:flex;justify-content:flex-start;align-items:center;gap:12px;cursor:pointer;list-style:none;font-weight:800;font-size:16.5px}
-    .eq-item summary::-webkit-details-marker{display:none}
-    .eq-item summary::after{content:"+";margin-left:auto;color:#7D6231;font-size:22px;font-weight:600;line-height:1}
-    .eq-item[open] summary::after{content:"\2013"}
-    .eq-item .eq-price{display:inline-flex;margin:0 0 10px;font-size:12.5px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:#385768;background:#dbe6ed;border-radius:999px;padding:6px 13px;white-space:nowrap}
-    .eq-item .eq-body{margin-top:10px;color:var(--muted);font-size:14.5px}
-    .eq-item .eq-body em{display:block;color:#3c434b;margin-bottom:8px}
-    .eq-item .eq-body ul{margin:8px 0 0;padding-left:18px}
-    .eq-item .eq-body li{margin:3px 0}
-    .eq-note{margin-top:22px;font-size:14.5px;color:var(--muted);max-width:680px}
-    .eq-note a{font-weight:800;color:#385768;text-decoration:none}
-
-    /* ---------- Note + FAQ ---------- */
-    .note-section{background:#f7f3e8;border-top:1px solid #efe6cf}
-    .note-inner{max-width:720px;margin:0 auto}
-    .note{display:grid;grid-template-columns:112px 1fr;gap:28px;align-items:start;margin-bottom:32px}
-    .note-portrait{width:112px;height:112px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)}
-    .note h2{margin:4px 0 10px;font-size:clamp(22px,2.5vw,29px);line-height:1.12}
-    .note p{margin:0 0 8px;color:#3c434b;font-size:15.5px}
-    .note .sig{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:19px;color:#7D6231}
-    .faq details{border-bottom:1px solid #e6dcc2;padding:15px 4px}
-    .faq details:first-of-type{border-top:1px solid #e6dcc2}
-    .faq summary{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;list-style:none;font-weight:800;font-size:15px}
-    .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{content:"+";flex:none;color:#7D6231;font-size:20px;font-weight:400}
-    .faq details[open] summary::after{content:"\2013"}
-    .faq details p{margin:8px 0 0;color:#5d6570;font-size:14.5px}
-    .back-up{display:block;margin-top:30px;text-align:center;font-weight:800;font-size:14px;color:#7D6231;text-decoration:none}
-
-    @media(max-width:640px){
-      .booking-hero{padding:44px 0 6px}
-      .seg{width:100%}
-      .seg button{flex:1;padding:12px 8px;font-size:13.5px}
-      .session-detail{gap:18px;flex-wrap:wrap}
-      .gcal-wrap iframe{min-height:560px}
-      .eq-item summary{flex-wrap:wrap;gap:8px;align-items:flex-start}
-      .eq-item summary::after{margin-left:auto}
-      .note{grid-template-columns:1fr;text-align:center;gap:16px}
-      .note-portrait{margin:0 auto}
-    }
-  
-</style>
+    .menu-toggle{position:relative;font-size:0}
+    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
+    .menu-toggle .icon-x{display:none}
+    .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
+    .menu-toggle[aria-expanded="true"] .icon-x{display:block}
+  </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
+<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./what-is-coaching.html">What is coaching</a></li>
         <li><a href="./the-u-method.html">The U Method</a></li>
         <li><a href="./resources.html">Resources</a></li>
-        <li><a class="nav-cta" aria-current="page" href="./booking.html">Book</a></li>
+        <li><a aria-current="page" class="nav-cta" href="./booking.html">Appointments</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <!-- ============ HERO ============ -->
-    <header class="page-hero booking-hero">
-      <span class="decor-dot dot-large dot-hero-right" aria-hidden="true"></span>
-      <span class="decor-dot dot-small dot-hero-left" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="eyebrow">Appointments</div>
+    <header class="page-hero">
+      <span class="balance-motif page-balance top-right" aria-hidden="true"><span class="balance-ball"></span></span>
+      <span class="decor-dot dot-large dot-hero-right"></span>
+      <span class="decor-dot dot-small dot-hero-left"></span>
+      <div class="wrap page-hero-copy">
+        <div class="eyebrow">Booking</div>
+        <h1>Make the next step simple.</h1>
+        <p class="lead">Replace the placeholder buttons with your live calendar links, intake form, payment page, or contact email.</p>
       </div>
     </header>
 
-    <!-- ============ BOOKING ============ -->
-    <section class="booker" aria-label="Choose and book a session">
+    <section class="section">
+      <span class="balance-motif section-balance right" aria-hidden="true"><span class="balance-ball"></span></span>
+      <span class="decor-dot dot-small dot-section-left"></span>
       <div class="wrap">
-        <div class="seg" role="group" aria-label="Choose session type">
-          <button type="button" aria-pressed="true" data-kind="discovery">30 min &middot; Free</button>
-          <button type="button" aria-pressed="false" data-kind="session">60 min &middot; Session</button>
+        <div class="section-head center">
+          <div class="eyebrow">Ways to work together</div>
+          <h2>Choose the support that matches the season.</h2>
+          <p class="lead">Use these as placeholders for the services you want to offer directly from the booking page.</p>
         </div>
-
-        <div class="session-detail" data-detail>
-          <div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div>
-          <div><b>Free</b><span>Video or phone</span></div>
+        <div class="card-grid">
+          <article class="service-card" style="--tone: var(--blue);">
+            <span class="tag">Start here</span>
+            <h3>[PLACEHOLDER: Discovery Call]</h3>
+            <p>A complimentary fit conversation for questions, goals, and next steps.</p>
+            <ul class="placeholder-list">
+              <li>[PLACEHOLDER: length]</li>
+              <li>[PLACEHOLDER: format]</li>
+              <li>[PLACEHOLDER: price]</li>
+            </ul>
+            <a class="button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true" target="_blank" rel="noopener">Book this</a>
+          </article>
+          <article class="service-card" style="--tone: var(--mint);">
+            <span class="tag">Focused work</span>
+            <h3>[PLACEHOLDER: Single Session]</h3>
+            <p>A focused coaching conversation for one decision, transition, pattern, or goal.</p>
+            <ul class="placeholder-list">
+              <li>[PLACEHOLDER: deliverables]</li>
+              <li>[PLACEHOLDER: between-session support]</li>
+              <li>[PLACEHOLDER: price]</li>
+            </ul>
+            <a class="button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true" target="_blank" rel="noopener">Book this</a>
+          </article>
+          <article class="service-card" style="--tone: var(--peach);">
+            <span class="tag">Deeper journey</span>
+            <h3>[PLACEHOLDER: Coaching Package]</h3>
+            <p>A multi-session partnership for deeper self-awareness and sustainable change.</p>
+            <ul class="placeholder-list">
+              <li>[PLACEHOLDER: number of sessions]</li>
+              <li>[PLACEHOLDER: assessment or worksheets]</li>
+              <li>[PLACEHOLDER: package price]</li>
+            </ul>
+            <a class="button" href="mailto:hello@theumethod.ca">Ask about this</a>
+          </article>
         </div>
-
-        <!-- ====== DISCOVERY CALL EMBED ======
-             Paste your Google Calendar embed here:
-             Google Calendar -> your "Discovery call" appointment schedule
-             -> Share -> Website embed -> Inline booking page -> Copy code.
-             Replace the .mock-cal div below with the copied <iframe>. -->
-        <div class="embed-panel" id="embed-discovery">
-          <div class="gcal-wrap">
-            <div class="mock-cal">
-              <div class="mc-head"><span>Discovery call &middot; July 2026</span><span>&lsaquo; &rsaquo;</span></div>
-              <div class="mc-grid">
-                <span class="mc-dow">M</span><span class="mc-dow">T</span><span class="mc-dow">W</span><span class="mc-dow">T</span><span class="mc-dow">F</span><span class="mc-dow">S</span><span class="mc-dow">S</span>
-                <span class="mc-day">6</span><span class="mc-day avail">7</span><span class="mc-day">8</span><span class="mc-day avail">9</span><span class="mc-day">10</span><span class="mc-day off">11</span><span class="mc-day off">12</span>
-                <span class="mc-day avail">13</span><span class="mc-day sel">14</span><span class="mc-day avail">15</span><span class="mc-day">16</span><span class="mc-day avail">17</span><span class="mc-day off">18</span><span class="mc-day off">19</span>
-              </div>
-              <div class="mc-slots"><span class="mc-slot">9:30</span><span class="mc-slot sel">11:00</span><span class="mc-slot">14:00</span><span class="mc-slot">16:30</span></div>
-              <div class="mc-note">Visual preview. Replace this calendar with your live Google Calendar embed for discovery calls.</div>
-            </div>
-          </div>
-          </div>
-
-        <!-- ====== COACHING SESSION EMBED ======
-             Same steps, using your "Coaching session" appointment schedule. -->
-        <div class="embed-panel" id="embed-session" hidden>
-          <div class="gcal-wrap">
-            <div class="mock-cal">
-              <div class="mc-head"><span>Coaching session &middot; July 2026</span><span>&lsaquo; &rsaquo;</span></div>
-              <div class="mc-grid">
-                <span class="mc-dow">M</span><span class="mc-dow">T</span><span class="mc-dow">W</span><span class="mc-dow">T</span><span class="mc-dow">F</span><span class="mc-dow">S</span><span class="mc-dow">S</span>
-                <span class="mc-day">6</span><span class="mc-day avail">7</span><span class="mc-day">8</span><span class="mc-day avail">9</span><span class="mc-day">10</span><span class="mc-day off">11</span><span class="mc-day off">12</span>
-                <span class="mc-day avail">13</span><span class="mc-day sel">14</span><span class="mc-day avail">15</span><span class="mc-day">16</span><span class="mc-day avail">17</span><span class="mc-day off">18</span><span class="mc-day off">19</span>
-              </div>
-              <div class="mc-slots"><span class="mc-slot">9:30</span><span class="mc-slot sel">11:00</span><span class="mc-slot">14:00</span><span class="mc-slot">16:30</span></div>
-              <div class="mc-note">Visual preview. Replace this calendar with your live Google Calendar embed for coaching sessions.</div>
-            </div>
-          </div>
-          </div>
       </div>
     </section>
 
-    <!-- ============ EQ SERVICES ============ -->
-    <section class="section eq-section" aria-label="Emotional intelligence services">
-      <span class="decor-dot dot-small dot-section-right" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Emotional intelligence</div>
-          <h2>EQ assessments &amp; experiences.</h2>
-          <p class="lead eq-intro">As a Certified EQ-i 2.0&reg; and EQ 360&reg; Practitioner, I integrate validated emotional-intelligence assessments with reflective, identity-centered coaching, so you can understand how your emotions, behaviours, and patterns shape your relationships, decisions, and leadership.</p>
+    <section class="section">
+      <span class="balance-motif section-balance right" aria-hidden="true"><span class="balance-ball"></span></span>
+      <span class="decor-dot dot-medium dot-section-left"></span>
+      <div class="wrap booking-frame">
+        <aside class="booking-side">
+          <span class="tag" style="--tone: var(--mint);">Before you book</span>
+          <h3>[PLACEHOLDER: booking note]</h3>
+          <p>Use this space for anything clients should know: who the call is for, refund policy, virtual format, timezone, accessibility, or equity pricing.</p>
+          <ul class="placeholder-list">
+            <li>[PLACEHOLDER: session timezone]</li>
+            <li>[PLACEHOLDER: meeting platform]</li>
+            <li>[PLACEHOLDER: cancellation policy]</li>
+            <li>[PLACEHOLDER: email address]</li>
+          </ul>
+        </aside>
+
+        <div class="booking-list">
+          <article class="booking-card" style="--tone: var(--blue);">
+            <span class="tag">Complimentary</span>
+            <h3>[PLACEHOLDER: Discovery Call]</h3>
+            <p>For new clients who want to ask questions, clarify fit, and understand the best starting point.</p>
+            <a class="button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true" target="_blank" rel="noopener">Open calendar link</a>
+            <div class="placeholder-note">Replace this link with your preferred discovery call link if needed.</div>
+          </article>
+          <article class="booking-card" style="--tone: var(--mint);">
+            <span class="tag">Coaching</span>
+            <h3>[PLACEHOLDER: Coaching Session]</h3>
+            <p>For returning clients or people who have already chosen a coaching service.</p>
+            <a class="button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true" target="_blank" rel="noopener">Open calendar link</a>
+            <div class="placeholder-note">Replace this link with your session, payment, or intake flow.</div>
+          </article>
+          <article class="booking-card placeholder" style="--tone: var(--peach);">
+            <span class="tag">Contact form</span>
+            <h3>[PLACEHOLDER: inquiry form]</h3>
+            <p>Add an embedded form here if you want clients to answer a few questions before booking.</p>
+            <a class="button secondary" href="mailto:hello@theumethod.ca">Email instead</a>
+          </article>
         </div>
-
-        <div class="eq-list">
-          <details class="eq-item">
-            <summary>EQ-Lite Snapshot + Insight Session</summary>
-            <div class="eq-body">
-              <span class="eq-price">$197 CAD</span>
-              <em>A gentle starting point, no assessment required.</em>
-              A reflective session using The U Method EQ Wheel to explore your internal patterns, strengths, and opportunities.
-              <ul>
-                <li>EQ Reflection Wheel</li>
-                <li>60-min coaching session</li>
-                <li>One-page insight summary</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-i 2.0&reg; Assessment + 75-Min Debrief</summary>
-            <div class="eq-body">
-              <span class="eq-price">$497 CAD</span>
-              <em>A complete view of how you navigate emotions, relationships, and decision-making.</em>
-              <ul>
-                <li>EQ-i 2.0&reg; Workplace or Leadership assessment</li>
-                <li>75-min coaching debrief</li>
-                <li>Full PDF report</li>
-                <li>Personalized reflection questions</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-i 2.0&reg; + Coaching Package (4 Sessions)</summary>
-            <div class="eq-body">
-              <span class="eq-price">$997&ndash;$1,200 CAD</span>
-              <em>From insight to integration.</em>
-              <ul>
-                <li>EQ-i 2.0&reg; assessment</li>
-                <li>75-min debrief</li>
-                <li>Four 60-min coaching sessions</li>
-                <li>Personalized developmental roadmap</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-360&reg; Leadership Experience</summary>
-            <div class="eq-body">
-              <span class="eq-price">$1,800&ndash;$2,400 CAD</span>
-              <em>A multi-rater emotional-intelligence assessment for deeper leadership clarity.</em>
-              <ul>
-                <li>EQ-360&reg; assessment</li>
-                <li>Leadership report</li>
-                <li>90-min debrief</li>
-                <li>Four 60-min coaching sessions</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>Group &amp; Team EQ Experiences</summary>
-            <div class="eq-body">
-              <span class="eq-price">From $47 / person</span>
-              <em>For teams, organizations, and communities.</em>
-              <ul>
-                <li><strong>EQ Masterclass</strong>, a live, accessible introduction to EQ (no assessment required). $47&ndash;$197 per participant.</li>
-                <li><strong>EQ-i Group Assessments + Debriefs</strong>, individual assessments + group themes session. $600&ndash;$900 per person.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <p class="eq-note">Curious which EQ experience fits you or your team? The easiest way to start is a <a href="#top">free discovery call above</a>, we'll find the right fit together, in English or Portugu&ecirc;s.</p>
-      </div>
-    </section>
-
-    <!-- ============ NOTE + FAQ ============ -->
-    <section class="section note-section" aria-label="A note from Juliana and frequently asked questions">
-      <span class="balance-motif section-balance left" aria-hidden="true"><span class="balance-ball"></span></span>
-      <div class="wrap note-inner">
-        <div class="note">
-          <img class="note-portrait" src="./about-portrait.png" alt="Juliana Dos Santos">
-          <div>
-            <div class="eyebrow">Before you book</div>
-            <h2>A small note from me.</h2>
-            <p>If you're here, something in you is already asking for change, and that's enough to start. A discovery call is not a commitment. It's a quiet half hour where you can say what is going on and see how it feels to be heard.</p>
-            <p class="sig">&mdash; Juliana</p>
-          </div>
-        </div>
-        <div class="faq">
-          <details>
-            <summary>Do I need to prepare anything?</summary>
-            <p>No. Come exactly as you are. We start wherever you are that day.</p>
-          </details>
-          <details>
-            <summary>Can we do the sessions in Portuguese?</summary>
-            <p>Yes. Sessions are held in English or Portugu&ecirc;s. Just mention your preference when you book, or switch anytime.</p>
-          </details>
-          <details>
-            <summary>What if I'm not sure coaching is for me?</summary>
-            <p>That's exactly what the discovery call is for. There's no pressure to continue afterwards.</p>
-          </details>
-          <details>
-            <summary>Is the discovery call really free?</summary>
-            <p>Yes. Completely free, with no follow-up obligation.</p>
-          </details>
-        </div>
-        <a class="back-up" href="#top">&uarr; Pick a time above</a>
       </div>
     </section>
   </main>
@@ -381,69 +157,9 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>&copy; <span data-year></span> The U Method. All rights reserved.</span>
-      <div class="footer-links"><a href="./index.html">Home</a><a href="./the-u-method.html">The U Method</a><a href="./resources.html">Resources</a></div>
+      <div class="footer-links"><a href="./about.html">About</a><a href="./the-u-method.html">The U Method</a><a href="./resources.html">Resources</a></div>
     </div>
   </footer>
-
   <script src="./script.js"></script>
-  <script>
-    /* Fallback for standalone viewing: if script.js didn't load (year span
-       still empty after load), provide the year + mobile menu behavior. */
-    window.addEventListener('load', function () {
-      var yearEl = document.querySelector('[data-year]');
-      if (!yearEl || yearEl.textContent.trim() !== '') return; /* script.js is active */
-      yearEl.textContent = new Date().getFullYear();
-      var toggle = document.querySelector('.menu-toggle');
-      var links = document.querySelector('.nav-links');
-      if (toggle && links) {
-        toggle.addEventListener('click', function () {
-          var open = links.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(open));
-          document.body.classList.toggle('nav-open', open);
-        });
-      }
-    });
-  </script>
-  <script>
-    (function () {
-      var buttons = document.querySelectorAll('.seg button');
-      var detail = document.querySelector('[data-detail]');
-      var panels = {
-        discovery: document.getElementById('embed-discovery'),
-        session: document.getElementById('embed-session')
-      };
-      var detailHTML = {
-        discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
-        session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
-      };
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var kind = btn.dataset.kind;
-          if (btn.getAttribute('aria-pressed') === 'true') return;
-          buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-          detail.classList.add('fade');
-          panels.discovery.classList.add('fade');
-          panels.session.classList.add('fade');
-          window.setTimeout(function () {
-            detail.innerHTML = detailHTML[kind];
-            panels.discovery.hidden = kind !== 'discovery';
-            panels.session.hidden = kind !== 'session';
-            detail.classList.remove('fade');
-            panels.discovery.classList.remove('fade');
-            panels.session.classList.remove('fade');
-          }, 180);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
