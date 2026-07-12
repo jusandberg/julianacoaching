@@ -147,12 +147,15 @@
     }
 
     /* ===== Fix: remove the extra whitespace gap above testimonials =====
-       The hero's bottom padding (needed to make room for the floating
-       decorative circles) was stacking with the testimonial section's
-       own top padding, creating a large blank gap. Tightened both. */
-    body.home-slate-gold .hero{padding-bottom:70px}
+       Root cause: .hero has min-height: calc(100svh - 78px), forcing it
+       to fill the entire screen height regardless of content length. On
+       a normal desktop monitor, the short hero content gets centered
+       inside that huge box, leaving large empty gaps above and below it
+       before the testimonials section even starts. Removing the forced
+       full-height and using normal padding instead fixes this. */
+    body.home-slate-gold .hero{min-height:auto!important;padding-top:56px!important;padding-bottom:56px!important}
     @media (max-width:760px){
-      body.home-slate-gold .hero{padding-bottom:48px}
+      body.home-slate-gold .hero{padding-top:40px!important;padding-bottom:40px!important}
     }
 
     /* ===== Fix: hero decorative circles =====
