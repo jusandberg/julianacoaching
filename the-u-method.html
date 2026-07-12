@@ -45,6 +45,14 @@
       .method-video-section{padding-top:14px!important;padding-bottom:14px!important}
       #archetypes{padding-top:14px!important}
     }
+
+    /* ===== Hero's Journey CTA: icon badge + text link with arrow, no chip ===== */
+    .wic-journey-link{display:inline-flex;align-items:center;gap:12px;margin-top:6px;color:#101419;font-weight:800;font-size:15.5px;text-decoration:none}
+    .wic-journey-badge{width:38px;height:38px;border-radius:50%;background:#d9b75e;color:#101419;display:grid;place-items:center;flex:none;transition:transform .2s ease}
+    .wic-journey-badge svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .wic-journey-link .wic-arrow{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+    .wic-journey-link:hover .wic-journey-badge{transform:scale(1.08)}
+    .wic-journey-link:hover .wic-arrow{transform:translateX(3px)}
   </style>
 </head>
 <body>
@@ -84,6 +92,7 @@
       <div class="wrap">
         <div class="section-head center">
           <div class="eyebrow">The rhythm</div>
+          <h2>Watch the method unfold.</h2>
           <p class="lead">Watch what transformation looks like with the method.</p>
         </div>
         <div class="method-video-frame">
@@ -167,11 +176,14 @@
           </div>
         </div>
 
-        <div class="section-head center" style="margin-top:48px;">
+        <div class="section-head center wic-journey-cta" style="margin-top:48px;">
           <div class="eyebrow">Interactive reflection</div>
-          <h2>Walk the shape of change.</h2>
           <p class="lead">Move through eight stages of the Hero&rsquo;s Journey and discover which inner archetype guides the way you meet change.</p>
-          <p><a class="button" href="./heros-journey.html">Walk the Hero&rsquo;s Journey</a></p>
+          <a class="wic-journey-link" href="./heros-journey.html">
+            <span class="wic-journey-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 5.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z"/><path d="M9 22l2-7-2.5-2 1-5 4 1 2 3h3"/><path d="m6 22 3-6 2-3"/><path d="M12 12l3 2 2 5"/></svg></span>
+            <span>Walk the Hero&rsquo;s Journey</span>
+            <svg class="wic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -197,5 +209,25 @@
     </div>
   </footer>
   <script src="./script.js"></script>
+  <script>
+    /* Allow each archetype accordion item to collapse independently,
+       including closing the last one open (script.js otherwise forces
+       one item to always stay expanded). Runs in the capture phase so
+       it intercepts the click before script.js's own handler. */
+    (function () {
+      var accordion = document.querySelector('[data-arch-accordion]');
+      if (!accordion) return;
+      accordion.addEventListener('click', function (e) {
+        var head = e.target.closest('.arch-acc-head');
+        if (!head) return;
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        var item = head.closest('.arch-acc-item');
+        var willOpen = !item.classList.contains('open');
+        item.classList.toggle('open', willOpen);
+        head.setAttribute('aria-expanded', String(willOpen));
+      }, true);
+    })();
+  </script>
 </body>
 </html>
