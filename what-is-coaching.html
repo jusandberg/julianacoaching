@@ -91,6 +91,51 @@
       .wic-vs{grid-template-columns:1fr}
       .wic-vs-panel.therapy{border-left:1px solid var(--line);border-top:0}
     }
+
+    /* ===== Coaching conversation arc ===== */
+    .conversation-section{padding-top:72px;padding-bottom:74px;background:#fff}
+    .conversation-head{max-width:700px;margin:0 auto;text-align:center}
+    .conversation-head h2{margin:10px 0 12px;font-size:clamp(30px,4vw,46px);letter-spacing:-.035em}
+    .conversation-head .lead{max-width:640px;margin-inline:auto}
+    .conversation-arc{position:relative;height:250px;margin-top:34px}
+    .conversation-arc svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+    .conversation-arc path{fill:none;stroke:#dce2e4;stroke-width:2}
+    .conversation-stage{position:absolute;top:0;width:120px;margin-left:-60px;padding:0;border:0;background:transparent;color:#101419;font:inherit;text-align:center;cursor:pointer}
+    .conversation-stage:focus-visible{outline:3px solid rgba(56,87,104,.25);outline-offset:5px;border-radius:12px}
+    .conversation-dot{display:block;width:20px;height:20px;margin:0 auto 10px;border-radius:50%;background:var(--stage-color);box-shadow:0 0 0 4px #fff,0 4px 12px rgba(16,20,25,.18);transition:transform .2s ease,box-shadow .2s ease}
+    .conversation-stage:hover .conversation-dot,.conversation-stage[aria-expanded="true"] .conversation-dot{transform:scale(1.22);box-shadow:0 0 0 4px #fff,0 7px 16px rgba(16,20,25,.23)}
+    .conversation-label{display:block;color:#303940;font-size:12px;font-weight:850;letter-spacing:.055em;text-transform:uppercase;white-space:nowrap}
+    .conversation-reveal{display:grid;grid-template-rows:0fr;max-width:820px;margin:18px auto 0;transition:grid-template-rows .35s ease}
+    .conversation-reveal>div{overflow:hidden}.conversation-reveal.open{grid-template-rows:1fr}
+    .conversation-card{position:relative;display:grid;grid-template-columns:58px 1fr;gap:20px;align-items:start;margin-top:2px;padding:28px 58px 28px 28px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#fff,#f8f5ec);box-shadow:0 16px 36px rgba(16,20,25,.07);overflow:hidden}
+    .conversation-card::after{content:"";position:absolute;width:100px;height:100px;top:-52px;right:-52px;border:1px solid rgba(146,117,44,.3);border-radius:50%}
+    .conversation-card-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:15px;background:var(--stage-color);color:#fff}
+    .conversation-card-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .conversation-meta{margin-bottom:5px;color:#92752c;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .conversation-card h3{margin:0 0 8px;font-size:21px}.conversation-card p{margin:0;color:#5d6570;font-size:15px;line-height:1.65}
+    .conversation-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#5d6570;font-size:19px;cursor:pointer;z-index:2}
+    .conversation-hint{margin:18px 0 0;text-align:center;color:#737b83;font-size:12px}
+    .conversation-mobile{display:none}
+    @media(max-width:820px){
+      .conversation-section{padding-top:52px;padding-bottom:54px}
+      .conversation-arc,.conversation-reveal,.conversation-hint{display:none}
+      .conversation-mobile{display:block;margin:28px -20px 0;padding:0 20px;touch-action:pan-y}
+      .mobile-arc-window{position:relative;height:170px;margin-inline:-20px;overflow:hidden}
+      .mobile-arc-window svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+      .mobile-arc-window path{fill:none;stroke:#dce2e4;stroke-width:2}
+      .mobile-arc-node{position:absolute;width:100px;margin-left:-50px;padding:0;border:0;background:transparent;color:#303940;font:inherit;text-align:center;transition:opacity .22s ease,transform .22s ease}
+      .mobile-arc-node.pos-left{left:13%;top:82px}.mobile-arc-node.pos-center{left:50%;top:22px}.mobile-arc-node.pos-right{left:87%;top:82px}
+      .mobile-arc-node:not(.selected){opacity:.52}.mobile-arc-node.selected{transform:scale(1.04)}
+      .mobile-arc-icon{display:grid;width:38px;height:38px;margin:0 auto 9px;place-items:center;border-radius:50%;background:#fff;color:var(--stage-color);border:2px solid var(--stage-color);box-shadow:0 4px 12px rgba(16,20,25,.12)}
+      .mobile-arc-node.selected .mobile-arc-icon{width:48px;height:48px;background:var(--stage-color);color:#fff}
+      .mobile-arc-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.mobile-arc-node.selected .mobile-arc-icon svg{width:23px;height:23px}
+      .mobile-arc-label{display:block;font-size:10px;font-weight:850;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+      .mobile-conversation-detail{max-width:360px;margin:4px auto 0;text-align:center}
+      .mobile-conversation-detail .conversation-meta{margin-bottom:7px}.mobile-conversation-detail h3{margin:0 0 9px;font-size:20px}.mobile-conversation-detail p{margin:0;color:#5d6570;font-size:14px;line-height:1.65}
+      .mobile-arc-controls{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin-top:22px}
+      .mobile-arc-controls button{min-height:42px;padding:8px 12px;border:0;background:transparent;color:#385768;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer}.mobile-arc-controls button:disabled{opacity:.3}
+      .mobile-arc-count{text-align:center;color:#737b83;font-size:12px;font-weight:750}
+    }
   </style>
   <style>
     /* ============================================================
@@ -161,6 +206,24 @@
       </div>
     </section>
 
+    <section class="section conversation-section" aria-labelledby="conversation-title">
+      <span class="balance-motif section-balance left" aria-hidden="true"><span class="balance-ball"></span></span>
+      <div class="wrap">
+        <div class="conversation-head">
+          <div class="eyebrow">A coaching conversation</div>
+          <h2 id="conversation-title">What a coaching conversation looks like.</h2>
+          <p class="lead">A thoughtful conversation moves from connection and clarity toward insight, choice, and a meaningful next step.</p>
+        </div>
+        <div class="conversation-arc" id="conversationArc" aria-label="Seven stages of a coaching conversation">
+          <svg id="conversationArcSvg" preserveAspectRatio="none" aria-hidden="true"><path id="conversationArcPath"></path></svg>
+          <div id="conversationStages"></div>
+        </div>
+        <div class="conversation-reveal" id="conversationReveal"><div><article class="conversation-card" id="conversationCard"></article></div></div>
+        <p class="conversation-hint">Select a stage to explore what happens in the conversation.</p>
+        <div class="conversation-mobile" id="conversationMobile" aria-label="Swipe through the seven conversation stages"></div>
+      </div>
+    </section>
+
     <section class="section soft wic-vs-section">
       <span class="balance-motif section-balance right" aria-hidden="true"><span class="balance-ball"></span></span>
       <span class="decor-dot dot-small dot-section-left"></span>
@@ -213,6 +276,87 @@
     </div>
   </footer>
   <script src="./script.js"></script>
+  <script>
+    const CONVERSATION_STAGES = [
+      {label:'Connect',color:'#385768',icon:'<circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/>',title:'Build trust and presence',text:'We begin by creating a grounded, psychologically safe space. You can arrive exactly as you are, without needing to have everything figured out.'},
+      {label:'Goal',color:'#365f61',icon:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',title:'Clarify what matters now',text:'Together, we identify what would make the conversation valuable and name the question, decision, or change asking for your attention.'},
+      {label:'Explore',color:'#52685b',icon:'<path d="M16 8l-3 6-6 3 3-6 6-3z"/>',title:'Explore the current reality',text:'Through deep listening and thoughtful questions, we look at the situation, emotions, context, and patterns shaping your experience.'},
+      {label:'Awareness',color:'#92752c',icon:'<path d="M9 18h6M12 2a6 6 0 0 0-3 11.2V15h6v-1.8A6 6 0 0 0 12 2z"/>',title:'Generate awareness',text:'We notice assumptions, beliefs, and perspectives that may be limiting what you can see, making room for a clearer and more honest understanding.'},
+      {label:'Options',color:'#80513f',icon:'<path d="M12 3v7M12 10l-7 11M12 10l7 11"/>',title:'Create possibilities',text:'You generate different ways forward and consider what each possibility asks of you. Coaching invites your thinking rather than prescribing an answer.'},
+      {label:'Action',color:'#5b4e63',icon:'<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>',title:'Choose an aligned next step',text:'You decide what action feels meaningful, realistic, and connected to your values—not simply what you think you should do.'},
+      {label:'Close',color:'#7d6231',icon:'<path d="M20 6L9 17l-5-5"/>',title:'Capture learning and accountability',text:'We reflect on what shifted, name what you are taking with you, and identify the support or accountability that will help the insight become lived change.'}
+    ];
+    let openConversationStage = null;
+
+    function conversationY(t){return 174 - 136 * 4 * t * (1 - t)}
+    function positionConversationArc(){
+      const arc=document.getElementById('conversationArc');
+      const svg=document.getElementById('conversationArcSvg');
+      const path=document.getElementById('conversationArcPath');
+      if(!arc||!svg||!path||window.innerWidth<=820)return;
+      const width=arc.getBoundingClientRect().width;
+      if(!width)return;
+      const margin=66;
+      arc.querySelectorAll('.conversation-stage').forEach((stage,index)=>{
+        const t=index/(CONVERSATION_STAGES.length-1);
+        stage.style.left=(margin+t*(width-2*margin))+'px';
+        stage.style.top=conversationY(t)+'px';
+      });
+      svg.setAttribute('viewBox','0 0 '+width+' '+arc.getBoundingClientRect().height);
+      let d='';
+      for(let i=0;i<=48;i++){
+        const t=i/48,x=margin+t*(width-2*margin),y=conversationY(t)+10;
+        d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+      }
+      path.setAttribute('d',d);
+    }
+    function closeConversationStage(){
+      document.querySelectorAll('.conversation-stage[aria-expanded="true"]').forEach(stage=>stage.setAttribute('aria-expanded','false'));
+      document.getElementById('conversationReveal')?.classList.remove('open');
+      openConversationStage=null;
+    }
+    function showConversationStage(index){
+      if(openConversationStage===index){closeConversationStage();return}
+      closeConversationStage();
+      const stage=CONVERSATION_STAGES[index];
+      const button=document.querySelector('.conversation-stage[data-stage="'+index+'"]');
+      const card=document.getElementById('conversationCard');
+      if(!stage||!button||!card)return;
+      card.style.setProperty('--stage-color',stage.color);
+      card.innerHTML='<button class="conversation-close" type="button" aria-label="Close stage" onclick="closeConversationStage()">&times;</button><span class="conversation-card-icon"><svg viewBox="0 0 24 24">'+stage.icon+'</svg></span><div><div class="conversation-meta">'+stage.label+'</div><h3>'+stage.title+'</h3><p>'+stage.text+'</p></div>';
+      button.setAttribute('aria-expanded','true');
+      document.getElementById('conversationReveal').classList.add('open');
+      openConversationStage=index;
+    }
+    let mobileConversationIndex=0;
+    function renderMobileConversation(){
+      const mobile=document.getElementById('conversationMobile');
+      if(!mobile)return;
+      const total=CONVERSATION_STAGES.length;
+      let firstVisible=Math.max(0,Math.min(total-3,mobileConversationIndex-1));
+      const positions=['pos-left','pos-center','pos-right'];
+      const visible=[0,1,2].map((offset)=>({index:firstVisible+offset,position:positions[offset]}));
+      const active=CONVERSATION_STAGES[mobileConversationIndex];
+      mobile.innerHTML='<div class="mobile-arc-window"><svg viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true"><path d="M-15 140 Q200 -26 415 140"/></svg>'+visible.map(item=>{const stage=CONVERSATION_STAGES[item.index];const selected=item.index===mobileConversationIndex?' selected':'';const direction=item.index-mobileConversationIndex;return '<button class="mobile-arc-node '+item.position+selected+'" style="--stage-color:'+stage.color+'" type="button" onclick="changeMobileConversation('+direction+')" aria-label="'+stage.label+' stage"><span class="mobile-arc-icon"><svg viewBox="0 0 24 24">'+stage.icon+'</svg></span><span class="mobile-arc-label">'+stage.label+'</span></button>'}).join('')+'</div><div class="mobile-conversation-detail"><div class="conversation-meta">'+active.label+'</div><h3>'+active.title+'</h3><p>'+active.text+'</p></div><div class="mobile-arc-controls"><button type="button" onclick="changeMobileConversation(-1)" '+(mobileConversationIndex===0?'disabled':'')+'>&larr; Previous</button><span class="mobile-arc-count">'+(mobileConversationIndex+1)+' of '+total+'</span><button type="button" onclick="changeMobileConversation(1)" '+(mobileConversationIndex===total-1?'disabled':'')+'>Next &rarr;</button></div>';
+    }
+    function changeMobileConversation(direction){
+      mobileConversationIndex=Math.max(0,Math.min(CONVERSATION_STAGES.length-1,mobileConversationIndex+direction));
+      renderMobileConversation();
+    }
+    function buildConversationArc(){
+      const stages=document.getElementById('conversationStages');
+      const mobile=document.getElementById('conversationMobile');
+      if(!stages||!mobile)return;
+      stages.innerHTML=CONVERSATION_STAGES.map((stage,index)=>'<button class="conversation-stage" style="--stage-color:'+stage.color+'" data-stage="'+index+'" type="button" aria-expanded="false" onclick="showConversationStage('+index+')"><span class="conversation-dot"></span><span class="conversation-label">'+stage.label+'</span></button>').join('');
+      renderMobileConversation();
+      let touchStartX=0;
+      mobile.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0].clientX},{passive:true});
+      mobile.addEventListener('touchend',event=>{const distance=event.changedTouches[0].clientX-touchStartX;if(Math.abs(distance)>45)changeMobileConversation(distance<0?1:-1)},{passive:true});
+      requestAnimationFrame(positionConversationArc);
+    }
+    buildConversationArc();
+    window.addEventListener('resize',positionConversationArc);
+  </script>
 
 </body>
 </html>
