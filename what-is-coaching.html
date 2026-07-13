@@ -97,7 +97,7 @@
     .conversation-head{max-width:700px;margin:0 auto;text-align:center}
     .conversation-head h2{margin:10px 0 12px;font-size:clamp(30px,4vw,46px);letter-spacing:-.035em}
     .conversation-head .lead{max-width:640px;margin-inline:auto}
-    .conversation-arc{position:relative;height:250px;margin-top:34px}
+    .conversation-arc{position:relative;height:232px;margin-top:34px}
     .conversation-arc svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
     .conversation-arc path{fill:none;stroke:#dce2e4;stroke-width:2}
     .conversation-stage{position:absolute;top:0;width:120px;margin-left:-60px;padding:0;border:0;background:transparent;color:#101419;font:inherit;text-align:center;cursor:pointer}
@@ -105,15 +105,15 @@
     .conversation-dot{display:block;width:20px;height:20px;margin:0 auto 10px;border-radius:50%;background:var(--stage-color);box-shadow:0 0 0 4px #fff,0 4px 12px rgba(16,20,25,.18);transition:transform .2s ease,box-shadow .2s ease}
     .conversation-stage:hover .conversation-dot,.conversation-stage[aria-expanded="true"] .conversation-dot{transform:scale(1.22);box-shadow:0 0 0 4px #fff,0 7px 16px rgba(16,20,25,.23)}
     .conversation-label{display:block;color:#303940;font-size:12px;font-weight:850;letter-spacing:.055em;text-transform:uppercase;white-space:nowrap}
-    .conversation-reveal{display:grid;grid-template-rows:0fr;max-width:820px;margin:18px auto 0;transition:grid-template-rows .35s ease}
+    .conversation-reveal{display:grid;grid-template-rows:0fr;max-width:820px;margin:0 auto;transition:grid-template-rows .35s ease}
     .conversation-reveal>div{overflow:hidden}.conversation-reveal.open{grid-template-rows:1fr}
-    .conversation-card{position:relative;display:grid;grid-template-columns:58px 1fr;gap:20px;align-items:start;margin-top:2px;padding:28px 58px 28px 28px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#fff,#f8f5ec);box-shadow:0 16px 36px rgba(16,20,25,.07);overflow:hidden}
-    .conversation-card::after{content:"";position:absolute;width:100px;height:100px;top:-52px;right:-52px;border:1px solid rgba(146,117,44,.3);border-radius:50%}
+    .conversation-card{position:relative;display:grid;grid-template-columns:58px 1fr;gap:20px;align-items:start;margin-top:0;padding:10px 48px 12px 0;background:transparent}
+    .conversation-card::after{display:none}
     .conversation-card-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:15px;background:var(--stage-color);color:#fff}
     .conversation-card-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
     .conversation-meta{margin-bottom:5px;color:#92752c;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
     .conversation-card h3{margin:0 0 8px;font-size:21px}.conversation-card p{margin:0;color:#5d6570;font-size:15px;line-height:1.65}
-    .conversation-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#5d6570;font-size:19px;cursor:pointer;z-index:2}
+    .conversation-close{position:absolute;top:4px;right:0;width:32px;height:32px;border:0;background:transparent;color:#5d6570;font-size:22px;cursor:pointer;z-index:2}
     .conversation-hint{margin:18px 0 0;text-align:center;color:#737b83;font-size:12px}
     .conversation-mobile{display:none}
     @media(max-width:820px){
