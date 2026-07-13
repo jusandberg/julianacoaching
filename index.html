@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,187 +20,20 @@
   <meta name="twitter:title" content="The U Method | Coaching Practice">
   <meta name="twitter:description" content="Coaching for people navigating transition, leadership, and growth. A grounded place to slow down, hear yourself clearly, and choose your next step with more trust.">
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
-  <style>
-    /* ============================================================
-       BASE FALLBACK STYLES - approximate copies of the core rules
-       from styles.css so this page renders reasonably even when
-       viewed standalone. In the repo, styles.css loads after this
-       block and takes precedence for anything it also defines.
-       ============================================================ */
-    :root{--ink:#101419;--muted:#66707a;--paper:#f8f9fa;--line:#d9dee4;--shadow:0 24px 74px rgba(16,20,25,.12);--radius:8px;--grad:linear-gradient(110deg,#657482 0%,#d9b75e 48%,#f3e4bd 100%);--blue-slate:#385768}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    h1,h2,p{margin-top:0}
-    h1{max-width:820px;margin-bottom:22px;font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.055em}
-    .home-slate-gold h1{max-width:760px;font-size:clamp(50px,7vw,96px);line-height:1.02;letter-spacing:0}
-    h2{margin-bottom:16px;font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-.045em}
-    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
-    .site-nav{position:sticky;top:0;z-index:50;height:78px;background:rgba(248,249,250,.9);border-bottom:1px solid rgba(16,20,25,.1);backdrop-filter:blur(22px)}
-    .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-width:0;font-weight:800}
-    .brand img{width:214px;height:auto}
-    .brand .brand-text{display:none;font-weight:800;font-size:19px;letter-spacing:-.01em}
-    .brand .brand-text b{color:#92752c}
-    .brand:not(:has(img)) .brand-text{display:inline}
-    .nav-links{display:flex;align-items:center;gap:8px;list-style:none;padding:0;margin:0}
-    .nav-links a{display:inline-flex;min-height:40px;align-items:center;padding:0 12px;border-radius:999px;color:#39414a;font-size:13px;font-weight:700;text-decoration:none}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{background:#edf0f2;color:var(--ink)}
-    .nav-links .nav-cta{margin-left:4px;background:var(--ink);color:#fff}
-    .nav-links .nav-cta:hover{background:#000;color:#fff}
-    .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:20px}
-    .lead{max-width:690px;margin-bottom:30px;color:var(--muted);font-size:clamp(18px,2vw,22px);line-height:1.55}
-    .microcopy{color:var(--muted);font-size:14px}
-    .hero{position:relative;overflow:hidden;isolation:isolate;min-height:calc(100svh - 78px);display:grid;align-items:center;padding:78px 0 66px}
-    .home-slate-gold .hero{padding-bottom:80px}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);align-items:center;gap:clamp(36px,7vw,96px)}
-    .hero-copy{position:relative;z-index:2}
-    .gradient-text{background:var(--grad);background-clip:text;-webkit-background-clip:text;color:transparent;display:inline-block;padding-bottom:.08em}
-    .headline-line{display:block}
-    .headline-keep{white-space:nowrap}
-    .actions{display:flex;flex-wrap:wrap;gap:12px}
-    .button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:9px;padding:0 20px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font-size:14px;font-weight:800;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
-    .button:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(17,17,19,.16)}
-    .button.secondary{background:#fff;color:var(--ink);border-color:#cfd4db}
-    .portrait-panel{position:relative;width:min(330px,100%);aspect-ratio:1;border-radius:50%;overflow:visible;justify-self:center}
-    .portrait-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:50%;opacity:.88;mix-blend-mode:luminosity;box-shadow:var(--shadow)}
-    .portrait-panel.no-img::before{content:"J";position:absolute;inset:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#dbe6ed,#657482);color:#fff;font-weight:800;font-size:64px;box-shadow:var(--shadow)}
-    .portrait-card{position:absolute;right:-82px;bottom:-108px;width:min(280px,calc(100vw - 56px));padding:18px;border:1px solid rgba(255,255,255,.62);border-radius:var(--radius);background:rgba(251,252,253,.78);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(16,20,25,.08);z-index:2}
-    .portrait-card strong{display:block;margin-bottom:5px;font-size:15px}
-    .section-head{max-width:760px;margin-bottom:24px}
-    .section-head.center{margin-inline:auto;text-align:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;color:#92752c;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    .eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
-    .site-footer{padding:38px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .footer-links{display:flex;flex-wrap:wrap;gap:14px}
-    .footer-links a{font-weight:750;text-decoration:none}
-    .balance-motif{position:absolute;pointer-events:none;z-index:0;width:var(--motif-width,320px);height:var(--motif-height,210px);opacity:.92}
-    .hero-balance{top:60px;right:20px}
-    .balance-ball,.decor-dot{position:absolute;display:block}
-    .balance-ball{width:var(--ball-size,146px);height:var(--ball-size,146px);left:50%;bottom:34px;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.28),transparent 36%),#f3e4bd;box-shadow:0 18px 46px rgba(217,183,94,.24);transform:translateX(-50%);animation:circleFloat 6s ease-in-out infinite}
-    .decor-dot{width:var(--dot-size,24px);height:var(--dot-size,24px);border-radius:50%;background:var(--dot-color,#657482);opacity:.6;box-shadow:0 10px 28px rgba(16,20,25,.08);animation:dotDrift 6.4s ease-in-out infinite;pointer-events:none;z-index:0}
-    .dot-large{--dot-size:34px;--dot-color:#657482}
-    .dot-medium{--dot-size:26px;--dot-color:#657482;animation-delay:-3s}
-    .dot-small{--dot-size:16px;--dot-color:#d9b75e;animation-delay:-1.8s}
-    .dot-hero-left{left:6%;top:16%}
-    .dot-hero-bottom{left:4%;top:38%}
-    .dot-hero-right{right:12%;bottom:14%}
-    .dot-section-left{left:5%;top:20%}
-    .dot-section-right{right:6%;top:14%}
-    @keyframes circleFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(calc(-50% + 18px)) translateY(-12px)}}
-    @keyframes dotDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(14px,-10px,0)}}
-    @media (max-width:900px){
-      .hero-grid{grid-template-columns:1fr;gap:44px}
-      .portrait-card{right:0;bottom:-84px}
-    }
-    @media (max-width:760px){
-      .site-nav{height:70px}
-      .brand img{width:188px}
-      .menu-toggle{display:inline-grid;place-items:center}
-      .nav-links{position:fixed;inset:70px 0 auto 0;display:none;max-height:calc(100svh - 70px);overflow:auto;padding:16px 20px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(18px)}
-      .nav-links.open{display:grid;gap:8px}
-      .nav-links a{min-height:48px;justify-content:center;border-radius:var(--radius);background:#f6f7f9;font-size:15px}
-      .nav-links .nav-cta{margin-left:0}
-      .hero{min-height:auto;padding:48px 0 32px}
-      .home-slate-gold .hero{padding-bottom:56px}
-      h1{font-size:clamp(42px,12.5vw,60px);line-height:1.08}
-      h2{font-size:clamp(34px,10vw,48px)}
-      .portrait-panel{width:min(260px,100%)}
-      .footer-inner{align-items:flex-start;flex-direction:column}
-    }
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .balance-ball,.decor-dot{animation:none}
-    }
-
-    /* ===== Testimonials: editorial spotlight ===== */
-    .tstm-section{position:relative;padding:56px 0 60px;overflow:hidden;isolation:isolate;background:#fff}
-    .tstm-section .section-head{margin-bottom:36px;position:relative;z-index:1}
-    .tstm-stage{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 24px;min-height:200px;box-sizing:border-box;cursor:pointer}
-    .tstm-quote-block{position:absolute;inset:0 24px;opacity:0;transition:opacity .6s ease;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
-    .tstm-quote-block.on{opacity:1;position:relative}
-    .tstm-quote-block blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,2.4vw,28px);line-height:1.5;color:#22262b;font-style:italic;letter-spacing:-.005em}
-    .tstm-rule{width:36px;height:1px;background:#d9b75e}
-    .tstm-who{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#66707a}
-    .tstm-nav{position:relative;z-index:1;display:flex;justify-content:center;gap:10px;margin-top:32px}
-    .tstm-dot{width:6px;height:6px;border-radius:50%;border:0;background:#dcdfe3;padding:0;cursor:pointer;transition:.2s ease}
-    .tstm-dot.on{width:20px;border-radius:3px;background:#7d6231}
-    .tstm-tap-hint{position:relative;z-index:1;display:none;margin:16px 0 0;text-align:center;color:#66707a;font-size:12px}
-    /* Decorative dot: sit just above the heading instead of overlapping the first word */
-    .tstm-section .dot-section-left{left:50%;top:14px;transform:translateX(-134px)}
-    @media (max-width:760px){
-      .tstm-section{padding:40px 0 40px}
-      .tstm-section .wrap{width:min(560px,calc(100% - 32px))}
-      .tstm-section .section-head{margin-bottom:22px}
-      .tstm-quote-block blockquote{font-size:18px}
-      .tstm-stage{min-height:230px;padding:0 12px}
-      .tstm-quote-block{inset:0 12px}
-      .tstm-section .dot-section-left{left:20px;top:6px;transform:none;--dot-size:20px}
-      .tstm-section .dot-section-right{display:none}
-      .tstm-tap-hint{display:block}
-    }
-    @media (prefers-reduced-motion:reduce){
-      .tstm-quote-block{transition:none}
-    }
-
-    /* ===== Fix: remove the extra whitespace gap above testimonials =====
-       Root cause: .hero has min-height: calc(100svh - 78px), forcing it
-       to fill the entire screen height regardless of content length. On
-       a normal desktop monitor, the short hero content gets centered
-       inside that huge box, leaving large empty gaps above and below it
-       before the testimonials section even starts. Removing the forced
-       full-height and using normal padding instead fixes this. */
-    body.home-slate-gold .hero{min-height:auto!important;padding-top:56px!important;padding-bottom:56px!important}
-    @media (max-width:760px){
-      body.home-slate-gold .hero{padding-top:40px!important;padding-bottom:40px!important}
-    }
-
-    /* ===== Fix: hero decorative circles =====
-       Was two solid filled blue-gray dots stacked close together on the
-       left. Now a single large blue outline ring (no fill), matching
-       the "line, not filled" look used elsewhere on the site. */
-    .hero-ring{background:transparent!important;box-shadow:none!important;border:2px solid rgba(56,87,104,.55);width:120px!important;height:120px!important;animation:heroRingDrift 7.5s ease-in-out infinite}
-    @keyframes heroRingDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-12px,-16px,0)}}
-    @media (max-width:760px){
-      .hero-ring{width:76px!important;height:76px!important}
-    }
-    @media (prefers-reduced-motion:reduce){
-      .hero-ring{animation:none}
-    }
-
-  </style>
-  <link rel="stylesheet" href="./styles.css?v=11">
-  <style>
-    /* ============================================================
-       NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
-       even in the repo where the real stylesheet is present)
-       ============================================================ */
-    .brand img{width:260px!important}
-    @media (max-width:760px){
-      .brand img{width:220px!important}
-    }
-    .menu-toggle{position:relative;font-size:0}
-    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
-    .menu-toggle .icon-x{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-x{display:block}
-  </style>
+  <link rel="stylesheet" href="./styles.css?v=12">
 </head>
 <body class="home-slate-gold">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
       <ul class="nav-links">
         <li><a aria-current="page" href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./what-is-coaching.html">What is coaching</a></li>
         <li><a href="./the-u-method.html">The U Method</a></li>
         <li><a href="./resources.html">Resources</a></li>
-        <li><a class="nav-cta" href="./booking.html">Appointments</a></li>
+        <li><a class="nav-cta" href="./booking.html">Book</a></li>
       </ul>
     </div>
   </nav>
@@ -208,8 +41,9 @@
   <main>
     <header class="hero">
       <span class="balance-motif hero-balance" aria-hidden="true"><span class="balance-ball"></span></span>
-      <span class="decor-dot dot-large dot-hero-left hero-ring" aria-hidden="true"></span>
+      <span class="decor-dot dot-large dot-hero-left" aria-hidden="true"></span>
       <span class="decor-dot dot-small dot-hero-right" aria-hidden="true"></span>
+      <span class="decor-dot dot-medium dot-hero-bottom" aria-hidden="true"></span>
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <h1><span class="headline-line">Find clarity.</span> <span class="gradient-text headline-keep">Lead yourself forward.</span></h1>
@@ -220,36 +54,46 @@
           </div>
         </div>
         <div class="portrait-panel" aria-label="Portrait of Juliana Dos Santos">
-          <img src="./home-portrait.png" alt="Juliana Dos Santos" onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+          <img src="./home-portrait.png" alt="Juliana Dos Santos">
           <div class="portrait-card">
-            <strong>Juliana Dos Santos</strong>
             <p class="microcopy">Coach and certified EQ-i 2.0&reg; and EQ 360&reg; practitioner. I partner with people through transition, leadership, and personal growth.</p>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="tstm-section" aria-label="Client testimonials">
+    <section class="testimonials-section" aria-label="Client testimonials">
       <span class="decor-dot dot-large dot-section-left" aria-hidden="true"></span>
       <span class="decor-dot dot-small dot-section-right" aria-hidden="true"></span>
-      <div class="wrap">
+      <div class="wrap testimonial-carousel" data-carousel>
         <div class="section-head center">
           <div class="eyebrow">Client reflections</div>
           <h2>What shifts when the work gets grounded.</h2>
         </div>
-        <div class="tstm-stage" id="tstmStage">
-          <div class="tstm-quote-block on"><blockquote>&ldquo;I came into coaching feeling overwhelmed and stuck. Juliana helped me to understand my reactions, my needs, and how to lead myself through hard moments. This changed the way I relate to myself.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Maya R., Ottawa, ON</span></div>
-          <div class="tstm-quote-block"><blockquote>&ldquo;Juliana is helping me to slow down, reconnect with myself, and make decisions from a grounded place instead of distress. I feel more confident, more centered, and more like myself.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Sofia M., Toronto, ON</span></div>
-          <div class="tstm-quote-block"><blockquote>&ldquo;For the first time in years, I understood what was driving my patterns and felt equipped to change them. Every session felt supportive, calm, and surprisingly transformative.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Amelia C., Vancouver, BC</span></div>
-          <div class="tstm-quote-block"><blockquote>&ldquo;This experience helped me untangle long-standing patterns and step into a stronger, clearer version of myself. Juliana holds space in a way that feels steady and safe, as she calls it brave space.&rdquo;</blockquote><span class="tstm-rule"></span><span class="tstm-who">Nadia L., Montreal, QC</span></div>
+        <div class="testimonial-viewport" data-carousel-track tabindex="0" aria-label="Swipe through client testimonials">
+          <article class="testimonial-slide">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>&ldquo;I came into coaching feeling overwhelmed and stuck. Juliana helped me to understand my reactions, my needs, and how to lead myself through hard moments. This changed the way I relate to myself.&rdquo;</blockquote>
+            <p class="testimonial-meta">Maya R., Ottawa, ON</p>
+          </article>
+          <article class="testimonial-slide">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>&ldquo;Juliana is helping me to slow down, reconnect with myself, and make decisions from a grounded place instead of distress. I feel more confident, more centered, and more like myself.&rdquo;</blockquote>
+            <p class="testimonial-meta">Sofia M., Toronto, ON</p>
+          </article>
+          <article class="testimonial-slide">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>&ldquo;For the first time in years, I understood what was driving my patterns and felt equipped to change them. Every session felt supportive, calm, and surprisingly transformative.&rdquo;</blockquote>
+            <p class="testimonial-meta">Amelia C., Vancouver, BC</p>
+          </article>
+          <article class="testimonial-slide">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>&ldquo;This experience helped me untangle long-standing patterns and step into a stronger, clearer version of myself. Juliana holds space in a way that feels steady and safe, as she calls it brave space.&rdquo;</blockquote>
+            <p class="testimonial-meta">Nadia L., Montreal, QC</p>
+          </article>
         </div>
-        <div class="tstm-nav" id="tstmNav">
-          <button class="tstm-dot on" type="button" data-i="0" aria-label="Testimonial 1"></button>
-          <button class="tstm-dot" type="button" data-i="1" aria-label="Testimonial 2"></button>
-          <button class="tstm-dot" type="button" data-i="2" aria-label="Testimonial 3"></button>
-          <button class="tstm-dot" type="button" data-i="3" aria-label="Testimonial 4"></button>
-        </div>
-        <p class="tstm-tap-hint">Tap to see the next reflection</p>
+        <button class="carousel-arrow carousel-arrow-side carousel-arrow-prev" type="button" data-carousel-prev aria-label="Previous testimonial">&lsaquo;</button>
+        <button class="carousel-arrow carousel-arrow-side carousel-arrow-next" type="button" data-carousel-next aria-label="Next testimonial">&rsaquo;</button>
       </div>
     </section>
   </main>
@@ -265,54 +109,9 @@
       </div>
     </div>
   </footer>
-  <script src="./script.js"></script>
-  <script>
-    window.addEventListener('load', function () {
-      var yearEl = document.querySelector('[data-year]');
-      if (!yearEl || yearEl.textContent.trim() !== '') return;
-      yearEl.textContent = new Date().getFullYear();
-      var toggle = document.querySelector('.menu-toggle');
-      var links = document.querySelector('.nav-links');
-      if (toggle && links) {
-        toggle.addEventListener('click', function () {
-          var open = links.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(open));
-          document.body.classList.toggle('nav-open', open);
-        });
-      }
-    });
-  </script>
-  <script>
-    (function () {
-      var stage = document.getElementById('tstmStage');
-      var nav = document.getElementById('tstmNav');
-      if (!stage || !nav) return;
-      var blocks = stage.querySelectorAll('.tstm-quote-block');
-      var dots = nav.querySelectorAll('.tstm-dot');
-      var i = 0, timer;
-      function go(n) {
-        i = n;
-        blocks.forEach(function (el, k) { el.classList.toggle('on', k === i); });
-        dots.forEach(function (el, k) { el.classList.toggle('on', k === i); });
-      }
-      function restart() {
-        clearInterval(timer);
-        timer = setInterval(function () { go((i + 1) % blocks.length); }, 5500);
-      }
-      nav.addEventListener('click', function (e) {
-        var b = e.target.closest('.tstm-dot');
-        if (!b) return;
-        go(Number(b.dataset.i));
-        restart();
-      });
-      stage.addEventListener('click', function () {
-        go((i + 1) % blocks.length);
-        restart();
-      });
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        restart();
-      }
-    })();
-  </script>
+  <script src="./script.js?v=2"></script>
 </body>
 </html>
+
+
+
