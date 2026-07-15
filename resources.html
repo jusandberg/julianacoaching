@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,51 +20,39 @@
   <meta name="twitter:title" content="Resources | The U Method">
   <meta name="twitter:description" content="Free, accessible, self-led reflection tools from The U Method for clarity, values, energy, goals, EQ, and life balance.">
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
-  <link rel="stylesheet" href="./styles.css?v=5">
+  <link rel="stylesheet" href="./styles.css?v=12">
   <style>
-    /* ============================================================
-       NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
-       even in the repo where the real stylesheet is present)
-       ============================================================ */
-    .brand img{width:260px!important}
-    @media (max-width:760px){
-      .brand img{width:220px!important}
-    }
-    .menu-toggle{position:relative;font-size:0}
-    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
-    .menu-toggle .icon-x{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-x{display:block}
-  </style>
-  <style>
+    :root{--logo-open-u:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'%3E%3Ccircle cx='44' cy='44' r='31' fill='white'/%3E%3Ccircle cx='44' cy='44' r='29' fill='none' stroke='%23D9B75E' stroke-width='5' stroke-linecap='round' stroke-dasharray='150 34' transform='rotate(-42 44 44)'/%3E%3Ccircle cx='70' cy='17' r='4.5' fill='%23385768'/%3E%3C/svg%3E")}
     .resource-tools-hero{padding-bottom:0;min-height:auto}
     .resource-tools-hero .lead{max-width:720px;margin-bottom:0}
     .tools-panel{max-width:920px;margin:-18px auto 0;padding:0;background:transparent;border:0;box-shadow:none}
     .tool-library{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 24px;text-align:center}
     .tool-card{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;color:inherit;padding:10px;border-radius:24px;transition:transform .22s ease,background .22s ease}
     .tool-card:hover{transform:translateY(-4px);background:rgba(247,243,232,.62)}
-    .tool-icon{width:74px;height:74px;border-radius:23px;display:grid;place-items:center;color:#fff;background:var(--tile,linear-gradient(135deg,#7b8a97,#586674));box-shadow:0 12px 24px rgba(34,39,46,.14);transition:box-shadow .22s ease,transform .22s ease}
-    .tool-card:hover .tool-icon{box-shadow:0 16px 30px rgba(34,39,46,.2);transform:scale(1.03)}
+    .tool-icon{width:86px;height:86px;border:1px solid #e1e5e9;border-radius:50%;display:grid;place-items:center;color:#385768;background:#fff;box-shadow:0 8px 22px rgba(56,87,104,.13);transition:box-shadow .22s ease,transform .22s ease}
+    .tool-card:nth-child(4n+2) .tool-icon,.tool-card:nth-child(4n+3) .tool-icon{color:#92752c}
+    .tool-card:nth-child(4n+4) .tool-icon{color:#657482}
+    .tool-card:hover .tool-icon{box-shadow:0 12px 28px rgba(56,87,104,.18);transform:translateY(-3px) scale(1.025)}
     .tool-icon svg{width:34px;height:34px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
     .tool-card h3{font-size:clamp(17px,1.45vw,21px);line-height:1.12;margin:2px 0 0}
     .tool-card p,.tool-link{display:none}
     .gentle-cta{background:#f7f3e8}
     @media(max-width:980px){.tools-panel{margin:-12px auto 0;padding:0 18px}.tool-library{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px}}
-    @media(max-width:640px){.resource-tools-hero{padding-bottom:0}.tools-panel{margin:-8px auto 0;padding:0 12px}.tool-library{gap:32px 14px}.tool-icon{width:64px;height:64px;border-radius:20px}.tool-icon svg{width:30px;height:30px}.tool-card{padding:4px}.tool-card h3{font-size:16px}}
+    @media(max-width:640px){.resource-tools-hero{padding-bottom:0}.tools-panel{margin:-8px auto 0;padding:0 12px}.tool-library{gap:32px 14px}.tool-icon{width:72px;height:72px}.tool-icon svg{width:28px;height:28px}.tool-card{padding:4px}.tool-card h3{font-size:16px}}
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
 <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./what-is-coaching.html">What is coaching</a></li>
         <li><a href="./the-u-method.html">The U Method</a></li>
         <li><a aria-current="page" href="./resources.html">Resources</a></li>
-        <li><a class="nav-cta" href="./booking.html">Appointments</a></li>
+        <li><a class="nav-cta" href="./booking.html">Book</a></li>
       </ul>
     </div>
   </nav>
@@ -150,6 +138,15 @@
       <div class="footer-links"><a href="./index.html">Home</a><a href="./the-u-method.html">The U Method</a><a href="./booking.html">Book</a></div>
     </div>
   </footer>
-  <script src="./script.js"></script>
+  <script src="./script.js?v=2"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
