@@ -22,13 +22,16 @@
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <link rel="stylesheet" href="./styles.css?v=5">
   <style>
+    :root{--logo-open-u:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'%3E%3Ccircle cx='44' cy='44' r='31' fill='white'/%3E%3Ccircle cx='44' cy='44' r='29' fill='none' stroke='%23D9B75E' stroke-width='5' stroke-linecap='round' stroke-dasharray='150 34' transform='rotate(-42 44 44)'/%3E%3Ccircle cx='70' cy='17' r='4.5' fill='%23385768'/%3E%3C/svg%3E")}
     /* ===== Hero: gold vertical bar accent (desktop only) ===== */
     .wic-hero-bar{position:absolute;left:-26px;top:4px;bottom:4px;width:3px;background:#d9b75e;border-radius:2px}
     @media (max-width:900px){ .wic-hero-bar{display:none} }
 
     /* ===== Who is coaching for: floating soft-fill word chips ===== */
     .wic-rows{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 14px;margin-bottom:6px;max-width:680px;margin-inline:auto}
-    .wic-chip{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;background:color-mix(in srgb, var(--c) 14%, white);color:#101419;font-size:14px;font-weight:750}
+    .wic-chip{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border:1px solid #e1e5e9;border-radius:999px;background:#fff;color:#101419;font-size:14px;font-weight:750;box-shadow:0 8px 22px color-mix(in srgb,var(--c) 16%,transparent);transition:transform .22s ease,box-shadow .22s ease}
+    .wic-chip::before{display:none}
+    .wic-chip:hover{transform:translateY(-3px);box-shadow:0 12px 28px color-mix(in srgb,var(--c) 22%,transparent)}
     @media (prefers-reduced-motion:reduce){
       .wic-chip{animation:none}
     }
