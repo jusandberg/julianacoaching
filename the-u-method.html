@@ -60,9 +60,85 @@
         <div class="section-head center">
           <div class="eyebrow">The rhythm</div>
           <h2>Watch the method unfold.</h2>
-        </div>        <div class="method-video-frame method-artifact-frame">
-          <iframe src="./u-method-process-track.html" title="The U Method process track" loading="lazy" scrolling="no"></iframe>
         </div>
+        <section class="u-method-process">
+  <style>
+    .u-method-process{max-width:900px;margin:0 auto;font-family:inherit;box-sizing:border-box}
+    .u-method-process *{box-sizing:border-box}
+    .u-method-process .ump-road-wrap{position:relative;margin-bottom:36px}
+    .u-method-process .ump-road-svg{display:block;width:100%;height:auto;overflow:visible}
+    .u-method-process .ump-station-label,
+    .u-method-process .ump-step-name{position:absolute;transform:translate(-50%,-50%);font-weight:900;font-size:14px;pointer-events:none}
+    .u-method-process .ump-step-name{font-size:15px;font-weight:800;letter-spacing:.04em;color:#8a929b;white-space:nowrap}
+    .u-method-process .ump-card{min-height:280px;padding:clamp(24px,4vw,44px);border-radius:16px;background:#fff;border:1px solid #d9dee4;display:flex;flex-wrap:wrap;align-items:flex-start;gap:24px}
+    .u-method-process .ump-icon{width:76px;height:76px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .u-method-process .ump-icon svg{width:44px;height:44px;fill:none;stroke-width:5.4;stroke-linecap:round;stroke-linejoin:round}
+    .u-method-process .ump-stepof{display:block;margin-bottom:6px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .u-method-process .ump-card h3{margin:0 0 4px;font-size:clamp(24px,3.5vw,32px);line-height:1.1;letter-spacing:-.02em}
+    .u-method-process .ump-tagline{margin:0 0 18px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.6vw,24px);color:#657482}
+    .u-method-process .ump-card p:last-child{margin:0;color:#39414a;font-size:clamp(15px,1.8vw,17px);line-height:1.65}
+  </style>
+
+  <div class="ump-road-wrap">
+    <svg viewBox="0 0 900 260" class="ump-road-svg">
+      <path d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#c9cfd4" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"></path>
+      <path data-ump-progress d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#101419" stroke-width="6" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" style="transition:stroke-dashoffset .35s;"></path>
+      <circle data-ump-station="0" cx="50" cy="60" r="18" fill="#f3e4bd" style="cursor:pointer"></circle>
+      <circle data-ump-station="1" cx="450" cy="200" r="18" fill="#dbe6ed" style="cursor:pointer"></circle>
+      <circle data-ump-station="2" cx="850" cy="60" r="18" fill="#dde8e8" style="cursor:pointer"></circle>
+    </svg>
+    <div class="ump-station-label" data-ump-label="0" style="left:5.6%;top:23.1%;color:#8a6a1f;">1</div>
+    <div class="ump-station-label" data-ump-label="1" style="left:50%;top:76.9%;color:#2c4a5e;">2</div>
+    <div class="ump-station-label" data-ump-label="2" style="left:94.4%;top:23.1%;color:#1f6b5c;">3</div>
+    <div class="ump-step-name" data-ump-name="0" style="left:5.6%;top:11.5%;">UNCOVER</div>
+    <div class="ump-step-name" data-ump-name="1" style="left:50%;top:92.3%;">UNRAVEL</div>
+    <div class="ump-step-name" data-ump-name="2" style="left:94.4%;top:11.5%;">UNLEASH</div>
+  </div>
+
+  <div class="ump-card">
+    <span class="ump-icon" data-ump-icon></span>
+    <div>
+      <span class="ump-stepof" data-ump-stepof>Step 1 of 3</span>
+      <h3 data-ump-title>Identify what&rsquo;s holding you back.</h3>
+      <p class="ump-tagline" data-ump-tagline>A grounded look inward.</p>
+      <p data-ump-desc>A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what&rsquo;s driving your experiences and what&rsquo;s ready to shift.</p>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var STEPS=[
+      {label:'#92752c',icon:'#8a6a1f',bg:'#f3e4bd',stepof:'Step 1 of 3',title:'Identify what\u2019s holding you back.',tagline:'A grounded look inward.',desc:'A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what\u2019s driving your experiences and what\u2019s ready to shift.',iconPaths:['M18 60c11-24 26-36 42-36s31 12 42 36c-11 24-26 36-42 36s-31-12-42-36Z','M60 44a16 16 0 100 32 16 16 0 000-32Z']},
+      {label:'#385768',icon:'#2c4a5e',bg:'#dbe6ed',stepof:'Step 2 of 3',title:'Release outdated patterns.',tagline:'Loosening the grip of the old.',desc:'Loosening the grip of old defenses and protective narratives so what no longer serves you can soften and fall away. You start integrating new perspectives and reconnecting to your truth.',iconPaths:['M22 66c9-14 18 14 27 0s18-28 27-14 18 28 27 14']},
+      {label:'#365f61',icon:'#1f6b5c',bg:'#dde8e8',stepof:'Step 3 of 3',title:'Step into aligned action.',tagline:'Living from clarity.',desc:'Moving forward from clarity and self-trust, carrying the work into real, everyday choices. You lead, create, and relate from confidence and inner grounding.',iconPaths:['M60 96V26','M38 50l22-22 22 22','M42 96l18-14 18 14']}
+    ];
+    document.querySelectorAll('.u-method-process').forEach(function(root){
+      if (root.dataset.umpInit) return;
+      root.dataset.umpInit = '1';
+      var progress = root.querySelector('[data-ump-progress]');
+      function render(i){
+        var s = STEPS[i];
+        root.querySelector('[data-ump-stepof]').textContent = s.stepof;
+        root.querySelector('[data-ump-title]').textContent = s.title;
+        root.querySelector('[data-ump-tagline]').textContent = s.tagline;
+        root.querySelector('[data-ump-desc]').textContent = s.desc;
+        var iconWrap = root.querySelector('[data-ump-icon]');
+        iconWrap.style.background = s.bg;
+        iconWrap.innerHTML = '<svg viewBox="0 0 120 120" style="stroke:' + s.icon + '">' + s.iconPaths.map(function(d){ return '<path d="' + d + '"></path>'; }).join('') + '</svg>';
+        progress.setAttribute('stroke-dashoffset', 1000 * (1 - i / (STEPS.length - 1)));
+        for (var n = 0; n < 3; n++) {
+          root.querySelector('[data-ump-name="' + n + '"]').style.color = n === i ? STEPS[n].label : '#8a929b';
+        }
+      }
+      root.querySelectorAll('[data-ump-station]').forEach(function(c){
+        c.addEventListener('click', function(){ render(+c.getAttribute('data-ump-station')); });
+      });
+      render(0);
+    });
+  })();
+  </script>
+</section>
+
       </div>
     </section>
 
@@ -174,6 +250,8 @@
   <script src="./script.js?v=2"></script>
 </body>
 </html>
+
+
 
 
 

@@ -3002,3 +3002,39 @@ details p {
     padding-top: 16px;
   }
 }
+
+/* Direct U Method process embed, replacing the old iframe behavior. */
+.method-video-section {
+  padding-top: 18px;
+  padding-bottom: 26px;
+}
+
+.method-video-section .section-head {
+  margin-bottom: 24px;
+}
+
+.method-video-section .u-method-process {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#archetypes {
+  margin-top: 0;
+  padding-top: clamp(28px, 4vw, 44px);
+}
+
+@media (max-width: 720px) {
+  .method-video-section {
+    padding-top: 12px;
+    padding-bottom: 20px;
+  }
+
+  .method-video-section .section-head {
+    margin-bottom: 18px;
+  }
+
+  #archetypes {
+    margin-top: 0;
+    padding-top: 24px;
+  }
+}
