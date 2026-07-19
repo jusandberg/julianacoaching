@@ -86,8 +86,6 @@
     }
   </style>
   <link rel="stylesheet" href="./styles.css">
-  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
   <style>
     .brand .brand-text{display:none;font-weight:800;font-size:19px;letter-spacing:-.01em}
     .brand .brand-text b{color:#92752c}
@@ -121,6 +119,9 @@
     .gcal-button-wrap .qxCTlb{min-height:48px!important;padding:0 24px!important;border:0!important;border-radius:999px!important;background:#101419!important;color:#fff!important;font-family:Arial,sans-serif!important;font-size:14px!important;font-weight:800!important;letter-spacing:0!important;box-shadow:0 10px 24px rgba(16,20,25,.16)!important;transition:transform .2s ease,box-shadow .2s ease!important}
     .gcal-button-wrap .qxCTlb:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)!important}
     .gcal-button-wrap .qxCTlb:focus-visible{outline:3px solid rgba(56,87,104,.32)!important;outline-offset:3px}
+    .booking-link-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:#101419;color:#fff!important;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease}
+    .booking-link-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
+    .booking-link-button:focus-visible{outline:3px solid rgba(56,87,104,.32);outline-offset:3px}
 
     /* mock calendar preview (shown until the real embed replaces it) */
     .mock-cal{padding:22px;background:#fff;text-align:left}
@@ -232,9 +233,7 @@
         <div class="embed-panel" id="embed-discovery">
           <div class="gcal-wrap">
             <div class="gcal-button-wrap">
-              <div class="gcal-button-slot" data-calendar-url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true" data-calendar-label="Book a free discovery call">
-                <p>Select a convenient time for your free 30-minute discovery call.</p>
-              </div>
+              <div><p>Select a convenient time for your free 30-minute discovery call.</p><a class="booking-link-button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true" target="_blank" rel="noopener">Book a free discovery call</a></div>
             </div>
           </div>
         </div>
@@ -243,9 +242,7 @@
         <div class="embed-panel" id="embed-session" hidden>
           <div class="gcal-wrap">
             <div class="gcal-button-wrap">
-              <div class="gcal-button-slot" data-calendar-url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true" data-calendar-label="Book a 60-minute session">
-                <p>Select a convenient time for your 60-minute coaching session.</p>
-              </div>
+              <div><p>Select a convenient time for your 60-minute coaching session.</p><a class="booking-link-button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true" target="_blank" rel="noopener">Book a 60-minute session</a></div>
             </div>
           </div>
         </div>
@@ -412,23 +409,6 @@
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
       };
 
-      function loadCalendarButtons() {
-        if (!window.calendar || !calendar.schedulingButton) {
-          window.setTimeout(loadCalendarButtons, 120);
-          return;
-        }
-        document.querySelectorAll('.gcal-button-slot').forEach(function (slot) {
-          if (slot.dataset.loaded === 'true') return;
-          slot.dataset.loaded = 'true';
-          calendar.schedulingButton.load({
-            url: slot.dataset.calendarUrl,
-            color: '#101419',
-            label: slot.dataset.calendarLabel,
-            target: slot
-          });
-        });
-      }
-
       buttons.forEach(function (btn) {
         btn.addEventListener('click', function () {
           var kind = btn.dataset.kind;
@@ -444,16 +424,14 @@
             detail.classList.remove('fade');
             panels.discovery.classList.remove('fade');
             panels.session.classList.remove('fade');
-            loadCalendarButtons();
           }, 180);
         });
       });
-
-      window.addEventListener('load', loadCalendarButtons);
     })();
   </script>
 </body>
 </html>
+
 
 
 
