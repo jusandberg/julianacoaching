@@ -126,13 +126,22 @@
       overlay.classList.add('active');
       overlay.setAttribute('aria-hidden', 'false');
     }
-    buttons.forEach(function(button){
-      button.addEventListener('click', function(){ openStep(Number(button.dataset.umStep)); });
-    });
-    root.querySelector('[data-um-close]').addEventListener('click', function(){
+    function closeStep(){
       overlay.classList.remove('active');
       overlay.setAttribute('aria-hidden', 'true');
       buttons.forEach(function(button){ button.classList.remove('active'); });
+    }
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(){ openStep(Number(button.dataset.umStep)); });
+    });
+    root.querySelector('[data-um-close]').addEventListener('click', closeStep);
+    document.addEventListener('click', function(event){
+      if (!overlay.classList.contains('active')) return;
+      if (overlay.contains(event.target) || event.target.closest('[data-um-step]')) return;
+      closeStep();
+    });
+    document.addEventListener('keydown', function(event){
+      if (event.key === 'Escape' && overlay.classList.contains('active')) closeStep();
     });
   });
 })();
@@ -200,7 +209,16 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>&copy; <span data-year></span> The U Method. All rights reserved.</span>
-      <div class="footer-links"><a href="./about.html">About</a><a href="./resources.html">Resources</a><a href="./booking.html">Book</a></div>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./the-u-method.html">The U Method</a>
+        <a href="./resources.html">Resources</a>
+        <a href="./booking.html">Appointments</a>
+        <a href="./coaching-agreement.html">Coaching Agreement</a>
+        <a href="./coaching-disclaimer.html">Disclaimer</a>
+        <a href="./privacy-policy.html">Privacy</a>
+        <a href="./terms-conditions.html">Terms</a>
+      </div>
     </div>
   </footer>
   <script src="./script.js?v=2"></script>
@@ -232,6 +250,7 @@
     </script>
   </body>
 </html>
+
 
 
 
