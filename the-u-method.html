@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,57 +21,6 @@
   <meta name="twitter:description" content="Explore The U Method, a reflective coaching approach for uncovering, unraveling, and moving forward with clarity.">
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <link rel="stylesheet" href="./styles.css?v=12">
-  <style>
-    /* ============================================================
-       NAV & LOGO OVERRIDES (loads AFTER styles.css so it always wins,
-       even in the repo where the real stylesheet is present)
-       ============================================================ */
-    .brand img{width:260px!important}
-    @media (max-width:760px){
-      .brand img{width:220px!important}
-    }
-    .menu-toggle{position:relative;font-size:0}
-    .menu-toggle svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
-    .menu-toggle .icon-x{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-bars{display:none}
-    .menu-toggle[aria-expanded="true"] .icon-x{display:block}
-
-    /* ===== Fix: center the hero text (matches the centered sections below) ===== */
-    .method-hero-copy{text-align:center!important;margin-inline:auto!important}
-    .method-hero-copy .eyebrow{justify-content:center!important}
-    .method-hero-copy .method-intro{margin-inline:auto!important}
-
-    /* ===== Fix: close the gap between hero / process section / archetypes ===== */
-    .method-hero{padding-bottom:20px!important}
-    .method-video-section{padding-top:20px!important;padding-bottom:20px!important}
-    #archetypes{padding-top:20px!important}
-    @media (max-width:760px){
-      .method-hero{padding-bottom:14px!important}
-      .method-video-section{padding-top:14px!important;padding-bottom:14px!important}
-      #archetypes{padding-top:14px!important}
-    }
-
-    /* ===== Hero's Journey CTA: icon badge + text link with arrow, no chip ===== */
-    .wic-journey-link{display:inline-flex;align-items:center;gap:12px;margin-top:6px;color:#101419;font-weight:800;font-size:15.5px;text-decoration:none}
-    .wic-journey-badge{width:38px;height:38px;border-radius:50%;background:#d9b75e;color:#101419;display:grid;place-items:center;flex:none;transition:transform .2s ease}
-    .wic-journey-badge svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
-    .wic-journey-link .wic-arrow{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
-    .wic-journey-link:hover .wic-journey-badge{transform:scale(1.08)}
-    .wic-journey-link:hover .wic-arrow{transform:translateX(3px)}
-
-    /* ===== U Method Process widget: mobile-friendliness + closer fit to site style ===== */
-    @media (max-width:640px){
-      .u-method-process{padding:0 4px}
-      .u-method-process .ump-road-wrap{margin-bottom:22px}
-      .u-method-process .ump-step-name{font-size:11px;letter-spacing:.02em}
-      .u-method-process .ump-station-label{font-size:12px}
-      .u-method-process .ump-card{min-height:auto;padding:22px 20px;flex-direction:column;align-items:center;text-align:center;gap:14px}
-      .u-method-process .ump-icon{width:60px;height:60px}
-      .u-method-process .ump-icon svg{width:36px;height:36px}
-      .u-method-process .ump-tagline{font-size:17px}
-      .u-method-process .ump-card p:last-child{font-size:14.5px}
-    }
-  </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
@@ -84,7 +33,7 @@
         <li><a href="./what-is-coaching.html">What is coaching</a></li>
         <li><a aria-current="page" href="./the-u-method.html">The U Method</a></li>
         <li><a href="./resources.html">Resources</a></li>
-        <li><a class="nav-cta" href="./booking.html">Appointments</a></li>
+        <li><a class="nav-cta" href="./booking.html">Book</a></li>
       </ul>
     </div>
   </nav>
@@ -112,123 +61,82 @@
           <div class="eyebrow">The rhythm</div>
           <h2>Watch the method unfold.</h2>
         </div>
-        <section class="u-method-process">
-  <style>
-    .u-method-process{max-width:900px;margin:0 auto;font-family:inherit;box-sizing:border-box}
-    .u-method-process *{box-sizing:border-box}
-    .u-method-process .ump-road-wrap{position:relative;margin-bottom:36px}
-    .u-method-process .ump-road-svg{display:block;width:100%;height:auto;overflow:visible}
-    .u-method-process .ump-station-label,
-    .u-method-process .ump-step-name{position:absolute;transform:translate(-50%,-50%);font-weight:900;font-size:14px;pointer-events:none}
-    .u-method-process .ump-step-name{font-size:15px;font-weight:800;letter-spacing:.04em;color:#8a929b;white-space:nowrap}
-    .u-method-process .ump-card{min-height:280px;padding:clamp(24px,4vw,44px);border-radius:16px;background:#fff;border:1px solid #d9dee4;display:flex;flex-wrap:wrap;align-items:flex-start;gap:24px}
-    .u-method-process .ump-icon{width:76px;height:76px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center}
-    .u-method-process .ump-icon svg{width:44px;height:44px;fill:none;stroke-width:5.4;stroke-linecap:round;stroke-linejoin:round}
-    .u-method-process .ump-stepof{display:block;margin-bottom:6px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .u-method-process .ump-card h3{margin:0 0 4px;font-size:clamp(24px,3.5vw,32px);line-height:1.1;letter-spacing:-.02em}
-    .u-method-process .ump-tagline{margin:0 0 18px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.6vw,24px);color:#657482}
-    .u-method-process .ump-card p:last-child{margin:0;color:#39414a;font-size:clamp(15px,1.8vw,17px);line-height:1.65}
-    .u-method-process .ump-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
-    .u-method-process .ump-nav-btn{border:1px solid #d9dee4;background:#fff;border-radius:999px;padding:10px 18px;font-weight:800;font-size:13.5px;color:#101419;cursor:pointer;transition:background .2s ease,border-color .2s ease}
-    .u-method-process .ump-nav-btn:hover{background:#f7f3e8;border-color:#d9b75e}
-    .u-method-process .ump-nav-btn:disabled{opacity:.35;cursor:not-allowed}
-    .u-method-process .ump-nav-btn:disabled:hover{background:#fff;border-color:#d9dee4}
-    .u-method-process .ump-nav-dots{display:flex;gap:8px}
-    .u-method-process .ump-nav-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#d9dee4;cursor:pointer}
-    .u-method-process .ump-nav-dot.on{width:24px;border-radius:999px;background:#101419}
-    @media(max-width:480px){
-      .u-method-process .ump-nav-btn{padding:9px 14px;font-size:12.5px}
-    }
-  </style>
-
-  <div class="ump-road-wrap">
-    <svg viewBox="0 0 900 260" class="ump-road-svg">
-      <path d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#c9cfd4" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"></path>
-      <path data-ump-progress d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#101419" stroke-width="6" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" style="transition:stroke-dashoffset .35s;"></path>
-      <circle data-ump-station="0" cx="50" cy="60" r="40" fill="transparent" style="cursor:pointer"></circle>
-      <circle data-ump-station="1" cx="450" cy="200" r="40" fill="transparent" style="cursor:pointer"></circle>
-      <circle data-ump-station="2" cx="850" cy="60" r="40" fill="transparent" style="cursor:pointer"></circle>
-      <circle data-ump-station="0" cx="50" cy="60" r="18" fill="#f3e4bd" style="cursor:pointer;pointer-events:none"></circle>
-      <circle data-ump-station="1" cx="450" cy="200" r="18" fill="#dbe6ed" style="cursor:pointer;pointer-events:none"></circle>
-      <circle data-ump-station="2" cx="850" cy="60" r="18" fill="#dde8e8" style="cursor:pointer;pointer-events:none"></circle>
+        <section class="um-process" data-um-process>
+  <div class="um-process-stage" aria-label="The U Method phases">
+    <svg class="um-process-path" viewBox="0 0 900 280" aria-hidden="true" focusable="false">
+      <path d="M80,70 C245,70 255,215 450,215 S655,70 820,70" fill="none" stroke="#c9cfd4" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14"/>
     </svg>
-    <div class="ump-station-label" data-ump-label="0" style="left:5.6%;top:23.1%;color:#8a6a1f;">1</div>
-    <div class="ump-station-label" data-ump-label="1" style="left:50%;top:76.9%;color:#2c4a5e;">2</div>
-    <div class="ump-station-label" data-ump-label="2" style="left:94.4%;top:23.1%;color:#1f6b5c;">3</div>
-    <div class="ump-step-name" data-ump-name="0" style="left:5.6%;top:11.5%;">UNCOVER</div>
-    <div class="ump-step-name" data-ump-name="1" style="left:50%;top:92.3%;">UNRAVEL</div>
-    <div class="ump-step-name" data-ump-name="2" style="left:94.4%;top:11.5%;">UNLEASH</div>
-  </div>
 
-  <div class="ump-card">
-    <span class="ump-icon" data-ump-icon></span>
-    <div>
-      <span class="ump-stepof" data-ump-stepof>Step 1 of 3</span>
-      <h3 data-ump-title>Identify what&rsquo;s holding you back.</h3>
-      <p class="ump-tagline" data-ump-tagline>A grounded look inward.</p>
-      <p data-ump-desc>A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what&rsquo;s driving your experiences and what&rsquo;s ready to shift.</p>
-    </div>
-  </div>
+    <button class="um-phase um-phase-one" type="button" data-um-step="0" aria-haspopup="dialog">
+      <span class="um-phase-number">1</span>
+      <span class="um-phase-label">Uncover</span>
+    </button>
+    <button class="um-phase um-phase-two" type="button" data-um-step="1" aria-haspopup="dialog">
+      <span class="um-phase-number">2</span>
+      <span class="um-phase-label">Unravel</span>
+    </button>
+    <button class="um-phase um-phase-three" type="button" data-um-step="2" aria-haspopup="dialog">
+      <span class="um-phase-number">3</span>
+      <span class="um-phase-label">Unleash</span>
+    </button>
 
-  <div class="ump-nav">
-    <button type="button" class="ump-nav-btn" data-ump-prev aria-label="Previous step">&larr; Back</button>
-    <div class="ump-nav-dots">
-      <button type="button" class="ump-nav-dot" data-ump-goto="0" aria-label="Step 1"></button>
-      <button type="button" class="ump-nav-dot" data-ump-goto="1" aria-label="Step 2"></button>
-      <button type="button" class="ump-nav-dot" data-ump-goto="2" aria-label="Step 3"></button>
-    </div>
-    <button type="button" class="ump-nav-btn" data-ump-next aria-label="Next step">Next &rarr;</button>
+    <article class="um-phase-overlay" data-um-overlay aria-live="polite" aria-hidden="true">
+      <button class="um-overlay-close" type="button" data-um-close aria-label="Close phase details">&times;</button>
+      <span class="um-overlay-step" data-um-stepof>Step 1 of 3</span>
+      <h3 data-um-title>Identify what&rsquo;s holding you back.</h3>
+      <p class="um-overlay-tagline" data-um-tagline>A grounded look inward.</p>
+      <p data-um-desc>A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what&rsquo;s driving your experiences and what&rsquo;s ready to shift.</p>
+    </article>
   </div>
-
-  <script>
-  (function(){
-    var STEPS=[
-      {label:'#92752c',icon:'#8a6a1f',bg:'#f3e4bd',stepof:'Step 1 of 3',title:'Identify what\u2019s holding you back.',tagline:'A grounded look inward.',desc:'A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what\u2019s driving your experiences and what\u2019s ready to shift.',iconPaths:['M18 60c11-24 26-36 42-36s31 12 42 36c-11 24-26 36-42 36s-31-12-42-36Z','M60 44a16 16 0 100 32 16 16 0 000-32Z']},
-      {label:'#385768',icon:'#2c4a5e',bg:'#dbe6ed',stepof:'Step 2 of 3',title:'Release outdated patterns.',tagline:'Loosening the grip of the old.',desc:'Loosening the grip of old defenses and protective narratives so what no longer serves you can soften and fall away. You start integrating new perspectives and reconnecting to your truth.',iconPaths:['M22 66c9-14 18 14 27 0s18-28 27-14 18 28 27 14']},
-      {label:'#365f61',icon:'#1f6b5c',bg:'#dde8e8',stepof:'Step 3 of 3',title:'Step into aligned action.',tagline:'Living from clarity.',desc:'Moving forward from clarity and self-trust, carrying the work into real, everyday choices. You lead, create, and relate from confidence and inner grounding.',iconPaths:['M60 96V26','M38 50l22-22 22 22','M42 96l18-14 18 14']}
-    ];
-    document.querySelectorAll('.u-method-process').forEach(function(root){
-      if (root.dataset.umpInit) return;
-      root.dataset.umpInit = '1';
-      var progress = root.querySelector('[data-ump-progress]');
-      var current = 0;
-      function render(i){
-        current = i;
-        var s = STEPS[i];
-        root.querySelector('[data-ump-stepof]').textContent = s.stepof;
-        root.querySelector('[data-ump-title]').textContent = s.title;
-        root.querySelector('[data-ump-tagline]').textContent = s.tagline;
-        root.querySelector('[data-ump-desc]').textContent = s.desc;
-        var iconWrap = root.querySelector('[data-ump-icon]');
-        iconWrap.style.background = s.bg;
-        iconWrap.innerHTML = '<svg viewBox="0 0 120 120" style="stroke:' + s.icon + '">' + s.iconPaths.map(function(d){ return '<path d="' + d + '"></path>'; }).join('') + '</svg>';
-        progress.setAttribute('stroke-dashoffset', 1000 * (1 - i / (STEPS.length - 1)));
-        for (var n = 0; n < 3; n++) {
-          root.querySelector('[data-ump-name="' + n + '"]').style.color = n === i ? STEPS[n].label : '#8a929b';
-        }
-        root.querySelectorAll('[data-ump-goto]').forEach(function(d){
-          d.classList.toggle('on', +d.getAttribute('data-ump-goto') === i);
-        });
-        var prevBtn = root.querySelector('[data-ump-prev]'), nextBtn = root.querySelector('[data-ump-next]');
-        if (prevBtn) prevBtn.disabled = (i === 0);
-        if (nextBtn) nextBtn.disabled = (i === STEPS.length - 1);
-      }
-      root.querySelectorAll('[data-ump-station]').forEach(function(c){
-        c.addEventListener('click', function(){ render(+c.getAttribute('data-ump-station')); });
-      });
-      root.querySelectorAll('[data-ump-goto]').forEach(function(d){
-        d.addEventListener('click', function(){ render(+d.getAttribute('data-ump-goto')); });
-      });
-      var prevBtn = root.querySelector('[data-ump-prev]'), nextBtn = root.querySelector('[data-ump-next]');
-      if (prevBtn) prevBtn.addEventListener('click', function(){ if (current > 0) render(current - 1); });
-      if (nextBtn) nextBtn.addEventListener('click', function(){ if (current < STEPS.length - 1) render(current + 1); });
-      render(0);
-    });
-  })();
-  </script>
 </section>
 
-      </div>
+<script>
+(function(){
+  var steps = [
+    {
+      stepof: 'Step 1 of 3',
+      title: 'Identify what\u2019s holding you back.',
+      tagline: 'A grounded look inward.',
+      desc: 'A grounded look at the patterns, beliefs, and stories that have quietly been steering the wheel. This is where we bring awareness to what\u2019s driving your experiences and what\u2019s ready to shift.'
+    },
+    {
+      stepof: 'Step 2 of 3',
+      title: 'Release outdated patterns.',
+      tagline: 'Loosening the grip of the old.',
+      desc: 'Loosening old defenses and protective narratives so what no longer serves you can soften and fall away. You start integrating new perspectives and reconnecting to your truth.'
+    },
+    {
+      stepof: 'Step 3 of 3',
+      title: 'Step into aligned action.',
+      tagline: 'Living from clarity.',
+      desc: 'Moving forward from clarity and self-trust, carrying the work into real, everyday choices. You lead, create, and relate from confidence and inner grounding.'
+    }
+  ];
+
+  document.querySelectorAll('[data-um-process]').forEach(function(root){
+    var overlay = root.querySelector('[data-um-overlay]');
+    var buttons = root.querySelectorAll('[data-um-step]');
+    function openStep(index){
+      var step = steps[index];
+      root.querySelector('[data-um-stepof]').textContent = step.stepof;
+      root.querySelector('[data-um-title]').textContent = step.title;
+      root.querySelector('[data-um-tagline]').textContent = step.tagline;
+      root.querySelector('[data-um-desc]').textContent = step.desc;
+      buttons.forEach(function(button){ button.classList.toggle('active', Number(button.dataset.umStep) === index); });
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(){ openStep(Number(button.dataset.umStep)); });
+    });
+    root.querySelector('[data-um-close]').addEventListener('click', function(){
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      buttons.forEach(function(button){ button.classList.remove('active'); });
+    });
+  });
+})();
+</script></div>
     </section>
 
     <section class="section soft" id="archetypes">
@@ -307,7 +215,7 @@
           </div>
         </div>
 
-        <div class="section-head center reflection-section-head wic-journey-cta" style="margin-top:48px;">
+                <div class="section-head center wic-journey-cta">
           <div class="eyebrow">Interactive reflection</div>
           <p class="lead">Move through eight stages of the Hero&rsquo;s Journey and discover which inner archetype guides the way you meet change.</p>
           <a class="wic-journey-link" href="./heros-journey.html">
@@ -315,8 +223,7 @@
             <span>Walk the Hero&rsquo;s Journey</span>
             <svg class="wic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
-        </div>
-      </div>
+        </div></div>
     </section>
 
     <section class="cta-strip">
@@ -340,41 +247,20 @@
     </div>
   </footer>
   <script src="./script.js?v=2"></script>
-  <script>
-    window.addEventListener('load', function () {
-      var yearEl = document.querySelector('[data-year]');
-      if (!yearEl || yearEl.textContent.trim() !== '') return;
-      yearEl.textContent = new Date().getFullYear();
-      var toggle = document.querySelector('.menu-toggle');
-      var links = document.querySelector('.nav-links');
-      if (toggle && links) {
-        toggle.addEventListener('click', function () {
-          var open = links.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(open));
-          document.body.classList.toggle('nav-open', open);
-        });
-      }
-    });
-  </script>
-  <script>
-    /* Allow each archetype accordion item to collapse independently,
-       including closing the last one open (script.js otherwise forces
-       one item to always stay expanded). Runs in the capture phase so
-       it intercepts the click before script.js's own handler. */
-    (function () {
-      var accordion = document.querySelector('[data-arch-accordion]');
-      if (!accordion) return;
-      accordion.addEventListener('click', function (e) {
-        var head = e.target.closest('.arch-acc-head');
-        if (!head) return;
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        var item = head.closest('.arch-acc-item');
-        var willOpen = !item.classList.contains('open');
-        item.classList.toggle('open', willOpen);
-        head.setAttribute('aria-expanded', String(willOpen));
-      }, true);
-    })();
-  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

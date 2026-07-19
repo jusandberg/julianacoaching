@@ -3117,3 +3117,291 @@ details p {
     margin-bottom: 12px;
   }
 }
+
+/* On phones, replace the squeezed U-curve with a compact three-step selector. */
+@media (max-width: 720px) {
+  .u-method-process .ump-road-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+
+  .u-method-process .ump-road-svg {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .u-method-process .ump-step-name,
+  .u-method-process .ump-station-label {
+    position: static !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+
+  .u-method-process .ump-step-name {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d9dee4;
+    border-radius: 999px;
+    background: #fff;
+    color: #39414a !important;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(16, 20, 25, .05);
+  }
+
+  .u-method-process .ump-station-label {
+    display: none;
+  }
+
+  .u-method-process [data-ump-name="0"] { grid-column: 1; grid-row: 1; }
+  .u-method-process [data-ump-name="1"] { grid-column: 2; grid-row: 1; }
+  .u-method-process [data-ump-name="2"] { grid-column: 3; grid-row: 1; }
+}
+
+/* U Method phase overlay: keeps the U visible and reveals content only on click. */
+.um-process {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.um-process-stage {
+  position: relative;
+  min-height: clamp(300px, 34vw, 390px);
+  padding: 10px 0 30px;
+}
+
+.um-process-path {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.um-phase {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  border: 0;
+  background: transparent;
+  color: #5f6770;
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.um-phase-number {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #f4ead0;
+  border: 1px solid rgba(146,117,44,.28);
+  color: #7b6429;
+  box-shadow: 0 14px 34px rgba(16,20,25,.08);
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.um-phase-label {
+  font-size: 13px;
+}
+
+.um-phase:hover .um-phase-number,
+.um-phase.active .um-phase-number {
+  transform: translateY(-2px) scale(1.06);
+  background: #d9b75e;
+  color: #101419;
+}
+
+.um-phase-one { left: 4%; top: 8%; }
+.um-phase-two { left: 50%; top: 62%; transform: translateX(-50%); }
+.um-phase-three { right: 4%; top: 8%; }
+
+.um-phase-overlay {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: min(520px, calc(100% - 36px));
+  transform: translate(-50%, -42%) scale(.96);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid #d9dee4;
+  border-radius: 28px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 28px 70px rgba(16,20,25,.16);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.um-phase-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -42%) scale(1);
+}
+
+.um-overlay-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid #d9dee4;
+  background: #fff;
+  color: #101419;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.um-overlay-step {
+  display: block;
+  margin-bottom: 8px;
+  color: #8a6a1f;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.um-phase-overlay h3 {
+  margin: 0 34px 8px 0;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.um-overlay-tagline {
+  margin: 0 0 14px;
+  color: #657482;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+}
+
+.um-phase-overlay p:last-child {
+  margin: 0;
+  color: #39414a;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.wic-journey-cta {
+  margin-top: 36px;
+}
+
+.wic-journey-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  color: #101419;
+  font-weight: 800;
+  font-size: 15.5px;
+  text-decoration: none;
+}
+
+.wic-journey-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #d9b75e;
+  color: #101419;
+  display: grid;
+  place-items: center;
+  flex: none;
+  transition: transform .2s ease;
+}
+
+.wic-journey-badge svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wic-journey-link .wic-arrow {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s ease;
+}
+
+.wic-journey-link:hover .wic-journey-badge {
+  transform: scale(1.08);
+}
+
+.wic-journey-link:hover .wic-arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 720px) {
+  .um-process-stage {
+    min-height: 300px;
+    padding: 2px 0 12px;
+  }
+
+  .um-process-path {
+    width: 112%;
+    margin-left: -6%;
+  }
+
+  .um-phase-number {
+    width: 42px;
+    height: 42px;
+  }
+
+  .um-phase-label {
+    font-size: 10px;
+    letter-spacing: .06em;
+  }
+
+  .um-phase-one { left: 1%; top: 12%; }
+  .um-phase-two { top: 59%; }
+  .um-phase-three { right: 1%; top: 12%; }
+
+  .um-phase-overlay {
+    top: 52%;
+    width: min(330px, calc(100% - 24px));
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .um-phase-overlay h3 {
+    font-size: 25px;
+  }
+
+  .um-overlay-tagline {
+    font-size: 22px;
+  }
+
+  .um-phase-overlay p:last-child {
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  .wic-journey-cta {
+    margin-top: 24px;
+  }
+}
