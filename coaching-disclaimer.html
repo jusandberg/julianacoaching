@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coaching Disclaimer | The U Method</title>
+  <meta name="description" content="Coaching disclaimer for The U Method coaching services with Juliana dos Santos.">
+  <link rel="canonical" href="https://jusandberg.github.io/julianacoaching/coaching-disclaimer.html">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .legal-hero{padding:82px 0 30px;background:var(--paper)}
+    .legal-hero .wrap{max-width:900px}
+    .legal-hero h1{margin:10px 0 18px;font-size:clamp(42px,6vw,76px);line-height:.96;letter-spacing:-.04em}
+    .legal-hero .lead{max-width:760px}
+    .legal-card{max-width:900px;margin:0 auto 76px;padding:42px;border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:0 24px 70px rgba(16,20,25,.08)}
+    .legal-card h2{margin:30px 0 10px;font-size:20px;letter-spacing:-.02em}
+    .legal-card h2:first-child{margin-top:0}
+    .legal-card p,.legal-card li{color:var(--muted);font-size:16px;line-height:1.72}
+    .legal-card p{margin:0 0 14px}
+    .legal-card ul{margin:0 0 18px;padding-left:22px}
+    .legal-card strong{color:var(--ink)}
+    .legal-meta{padding:16px 18px;margin-bottom:24px;border-radius:18px;background:#f7f3e8;color:#385768;font-size:15px;line-height:1.6}
+    .legal-back{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;margin-top:18px;border-radius:999px;background:#101419;color:#fff;text-decoration:none;font-weight:850}
+    @media(max-width:640px){.legal-hero{padding:56px 0 22px}.legal-card{padding:26px;border-radius:22px;margin-bottom:54px}.legal-card p,.legal-card li{font-size:15px}}
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./what-is-coaching.html">What is coaching</a></li>
+        <li><a href="./the-u-method.html">The U Method</a></li>
+        <li><a href="./resources.html">Resources</a></li>
+        <li><a class="nav-cta" href="./booking.html">Appointments</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <header class="legal-hero">
+      <div class="wrap">
+        <div class="eyebrow">Important note</div>
+        <h1>Coaching Disclaimer.</h1>
+        <p class="lead">A simple explanation of what coaching is, what it is not, and when to seek other support.</p>
+      </div>
+    </header>
+    <section class="wrap">
+      <article class="legal-card">
+        <h2>Coaching Disclaimer</h2>
+        <p>The U Method Coaching Inc. and Juliana dos Santos offer professional coaching services. Coaching is not therapy, counseling, mental health treatment, or medical advice.</p>
+        <p>Coaching is a reflective, forward-focused process that supports insight, development, and meaningful action. It does not diagnose, treat, prevent, or cure medical, psychological, or mental health conditions.</p>
+        <p>By participating in coaching, clients acknowledge that:</p>
+        <ul>
+          <li>Coaching is not a substitute for therapy, mental health services, or medical care.</li>
+          <li>The coach is not acting as a psychologist, therapist, physician, or medical professional.</li>
+          <li>Clients are responsible for their own decisions, actions, and results.</li>
+          <li>Any personal or professional changes made during or after coaching remain the responsibility of the client.</li>
+        </ul>
+        <p>If you are experiencing a mental health concern, crisis, or medical issue, please contact a qualified health professional or emergency services in your area.</p>
+        <p>Services are provided in alignment with the International Coaching Federation (ICF) Code of Ethics.</p>
+        <a class="legal-back" href="./index.html">Back to home</a>
+      </article>
+    </section>
+  </main>
+<footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>&copy; <span data-year></span> The U Method. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="./about.html">About</a>
+        <a href="./the-u-method.html">The U Method</a>
+        <a href="./resources.html">Resources</a>
+        <a href="./booking.html">Appointments</a>
+        <a href="./coaching-agreement.html">Coaching Agreement</a>
+        <a href="./coaching-disclaimer.html">Disclaimer</a>
+        <a href="./privacy-policy.html">Privacy</a>
+        <a href="./terms-conditions.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+  <script src="./script.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var yearEl = document.querySelector('[data-year]');
+      if (yearEl && yearEl.textContent.trim() === '') yearEl.textContent = new Date().getFullYear();
+      var toggle = document.querySelector('.menu-toggle');
+      var links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+          document.body.classList.toggle('nav-open', open);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
