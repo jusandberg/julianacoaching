@@ -2366,7 +2366,7 @@ details p {
   }
 
   .brand img {
-    width: 220px;
+    width: 232px;
   }
 
   .menu-toggle {
@@ -2814,7 +2814,7 @@ details p {
 }
 
 @media (max-width: 420px) {
-  .brand img { width: 200px; }
+  .brand img { width: min(218px, calc(100vw - 104px)); }
   .home-slate-gold h1 { font-size: clamp(36px, 10vw, 42px); }
   .home-slate-gold .hero { padding-top: 30px; }
 }
@@ -3672,3 +3672,4 @@ details p {
     font-size: 14.5px;
   }
 }
+

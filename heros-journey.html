@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <meta name="description" content="An interactive reflection experience. Walk one full arc of change and discover which inner archetype guided you: The Witness, The Inner Guide, or The Explorer.">
   <style>
     /* ============================================================
-       THE U METHOD · DESIGN TOKENS (matches styles.css)
+       THE U METHOD Â· DESIGN TOKENS (matches styles.css)
        ============================================================ */
     :root {
       --ink: #101419;
@@ -65,14 +65,18 @@
     }
 
     .brand {
-      font-size: 16px;
-      font-weight: 850;
-      letter-spacing: -.02em;
-      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
+      min-width: 0;
     }
 
-    .brand span { color: var(--gold-deep); }
+    .brand img {
+      display: block;
+      width: 260px;
+      max-width: 100%;
+      height: auto;
+    }
 
     .nav-cta {
       display: inline-flex;
@@ -241,7 +245,10 @@
       min-height: 42px;
       align-items: center;
       gap: 10px;
-      padding: 0 18px;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      padding: 0;
       border-radius: 999px;
       font-size: 15px;
       font-weight: 750;
@@ -308,7 +315,7 @@
       white-space: nowrap;
     }
 
-    /* The U-shaped progress path — the signature element */
+    /* The U-shaped progress path â€” the signature element */
     .u-path-frame {
       position: relative;
       margin: 0 auto 10px;
@@ -635,15 +642,15 @@
       .wrap { width: min(100% - 28px, 880px); }
       .site-nav { height: 58px; }
       .nav-inner { width: calc(100% - 28px); }
-      .brand { max-width: 68%; font-size: 14px; }
-      .brand span { display: none; }
+      .brand { max-width: 72%; }
+      .brand img { width: 220px; }
       .nav-cta { min-height: 38px; padding: 0 14px; }
       .screen { min-height: calc(100svh - 58px); padding: 30px 0 48px; }
       #screen-intro.active { align-items: start; }
       h1 { font-size: clamp(38px, 12vw, 54px); }
       .lead { margin-bottom: 20px; font-size: 16px; }
       .intro-archetypes { margin-bottom: 24px; gap: 8px; }
-      .keyword-chip { min-height: 36px; padding: 0 13px; font-size: 13px; }
+      .keyword-chip { width: 42px; height: 42px; min-height: 42px; padding: 0; font-size: 13px; }
       .journey-head { min-height: 46px; margin-bottom: 12px; padding: 0 42px; }
       .stage-label { font-size: 12px; line-height: 1.35; }
       .stage-count { font-size: 11px; }
@@ -676,7 +683,7 @@
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand" href="./index.html">The U Method <span>· The Hero's Journey</span></a>
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
       <a class="nav-cta" href="./booking.html">Book</a>
     </div>
   </nav>
@@ -690,17 +697,17 @@
       <div class="wrap">
         <div class="eyebrow">An interactive reflection</div>
         <h1>Every change follows <span class="gradient-text">a shape.</span></h1>
-        <p class="lead">This is the Hero's Journey, the arc that runs through every story of real change: the descent into the unknown, the low point where something old is released, and the return with something true. In the next few minutes, you will walk one full arc of it yourself.</p>
-        <p class="lead">There are no right answers. Choose the response that feels most like you, and at the end you will discover which inner archetype guided your journey.</p>
+        <p class="lead">A short reflection on the Hero's Journey: how we enter change, meet what is ready to shift, and return with something new.</p>
+        <p class="lead">Choose what feels true. At the end, you will see which inner archetype is guiding this season of change.</p>
         <div class="intro-archetypes" aria-label="The three archetypes">
-          <span class="keyword-chip slate"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span>The Witness</span>
-          <span class="keyword-chip gold"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg></span>The Inner Guide</span>
-          <span class="keyword-chip cream"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg></span>The Explorer</span>
+          <span class="keyword-chip slate" aria-label="The Witness" title="The Witness"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span></span>
+          <span class="keyword-chip gold" aria-label="The Inner Guide" title="The Inner Guide"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg></span></span>
+          <span class="keyword-chip cream" aria-label="The Explorer" title="The Explorer"><span class="archetype-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg></span></span>
         </div>
         <div class="actions">
           <button class="button" id="begin-btn" type="button">Begin the journey</button>
         </div>
-        <p class="intro-note">Eight stages. About five minutes. Nothing is recorded, this journey lives only in your browser.</p>
+        <p class="intro-note">About five minutes. Nothing is recorded or submitted.</p>
       </div>
     </section>
 
@@ -710,7 +717,7 @@
       <span class="decor-dot dot-small" style="right:7%; top:18%;" aria-hidden="true"></span>
       <div class="wrap">
         <div class="journey-head">
-          <p class="stage-label" id="stage-label">Stage 01 · The Ordinary World</p>
+          <p class="stage-label" id="stage-label">Stage 01 Â· The Ordinary World</p>
           <span class="stage-count" id="stage-count">1 of 8</span>
         </div>
 
@@ -739,7 +746,7 @@
             </div>
           </div>
           <div class="journey-actions">
-            <button class="back-button" id="back-btn" type="button">← Previous stage</button>
+            <button class="back-button" id="back-btn" type="button">â† Previous stage</button>
             <span class="microcopy" id="progress-status" role="status" aria-live="polite"></span>
           </div>
         </article>
@@ -776,14 +783,14 @@
 
   <script>
     /* ==================================================================
-       STORY DATA — edit freely.
+       STORY DATA â€” edit freely.
        Each stage has: label, title, text, and three choices.
        Each choice has: label (button text), type (witness | guide | explorer),
        and reflection (the italic line shown at the top of the next stage).
        ================================================================== */
     const STAGES = [
       {
-        label: "Stage 01 · The Ordinary World",
+        label: "Stage 01 Â· The Ordinary World",
         title: "The life you know by heart",
         text: "Your days have a shape you could walk with your eyes closed. The same routes, the same roles, the same version of you showing up in each of them. It works. And yet lately a quiet question has started following you around: is this still mine? Today, in an ordinary moment, the question arrives again, and this time it does not leave.",
         choices: [
@@ -793,7 +800,7 @@
         ]
       },
       {
-        label: "Stage 02 · The Call",
+        label: "Stage 02 Â· The Call",
         title: "Something arrives",
         text: "It comes the way calls always do: disguised as ordinary life. An unexpected conversation. An opportunity you did not ask for. A loss that rearranges what matters. Whatever form it takes, it points toward a version of your life you have not lived yet, and it asks something of you.",
         choices: [
@@ -803,7 +810,7 @@
         ]
       },
       {
-        label: "Stage 03 · The Threshold",
+        label: "Stage 03 Â· The Threshold",
         title: "The voice that says not yet",
         text: "Now comes the hesitation. A persuasive inner voice lists every reason to stay: the timing is wrong, others need you as you are, the person you might become is a stranger. This voice is not your enemy. It is the part of you that has kept you safe. But tonight you stand at the edge of the familiar, and the edge is asking for a decision.",
         choices: [
@@ -813,7 +820,7 @@
         ]
       },
       {
-        label: "Stage 04 · Tests and Allies",
+        label: "Stage 04 Â· Tests and Allies",
         title: "The road reveals its company",
         text: "On the other side of the threshold, the tests begin. Old patterns resurface under new pressure. Doubt visits at inconvenient hours. But something else happens too: an unexpected ally appears, someone who sees where you are headed before you can describe it. Help, it turns out, was waiting for you to be on the road.",
         choices: [
@@ -823,7 +830,7 @@
         ]
       },
       {
-        label: "Stage 05 · The Ordeal",
+        label: "Stage 05 Â· The Ordeal",
         title: "The bottom of the U",
         text: "Then comes the low point, the deepest bend of the journey. The old identity no longer fits, and the new one has not yet formed. There is nothing to perform here and nowhere to hurry to. In every story worth telling, this is where the real exchange happens: something is released so that something truer can take its place.",
         choices: [
@@ -833,7 +840,7 @@
         ]
       },
       {
-        label: "Stage 06 · The Reward",
+        label: "Stage 06 Â· The Reward",
         title: "What the depth gave back",
         text: "Slowly, the light changes. Out of the low point comes something you could not have forced: clarity. Not a plan with bullet points, but a knowing. You understand something about yourself that cannot be un-known now, and it is simpler than you expected. The journey down was the price. This is what it purchased.",
         choices: [
@@ -843,7 +850,7 @@
         ]
       },
       {
-        label: "Stage 07 · The Road Back",
+        label: "Stage 07 Â· The Road Back",
         title: "Returning changed",
         text: "The road home looks familiar, but you are not. The old routines are still there, and they have gravity. The people around you expect the person who left, not the one returning. This is the quiet test of every journey: whether the change survives contact with ordinary life.",
         choices: [
@@ -853,7 +860,7 @@
         ]
       },
       {
-        label: "Stage 08 · The Return with the Elixir",
+        label: "Stage 08 Â· The Return with the Elixir",
         title: "What you bring back",
         text: "Every hero returns carrying something the ordinary world needs, an elixir. Yours is not an object. It is the way you now see, the steadiness you found at the bottom of the U, the truth you can no longer pretend not to know. The final question of the journey is not whether you changed. It is what you will do with it.",
         choices: [
@@ -865,7 +872,7 @@
     ];
 
     /* ==================================================================
-       ARCHETYPE RESULTS — edit freely.
+       ARCHETYPE RESULTS â€” edit freely.
        ================================================================== */
     const RESULTS = {
       witness: {
@@ -1137,3 +1144,4 @@
   </script>
 </body>
 </html>
+
