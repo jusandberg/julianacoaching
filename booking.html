@@ -130,6 +130,15 @@
     .booking-field input,.booking-field textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .booking-field textarea{min-height:104px;resize:vertical}
     .booking-field input:focus,.booking-field textarea:focus{border-color:#92752c;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
+    .slot-select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .slot-select:focus{border-color:#92752c;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
+    .time-slots{display:flex;flex-wrap:wrap;gap:8px;min-height:48px;align-items:center}
+    .time-slot{border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:800;padding:10px 14px;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+    .time-slot:hover{transform:translateY(-1px);border-color:#92752c}
+    .time-slot.active{background:#385768;border-color:#385768;color:#fff}
+    .slot-help{margin:0;color:var(--muted);font-size:13px}
+    .slot-help.error{color:#8b3526}
+    .slot-help.loading{color:#385768;font-weight:750}
     .booking-form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap}
     .booking-submit{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border:0;border-radius:999px;background:#101419;color:#fff;font:inherit;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
     .booking-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
@@ -259,13 +268,19 @@
               <label for="email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" required>
             </div>
+            <input id="date" name="date" type="hidden" required>
+            <input id="time" name="time" type="hidden" required>
             <div class="booking-field">
-              <label for="date">Preferred date</label>
-              <input id="date" name="date" type="date" required>
+              <label for="slot-date">Available dates</label>
+              <select id="slot-date" class="slot-select" required>
+                <option value="">Loading available dates...</option>
+              </select>
             </div>
             <div class="booking-field">
-              <label for="time">Preferred time</label>
-              <input id="time" name="time" type="time" required>
+              <label for="time-slots">Available times</label>
+              <div class="time-slots" id="time-slots" role="group" aria-label="Available appointment times">
+                <p class="slot-help loading">Loading times...</p>
+              </div>
             </div>
             <div class="booking-field full">
               <label for="notes">Anything helpful to know? <span aria-hidden="true">(optional)</span></label>
@@ -431,13 +446,19 @@
   </script>
   <script>
     (function () {
+      var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec';
       var buttons = document.querySelectorAll('.seg button');
       var detail = document.querySelector('[data-detail]');
       var sessionInput = document.getElementById('sessionType');
+      var dateInput = document.getElementById('date');
+      var timeInput = document.getElementById('time');
+      var dateSelect = document.getElementById('slot-date');
+      var timeSlots = document.getElementById('time-slots');
       var form = document.getElementById('booking-form');
       var status = document.getElementById('booking-status');
       var frame = document.querySelector('iframe[name="booking-submit-frame"]');
       var submitted = false;
+      var activeSlots = [];
       var detailHTML = {
         discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
@@ -446,6 +467,84 @@
         discovery: 'Discovery Call',
         session: 'Coaching Session'
       };
+
+      function setSlotMessage(message, type) {
+        timeSlots.innerHTML = '<p class="slot-help ' + (type || '') + '">' + message + '</p>';
+      }
+
+      function clearSelection() {
+        dateInput.value = '';
+        timeInput.value = '';
+      }
+
+      function renderTimes(dateValue) {
+        var day = activeSlots.find(function (item) { return item.date === dateValue; });
+        dateInput.value = dateValue || '';
+        timeInput.value = '';
+        if (!day || !day.times || !day.times.length) {
+          setSlotMessage('No times available for this date.', 'error');
+          return;
+        }
+        timeSlots.innerHTML = '';
+        day.times.forEach(function (slot) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'time-slot';
+          btn.textContent = slot.label || slot.time;
+          btn.addEventListener('click', function () {
+            timeSlots.querySelectorAll('.time-slot').forEach(function (item) { item.classList.remove('active'); });
+            btn.classList.add('active');
+            timeInput.value = slot.time;
+          });
+          timeSlots.appendChild(btn);
+        });
+      }
+
+      function renderDates(data) {
+        activeSlots = data && data.slots ? data.slots : [];
+        dateSelect.innerHTML = '';
+        clearSelection();
+        if (!activeSlots.length) {
+          var empty = document.createElement('option');
+          empty.value = '';
+          empty.textContent = 'No openings available right now';
+          dateSelect.appendChild(empty);
+          setSlotMessage('No openings are available right now. Please check back soon or send a note.', 'error');
+          return;
+        }
+        var first = document.createElement('option');
+        first.value = '';
+        first.textContent = 'Choose a date';
+        dateSelect.appendChild(first);
+        activeSlots.forEach(function (item) {
+          var option = document.createElement('option');
+          option.value = item.date;
+          option.textContent = item.label || item.date;
+          dateSelect.appendChild(option);
+        });
+        setSlotMessage('Choose a date to see available times.', '');
+      }
+
+      function loadAvailability(kind) {
+        clearSelection();
+        dateSelect.innerHTML = '<option value="">Loading available dates...</option>';
+        setSlotMessage('Loading times...', 'loading');
+        var callbackName = 'uMethodAvailability_' + Date.now();
+        var script = document.createElement('script');
+        window[callbackName] = function (data) {
+          renderDates(data);
+          delete window[callbackName];
+          script.remove();
+        };
+        script.src = APPS_SCRIPT_URL + '?action=availability&sessionType=' + encodeURIComponent(sessionNames[kind]) + '&callback=' + encodeURIComponent(callbackName) + '&v=' + Date.now();
+        script.onerror = function () {
+          delete window[callbackName];
+          script.remove();
+          dateSelect.innerHTML = '<option value="">Unable to load dates</option>';
+          setSlotMessage('I could not load available times. Please refresh the page or try again later.', 'error');
+        };
+        document.body.appendChild(script);
+      }
 
       buttons.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -457,12 +556,25 @@
             detail.innerHTML = detailHTML[kind];
             sessionInput.value = sessionNames[kind];
             detail.classList.remove('fade');
+            loadAvailability(kind);
           }, 180);
         });
       });
 
+      if (dateSelect) {
+        dateSelect.addEventListener('change', function () {
+          renderTimes(dateSelect.value);
+        });
+      }
+
       if (form && status) {
-        form.addEventListener('submit', function () {
+        form.addEventListener('submit', function (event) {
+          if (!dateInput.value || !timeInput.value) {
+            event.preventDefault();
+            status.className = 'booking-status show error';
+            status.textContent = 'Please choose an available date and time first.';
+            return;
+          }
           submitted = true;
           var submitButton = form.querySelector('button[type="submit"]');
           if (submitButton) submitButton.disabled = true;
@@ -480,13 +592,19 @@
           status.className = 'booking-status show success';
           status.textContent = 'Your request was sent. Please check your email for the calendar invite.';
           form.reset();
-          sessionInput.value = document.querySelector('.seg button[aria-pressed="true"]').dataset.kind === 'session' ? 'Coaching Session' : 'Discovery Call';
+          clearSelection();
+          var currentKind = document.querySelector('.seg button[aria-pressed="true"]').dataset.kind;
+          sessionInput.value = currentKind === 'session' ? 'Coaching Session' : 'Discovery Call';
+          loadAvailability(currentKind);
         });
       }
+
+      loadAvailability('discovery');
     })();
   </script>
 </body>
 </html>
+
 
 
 
