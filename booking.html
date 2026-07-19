@@ -122,6 +122,23 @@
     .booking-link-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:#101419;color:#fff!important;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease}
     .booking-link-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
     .booking-link-button:focus-visible{outline:3px solid rgba(56,87,104,.32);outline-offset:3px}
+    .booking-form-card{max-width:760px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08);text-align:left}
+    .booking-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .booking-field{display:grid;gap:7px}
+    .booking-field.full{grid-column:1/-1}
+    .booking-field label{font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:#385768}
+    .booking-field input,.booking-field textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .booking-field textarea{min-height:104px;resize:vertical}
+    .booking-field input:focus,.booking-field textarea:focus{border-color:#92752c;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
+    .booking-form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap}
+    .booking-submit{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border:0;border-radius:999px;background:#101419;color:#fff;font:inherit;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
+    .booking-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
+    .booking-submit:disabled{cursor:not-allowed;opacity:.62;transform:none}
+    .booking-form-note{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+    .booking-status{width:100%;margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#f7f3e8;color:#385768;font-size:14px;font-weight:750;display:none}
+    .booking-status.show{display:block}
+    .booking-status.success{background:#eef6f0;color:#2f5d45}
+    .booking-status.error{background:#fff2ef;color:#8b3526}
 
     /* mock calendar preview (shown until the real embed replaces it) */
     .mock-cal{padding:22px;background:#fff;text-align:left}
@@ -176,6 +193,8 @@
       .booking-hero{padding:56px 0 4px}
       .seg{width:100%}
       .seg button{flex:1;padding:12px 8px;font-size:13.5px}
+      .booking-form-card{padding:22px}
+      .booking-form-grid{grid-template-columns:1fr}
       .session-detail{gap:18px;flex-wrap:wrap}
       .gcal-wrap iframe{min-height:560px}
       .gcal-button-wrap{min-height:164px;padding:30px 18px}
@@ -229,23 +248,37 @@
           <div><b>Free</b><span>Video or phone</span></div>
         </div>
 
-        <!-- ====== DISCOVERY CALL BOOKING ====== -->
-        <div class="embed-panel" id="embed-discovery">
-          <div class="gcal-wrap">
-            <div class="gcal-button-wrap">
-              <div><p>Select a convenient time for your free 30-minute discovery call.</p><a class="booking-link-button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true" target="_blank" rel="noopener">Book a free discovery call</a></div>
+        <form class="booking-form-card" id="booking-form" action="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec" method="POST" target="booking-submit-frame" accept-charset="UTF-8">
+          <input type="hidden" name="sessionType" id="sessionType" value="Discovery Call">
+          <div class="booking-form-grid">
+            <div class="booking-field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="booking-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="booking-field">
+              <label for="date">Preferred date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="booking-field">
+              <label for="time">Preferred time</label>
+              <input id="time" name="time" type="time" required>
+            </div>
+            <div class="booking-field full">
+              <label for="notes">Anything helpful to know? <span aria-hidden="true">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="A few words about what you are hoping to explore."></textarea>
             </div>
           </div>
-        </div>
-
-        <!-- ====== COACHING SESSION BOOKING ====== -->
-        <div class="embed-panel" id="embed-session" hidden>
-          <div class="gcal-wrap">
-            <div class="gcal-button-wrap">
-              <div><p>Select a convenient time for your 60-minute coaching session.</p><a class="booking-link-button" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true" target="_blank" rel="noopener">Book a 60-minute session</a></div>
-            </div>
+          <div class="booking-form-actions">
+            <button class="booking-submit" type="submit">Request this appointment</button>
+            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email.</p>
+            <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
           </div>
-        </div>
+        </form>
+        <iframe name="booking-submit-frame" title="Booking submission" style="display:none"></iframe>
       </div>
     </section>
 
@@ -400,13 +433,18 @@
     (function () {
       var buttons = document.querySelectorAll('.seg button');
       var detail = document.querySelector('[data-detail]');
-      var panels = {
-        discovery: document.getElementById('embed-discovery'),
-        session: document.getElementById('embed-session')
-      };
+      var sessionInput = document.getElementById('sessionType');
+      var form = document.getElementById('booking-form');
+      var status = document.getElementById('booking-status');
+      var frame = document.querySelector('iframe[name="booking-submit-frame"]');
+      var submitted = false;
       var detailHTML = {
         discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
+      };
+      var sessionNames = {
+        discovery: 'Discovery Call',
+        session: 'Coaching Session'
       };
 
       buttons.forEach(function (btn) {
@@ -415,22 +453,42 @@
           if (btn.getAttribute('aria-pressed') === 'true') return;
           buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
           detail.classList.add('fade');
-          panels.discovery.classList.add('fade');
-          panels.session.classList.add('fade');
           window.setTimeout(function () {
             detail.innerHTML = detailHTML[kind];
-            panels.discovery.hidden = kind !== 'discovery';
-            panels.session.hidden = kind !== 'session';
+            sessionInput.value = sessionNames[kind];
             detail.classList.remove('fade');
-            panels.discovery.classList.remove('fade');
-            panels.session.classList.remove('fade');
           }, 180);
         });
       });
+
+      if (form && status) {
+        form.addEventListener('submit', function () {
+          submitted = true;
+          var submitButton = form.querySelector('button[type="submit"]');
+          if (submitButton) submitButton.disabled = true;
+          status.className = 'booking-status show';
+          status.textContent = 'Sending your booking request...';
+        });
+      }
+
+      if (frame) {
+        frame.addEventListener('load', function () {
+          if (!submitted) return;
+          submitted = false;
+          var submitButton = form.querySelector('button[type="submit"]');
+          if (submitButton) submitButton.disabled = false;
+          status.className = 'booking-status show success';
+          status.textContent = 'Your request was sent. Please check your email for the calendar invite.';
+          form.reset();
+          sessionInput.value = document.querySelector('.seg button[aria-pressed="true"]').dataset.kind === 'session' ? 'Coaching Session' : 'Discovery Call';
+        });
+      }
     })();
   </script>
 </body>
 </html>
+
+
 
 
 
