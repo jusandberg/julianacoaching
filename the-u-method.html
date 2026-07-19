@@ -128,15 +128,29 @@
     .u-method-process .ump-card h3{margin:0 0 4px;font-size:clamp(24px,3.5vw,32px);line-height:1.1;letter-spacing:-.02em}
     .u-method-process .ump-tagline{margin:0 0 18px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.6vw,24px);color:#657482}
     .u-method-process .ump-card p:last-child{margin:0;color:#39414a;font-size:clamp(15px,1.8vw,17px);line-height:1.65}
+    .u-method-process .ump-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
+    .u-method-process .ump-nav-btn{border:1px solid #d9dee4;background:#fff;border-radius:999px;padding:10px 18px;font-weight:800;font-size:13.5px;color:#101419;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+    .u-method-process .ump-nav-btn:hover{background:#f7f3e8;border-color:#d9b75e}
+    .u-method-process .ump-nav-btn:disabled{opacity:.35;cursor:not-allowed}
+    .u-method-process .ump-nav-btn:disabled:hover{background:#fff;border-color:#d9dee4}
+    .u-method-process .ump-nav-dots{display:flex;gap:8px}
+    .u-method-process .ump-nav-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#d9dee4;cursor:pointer}
+    .u-method-process .ump-nav-dot.on{width:24px;border-radius:999px;background:#101419}
+    @media(max-width:480px){
+      .u-method-process .ump-nav-btn{padding:9px 14px;font-size:12.5px}
+    }
   </style>
 
   <div class="ump-road-wrap">
     <svg viewBox="0 0 900 260" class="ump-road-svg">
       <path d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#c9cfd4" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"></path>
       <path data-ump-progress d="M50,60 C 220,60 220,200 450,200 S 680,60 850,60" fill="none" stroke="#101419" stroke-width="6" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" style="transition:stroke-dashoffset .35s;"></path>
-      <circle data-ump-station="0" cx="50" cy="60" r="18" fill="#f3e4bd" style="cursor:pointer"></circle>
-      <circle data-ump-station="1" cx="450" cy="200" r="18" fill="#dbe6ed" style="cursor:pointer"></circle>
-      <circle data-ump-station="2" cx="850" cy="60" r="18" fill="#dde8e8" style="cursor:pointer"></circle>
+      <circle data-ump-station="0" cx="50" cy="60" r="40" fill="transparent" style="cursor:pointer"></circle>
+      <circle data-ump-station="1" cx="450" cy="200" r="40" fill="transparent" style="cursor:pointer"></circle>
+      <circle data-ump-station="2" cx="850" cy="60" r="40" fill="transparent" style="cursor:pointer"></circle>
+      <circle data-ump-station="0" cx="50" cy="60" r="18" fill="#f3e4bd" style="cursor:pointer;pointer-events:none"></circle>
+      <circle data-ump-station="1" cx="450" cy="200" r="18" fill="#dbe6ed" style="cursor:pointer;pointer-events:none"></circle>
+      <circle data-ump-station="2" cx="850" cy="60" r="18" fill="#dde8e8" style="cursor:pointer;pointer-events:none"></circle>
     </svg>
     <div class="ump-station-label" data-ump-label="0" style="left:5.6%;top:23.1%;color:#8a6a1f;">1</div>
     <div class="ump-station-label" data-ump-label="1" style="left:50%;top:76.9%;color:#2c4a5e;">2</div>
@@ -156,6 +170,16 @@
     </div>
   </div>
 
+  <div class="ump-nav">
+    <button type="button" class="ump-nav-btn" data-ump-prev aria-label="Previous step">&larr; Back</button>
+    <div class="ump-nav-dots">
+      <button type="button" class="ump-nav-dot" data-ump-goto="0" aria-label="Step 1"></button>
+      <button type="button" class="ump-nav-dot" data-ump-goto="1" aria-label="Step 2"></button>
+      <button type="button" class="ump-nav-dot" data-ump-goto="2" aria-label="Step 3"></button>
+    </div>
+    <button type="button" class="ump-nav-btn" data-ump-next aria-label="Next step">Next &rarr;</button>
+  </div>
+
   <script>
   (function(){
     var STEPS=[
@@ -167,7 +191,9 @@
       if (root.dataset.umpInit) return;
       root.dataset.umpInit = '1';
       var progress = root.querySelector('[data-ump-progress]');
+      var current = 0;
       function render(i){
+        current = i;
         var s = STEPS[i];
         root.querySelector('[data-ump-stepof]').textContent = s.stepof;
         root.querySelector('[data-ump-title]').textContent = s.title;
@@ -180,10 +206,22 @@
         for (var n = 0; n < 3; n++) {
           root.querySelector('[data-ump-name="' + n + '"]').style.color = n === i ? STEPS[n].label : '#8a929b';
         }
+        root.querySelectorAll('[data-ump-goto]').forEach(function(d){
+          d.classList.toggle('on', +d.getAttribute('data-ump-goto') === i);
+        });
+        var prevBtn = root.querySelector('[data-ump-prev]'), nextBtn = root.querySelector('[data-ump-next]');
+        if (prevBtn) prevBtn.disabled = (i === 0);
+        if (nextBtn) nextBtn.disabled = (i === STEPS.length - 1);
       }
       root.querySelectorAll('[data-ump-station]').forEach(function(c){
         c.addEventListener('click', function(){ render(+c.getAttribute('data-ump-station')); });
       });
+      root.querySelectorAll('[data-ump-goto]').forEach(function(d){
+        d.addEventListener('click', function(){ render(+d.getAttribute('data-ump-goto')); });
+      });
+      var prevBtn = root.querySelector('[data-ump-prev]'), nextBtn = root.querySelector('[data-ump-next]');
+      if (prevBtn) prevBtn.addEventListener('click', function(){ if (current > 0) render(current - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function(){ if (current < STEPS.length - 1) render(current + 1); });
       render(0);
     });
   })();
