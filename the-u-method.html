@@ -25,7 +25,7 @@
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
+<a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
@@ -148,74 +148,31 @@
           <p class="lead">These are universal patterns or inner forces that represent distinct aspects of the human experience, guiding how we see ourselves and move through transformation.</p>
         </div>
 
-        <div class="arch-tabs" data-arch-tabs>
-          <div class="arch-tablist" role="tablist" aria-label="Choose an archetype">
-            <button class="arch-tab active" type="button" role="tab" aria-selected="true" data-arch="witness">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Witness</span>
-                <span class="arch-tab-sub">Presence and gentle awareness</span></span>
-              <span class="arch-tab-chevron" aria-hidden="true">&rsaquo;</span></button>
-            <button class="arch-tab" type="button" role="tab" aria-selected="false" data-arch="guide">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Inner Guide</span>
-                <span class="arch-tab-sub">Intuition and stillness</span></span>
-              <span class="arch-tab-chevron" aria-hidden="true">&rsaquo;</span></button>
-            <button class="arch-tab" type="button" role="tab" aria-selected="false" data-arch="explorer">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Explorer</span>
-                <span class="arch-tab-sub">Courage and wonder</span></span>
-              <span class="arch-tab-chevron" aria-hidden="true">&rsaquo;</span></button>
+        <div class="wic-arch2" data-wic-arch2>
+          <div class="wic-arch2-row">
+            <button class="wic-arch2-icon" type="button" data-arch2-i="0">
+              <svg viewBox="0 0 64 44" aria-hidden="true"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg>
+              <span>The Witness</span>
+            </button>
+            <button class="wic-arch2-icon" type="button" data-arch2-i="1">
+              <svg viewBox="0 0 64 44" aria-hidden="true"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg>
+              <span>The Inner Guide</span>
+            </button>
+            <button class="wic-arch2-icon" type="button" data-arch2-i="2">
+              <svg viewBox="0 0 64 44" aria-hidden="true"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg>
+              <span>The Explorer</span>
+            </button>
           </div>
-          <div class="arch-panel" aria-live="polite">
-            <span class="arch-icon-large" data-arch-panel-icon aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span>
-            <div class="arch-panel-text">
-              <span class="arch-panel-eyebrow">Archetype</span>
-              <h3 data-arch-panel-title>The Witness</h3>
-              <p data-arch-panel-copy>The Witness holds presence and gentle awareness. It sees without judgment, creating the quiet safety where transformation begins. With curiosity and compassion, it allows us to meet ourselves fully.</p>
+          <div class="wic-arch2-detail" id="wicArch2Detail" aria-live="polite">
+            <div class="wic-arch2-detail-inner">
+              <h3 id="wicArch2Title"></h3>
+              <span class="sub" id="wicArch2Sub"></span>
+              <p id="wicArch2Copy"></p>
             </div>
           </div>
         </div>
 
-        <div class="arch-accordion" data-arch-accordion>
-          <div class="arch-acc-item open">
-            <button class="arch-acc-head" type="button" aria-expanded="true">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M6 10l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 22l8 6 9-6 9 6 9-6 9 6 8-6"/><path d="M6 34l8 6 9-6 9 6 9-6 9 6 8-6"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Witness</span>
-                <span class="arch-tab-sub">Presence and gentle awareness</span></span>
-              <span class="arch-acc-chevron" aria-hidden="true">&rsaquo;</span></button>
-            <div class="arch-acc-body">
-              <p>The Witness holds presence and gentle awareness. It sees without judgment, creating the quiet safety where transformation begins. With curiosity and compassion, it allows us to meet ourselves fully.</p>
-            </div>
-          </div>
-          <div class="arch-acc-item">
-            <button class="arch-acc-head" type="button" aria-expanded="false">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><circle cx="32" cy="22" r="5"/><circle cx="32" cy="22" r="11"/><circle cx="32" cy="22" r="17"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Inner Guide</span>
-                <span class="arch-tab-sub">Intuition and stillness</span></span>
-              <span class="arch-acc-chevron" aria-hidden="true">&rsaquo;</span></button>
-            <div class="arch-acc-body">
-              <p>The Inner Guide speaks through intuition and stillness. It leads us through the descent and rise, reminding us that the answers we seek are already within. Wisdom unfolds when we learn to listen inward.</p>
-            </div>
-          </div>
-          <div class="arch-acc-item">
-            <button class="arch-acc-head" type="button" aria-expanded="false">
-              <span class="arch-tab-mark" aria-hidden="true"><svg viewBox="0 0 64 44"><path d="M20 40l12-8 12 8"/><path d="M20 28l12-8 12 8"/><path d="M20 16l12-8 12 8"/></svg></span>
-              <span class="arch-tab-text">
-                <span class="arch-tab-name">The Explorer</span>
-                <span class="arch-tab-sub">Courage and wonder</span></span>
-              <span class="arch-acc-chevron" aria-hidden="true">&rsaquo;</span></button>
-            <div class="arch-acc-body">
-              <p>The Explorer moves with courage and wonder. It trusts the unknown and finds freedom in the unfolding. Through curiosity, it carries us along the U-shaped journey of becoming.</p>
-            </div>
-          </div>
-        </div>
-
-                <div class="section-head center wic-journey-cta">
+        <div class="section-head center wic-journey-cta">
           <div class="eyebrow">Interactive reflection</div>
           <p class="lead">Move through eight stages of the Hero&rsquo;s Journey and discover which inner archetype guides the way you meet change.</p>
           <a class="wic-journey-link" href="./heros-journey.html">
@@ -223,10 +180,10 @@
             <span>Walk the Hero&rsquo;s Journey</span>
             <svg class="wic-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
-        </div></div>
+        </div>
+      </div>
     </section>
-
-    <section class="cta-strip">
+<section class="cta-strip">
       <span class="balance-motif section-balance right" aria-hidden="true"><span class="balance-ball"></span></span>
       <span class="decor-dot dot-small dot-cta-left"></span>
       <div class="wrap cta-inner">
@@ -247,8 +204,37 @@
     </div>
   </footer>
   <script src="./script.js?v=2"></script>
-</body>
+    <script>
+      (function () {
+        var root = document.querySelector('[data-wic-arch2]');
+        if (!root) return;
+        var archetypes = [
+          { name: 'The Witness', sub: 'Presence and gentle awareness', copy: 'The Witness holds presence and gentle awareness. It sees without judgment, creating the quiet safety where transformation begins. With curiosity and compassion, it allows us to meet ourselves fully.' },
+          { name: 'The Inner Guide', sub: 'Intuition and stillness', copy: 'The Inner Guide speaks through intuition and stillness. It leads us through the descent and rise, reminding us that the answers we seek are already within. Wisdom unfolds when we learn to listen inward.' },
+          { name: 'The Explorer', sub: 'Courage and wonder', copy: 'The Explorer moves with courage and wonder. It trusts the unknown and finds freedom in the unfolding. Through curiosity, it carries us along the U-shaped journey of becoming.' }
+        ];
+        var icons = root.querySelectorAll('.wic-arch2-icon');
+        var detail = document.getElementById('wicArch2Detail');
+        var titleEl = document.getElementById('wicArch2Title');
+        var subEl = document.getElementById('wicArch2Sub');
+        var copyEl = document.getElementById('wicArch2Copy');
+        root.addEventListener('click', function (e) {
+          var btn = e.target.closest('.wic-arch2-icon');
+          if (!btn) return;
+          var i = +btn.dataset.arch2I;
+          icons.forEach(function (el) { el.classList.toggle('dim', el !== btn); });
+          titleEl.textContent = archetypes[i].name;
+          subEl.textContent = archetypes[i].sub;
+          copyEl.textContent = archetypes[i].copy;
+          detail.classList.add('open');
+        });
+      })();
+    </script>
+  </body>
 </html>
+
+
+
 
 
 
