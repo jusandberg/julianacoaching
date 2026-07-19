@@ -3038,3 +3038,82 @@ details p {
     padding-top: 24px;
   }
 }
+
+/* Mobile-friendly U Method process track. Keeps the desktop curve, but prevents edge clipping on phones. */
+@media (max-width: 720px) {
+  .method-video-section .section-head h2 {
+    font-size: clamp(34px, 11vw, 46px);
+    line-height: 1.05;
+  }
+
+  .u-method-process {
+    max-width: 100%;
+  }
+
+  .u-method-process .ump-road-wrap {
+    margin: 0 0 18px;
+    padding: 0 34px;
+  }
+
+  .u-method-process .ump-road-svg {
+    min-height: 118px;
+  }
+
+  .u-method-process .ump-step-name {
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+
+  .u-method-process [data-ump-label="0"],
+  .u-method-process [data-ump-name="0"] {
+    left: 17% !important;
+  }
+
+  .u-method-process [data-ump-label="2"],
+  .u-method-process [data-ump-name="2"] {
+    left: 83% !important;
+  }
+
+  .u-method-process [data-ump-name="0"],
+  .u-method-process [data-ump-name="2"] {
+    top: 14% !important;
+  }
+
+  .u-method-process [data-ump-label="0"],
+  .u-method-process [data-ump-label="2"] {
+    top: 27% !important;
+  }
+
+  .u-method-process [data-ump-name="1"] {
+    top: 90% !important;
+  }
+
+  .u-method-process [data-ump-label="1"] {
+    top: 74% !important;
+  }
+
+  .u-method-process .ump-card {
+    min-height: 0;
+    gap: 16px;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .u-method-process .ump-icon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .u-method-process .ump-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .u-method-process .ump-card h3 {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .u-method-process .ump-tagline {
+    margin-bottom: 12px;
+  }
+}
