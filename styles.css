@@ -3405,3 +3405,50 @@ details p {
     margin-top: 24px;
   }
 }
+
+/* Equalize U Method overlay cards across all three steps. */
+.um-phase-overlay {
+  min-height: 286px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .um-phase-overlay {
+    min-height: 250px;
+    max-height: none;
+    justify-content: center;
+  }
+
+  .um-phase-overlay h3 {
+    min-height: 58px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .um-overlay-tagline {
+    min-height: 34px;
+    margin-bottom: 10px;
+  }
+
+  .um-phase-overlay p:last-child {
+    min-height: 90px;
+  }
+}
+
+/* Bring the middle U Method point closer to the U curve on mobile. */
+@media (max-width: 720px) {
+  .um-process-stage {
+    min-height: 270px;
+  }
+
+  .um-phase-one,
+  .um-phase-three {
+    top: 13%;
+  }
+
+  .um-phase-two {
+    top: 48%;
+  }
+}
