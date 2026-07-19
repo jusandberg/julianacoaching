@@ -289,7 +289,7 @@
           </div>
           <div class="booking-form-actions">
             <button class="booking-submit" type="submit">Request this appointment</button>
-            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email.</p>
+            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email. By requesting an appointment, you agree to the <a href="./coaching-agreement.html" target="_blank" rel="noopener">coaching agreement</a>.</p>
             <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
           </div>
         </form>
@@ -459,6 +459,9 @@
       var frame = document.querySelector('iframe[name="booking-submit-frame"]');
       var submitted = false;
       var activeSlots = [];
+      
+      var VISIBLE_DATE_LIMIT = 3;
+      var VISIBLE_TIME_LIMIT = 3;
       var detailHTML = {
         discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
@@ -486,7 +489,7 @@
           return;
         }
         timeSlots.innerHTML = '';
-        day.times.forEach(function (slot) {
+        day.times.slice(0, VISIBLE_TIME_LIMIT).forEach(function (slot) {
           var btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'time-slot';
@@ -516,13 +519,13 @@
         first.value = '';
         first.textContent = 'Choose a date';
         dateSelect.appendChild(first);
-        activeSlots.forEach(function (item) {
+        activeSlots.slice(0, VISIBLE_DATE_LIMIT).forEach(function (item) {
           var option = document.createElement('option');
           option.value = item.date;
           option.textContent = item.label || item.date;
           dateSelect.appendChild(option);
         });
-        setSlotMessage('Choose a date to see available times.', '');
+        setSlotMessage('Choose from the next few available openings.', '');
       }
 
       function loadAvailability(kind) {
@@ -604,6 +607,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
