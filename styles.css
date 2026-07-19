@@ -3452,3 +3452,139 @@ details p {
     top: 48%;
   }
 }
+
+/* U Method clickable phase colors, halo, and final mobile alignment. */
+.um-phase-number {
+  position: relative;
+  isolation: isolate;
+}
+
+.um-phase-number::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  z-index: -1;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  opacity: .28;
+  animation: umHaloPulse 2.2s ease-in-out infinite;
+}
+
+.um-phase-one .um-phase-number {
+  background: #f4ead0;
+  border-color: rgba(146,117,44,.32);
+  color: #8a6a1f;
+}
+
+.um-phase-two .um-phase-number {
+  background: #dbe6ed;
+  border-color: rgba(44,74,94,.28);
+  color: #2c4a5e;
+}
+
+.um-phase-three .um-phase-number {
+  background: #dde8e8;
+  border-color: rgba(31,107,92,.28);
+  color: #1f6b5c;
+}
+
+.um-phase-one.active .um-phase-number,
+.um-phase-one:hover .um-phase-number {
+  background: #d9b75e;
+  color: #101419;
+}
+
+.um-phase-two.active .um-phase-number,
+.um-phase-two:hover .um-phase-number {
+  background: #8faabd;
+  color: #101419;
+}
+
+.um-phase-three.active .um-phase-number,
+.um-phase-three:hover .um-phase-number {
+  background: #89b4aa;
+  color: #101419;
+}
+
+@keyframes umHaloPulse {
+  0%, 100% { transform: scale(.86); opacity: .16; }
+  50% { transform: scale(1.14); opacity: .34; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .um-phase-number::before {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .um-process-stage {
+    min-height: 244px;
+    padding-bottom: 0;
+  }
+
+  .um-process-path {
+    width: 118%;
+    margin-left: -9%;
+    transform: translateY(2px);
+  }
+
+  .um-phase-one {
+    left: 3% !important;
+    top: 20% !important;
+  }
+
+  .um-phase-two {
+    left: 50% !important;
+    top: 37% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .um-phase-three {
+    right: 3% !important;
+    top: 20% !important;
+  }
+
+  .um-phase-number::before {
+    inset: -8px;
+  }
+}
+
+/* Mobile U curve: bring the dip down so step 2 sits on the path. */
+.um-path-mobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .um-path-desktop {
+    display: none;
+  }
+
+  .um-path-mobile {
+    display: block;
+  }
+
+  .um-process-stage {
+    min-height: 230px;
+  }
+
+  .um-process-path {
+    width: 112%;
+    margin-left: -6%;
+    transform: none;
+  }
+
+  .um-phase-one {
+    left: 4% !important;
+    top: 21% !important;
+  }
+
+  .um-phase-two {
+    top: 50% !important;
+  }
+
+  .um-phase-three {
+    right: 4% !important;
+    top: 21% !important;
+  }
+}
