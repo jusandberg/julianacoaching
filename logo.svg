@@ -9,7 +9,6 @@
     </linearGradient>
   </defs>
   <g transform="translate(5 5)">
-    <circle cx="39" cy="39" r="31" fill="#FFFFFF"/>
     <circle cx="39" cy="39" r="29" fill="none" stroke="url(#brandGradient)" stroke-width="5" stroke-linecap="round" stroke-dasharray="150 34" transform="rotate(-42 39 39)"/>
     <text x="39" y="49" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="31" font-weight="800" text-anchor="middle">U</text>
     <circle cx="65" cy="12" r="4.5" fill="#385768"/>
@@ -17,4 +16,5 @@
   <text x="92" y="42" fill="#101419" font-family="Inter,Arial,sans-serif" font-size="32" font-weight="750" letter-spacing="-.8">The U Method</text>
   <text x="94" y="68" fill="#385768" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing=".7">COACHING BY JULIANA</text>
 </svg>
+
 
