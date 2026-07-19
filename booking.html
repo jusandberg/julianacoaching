@@ -87,10 +87,6 @@
   </style>
   <link rel="stylesheet" href="./styles.css">
   <style>
-    .brand .brand-text{display:none;font-weight:800;font-size:19px;letter-spacing:-.01em}
-    .brand .brand-text b{color:#92752c}
-    .brand img:not([src]),.brand img[src=""]{display:none}
-    .brand:not(:has(img)) .brand-text{display:inline}
     /* ---------- Booking hero ---------- */
     .booking-hero{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg,var(--paper) 0%,#f4f0e5 100%)}
     .booking-hero h1{margin:10px 0 12px;font-size:clamp(34px,4.6vw,52px);letter-spacing:-.02em;line-height:1.04}
@@ -219,7 +215,7 @@
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg?v=4" alt="The U Method"></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
@@ -278,7 +274,7 @@
             </div>
             <div class="booking-field">
               <label for="time-slots">Available times</label>
-              <div class="time-slots" id="time-slots" role="group" aria-label="Available appointment times">
+              <div class="time-slots" id="time-slots" role="group" aria-label="Available booking times">
                 <p class="slot-help loading">Loading times...</p>
               </div>
             </div>
@@ -288,8 +284,8 @@
             </div>
           </div>
           <div class="booking-form-actions">
-            <button class="booking-submit" type="submit">Request this appointment</button>
-            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email. By requesting an appointment, you agree to the <a href="./coaching-agreement.html" target="_blank" rel="noopener">coaching agreement</a>.</p>
+            <button class="booking-submit" type="submit">Request this booking</button>
+            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email. By requesting a booking, you agree to the <a href="./coaching-agreement.html" target="_blank" rel="noopener">coaching agreement</a>.</p>
             <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
           </div>
         </form>
@@ -425,7 +421,7 @@
         <a href="./about.html">About</a>
         <a href="./the-u-method.html">The U Method</a>
         <a href="./resources.html">Resources</a>
-        <a href="./booking.html">Appointments</a>
+        <a href="./booking.html">Book</a>
         <a href="./coaching-agreement.html">Coaching Agreement</a>
         <a href="./coaching-disclaimer.html">Disclaimer</a>
         <a href="./privacy-policy.html">Privacy</a>
