@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book | The U Method</title>
-  <meta name="description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and Português.">
+  <meta name="description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and PortuguÃªs.">
   <link rel="canonical" href="https://jusandberg.github.io/julianacoaching/booking.html">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="icon" type="image/png" href="./favicon.png">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="The U Method">
   <meta property="og:url" content="https://jusandberg.github.io/julianacoaching/booking.html">
   <meta property="og:title" content="Book | The U Method">
-  <meta property="og:description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and Português.">
+  <meta property="og:description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana. Sessions available in English and PortuguÃªs.">
   <meta property="og:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -112,6 +112,10 @@
     .embed-panel[hidden]{display:none}
     .gcal-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
     .gcal-wrap iframe{display:block;width:100%;min-height:620px;border:0}
+    .booking-app-wrap{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
+    .booking-app-frame{display:block;width:100%;min-height:720px;border:0;background:#fff}
+    .booking-app-note{max-width:760px;margin:14px auto 0;color:var(--muted);font-size:13px;text-align:center}
+    .booking-app-note a{color:#385768;font-weight:800;text-decoration:underline;text-underline-offset:3px}
     #embed-discovery .gcal-wrap{border:0;box-shadow:none;background:transparent}
     .gcal-button-wrap{min-height:190px;padding:38px 24px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#f7f3e8);border:1px solid var(--line);border-radius:18px}
     .gcal-button-wrap>div{text-align:center}
@@ -136,7 +140,7 @@
     .mock-cal .mc-note{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
     #embed-session .mock-cal{--mc-accent:#52685b}
     /* ---------- EQ services ---------- */
-    .eq-section{background:#fff;border-top:1px solid var(--line)}
+    .eq-section{background:#fff;border-top:1px solid var(--line);padding:68px 0 56px}
     .eq-intro{max-width:680px}
     .eq-list{max-width:760px;margin-top:26px}
     .eq-item{border-bottom:1px solid var(--line);padding:16px 4px}
@@ -152,11 +156,11 @@
     .eq-note a{font-weight:800;color:#385768;text-decoration:none}
 
     /* ---------- Note + FAQ ---------- */
-    .note-section{background:#f7f3e8;border-top:1px solid #efe6cf}
+    .note-section{background:#f7f3e8;border-top:1px solid #efe6cf;padding:52px 0}
     .note-inner{max-width:720px;margin:0 auto}
-    .note{display:grid;grid-template-columns:112px 1fr;gap:28px;align-items:start;margin-bottom:32px}
-    .note-icon{width:112px;height:112px;border-radius:28px;display:grid;place-items:center;color:#92752c;background:#fffaf0;border:1px solid #e6d8b7;box-shadow:var(--shadow)}
-    .note-icon svg{width:54px;height:54px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .note{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;margin-bottom:26px}
+    .note-icon{width:64px;height:64px;display:grid;place-items:center;color:#92752c}
+    .note-icon svg{width:50px;height:50px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
     .note h2{margin:4px 0 10px;font-size:clamp(22px,2.5vw,29px);line-height:1.12}
     .note p{margin:0 0 8px;color:#3c434b;font-size:15.5px}
     .note .sig{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:19px;color:#92752c}
@@ -175,9 +179,12 @@
       .seg button{flex:1;padding:12px 8px;font-size:13.5px}
       .session-detail{gap:18px;flex-wrap:wrap}
       .gcal-wrap iframe{min-height:560px}
+      .booking-app-frame{min-height:700px}
       .gcal-button-wrap{min-height:164px;padding:30px 18px}
       .gcal-button-wrap .qxCTlb{width:100%!important;max-width:320px}
       .eq-item summary{flex-wrap:wrap;gap:8px}
+      .eq-section{padding:52px 0 42px}
+      .note-section{padding:40px 0}
       .note{grid-template-columns:1fr;text-align:center;gap:16px}
       .note-icon{margin:0 auto}
     }
@@ -187,7 +194,7 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
       <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">+</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
@@ -206,7 +213,6 @@
       <span class="decor-dot dot-small dot-hero-left" aria-hidden="true"></span>
       <div class="wrap">
         <div class="eyebrow">Pick your session and time</div>
-        <h1>Take your time.</h1>
         <p class="lead">Sessions in Portuguese and English.</p>
         <div class="lang-line">English <span>&middot;</span> Portugu&ecirc;s</div>
       </div>
@@ -225,49 +231,11 @@
           <div><b>Free</b><span>Video or phone</span></div>
         </div>
 
-        <!-- ====== DISCOVERY CALL BOOKING ====== -->
-        <div class="embed-panel" id="embed-discovery">
-          <div class="gcal-wrap">
-            <div class="gcal-button-wrap">
-              <div>
-                <p>Select a convenient time for your free 30-minute discovery call.</p>
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                (function() {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true',
-                      color: '#039BE5',
-                      label: 'Book a discovery call',
-                      target: target
-                    });
-                  });
-                })();
-                </script>
-              </div>
-            </div>
-          </div>
+        <!-- ====== LIVE BOOKING ====== -->
+        <div class="booking-app-wrap">
+          <iframe class="booking-app-frame" src="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec" title="Book an appointment with Juliana" loading="lazy"></iframe>
         </div>
-
-        <!-- ====== COACHING SESSION EMBED ======
-             Same steps, using your "Coaching session" appointment schedule. -->
-        <div class="embed-panel" id="embed-session" hidden>
-          <div class="gcal-wrap">
-            <div class="mock-cal">
-              <div class="mc-head"><span>Coaching session &middot; July 2026</span><span>&lsaquo; &rsaquo;</span></div>
-              <div class="mc-grid">
-                <span class="mc-dow">M</span><span class="mc-dow">T</span><span class="mc-dow">W</span><span class="mc-dow">T</span><span class="mc-dow">F</span><span class="mc-dow">S</span><span class="mc-dow">S</span>
-                <span class="mc-day">6</span><span class="mc-day avail">7</span><span class="mc-day">8</span><span class="mc-day avail">9</span><span class="mc-day">10</span><span class="mc-day off">11</span><span class="mc-day off">12</span>
-                <span class="mc-day avail">13</span><span class="mc-day sel">14</span><span class="mc-day avail">15</span><span class="mc-day">16</span><span class="mc-day avail">17</span><span class="mc-day off">18</span><span class="mc-day off">19</span>
-              </div>
-              <div class="mc-slots"><span class="mc-slot">9:30</span><span class="mc-slot sel">11:00</span><span class="mc-slot">14:00</span><span class="mc-slot">16:30</span></div>
-              <div class="mc-note">Visual preview &mdash; replace this .mock-cal div with your Google Calendar embed for the coaching session (60 min)</div>
-            </div>
-          </div>
-          </div>
-        </div>
+        <p class="booking-app-note">If the booking calendar does not load, <a href="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec">open the booking page directly</a>.</p>
       </div>
     </section>
 
@@ -364,7 +332,6 @@
             <svg viewBox="0 0 64 64"><path d="M14 8h36a6 6 0 0 1 6 6v27L39 56H14a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6Z"/><path d="M39 56V45a4 4 0 0 1 4-4h13M20 23h24M20 32h19"/></svg>
           </div>
           <div>
-            <div class="eyebrow">Before you book</div>
             <h2>A small note from me.</h2>
             <p>If you're here, something in you is already asking for change &mdash; and that's enough to start. A discovery call isn't a commitment. It's a quiet half hour where you can say what's going on and see how it feels to be heard.</p>
             <p class="sig">&mdash; Juliana</p>
@@ -423,10 +390,6 @@
     (function () {
       var buttons = document.querySelectorAll('.seg button');
       var detail = document.querySelector('[data-detail]');
-      var panels = {
-        discovery: document.getElementById('embed-discovery'),
-        session: document.getElementById('embed-session')
-      };
       var detailHTML = {
         discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
@@ -437,15 +400,9 @@
           if (btn.getAttribute('aria-pressed') === 'true') return;
           buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
           detail.classList.add('fade');
-          panels.discovery.classList.add('fade');
-          panels.session.classList.add('fade');
           window.setTimeout(function () {
             detail.innerHTML = detailHTML[kind];
-            panels.discovery.hidden = kind !== 'discovery';
-            panels.session.hidden = kind !== 'session';
             detail.classList.remove('fade');
-            panels.discovery.classList.remove('fade');
-            panels.session.classList.remove('fade');
           }, 180);
         });
       });
@@ -453,3 +410,5 @@
   </script>
 </body>
 </html>
+
+
