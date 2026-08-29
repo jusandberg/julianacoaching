@@ -110,8 +110,8 @@
     .embed-panel{max-width:660px;margin:0 auto;transition:opacity .18s ease}
     .embed-panel.fade{opacity:0}
     .embed-panel[hidden]{display:none}
-    .gcal-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
-    .gcal-wrap iframe{display:block;width:100%;min-height:620px;border:0}
+    .gcal-wrap{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
+    .gcal-wrap iframe{display:block;width:100%;min-height:680px;border:0;background:transparent}
     #embed-discovery .gcal-wrap{border:0;box-shadow:none;background:transparent}
     .gcal-button-wrap{min-height:190px;padding:38px 24px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#f7f3e8);border:1px solid var(--line);border-radius:18px}
     .gcal-button-wrap>div{text-align:center}
@@ -149,6 +149,12 @@
     .booking-status.show{display:block}
     .booking-status.success{background:#eef6f0;color:#2f5d45}
     .booking-status.error{background:#fff2ef;color:#8b3526}
+    .direct-booking-card{max-width:660px;margin:0 auto;padding:34px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#fff,#f7f3e8);box-shadow:0 18px 44px rgba(16,20,25,.08);text-align:center}
+    .direct-booking-card p{max-width:440px;margin:0 auto 22px;color:var(--muted);font-size:15px;line-height:1.6}
+    .direct-booking-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:#101419;color:#fff!important;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease}
+    .direct-booking-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
+    .direct-booking-button:focus-visible{outline:3px solid rgba(56,87,104,.32);outline-offset:3px}
+    .direct-booking-note{display:block;margin-top:14px;color:#385768;font-size:12.5px;font-weight:750}
 
     /* mock calendar preview (shown until the real embed replaces it) */
     .mock-cal{padding:22px;background:#fff;text-align:left}
@@ -205,6 +211,8 @@
       .seg button{flex:1;padding:12px 8px;font-size:13.5px}
       .booking-form-card{padding:22px}
       .booking-form-grid{grid-template-columns:1fr}
+      .direct-booking-card{padding:26px 20px}
+      .direct-booking-button{width:100%;max-width:330px}
       .session-detail{gap:18px;flex-wrap:wrap}
       .gcal-wrap iframe{min-height:560px}
       .gcal-button-wrap{min-height:164px;padding:30px 18px}
@@ -258,43 +266,17 @@
           <div><b>Free</b><span>Video or phone</span></div>
         </div>
 
-        <form class="booking-form-card" id="booking-form" action="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec" method="POST" target="booking-submit-frame" accept-charset="UTF-8">
-          <input type="hidden" name="sessionType" id="sessionType" value="Discovery Call">
-          <div class="booking-form-grid">
-            <div class="booking-field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="booking-field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <input id="date" name="date" type="hidden" required>
-            <input id="time" name="time" type="hidden" required>
-            <div class="booking-field">
-              <label for="slot-date">Available dates</label>
-              <select id="slot-date" class="slot-select" required>
-                <option value="">Loading available dates...</option>
-              </select>
-            </div>
-            <div class="booking-field">
-              <label for="time-slots">Available times</label>
-              <div class="time-slots" id="time-slots" role="group" aria-label="Available booking times">
-                <p class="slot-help loading">Loading times...</p>
-              </div>
-            </div>
-            <div class="booking-field full">
-              <label for="notes">Anything helpful to know? <span aria-hidden="true">(optional)</span></label>
-              <textarea id="notes" name="notes" placeholder="A few words about what you are hoping to explore."></textarea>
-            </div>
+        <div class="embed-panel" id="embed-discovery">
+          <div class="gcal-wrap">
+            <iframe src="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec?sessionType=Discovery%20Call" title="Book a discovery call with Juliana" loading="lazy"></iframe>
           </div>
-          <div class="booking-form-actions">
-            <button class="booking-submit" type="submit">Request this booking</button>
-            <p class="booking-form-note">Your request creates a calendar invite and sends a confirmation to your email. By requesting a booking, you agree to the <a href="./coaching-agreement.html" target="_blank" rel="noopener">coaching agreement</a>.</p>
-            <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="embed-panel" id="embed-session" hidden>
+          <div class="gcal-wrap">
+            <iframe src="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec?sessionType=Coaching%20Session" title="Book a coaching session with Juliana" loading="lazy"></iframe>
           </div>
-        </form>
-        <iframe name="booking-submit-frame" title="Booking submission" style="display:none"></iframe>
+        </div>
       </div>
     </section>
 
@@ -447,135 +429,16 @@
   </script>
   <script>
     (function () {
-      var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec';
-      var GOOGLE_BOOKING_URLS = {
-        discovery: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true',
-        session: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true'
-      };
       var buttons = document.querySelectorAll('.seg button');
       var detail = document.querySelector('[data-detail]');
-      var sessionInput = document.getElementById('sessionType');
-      var dateInput = document.getElementById('date');
-      var timeInput = document.getElementById('time');
-      var dateSelect = document.getElementById('slot-date');
-      var timeSlots = document.getElementById('time-slots');
-      var form = document.getElementById('booking-form');
-      var status = document.getElementById('booking-status');
-      var frame = document.querySelector('iframe[name="booking-submit-frame"]');
-      var submitted = false;
-      var activeSlots = [];
-      
-      var VISIBLE_DATE_LIMIT = 3;
-      var VISIBLE_TIME_LIMIT = 3;
+      var panels = {
+        discovery: document.getElementById('embed-discovery'),
+        session: document.getElementById('embed-session')
+      };
       var detailHTML = {
         discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
         session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
       };
-      var sessionNames = {
-        discovery: 'Discovery Call',
-        session: 'Coaching Session'
-      };
-
-      function setSlotMessage(message, type) {
-        timeSlots.innerHTML = '<p class="slot-help ' + (type || '') + '">' + message + '</p>';
-      }
-
-      function showBookingFallback(kind) {
-        var label = kind === 'session' ? 'Book the 60-minute session' : 'Book the discovery call';
-        dateSelect.innerHTML = '<option value="">Use booking link below</option>';
-        setSlotMessage(
-          'The custom calendar is not loading yet. You can still book directly here:<br>' +
-          '<a href="' + GOOGLE_BOOKING_URLS[kind] + '" target="_blank" rel="noopener">' + label + '</a>',
-          'error'
-        );
-      }
-
-      function clearSelection() {
-        dateInput.value = '';
-        timeInput.value = '';
-      }
-
-      function renderTimes(dateValue) {
-        var day = activeSlots.find(function (item) { return item.date === dateValue; });
-        dateInput.value = dateValue || '';
-        timeInput.value = '';
-        if (!day || !day.times || !day.times.length) {
-          setSlotMessage('No times available for this date.', 'error');
-          return;
-        }
-        timeSlots.innerHTML = '';
-        day.times.slice(0, VISIBLE_TIME_LIMIT).forEach(function (slot) {
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'time-slot';
-          btn.textContent = slot.label || slot.time;
-          btn.addEventListener('click', function () {
-            timeSlots.querySelectorAll('.time-slot').forEach(function (item) { item.classList.remove('active'); });
-            btn.classList.add('active');
-            timeInput.value = slot.time;
-          });
-          timeSlots.appendChild(btn);
-        });
-      }
-
-      function renderDates(data) {
-        activeSlots = data && data.slots ? data.slots : [];
-        dateSelect.innerHTML = '';
-        clearSelection();
-        if (!activeSlots.length) {
-          var empty = document.createElement('option');
-          empty.value = '';
-          empty.textContent = 'No openings available right now';
-          dateSelect.appendChild(empty);
-          setSlotMessage('No openings are available right now. Please check back soon or send a note.', 'error');
-          return;
-        }
-        var first = document.createElement('option');
-        first.value = '';
-        first.textContent = 'Choose a date';
-        dateSelect.appendChild(first);
-        activeSlots.slice(0, VISIBLE_DATE_LIMIT).forEach(function (item) {
-          var option = document.createElement('option');
-          option.value = item.date;
-          option.textContent = item.label || item.date;
-          dateSelect.appendChild(option);
-        });
-        setSlotMessage('Choose from the next few available openings.', '');
-      }
-
-      function loadAvailability(kind) {
-        clearSelection();
-        dateSelect.innerHTML = '<option value="">Loading available dates...</option>';
-        setSlotMessage('Loading times...', 'loading');
-        var callbackName = 'uMethodAvailability_' + Date.now();
-        var script = document.createElement('script');
-        var finished = false;
-        var timeout = window.setTimeout(function () {
-          if (finished) return;
-          finished = true;
-          delete window[callbackName];
-          script.remove();
-          showBookingFallback(kind);
-        }, 6000);
-        window[callbackName] = function (data) {
-          if (finished) return;
-          finished = true;
-          window.clearTimeout(timeout);
-          renderDates(data);
-          delete window[callbackName];
-          script.remove();
-        };
-        script.src = APPS_SCRIPT_URL + '?action=availability&sessionType=' + encodeURIComponent(sessionNames[kind]) + '&callback=' + encodeURIComponent(callbackName) + '&v=' + Date.now();
-        script.onerror = function () {
-          if (finished) return;
-          finished = true;
-          window.clearTimeout(timeout);
-          delete window[callbackName];
-          script.remove();
-          showBookingFallback(kind);
-        };
-        document.body.appendChild(script);
-      }
 
       buttons.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -583,54 +446,18 @@
           if (btn.getAttribute('aria-pressed') === 'true') return;
           buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
           detail.classList.add('fade');
+          panels.discovery.classList.add('fade');
+          panels.session.classList.add('fade');
           window.setTimeout(function () {
             detail.innerHTML = detailHTML[kind];
-            sessionInput.value = sessionNames[kind];
+            panels.discovery.hidden = kind !== 'discovery';
+            panels.session.hidden = kind !== 'session';
             detail.classList.remove('fade');
-            loadAvailability(kind);
+            panels.discovery.classList.remove('fade');
+            panels.session.classList.remove('fade');
           }, 180);
         });
       });
-
-      if (dateSelect) {
-        dateSelect.addEventListener('change', function () {
-          renderTimes(dateSelect.value);
-        });
-      }
-
-      if (form && status) {
-        form.addEventListener('submit', function (event) {
-          if (!dateInput.value || !timeInput.value) {
-            event.preventDefault();
-            status.className = 'booking-status show error';
-            status.textContent = 'Please choose an available date and time first.';
-            return;
-          }
-          submitted = true;
-          var submitButton = form.querySelector('button[type="submit"]');
-          if (submitButton) submitButton.disabled = true;
-          status.className = 'booking-status show';
-          status.textContent = 'Sending your booking request...';
-        });
-      }
-
-      if (frame) {
-        frame.addEventListener('load', function () {
-          if (!submitted) return;
-          submitted = false;
-          var submitButton = form.querySelector('button[type="submit"]');
-          if (submitButton) submitButton.disabled = false;
-          status.className = 'booking-status show success';
-          status.textContent = 'Your request was sent. Please check your email for the calendar invite.';
-          form.reset();
-          clearSelection();
-          var currentKind = document.querySelector('.seg button[aria-pressed="true"]').dataset.kind;
-          sessionInput.value = currentKind === 'session' ? 'Coaching Session' : 'Discovery Call';
-          loadAvailability(currentKind);
-        });
-      }
-
-      loadAvailability('discovery');
     })();
   </script>
 </body>
