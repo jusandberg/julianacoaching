@@ -139,6 +139,7 @@
     .slot-help{margin:0;color:var(--muted);font-size:13px}
     .slot-help.error{color:#8b3526}
     .slot-help.loading{color:#385768;font-weight:750}
+    .slot-help a{display:inline-flex;margin-top:8px;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border-radius:999px;background:#101419;color:#fff;text-decoration:none;font-weight:850}
     .booking-form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap}
     .booking-submit{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border:0;border-radius:999px;background:#101419;color:#fff;font:inherit;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
     .booking-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
@@ -447,6 +448,10 @@
   <script>
     (function () {
       var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec';
+      var GOOGLE_BOOKING_URLS = {
+        discovery: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3MTh5YXJ422yrUXzLYw_tY1KYKs74XkDs14G0xz7mK54jd1rgoJ0peM25k1xQyxHZrba1hVuI0?gv=true',
+        session: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gm1dOs-DaRpM_FC-oGbPSnsDMCCVM9q6wZp5XJPUhvguKMIY1xY7Pc_H4xcMj7uy1ju2QwYiu?gv=true'
+      };
       var buttons = document.querySelectorAll('.seg button');
       var detail = document.querySelector('[data-detail]');
       var sessionInput = document.getElementById('sessionType');
@@ -473,6 +478,16 @@
 
       function setSlotMessage(message, type) {
         timeSlots.innerHTML = '<p class="slot-help ' + (type || '') + '">' + message + '</p>';
+      }
+
+      function showBookingFallback(kind) {
+        var label = kind === 'session' ? 'Book the 60-minute session' : 'Book the discovery call';
+        dateSelect.innerHTML = '<option value="">Use booking link below</option>';
+        setSlotMessage(
+          'The custom calendar is not loading yet. You can still book directly here:<br>' +
+          '<a href="' + GOOGLE_BOOKING_URLS[kind] + '" target="_blank" rel="noopener">' + label + '</a>',
+          'error'
+        );
       }
 
       function clearSelection() {
@@ -534,17 +549,30 @@
         setSlotMessage('Loading times...', 'loading');
         var callbackName = 'uMethodAvailability_' + Date.now();
         var script = document.createElement('script');
+        var finished = false;
+        var timeout = window.setTimeout(function () {
+          if (finished) return;
+          finished = true;
+          delete window[callbackName];
+          script.remove();
+          showBookingFallback(kind);
+        }, 6000);
         window[callbackName] = function (data) {
+          if (finished) return;
+          finished = true;
+          window.clearTimeout(timeout);
           renderDates(data);
           delete window[callbackName];
           script.remove();
         };
         script.src = APPS_SCRIPT_URL + '?action=availability&sessionType=' + encodeURIComponent(sessionNames[kind]) + '&callback=' + encodeURIComponent(callbackName) + '&v=' + Date.now();
         script.onerror = function () {
+          if (finished) return;
+          finished = true;
+          window.clearTimeout(timeout);
           delete window[callbackName];
           script.remove();
-          dateSelect.innerHTML = '<option value="">Unable to load dates</option>';
-          setSlotMessage('I could not load available times. Please refresh the page or try again later.', 'error');
+          showBookingFallback(kind);
         };
         document.body.appendChild(script);
       }
