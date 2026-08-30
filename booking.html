@@ -16,219 +16,134 @@
   <meta property="og:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="The U Method coaching by Juliana Dos Santos">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Book | The U Method">
   <meta name="twitter:description" content="Book a free 30-minute discovery call or a 60-minute coaching session with Juliana.">
   <meta name="twitter:image" content="https://jusandberg.github.io/julianacoaching/og-image.png">
-  <style>
-    /* ============================================================
-       BASE FALLBACK STYLES
-       Exact copies of the core rules from styles.css so this page
-       renders correctly even if viewed standalone. In your repo,
-       styles.css loads after this block and takes precedence.
-       ============================================================ */
-    :root{--ink:#101419;--muted:#66707a;--soft:#e9edf0;--paper:#f8f9fa;--line:#d9dee4;--mint:#d9b75e;--peach:#f3e4bd;--green:#657482;--shadow:0 24px 74px rgba(16,20,25,.12);--radius:8px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    body.nav-open{overflow:hidden}
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    h1,h2,h3,p{margin-top:0}
-    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
-    .site-nav{position:sticky;top:0;z-index:50;height:78px;background:rgba(248,249,250,.9);border-bottom:1px solid rgba(16,20,25,.1);backdrop-filter:blur(22px)}
-    .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-width:0;font-weight:800}
-    .brand img{width:214px;height:auto}
-    .nav-links{display:flex;align-items:center;gap:8px;list-style:none;padding:0;margin:0}
-    .nav-links a{display:inline-flex;min-height:40px;align-items:center;padding:0 12px;border-radius:999px;color:#39414a;font-size:13px;font-weight:700;text-decoration:none}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{background:#edf0f2;color:var(--ink)}
-    .nav-links .nav-cta{margin-left:4px;background:var(--ink);color:#fff}
-    .nav-links .nav-cta:hover,.nav-links .nav-cta[aria-current="page"]{background:#000;color:#fff}
-    .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:20px}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;color:#92752c;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    .eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
-    .lead{max-width:690px;margin-bottom:30px;color:var(--muted);font-size:clamp(18px,2vw,22px);line-height:1.55}
-    .page-hero{padding:86px 0 62px;background:var(--paper)}
-    .section{position:relative;padding:94px 0;overflow:hidden;isolation:isolate}
-    .section>.wrap{position:relative;z-index:1}
-    .section-head{max-width:760px;margin-bottom:42px}
-    .site-footer{padding:38px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .footer-links{display:flex;flex-wrap:wrap;gap:14px}
-    .footer-links a{font-weight:750;text-decoration:none}
-    .balance-motif{position:absolute;pointer-events:none;z-index:0;width:var(--motif-width,320px);height:var(--motif-height,210px);opacity:.92}
-    .balance-ball,.decor-dot{position:absolute;display:block}
-    .balance-ball{width:var(--ball-size,146px);height:var(--ball-size,146px);left:50%;bottom:34px;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.28),transparent 36%),#f3e4bd;box-shadow:0 18px 46px rgba(217,183,94,.24);transform:translateX(-50%);animation:circleFloat 6s ease-in-out infinite}
-    .decor-dot{width:var(--dot-size,24px);height:var(--dot-size,24px);border-radius:50%;background:var(--dot-color,#657482);opacity:.54;box-shadow:0 10px 28px rgba(16,20,25,.08);animation:dotDrift 6.4s ease-in-out infinite;pointer-events:none;z-index:0}
-    .dot-large{--dot-size:34px;--dot-color:#657482}
-    .dot-small{--dot-size:18px;--dot-color:#f3e4bd;animation-delay:-1.8s}
-    .dot-hero-left{left:5%;top:24%}
-    .dot-hero-right{right:8%;top:16%}
-    .dot-section-right{right:6%;top:14%}
-    @keyframes circleFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(calc(-50% + 18px)) translateY(-12px)}}
-    @keyframes dotDrift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(14px,-10px,0)}}
-    @media (max-width:760px){
-      .site-nav{height:70px}
-      .brand img{width:188px}
-      .menu-toggle{display:inline-grid;place-items:center}
-      .nav-links{position:fixed;inset:70px 0 auto 0;display:none;max-height:calc(100svh - 70px);overflow:auto;padding:16px 20px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(18px)}
-      .nav-links.open{display:grid;gap:8px}
-      .nav-links a{min-height:48px;justify-content:center;border-radius:var(--radius);background:#f6f7f9;font-size:15px}
-      .nav-links .nav-cta{margin-left:0}
-      .page-hero{padding:58px 0 42px}
-      .footer-inner{align-items:flex-start;flex-direction:column}
-    }
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .balance-ball,.decor-dot{animation:none}
-    }
-  </style>
+
+  <!-- Site styles carry every token, the nav, buttons, cards, footer and FAQ. -->
   <link rel="stylesheet" href="./styles.css">
+
   <style>
-    .brand .brand-text{display:none;font-weight:800;font-size:19px;letter-spacing:-.01em}
-    .brand .brand-text b{color:#92752c}
-    .brand img:not([src]),.brand img[src=""]{display:none}
-    .brand:not(:has(img)) .brand-text{display:inline}
-    /* ---------- Booking hero ---------- */
-    .booking-hero{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg,var(--paper) 0%,#f4f0e5 100%)}
-    .booking-hero h1{margin:10px 0 12px;font-size:clamp(34px,4.6vw,52px);letter-spacing:-.02em;line-height:1.04}
-    .booking-hero .lead{max-width:460px;margin:0 auto}
-    .lang-line{margin-top:14px;font-size:13.5px;font-weight:700;color:#385768}
-    .lang-line span{opacity:.4;margin:0 8px}
+    /* ==========================================================
+       Booking page only. Everything else comes from styles.css.
+       ========================================================== */
+    .booking-hero{padding:66px 0 30px;background:linear-gradient(180deg,var(--paper) 0%,var(--soft-cream) 100%)}
+    .booking-hero-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .booking-hero h1{max-width:620px;margin-bottom:14px;font-size:clamp(38px,5.2vw,64px);line-height:1.02;letter-spacing:-.035em}
+    .booking-hero .lead{max-width:520px;margin-bottom:0}
 
-    /* ---------- Session toggle + calendar ---------- */
-    .booker{padding:30px 0 72px;background:linear-gradient(180deg,#f4f0e5 0%,var(--paper) 160px);text-align:center;position:relative}
-    .seg{display:inline-flex;background:#eceee7;border-radius:999px;padding:5px;gap:4px;margin-bottom:24px;max-width:100%}
-    .seg button{border:0;background:transparent;border-radius:999px;padding:12px 26px;font:inherit;font-weight:800;font-size:14px;color:var(--muted);cursor:pointer;transition:all .2s ease;white-space:nowrap}
-    .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(16,20,25,.12)}
-    .session-detail{max-width:480px;margin:0 auto 22px;display:flex;justify-content:center;gap:30px;font-size:14px;transition:opacity .18s ease}
-    .session-detail.fade{opacity:0}
-    .session-detail b{display:block;font-size:19px;letter-spacing:-.02em}
-    .session-detail span{color:var(--muted);font-size:12.5px}
-    .embed-panel{max-width:660px;margin:0 auto;transition:opacity .18s ease}
-    .embed-panel.fade{opacity:0}
-    .embed-panel[hidden]{display:none}
-    .gcal-wrap{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08)}
-    .gcal-wrap iframe{display:block;width:100%;min-height:680px;border:0;background:transparent}
-    #embed-discovery .gcal-wrap{border:0;box-shadow:none;background:transparent}
-    .gcal-button-wrap{min-height:190px;padding:38px 24px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#f7f3e8);border:1px solid var(--line);border-radius:18px}
-    .gcal-button-wrap>div{text-align:center}
-    .gcal-button-wrap p{max-width:390px;margin:0 auto 18px;color:var(--muted);font-size:14px;line-height:1.55}
-    .gcal-button-wrap .qxCTlb{min-height:48px!important;padding:0 24px!important;border:0!important;border-radius:999px!important;background:#101419!important;color:#fff!important;font-family:Arial,sans-serif!important;font-size:14px!important;font-weight:800!important;letter-spacing:0!important;box-shadow:0 10px 24px rgba(16,20,25,.16)!important;transition:transform .2s ease,box-shadow .2s ease!important}
-    .gcal-button-wrap .qxCTlb:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)!important}
-    .gcal-button-wrap .qxCTlb:focus-visible{outline:3px solid rgba(56,87,104,.32)!important;outline-offset:3px}
-    .booking-link-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:#101419;color:#fff!important;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease}
-    .booking-link-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
-    .booking-link-button:focus-visible{outline:3px solid rgba(56,87,104,.32);outline-offset:3px}
-    .booking-form-card{max-width:760px;margin:0 auto;padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.08);text-align:left}
-    .booking-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .booking-field{display:grid;gap:7px}
-    .booking-field.full{grid-column:1/-1}
-    .booking-field label{font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:#385768}
-    .booking-field input,.booking-field textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
-    .booking-field textarea{min-height:104px;resize:vertical}
-    .booking-field input:focus,.booking-field textarea:focus{border-color:#92752c;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
-    .slot-select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
-    .slot-select:focus{border-color:#92752c;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
-    .time-slots{display:flex;flex-wrap:wrap;gap:8px;min-height:48px;align-items:center}
-    .time-slot{border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:800;padding:10px 14px;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
-    .time-slot:hover{transform:translateY(-1px);border-color:#92752c}
-    .time-slot.active{background:#385768;border-color:#385768;color:#fff}
-    .slot-help{margin:0;color:var(--muted);font-size:13px}
-    .slot-help.error{color:#8b3526}
-    .slot-help.loading{color:#385768;font-weight:750}
-    .slot-help a{display:inline-flex;margin-top:8px;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border-radius:999px;background:#101419;color:#fff;text-decoration:none;font-weight:850}
-    .booking-form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;flex-wrap:wrap}
-    .booking-submit{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border:0;border-radius:999px;background:#101419;color:#fff;font:inherit;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
-    .booking-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
-    .booking-submit:disabled{cursor:not-allowed;opacity:.62;transform:none}
-    .booking-form-note{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
-    .booking-status{width:100%;margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#f7f3e8;color:#385768;font-size:14px;font-weight:750;display:none}
-    .booking-status.show{display:block}
-    .booking-status.success{background:#eef6f0;color:#2f5d45}
-    .booking-status.error{background:#fff2ef;color:#8b3526}
-    .direct-booking-card{max-width:660px;margin:0 auto;padding:34px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#fff,#f7f3e8);box-shadow:0 18px 44px rgba(16,20,25,.08);text-align:center}
-    .direct-booking-card p{max-width:440px;margin:0 auto 22px;color:var(--muted);font-size:15px;line-height:1.6}
-    .direct-booking-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:#101419;color:#fff!important;font-size:14px;font-weight:850;text-decoration:none;box-shadow:0 10px 24px rgba(16,20,25,.16);transition:transform .2s ease,box-shadow .2s ease}
-    .direct-booking-button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(16,20,25,.22)}
-    .direct-booking-button:focus-visible{outline:3px solid rgba(56,87,104,.32);outline-offset:3px}
-    .direct-booking-note{display:block;margin-top:14px;color:#385768;font-size:12.5px;font-weight:750}
+    .lang-seg{display:flex;gap:4px;padding:5px;border:1px solid #e4e3dd;border-radius:999px;background:rgba(255,255,255,.7)}
+    .lang-seg button{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:background .2s ease,color .2s ease}
+    .lang-seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(16,20,25,.1)}
 
-    /* mock calendar preview (shown until the real embed replaces it) */
-    .mock-cal{padding:22px;background:#fff;text-align:left}
-    .mock-cal .mc-head{display:flex;justify-content:space-between;margin-bottom:11px;font-weight:800;font-size:13.5px}
-    .mock-cal .mc-head span:last-child{color:var(--muted);letter-spacing:.2em}
-    .mock-cal .mc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:12.5px}
-    .mock-cal .mc-dow{color:var(--muted);font-weight:800;padding:4px 0}
-    .mock-cal .mc-day{padding:8px 0;border-radius:8px}
-    .mock-cal .mc-day.off{color:#c3cad1}
-    .mock-cal .mc-day.avail{background:#f7efe1;font-weight:700}
-    .mock-cal .mc-day.sel{color:#fff;font-weight:800;background:var(--mc-accent,#385768)}
-    .mock-cal .mc-slots{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px;justify-content:center}
-    .mock-cal .mc-slot{font-size:12.5px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff}
-    .mock-cal .mc-slot.sel{color:#fff;border-color:transparent;background:var(--mc-accent,#385768)}
-    .mock-cal .mc-note{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
-    #embed-session .mock-cal{--mc-accent:#52685b}
-    /* ---------- EQ services ---------- */
-    .eq-section{background:#fff;border-top:1px solid var(--line);padding:68px 0 56px}
-    .eq-intro{max-width:680px}
-    .eq-list{max-width:760px;margin-top:26px}
-    .eq-item{border-bottom:1px solid var(--line);padding:16px 4px}
-    .eq-item:first-of-type{border-top:1px solid var(--line)}
-    .eq-item summary{display:flex;justify-content:space-between;align-items:baseline;gap:14px;cursor:pointer;list-style:none;font-weight:800;font-size:16.5px}
-    .eq-item summary::-webkit-details-marker{display:none}
-    .eq-price{display:inline-flex;margin:12px 0 2px;font-size:12.5px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#385768;border-radius:999px;padding:6px 13px;white-space:nowrap}
-    .eq-item .eq-body{margin-top:10px;color:var(--muted);font-size:14.5px}
-    .eq-item .eq-body em{display:block;color:#3c434b;margin-bottom:8px}
-    .eq-item .eq-body ul{margin:8px 0 0;padding-left:18px}
-    .eq-item .eq-body li{margin:3px 0}
-    .eq-note{margin-top:22px;font-size:14.5px;color:var(--muted);max-width:680px}
-    .eq-note a{font-weight:800;color:#385768;text-decoration:none}
+    .booker{padding:34px 0 90px;background:linear-gradient(180deg,var(--soft-cream) 0%,var(--paper) 180px)}
+    .book-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:16px;align-items:start}
+    .panel{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+    .panel h2{margin-bottom:4px;font-size:20px;line-height:1.2;letter-spacing:-.02em}
+    .panel-sub{margin:0 0 18px;color:var(--muted);font-size:14px}
+    .book-col{display:grid;gap:16px}
 
-    /* ---------- Note + FAQ ---------- */
-    .note-section{background:#f7f3e8;border-top:1px solid #efe6cf;padding:52px 0}
-    .note-inner{max-width:720px;margin:0 auto}
-    .note{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;margin-bottom:26px}
-    .note-icon{width:64px;height:64px;display:grid;place-items:center;color:#92752c}
-    .note-icon svg{width:50px;height:50px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-    .note h2{margin:4px 0 10px;font-size:clamp(22px,2.5vw,29px);line-height:1.12}
-    .note p{margin:0 0 8px;color:#3c434b;font-size:15.5px}
-    .note .sig{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:19px;color:#92752c}
-    .faq details{border-bottom:1px solid #e6dcc2;padding:15px 4px}
-    .faq details:first-of-type{border-top:1px solid #e6dcc2}
-    .faq summary{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;list-style:none;font-weight:800;font-size:15px}
-    .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{content:"+";flex:none;color:#92752c;font-size:20px;font-weight:400}
-    .faq details[open] summary::after{content:"\2013"}
-    .faq details p{margin:8px 0 0;color:#5d6570;font-size:14.5px}
-    .back-up{display:block;margin-top:30px;text-align:center;font-weight:800;font-size:14px;color:#92752c;text-decoration:none}
+    .session-list{display:grid;gap:10px}
+    .session-btn{display:block;width:100%;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;font:inherit;text-align:left;cursor:pointer;transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
+    .session-btn:hover{border-color:var(--mint)}
+    .session-btn[aria-pressed="true"]{border-color:var(--mint);background:#f7f3e8;box-shadow:inset 3px 0 0 var(--mint)}
+    .session-btn .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .session-btn .name{font-size:15.5px;font-weight:850;letter-spacing:-.01em}
+    .session-btn .price{flex:none;color:#7d6231;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .session-btn .blurb{display:block;margin-top:4px;color:var(--muted);font-size:13px;line-height:1.45}
+    .session-btn .dur{display:block;margin-top:8px;color:var(--blue-slate);font-size:11.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .session-note{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 
+    .cal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .cal-nav{display:flex;align-items:center;gap:6px}
+    .cal-nav button{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);cursor:pointer}
+    .cal-nav button:hover{border-color:rgba(217,183,94,.5);background:var(--soft-cream)}
+    .cal-nav button:disabled{opacity:.4;cursor:not-allowed}
+    .cal-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .cal-month{min-width:150px;text-align:center;font-size:14.5px;font-weight:850;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+
+    .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+    .cal-dow{padding:6px 0;color:var(--muted);font-size:11.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .cal-day{min-height:42px;padding:8px 0;border:1px solid transparent;border-radius:var(--radius);background:transparent;font:inherit;font-size:13.5px;font-variant-numeric:tabular-nums;cursor:pointer}
+    .cal-day.blank{color:transparent;pointer-events:none}
+    .cal-day:disabled{color:#c3cad1;cursor:not-allowed}
+    .cal-day.open{background:var(--peach);font-weight:750}
+    .cal-day.sel{background:var(--blue-slate);color:#fff;font-weight:850}
+
+    .slots-wrap{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+    .slots-head{margin:0 0 12px;font-size:13.5px;font-weight:850}
+    .slots{display:flex;flex-wrap:wrap;gap:8px}
+    .slot{min-height:42px;padding:0 15px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;transition:border-color .18s ease,background .18s ease}
+    .slot:hover{border-color:var(--mint)}
+    .slot[aria-pressed="true"]{border-color:var(--blue-slate);background:var(--blue-slate);color:#fff}
+    .slots-msg{min-height:44px;margin:0;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px}
+    .slots-msg.loading{color:var(--blue-slate);font-weight:750}
+    .spinner{width:16px;height:16px;border:2px solid var(--mist-blue);border-top-color:var(--blue-slate);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    .details-panel{border-top:3px solid var(--blue-slate);animation:rise .28s ease both}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .bk-field{display:grid;gap:7px}
+    .bk-field.full{grid-column:1/-1}
+    .bk-field span{color:var(--blue-slate);font-size:11.5px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .bk-field input,.bk-field select,.bk-field textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:#fbfcfd;color:var(--ink);font:inherit;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .bk-field textarea{min-height:104px;resize:vertical}
+    .bk-field input:focus,.bk-field select:focus,.bk-field textarea:focus{border-color:#7d6231;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
+
+    .agree{display:flex;align-items:flex-start;gap:12px;margin-top:18px;padding:14px 16px;border:1px dashed #cbd2d9;border-radius:var(--radius);background:#fbfcfd;cursor:pointer;transition:border .18s ease,background .18s ease}
+    .agree.on{border:1px solid rgba(56,87,104,.44);background:#f4f7f9}
+    .agree input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--blue-slate);cursor:pointer}
+    .agree span{font-size:14px;line-height:1.5}
+    .agree a{font-weight:850;color:var(--blue-slate);text-decoration:underline;text-underline-offset:3px}
+
+    .bk-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px}
+    .bk-actions .microcopy{max-width:360px;margin:0;line-height:1.45}
+    .bk-submit:disabled{opacity:.55;cursor:not-allowed;box-shadow:none;transform:none}
+    .bk-error{margin:16px 0 0;padding:12px 14px;border-radius:var(--radius);background:#fff2ef;color:#8b3526;font-size:14px;font-weight:750}
+
+    .intro-note{padding:34px 30px;border:1px solid var(--line);border-top:3px solid var(--mint);border-radius:var(--radius);background:linear-gradient(135deg,#fff 0%,#f7f3e8 100%);animation:rise .28s ease both}
+    .intro-note h2{max-width:460px;margin-bottom:10px;font-size:clamp(24px,2.8vw,32px);line-height:1.1;letter-spacing:-.03em}
+    .intro-note p{max-width:520px;margin:0 0 24px;color:var(--muted);font-size:15.5px}
+    .icon-mark{width:44px;height:44px;display:grid;place-items:center;margin-bottom:16px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#7d6231}
+    .icon-mark svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+    .confirm{max-width:760px;margin:0 auto;padding:34px;border:1px solid var(--line);border-top:3px solid var(--sage);border-radius:var(--radius);background:#fff;box-shadow:0 24px 74px rgba(16,20,25,.08);animation:rise .3s ease both}
+    .confirm-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+    .confirm-head .icon-mark{margin:0;color:var(--sage)}
+    .confirm-head h2{margin:0;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.035em}
+    .confirm-rows{border-top:1px solid var(--line)}
+    .confirm-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .confirm-row dt{color:#7d6231;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .confirm-row dd{margin:0;font-weight:700}
+    .confirm-row dd.soft{color:var(--muted);font-weight:400}
+    .confirm-row dd a{text-decoration:underline;text-underline-offset:4px;word-break:break-all}
+    .confirm-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .confirm-manage{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    .confirm-manage a{font-weight:800;color:var(--blue-slate);text-decoration:underline;text-underline-offset:4px}
+    .confirm-again{margin-top:18px;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--blue-slate);font:inherit;font-size:13.5px;font-weight:800;cursor:pointer}
+
+    [hidden]{display:none!important}
+
+    @media(max-width:900px){
+      .book-grid{grid-template-columns:1fr}
+    }
     @media(max-width:640px){
-      .booking-hero{padding:56px 0 4px}
-      .seg{width:100%}
-      .seg button{flex:1;padding:12px 8px;font-size:13.5px}
-      .booking-form-card{padding:22px}
-      .booking-form-grid{grid-template-columns:1fr}
-      .direct-booking-card{padding:26px 20px}
-      .direct-booking-button{width:100%;max-width:330px}
-      .session-detail{gap:18px;flex-wrap:wrap}
-      .gcal-wrap iframe{min-height:560px}
-      .gcal-button-wrap{min-height:164px;padding:30px 18px}
-      .gcal-button-wrap .qxCTlb{width:100%!important;max-width:320px}
-      .eq-item summary{flex-wrap:wrap;gap:8px}
-      .eq-section{padding:52px 0 42px}
-      .note-section{padding:40px 0}
-      .note{grid-template-columns:1fr;text-align:center;gap:16px}
-      .note-icon{margin:0 auto}
+      .booking-hero{padding:52px 0 24px}
+      .panel{padding:20px}
+      .form-grid{grid-template-columns:1fr}
+      .lang-seg{width:100%}
+      .lang-seg button{flex:1}
+      .confirm{padding:24px 20px}
+      .confirm-row{grid-template-columns:1fr;gap:4px}
     }
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="wrap nav-inner">
-      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"><span class="brand-text">The <b>U</b> Method</span></a>
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg class="icon-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
@@ -242,161 +157,125 @@
   </nav>
 
   <main>
-    <!-- ============ HERO ============ -->
-    <header class="page-hero booking-hero">
+    <header class="page-hero booking-hero" id="top">
       <span class="decor-dot dot-large dot-hero-right" aria-hidden="true"></span>
       <span class="decor-dot dot-small dot-hero-left" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="eyebrow">Pick your session and time</div>
-        <p class="lead">Sessions in Portuguese and English.</p>
-        <div class="lang-line">English <span>&middot;</span> Portugu&ecirc;s</div>
+      <div class="wrap booking-hero-inner">
+        <div>
+          <div class="eyebrow" data-t="eyebrow">Pick your session and time</div>
+          <h1 data-t="title">Book a session</h1>
+          <p class="lead" data-t="lead">Choose a session, pick a time that works, and you will get a confirmation with a Google Meet link right away.</p>
+        </div>
+        <div class="lang-seg" role="group" aria-label="Page language">
+          <button type="button" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" data-lang="pt" aria-pressed="false">Português</button>
+        </div>
       </div>
     </header>
 
-    <!-- ============ BOOKING ============ -->
     <section class="booker" aria-label="Choose and book a session">
       <div class="wrap">
-        <div class="seg" role="group" aria-label="Choose session type">
-          <button type="button" aria-pressed="true" data-kind="discovery">30 min &middot; Free</button>
-          <button type="button" aria-pressed="false" data-kind="session">60 min &middot; Session</button>
-        </div>
 
-        <div class="session-detail" data-detail>
-          <div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div>
-          <div><b>Free</b><span>Video or phone</span></div>
-        </div>
+        <div class="book-grid" data-view="picker">
+          <div class="panel">
+            <h2 data-t="step1">Choose your session</h2>
+            <p class="panel-sub" data-t="step1Sub">Times shown update to match the length you pick.</p>
+            <div class="session-list" data-sessions></div>
+            <p class="session-note" data-t="invoiceNote">Paid sessions are invoiced after booking — nothing to pay here.</p>
+          </div>
 
-        <div class="embed-panel" id="embed-discovery">
-          <div class="gcal-wrap">
-            <iframe src="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec?sessionType=Discovery%20Call" title="Book a discovery call with Juliana" loading="lazy"></iframe>
+          <div class="book-col">
+            <div class="intro-note" data-intro hidden>
+              <div class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <h2 data-t="introTitle">This one starts with an intro call.</h2>
+              <p data-t="introBody"></p>
+              <button type="button" class="button" data-go-discovery data-t="introCta">Book the discovery call</button>
+            </div>
+
+            <div class="panel" data-calendar>
+              <div class="cal-head">
+                <div>
+                  <h2 data-t="step2">Pick a time</h2>
+                  <p class="panel-sub" style="margin:0" data-tz></p>
+                </div>
+                <div class="cal-nav">
+                  <button type="button" data-prev aria-label="Previous month"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+                  <span class="cal-month" data-month></span>
+                  <button type="button" data-next aria-label="Next month"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+                </div>
+              </div>
+              <div class="cal-grid" data-grid></div>
+              <div class="slots-wrap">
+                <p class="slots-head" data-slots-head></p>
+                <div data-slots-area></div>
+              </div>
+            </div>
+
+            <div class="panel details-panel" data-details hidden>
+              <h2 data-t="step3">Your details</h2>
+              <p class="panel-sub" data-summary></p>
+              <div class="form-grid">
+                <label class="bk-field"><span data-t="fName">Full name</span><input type="text" name="name" autocomplete="name" required></label>
+                <label class="bk-field"><span data-t="fEmail">Email</span><input type="email" name="email" autocomplete="email" required></label>
+                <label class="bk-field"><span data-t="fPhone">Phone (optional)</span><input type="tel" name="phone" autocomplete="tel"></label>
+                <label class="bk-field"><span data-t="fLang">Session language</span>
+                  <select name="langPref">
+                    <option value="English">English</option>
+                    <option value="Português">Português</option>
+                  </select>
+                </label>
+                <label class="bk-field full"><span data-t="fNotes">What would you like to bring to the session?</span><textarea name="notes" rows="4"></textarea></label>
+              </div>
+              <label class="agree" data-agree-box>
+                <input type="checkbox" name="agreed">
+                <span><span data-t="agreeLead">I have read the</span> <a href="./coaching-agreement.html" target="_blank" rel="noreferrer" data-t="agreeLink">Coaching Agreement</a><span data-t="agreeTail"> and agree to it. A copy comes with the calendar invite.</span></span>
+              </label>
+              <p class="bk-error" data-error hidden></p>
+              <div class="bk-actions">
+                <button type="button" class="button bk-submit" data-submit disabled data-t="submit">Confirm booking</button>
+                <p class="microcopy" data-t="privacy">Your details go only to Juliana and to the calendar invite. Nothing is shared.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="embed-panel" id="embed-session" hidden>
-          <div class="gcal-wrap">
-            <iframe src="https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec?sessionType=Coaching%20Session" title="Book a coaching session with Juliana" loading="lazy"></iframe>
+        <div data-view="confirm" hidden>
+          <div class="confirm">
+            <div class="confirm-head">
+              <div class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h2 data-t="doneTitle">You are booked.</h2>
+            </div>
+            <p class="lead" style="font-size:17px;margin-bottom:22px" data-done-sub></p>
+            <dl class="confirm-rows">
+              <div class="confirm-row"><dt data-t="lblSession">Session</dt><dd data-c-session></dd></div>
+              <div class="confirm-row"><dt data-t="lblWhen">When</dt><dd data-c-when></dd></div>
+              <div class="confirm-row"><dt data-t="lblMeet">Google Meet</dt><dd><a data-c-meet href="#" target="_blank" rel="noreferrer"></a></dd></div>
+              <div class="confirm-row"><dt data-t="lblInvite">Invite</dt><dd class="soft" data-c-invite></dd></div>
+              <div class="confirm-row"><dt data-t="lblAgreement">Agreement</dt><dd class="soft" data-c-agreement></dd></div>
+            </dl>
+            <div class="confirm-actions">
+              <a class="button secondary" data-c-google href="#" target="_blank" rel="noreferrer" data-t="addGoogle">Add to Google Calendar</a>
+              <a class="button secondary" data-c-ics href="#" download="session.ics" data-t="addApple">Add to Apple Calendar</a>
+              <a class="button secondary" data-c-ics2 href="#" download="session.ics" data-t="addOutlook">Add to Outlook</a>
+            </div>
+            <p class="confirm-manage"><span data-t="manageLead">Need to change it?</span> <a data-c-manage href="#" target="_blank" rel="noreferrer" data-t="manageLink">Reschedule or cancel</a></p>
+            <button type="button" class="confirm-again" data-reset data-t="bookAnother">Book another session</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ EQ SERVICES ============ -->
-    <section class="section eq-section" aria-label="Emotional intelligence services">
-      <span class="decor-dot dot-small dot-section-right" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Emotional intelligence</div>
-          <h2>EQ assessments &amp; experiences.</h2>
-          <p class="lead eq-intro">As a Certified EQ-i 2.0&reg; and EQ 360&reg; Practitioner, I integrate validated emotional-intelligence assessments with reflective, identity-centered coaching &mdash; so you can understand how your emotions, behaviours, and patterns shape your relationships, decisions, and leadership.</p>
+    <section class="section note-section" aria-label="A note from Juliana and frequently asked questions" style="background:var(--soft-cream);border-top:1px solid #efe6cf">
+      <div class="wrap" style="max-width:720px;margin:0 auto">
+        <h2 style="font-size:clamp(22px,2.5vw,29px);line-height:1.12">A small note from me.</h2>
+        <p style="color:#3c434b">If you're here, something in you is already asking for change &mdash; and that's enough to start. A discovery call isn't a commitment. It's a quiet half hour where you can say what's going on and see how it feels to be heard.</p>
+        <p style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:19px;color:#7d6231">&mdash; Juliana</p>
+        <div class="faq" style="margin-top:26px">
+          <details><summary>Do I need to prepare anything?</summary><p>No. Come exactly as you are &mdash; we start wherever you are that day.</p></details>
+          <details><summary>Can we do the sessions in Portuguese?</summary><p>Yes! Sessions are held in English or Portugu&ecirc;s &mdash; just mention your preference when you book, or switch anytime.</p></details>
+          <details><summary>What if I'm not sure coaching is for me?</summary><p>That's exactly what the discovery call is for. There's no pressure to continue afterwards.</p></details>
+          <details><summary>Is the discovery call really free?</summary><p>Yes &mdash; completely free, with no follow-up obligation.</p></details>
         </div>
-
-        <div class="eq-list">
-          <details class="eq-item">
-            <summary>EQ-Lite Snapshot + Insight Session</summary>
-            <div class="eq-body">
-              <span class="eq-price">$197 CAD</span>
-              <em>A gentle starting point &mdash; no assessment required.</em>
-              A reflective session using The U Method EQ Wheel to explore your internal patterns, strengths, and opportunities.
-              <ul>
-                <li>EQ Reflection Wheel</li>
-                <li>60-min coaching session</li>
-                <li>One-page insight summary</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-i 2.0&reg; Assessment + 75-Min Debrief</summary>
-            <div class="eq-body">
-              <span class="eq-price">$497 CAD</span>
-              <em>A complete view of how you navigate emotions, relationships, and decision-making.</em>
-              <ul>
-                <li>EQ-i 2.0&reg; Workplace or Leadership assessment</li>
-                <li>75-min coaching debrief</li>
-                <li>Full PDF report</li>
-                <li>Personalized reflection questions</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-i 2.0&reg; + Coaching Package (4 Sessions)</summary>
-            <div class="eq-body">
-              <span class="eq-price">$997&ndash;$1,200 CAD</span>
-              <em>From insight to integration.</em>
-              <ul>
-                <li>EQ-i 2.0&reg; assessment</li>
-                <li>75-min debrief</li>
-                <li>Four 60-min coaching sessions</li>
-                <li>Personalized developmental roadmap</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>EQ-360&reg; Leadership Experience</summary>
-            <div class="eq-body">
-              <span class="eq-price">$1,800&ndash;$2,400 CAD</span>
-              <em>A multi-rater emotional-intelligence assessment for deeper leadership clarity.</em>
-              <ul>
-                <li>EQ-360&reg; assessment</li>
-                <li>Leadership report</li>
-                <li>90-min debrief</li>
-                <li>Four 60-min coaching sessions</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="eq-item">
-            <summary>Group &amp; Team EQ Experiences</summary>
-            <div class="eq-body">
-              <span class="eq-price">From $47 / person</span>
-              <em>For teams, organizations, and communities.</em>
-              <ul>
-                <li><strong>EQ Masterclass</strong> &mdash; a live, accessible introduction to EQ (no assessment required). $47&ndash;$197 per participant.</li>
-                <li><strong>EQ-i Group Assessments + Debriefs</strong> &mdash; individual assessments + group themes session. $600&ndash;$900 per person.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <p class="eq-note">Curious which EQ experience fits you or your team? The easiest way to start is a <a href="#top">free discovery call above</a> &mdash; we'll find the right fit together, in English or Portugu&ecirc;s.</p>
-      </div>
-    </section>
-
-    <!-- ============ NOTE + FAQ ============ -->
-    <section class="section note-section" aria-label="A note from Juliana and frequently asked questions">
-      <span class="balance-motif section-balance left" aria-hidden="true"><span class="balance-ball"></span></span>
-      <div class="wrap note-inner">
-        <div class="note">
-          <div class="note-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><path d="M14 8h36a6 6 0 0 1 6 6v27L39 56H14a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6Z"/><path d="M39 56V45a4 4 0 0 1 4-4h13M20 23h24M20 32h19"/></svg>
-          </div>
-          <div>
-            <h2>A small note from me.</h2>
-            <p>If you're here, something in you is already asking for change &mdash; and that's enough to start. A discovery call isn't a commitment. It's a quiet half hour where you can say what's going on and see how it feels to be heard.</p>
-            <p class="sig">&mdash; Juliana</p>
-          </div>
-        </div>
-        <div class="faq">
-          <details>
-            <summary>Do I need to prepare anything?</summary>
-            <p>No. Come exactly as you are &mdash; we start wherever you are that day.</p>
-          </details>
-          <details>
-            <summary>Can we do the sessions in Portuguese?</summary>
-            <p>Yes! Sessions are held in English or Portugu&ecirc;s &mdash; just mention your preference when you book, or switch anytime.</p>
-          </details>
-          <details>
-            <summary>What if I'm not sure coaching is for me?</summary>
-            <p>That's exactly what the discovery call is for. There's no pressure to continue afterwards.</p>
-          </details>
-          <details>
-            <summary>Is the discovery call really free?</summary>
-            <p>Yes &mdash; completely free, with no follow-up obligation.</p>
-          </details>
-        </div>
-        <a class="back-up" href="#top">&uarr; Pick a time above</a>
       </div>
     </section>
   </main>
@@ -410,11 +289,497 @@
 
   <script src="./script.js"></script>
   <script>
-    /* Fallback for standalone viewing: if script.js didn't load (year span
-       still empty after load), provide the year + mobile menu behavior. */
+  /* ==========================================================================
+     Booking flow. Talks to the Google Apps Script web app; falls back to
+     sample availability (Juliana's real windows) while ENDPOINT is empty.
+     ========================================================================== */
+  (function () {
+    var ENDPOINT = ''; // paste the Apps Script /exec URL here
+    var TZ = 'America/Toronto';
+    var MIN_NOTICE_HOURS = 24;
+
+    var WINDOWS = {
+      2: { from: [17, 30], to: [19, 30] },
+      3: { from: [18, 0],  to: [20, 0]  },
+      4: { from: [17, 30], to: [19, 30] },
+      5: { from: [18, 0],  to: [20, 0]  },
+      6: { from: [13, 0],  to: [16, 0], max: 2 }
+    };
+
+    var SESSIONS = [
+      { id: 'discovery', minutes: 30, price: { en: 'Free', pt: 'Grátis' },
+        name: { en: 'Discovery call', pt: 'Chamada de descoberta' },
+        blurb: { en: 'A quiet half hour to say what is going on and see how it feels to be heard.', pt: 'Meia hora tranquila para contar o que está acontecendo e sentir como é ser ouvida.' } },
+      { id: 'coaching', minutes: 60, price: { en: '$120 CAD', pt: '$120 CAD' },
+        name: { en: 'Coaching session', pt: 'Sessão de coaching' },
+        blurb: { en: 'Focused one-on-one work on one challenge you are carrying right now.', pt: 'Trabalho individual focado em um desafio que você carrega agora.' } },
+      { id: 'eq-lite', minutes: 60, price: { en: '$197 CAD', pt: '$197 CAD' },
+        name: { en: 'EQ-Lite Snapshot + Insight', pt: 'EQ-Lite Snapshot + Insight' },
+        blurb: { en: 'A reflective session on the EQ Wheel — no assessment required.', pt: 'Uma sessão reflexiva com a Roda EQ — sem avaliação prévia.' } },
+      { id: 'eq-i', minutes: 75, price: { en: '$497 CAD', pt: '$497 CAD' },
+        name: { en: 'EQ-i 2.0® debrief', pt: 'Debrief EQ-i 2.0®' },
+        blurb: { en: 'Assessment plus a 75-minute debrief and full PDF report.', pt: 'Avaliação, debrief de 75 minutos e relatório completo em PDF.' } },
+      { id: 'eq-360', minutes: 90, price: { en: 'From $1,800 CAD', pt: 'A partir de $1.800 CAD' },
+        name: { en: 'EQ-360® leadership debrief', pt: 'Debrief de liderança EQ-360®' },
+        blurb: { en: 'Multi-rater assessment and a 90-minute leadership debrief. Starts with an intro call.', pt: 'Avaliação multi-avaliador e debrief de liderança de 90 minutos. Começa com uma chamada inicial.' },
+        intro: true }
+    ];
+
+    var T = {
+      en: {
+        eyebrow: 'Pick your session and time', title: 'Book a session',
+        lead: 'Choose a session, pick a time that works, and you will get a confirmation with a Google Meet link right away.',
+        step1: 'Choose your session', step1Sub: 'Times shown update to match the length you pick.',
+        step2: 'Pick a time', step3: 'Your details',
+        invoiceNote: 'Paid sessions are invoiced after booking — nothing to pay here.',
+        loadingSlots: 'Checking Juliana’s calendar…', noSlots: 'No openings left on this day. Try another date.',
+        pickDay: 'Select a day to see open times.', timesOn: 'Open times on',
+        fName: 'Full name', fEmail: 'Email', fPhone: 'Phone (optional)', fLang: 'Session language',
+        fNotes: 'What would you like to bring to the session?',
+        submit: 'Confirm booking', submitting: 'Booking…',
+        privacy: 'Your details go only to Juliana and to the calendar invite. Nothing is shared.',
+        agreeLead: 'I have read the', agreeLink: 'Coaching Agreement',
+        agreeTail: ' and agree to it. A copy comes with the calendar invite.',
+        doneTitle: 'You are booked.', doneSub: 'A confirmation and calendar invite are on their way to you.',
+        lblSession: 'Session', lblWhen: 'When', lblMeet: 'Google Meet', lblInvite: 'Invite', lblAgreement: 'Agreement',
+        addGoogle: 'Add to Google Calendar', addApple: 'Add to Apple Calendar', addOutlook: 'Add to Outlook',
+        manageLead: 'Need to change it?', manageLink: 'Reschedule or cancel', bookAnother: 'Book another session',
+        invitePrefix: 'Google Calendar invite sent to ',
+        agreementPrefix: 'Coaching Agreement read and accepted · ',
+        agreementAttached: 'copy attached to the invite', agreementLinked: 'included with the calendar invite',
+        errName: 'Please add your name.', errEmail: 'Please add a valid email.',
+        errAgree: 'Please read the Coaching Agreement and check the box before booking.',
+        errFail: 'That time could not be confirmed. It may have just been taken — please pick another.',
+        introTitle: 'This one starts with an intro call.',
+        introBody: 'The EQ-360® experience is scoped around your role and the raters you want to include, so Juliana sets it up with you on a short call first. Book the free 30-minute discovery call and you will leave it with dates and a plan.',
+        introCta: 'Book the discovery call',
+        tzPrefix: 'Times shown in ', minutes: ' minutes'
+      },
+      pt: {
+        eyebrow: 'Escolha sua sessão e horário', title: 'Agende uma sessão',
+        lead: 'Escolha a sessão, selecione um horário e receba na hora a confirmação com o link do Google Meet.',
+        step1: 'Escolha sua sessão', step1Sub: 'Os horários se ajustam à duração escolhida.',
+        step2: 'Escolha um horário', step3: 'Seus dados',
+        invoiceNote: 'Sessões pagas são faturadas depois do agendamento — nada a pagar aqui.',
+        loadingSlots: 'Consultando a agenda da Juliana…', noSlots: 'Sem horários neste dia. Tente outra data.',
+        pickDay: 'Selecione um dia para ver os horários.', timesOn: 'Horários em',
+        fName: 'Nome completo', fEmail: 'E-mail', fPhone: 'Telefone (opcional)', fLang: 'Idioma da sessão',
+        fNotes: 'O que você gostaria de trazer para a sessão?',
+        submit: 'Confirmar agendamento', submitting: 'Agendando…',
+        privacy: 'Seus dados vão apenas para a Juliana e para o convite da agenda. Nada é compartilhado.',
+        agreeLead: 'Eu li o', agreeLink: 'Contrato de Coaching',
+        agreeTail: ' e concordo com ele. Uma cópia vem junto com o convite da agenda.',
+        doneTitle: 'Está agendado.', doneSub: 'Enviamos a confirmação e o convite da agenda para você.',
+        lblSession: 'Sessão', lblWhen: 'Quando', lblMeet: 'Google Meet', lblInvite: 'Convite', lblAgreement: 'Contrato',
+        addGoogle: 'Adicionar ao Google Agenda', addApple: 'Adicionar ao Apple Calendar', addOutlook: 'Adicionar ao Outlook',
+        manageLead: 'Precisa alterar?', manageLink: 'Reagendar ou cancelar', bookAnother: 'Agendar outra sessão',
+        invitePrefix: 'Convite do Google Agenda enviado para ',
+        agreementPrefix: 'Contrato de Coaching lido e aceito · ',
+        agreementAttached: 'cópia anexada ao convite', agreementLinked: 'incluído no convite da agenda',
+        errName: 'Informe seu nome.', errEmail: 'Informe um e-mail válido.',
+        errAgree: 'Leia o Contrato de Coaching e marque a caixa antes de agendar.',
+        errFail: 'Não foi possível confirmar esse horário. Ele pode ter sido ocupado — escolha outro.',
+        introTitle: 'Esta começa com uma chamada inicial.',
+        introBody: 'A experiência EQ-360® é desenhada para o seu papel e para os avaliadores que você quer incluir, então a Juliana organiza tudo com você em uma conversa curta antes. Agende a chamada de descoberta gratuita de 30 minutos e você sai dela com datas e um plano.',
+        introCta: 'Agendar a chamada de descoberta',
+        tzPrefix: 'Horários em ', minutes: ' minutos'
+      }
+    };
+
+    var $ = function (sel, root) { return (root || document).querySelector(sel); };
+    var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+
+    var state = {
+      lang: 'en',
+      sessionId: 'discovery',
+      month: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+      dateKey: null,
+      slotIso: null,
+      cache: {},
+      availableDays: null,
+      loading: false,
+      submitting: false
+    };
+
+    function t() { return T[state.lang]; }
+    function locale() { return state.lang === 'pt' ? 'pt-BR' : 'en-CA'; }
+    function session() {
+      for (var i = 0; i < SESSIONS.length; i++) if (SESSIONS[i].id === state.sessionId) return SESSIONS[i];
+      return SESSIONS[0];
+    }
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    function keyOf(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+
+    /* --- sample availability (mirrors the backend rules) ------------------ */
+    function releaseHorizon() {
+      var now = new Date();
+      var s = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0);
+      s.setDate(s.getDate() - s.getDay());
+      if (s.getTime() > now.getTime()) s.setDate(s.getDate() - 7);
+      return s.getTime() + 14 * 864e5;
+    }
+
+    function sampleSlots(dateKey) {
+      var p = dateKey.split('-').map(Number);
+      var w = WINDOWS[new Date(p[0], p[1] - 1, p[2]).getDay()];
+      if (!w) return [];
+      var notBefore = Date.now() + MIN_NOTICE_HOURS * 3600e3;
+      var horizon = releaseHorizon();
+      var len = session().minutes * 60e3;
+      var from = new Date(p[0], p[1] - 1, p[2], w.from[0], w.from[1]).getTime();
+      var to = new Date(p[0], p[1] - 1, p[2], w.to[0], w.to[1]).getTime();
+      var out = [];
+      for (var x = from; x + len <= to; x += 30 * 60e3) {
+        if (x < notBefore || x > horizon) continue;
+        out.push({ start: new Date(x).toISOString(), end: new Date(x + len).toISOString() });
+      }
+      return w.max ? out.slice(0, w.max) : out;
+    }
+
+    /* --- data ------------------------------------------------------------- */
+    function loadMonth() {
+      if (!ENDPOINT) { state.availableDays = null; return Promise.resolve(); }
+      var m = state.month;
+      var from = new Date(m.getFullYear(), m.getMonth(), 1);
+      var to = new Date(m.getFullYear(), m.getMonth() + 1, 0, 23, 59);
+      var url = ENDPOINT + '?action=days&session=' + encodeURIComponent(state.sessionId) +
+        '&from=' + from.toISOString() + '&to=' + to.toISOString() + '&tz=' + encodeURIComponent(TZ);
+      return fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+        state.availableDays = Array.isArray(d.days) ? d.days : null;
+        if (!state.dateKey && state.availableDays && state.availableDays.length) {
+          selectDay(state.availableDays[0]);
+        }
+      }).catch(function () { state.availableDays = null; });
+    }
+
+    function loadSlots(dateKey) {
+      var ck = state.sessionId + '|' + dateKey;
+      if (state.cache[ck]) { render(); return Promise.resolve(); }
+      state.loading = true; render();
+      var done = function (slots) {
+        state.cache[ck] = slots; state.loading = false; render();
+      };
+      if (!ENDPOINT) {
+        return new Promise(function (res) {
+          setTimeout(function () { done(sampleSlots(dateKey)); res(); }, 320);
+        });
+      }
+      var url = ENDPOINT + '?action=slots&session=' + encodeURIComponent(state.sessionId) +
+        '&date=' + dateKey + '&tz=' + encodeURIComponent(TZ);
+      return fetch(url).then(function (r) { return r.json(); })
+        .then(function (d) { done(Array.isArray(d.slots) ? d.slots : []); })
+        .catch(function () { done([]); });
+    }
+
+    function daySlots() {
+      if (!state.dateKey) return null;
+      return state.cache[state.sessionId + '|' + state.dateKey] || null;
+    }
+
+    function dayIsOpen(dateKey) {
+      if (state.availableDays) return state.availableDays.indexOf(dateKey) !== -1;
+      return sampleSlots(dateKey).length > 0;
+    }
+
+    /* --- formatting ------------------------------------------------------- */
+    function fmtTime(iso) {
+      return new Intl.DateTimeFormat(locale(), { hour: 'numeric', minute: '2-digit', timeZone: TZ }).format(new Date(iso));
+    }
+    function fmtLong(iso) {
+      return new Intl.DateTimeFormat(locale(), { weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit', timeZone: TZ }).format(new Date(iso));
+    }
+    function fmtDay(dateKey) {
+      var p = dateKey.split('-').map(Number);
+      return new Intl.DateTimeFormat(locale(), { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(p[0], p[1] - 1, p[2]));
+    }
+
+    function calLinks(startIso, endIso, title, meetUrl) {
+      var z = function (s) { return s.replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
+      var details = meetUrl ? 'Google Meet: ' + meetUrl : '';
+      var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//The U Method//Booking//EN', 'BEGIN:VEVENT',
+        'UID:' + Date.now() + '@theumethod', 'DTSTAMP:' + z(new Date().toISOString()),
+        'DTSTART:' + z(startIso), 'DTEND:' + z(endIso), 'SUMMARY:' + title,
+        'DESCRIPTION:' + details, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      return {
+        googleUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
+          encodeURIComponent(title) + '&dates=' + z(startIso) + '/' + z(endIso) + '&details=' + encodeURIComponent(details),
+        icsUrl: 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics)
+      };
+    }
+
+    /* --- render ----------------------------------------------------------- */
+    function renderStatic() {
+      $$('[data-t]').forEach(function (el) {
+        var v = t()[el.getAttribute('data-t')];
+        if (v) el.textContent = v;
+      });
+      $$('.lang-seg button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang));
+      });
+      $('[data-tz]').textContent = t().tzPrefix + TZ.replace(/_/g, ' ');
+      document.documentElement.lang = state.lang === 'pt' ? 'pt-BR' : 'en';
+    }
+
+    function renderSessions() {
+      var host = $('[data-sessions]');
+      host.innerHTML = '';
+      SESSIONS.forEach(function (s) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'session-btn';
+        b.setAttribute('aria-pressed', String(s.id === state.sessionId));
+        b.innerHTML = '<span class="row"><span class="name"></span><span class="price"></span></span>' +
+          '<span class="blurb"></span><span class="dur"></span>';
+        $('.name', b).textContent = s.name[state.lang];
+        $('.price', b).textContent = s.price[state.lang];
+        $('.blurb', b).textContent = s.blurb[state.lang];
+        $('.dur', b).textContent = s.minutes + t().minutes;
+        b.addEventListener('click', function () {
+          if (s.id === state.sessionId) return;
+          state.sessionId = s.id;
+          state.slotIso = null;
+          loadMonth().then(function () {
+            if (state.dateKey) loadSlots(state.dateKey); else render();
+          });
+          render();
+        });
+        host.appendChild(b);
+      });
+    }
+
+    function renderCalendar() {
+      var m = state.month;
+      $('[data-month]').textContent = new Intl.DateTimeFormat(locale(), { month: 'long', year: 'numeric' }).format(m);
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      $('[data-prev]').disabled = new Date(m.getFullYear(), m.getMonth(), 1) <= new Date(today.getFullYear(), today.getMonth(), 1);
+
+      var grid = $('[data-grid]');
+      grid.innerHTML = '';
+      var dowFmt = new Intl.DateTimeFormat(locale(), { weekday: 'short' });
+      for (var i = 0; i < 7; i++) {
+        var h = document.createElement('div');
+        h.className = 'cal-dow';
+        h.textContent = dowFmt.format(new Date(2024, 8, 1 + i)).slice(0, 3);
+        grid.appendChild(h);
+      }
+      var lead = new Date(m.getFullYear(), m.getMonth(), 1).getDay();
+      for (var b = 0; b < lead; b++) {
+        var blank = document.createElement('button');
+        blank.type = 'button'; blank.className = 'cal-day blank'; blank.disabled = true; blank.textContent = '0';
+        grid.appendChild(blank);
+      }
+      var daysIn = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+      for (var d = 1; d <= daysIn; d++) {
+        var date = new Date(m.getFullYear(), m.getMonth(), d);
+        var key = keyOf(date);
+        var past = date < today;
+        var open = !past && dayIsOpen(key);
+        var cell = document.createElement('button');
+        cell.type = 'button';
+        cell.className = 'cal-day' + (state.dateKey === key ? ' sel' : (open ? ' open' : ''));
+        cell.disabled = !open;
+        cell.textContent = String(d);
+        if (open) cell.addEventListener('click', (function (k) { return function () { selectDay(k); }; })(key));
+        grid.appendChild(cell);
+      }
+    }
+
+    function renderSlots() {
+      $('[data-slots-head]').textContent = state.dateKey ? t().timesOn + ' ' + fmtDay(state.dateKey) : t().pickDay;
+      var area = $('[data-slots-area]');
+      area.innerHTML = '';
+      if (state.loading) {
+        area.innerHTML = '<p class="slots-msg loading"><span class="spinner"></span>' + t().loadingSlots + '</p>';
+        return;
+      }
+      var slots = daySlots();
+      if (!state.dateKey || !slots) return;
+      if (!slots.length) {
+        area.innerHTML = '<p class="slots-msg">' + t().noSlots + '</p>';
+        return;
+      }
+      var row = document.createElement('div');
+      row.className = 'slots';
+      slots.forEach(function (s) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slot';
+        b.setAttribute('aria-pressed', String(s.start === state.slotIso));
+        b.textContent = fmtTime(s.start);
+        b.addEventListener('click', function () { state.slotIso = s.start; render(); });
+        row.appendChild(b);
+      });
+      area.appendChild(row);
+    }
+
+    function chosenSlot() {
+      var slots = daySlots() || [];
+      for (var i = 0; i < slots.length; i++) if (slots[i].start === state.slotIso) return slots[i];
+      return null;
+    }
+
+    function renderDetails() {
+      var chosen = chosenSlot();
+      var panel = $('[data-details]');
+      panel.hidden = !chosen;
+      if (!chosen) return;
+      $('[data-summary]').textContent = session().name[state.lang] + ' · ' + fmtLong(chosen.start);
+      var agreed = $('.agree input').checked;
+      $('[data-agree-box]').classList.toggle('on', agreed);
+      var btn = $('[data-submit]');
+      btn.disabled = state.submitting;
+      btn.textContent = state.submitting ? t().submitting : t().submit;
+    }
+
+    function render() {
+      renderStatic();
+      renderSessions();
+      var needsIntro = !!session().intro;
+      $('[data-intro]').hidden = !needsIntro;
+      $('[data-calendar]').hidden = needsIntro;
+      if (!needsIntro) { renderCalendar(); renderSlots(); }
+      renderDetails();
+      if (needsIntro) $('[data-details]').hidden = true;
+    }
+
+    function selectDay(key) {
+      state.dateKey = key;
+      state.slotIso = null;
+      showError('');
+      loadSlots(key);
+      render();
+    }
+
+    function showError(msg) {
+      var el = $('[data-error]');
+      el.textContent = msg || '';
+      el.hidden = !msg;
+    }
+
+    /* --- submit ----------------------------------------------------------- */
+    function submit() {
+      var chosen = chosenSlot();
+      if (!chosen) return;
+      var name = $('[name="name"]').value.trim();
+      var email = $('[name="email"]').value.trim();
+      var phone = $('[name="phone"]').value.trim();
+      var notes = $('[name="notes"]').value.trim();
+      var langPref = $('[name="langPref"]').value;
+      var agreed = $('[name="agreed"]').checked;
+
+      if (!name) return showError(t().errName);
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return showError(t().errEmail);
+      if (!agreed) return showError(t().errAgree);
+      showError('');
+
+      state.submitting = true; renderDetails();
+      var s = session();
+      var payload = {
+        action: 'book', session: s.id, sessionLabel: s.name.en,
+        start: chosen.start, end: chosen.end, tz: TZ,
+        name: name, email: email, phone: phone, notes: notes, language: langPref,
+        agreementAccepted: true, agreementAcceptedAt: new Date().toISOString()
+      };
+
+      var request = ENDPOINT
+        ? fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+            .then(function (r) { return r.json(); })
+        : new Promise(function (res) {
+            setTimeout(function () {
+              res({ ok: true, meetUrl: 'https://meet.google.com/xxx-yyyy-zzz', manageUrl: '#', agreementAttached: false });
+            }, 600);
+          });
+
+      request.then(function (result) {
+        state.submitting = false;
+        if (!result || result.ok !== true) { renderDetails(); return showError(t().errFail); }
+        showConfirmation(chosen, s, email, result);
+      }).catch(function () {
+        state.submitting = false; renderDetails(); showError(t().errFail);
+      });
+    }
+
+    function showConfirmation(slot, s, email, result) {
+      var title = s.name[state.lang] + ' — ' + $('[name="name"]').value.trim();
+      var links = calLinks(slot.start, slot.end, title, result.meetUrl);
+      $('[data-c-session]').textContent = s.name[state.lang];
+      $('[data-c-when]').textContent = fmtLong(slot.start) + ' · ' + TZ.replace(/_/g, ' ');
+      var meet = $('[data-c-meet]');
+      meet.textContent = result.meetUrl || '';
+      meet.href = result.meetUrl || '#';
+      $('[data-c-invite]').textContent = t().invitePrefix + email;
+      $('[data-c-agreement]').textContent = t().agreementPrefix +
+        (result.agreementAttached === true ? t().agreementAttached : t().agreementLinked);
+      $('[data-done-sub]').textContent = t().doneSub;
+      $('[data-c-google]').href = links.googleUrl;
+      $('[data-c-ics]').href = links.icsUrl;
+      $('[data-c-ics2]').href = links.icsUrl;
+      $('[data-c-manage]').href = result.manageUrl || '#';
+      $('[data-view="picker"]').hidden = true;
+      $('[data-view="confirm"]').hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function reset() {
+      state.slotIso = null; state.dateKey = null; state.submitting = false;
+      ['name', 'email', 'phone', 'notes'].forEach(function (n) { $('[name="' + n + '"]').value = ''; });
+      $('[name="agreed"]').checked = false;
+      showError('');
+      $('[data-view="confirm"]').hidden = true;
+      $('[data-view="picker"]').hidden = false;
+      firstOpenDay();
+      render();
+    }
+
+    /* --- boot ------------------------------------------------------------- */
+    function firstOpenDay() {
+      if (ENDPOINT) return;
+      var start = new Date(); start.setHours(0, 0, 0, 0);
+      for (var i = 0; i < 45; i++) {
+        var d = new Date(start.getTime() + i * 864e5);
+        var key = keyOf(d);
+        if (!sampleSlots(key).length) continue;
+        state.month = new Date(d.getFullYear(), d.getMonth(), 1);
+        selectDay(key);
+        return;
+      }
+    }
+
+    $$('.lang-seg button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        state.lang = b.dataset.lang;
+        $('[name="langPref"]').value = state.lang === 'pt' ? 'Português' : 'English';
+        render();
+      });
+    });
+    $('[data-prev]').addEventListener('click', function () {
+      state.month = new Date(state.month.getFullYear(), state.month.getMonth() - 1, 1);
+      loadMonth().then(render); render();
+    });
+    $('[data-next]').addEventListener('click', function () {
+      state.month = new Date(state.month.getFullYear(), state.month.getMonth() + 1, 1);
+      loadMonth().then(render); render();
+    });
+    $('[data-go-discovery]').addEventListener('click', function () {
+      state.sessionId = 'discovery'; state.slotIso = null;
+      loadMonth().then(function () { if (state.dateKey) loadSlots(state.dateKey); else render(); });
+      render();
+    });
+    $('.agree input').addEventListener('change', function () { showError(''); renderDetails(); });
+    $('[data-submit]').addEventListener('click', submit);
+    $('[data-reset]').addEventListener('click', reset);
+
+    loadMonth().then(render);
+    firstOpenDay();
+    render();
+  })();
+  </script>
+
+  <script>
+    /* Fallback if script.js is missing: year + mobile menu. */
     window.addEventListener('load', function () {
       var yearEl = document.querySelector('[data-year]');
-      if (!yearEl || yearEl.textContent.trim() !== '') return; /* script.js is active */
+      if (!yearEl || yearEl.textContent.trim() !== '') return;
       yearEl.textContent = new Date().getFullYear();
       var toggle = document.querySelector('.menu-toggle');
       var links = document.querySelector('.nav-links');
@@ -426,39 +791,6 @@
         });
       }
     });
-  </script>
-  <script>
-    (function () {
-      var buttons = document.querySelectorAll('.seg button');
-      var detail = document.querySelector('[data-detail]');
-      var panels = {
-        discovery: document.getElementById('embed-discovery'),
-        session: document.getElementById('embed-session')
-      };
-      var detailHTML = {
-        discovery: '<div><b>Discovery call</b><span>Explore fit, no prep, no obligation</span></div><div><b>Free</b><span>Video or phone</span></div>',
-        session: '<div><b>Coaching session</b><span>Focused work on one challenge</span></div><div><b>Paid session</b><span>60 minutes, one-on-one</span></div>'
-      };
-
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var kind = btn.dataset.kind;
-          if (btn.getAttribute('aria-pressed') === 'true') return;
-          buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-          detail.classList.add('fade');
-          panels.discovery.classList.add('fade');
-          panels.session.classList.add('fade');
-          window.setTimeout(function () {
-            detail.innerHTML = detailHTML[kind];
-            panels.discovery.hidden = kind !== 'discovery';
-            panels.session.hidden = kind !== 'session';
-            detail.classList.remove('fade');
-            panels.discovery.classList.remove('fade');
-            panels.session.classList.remove('fade');
-          }, 180);
-        });
-      });
-    })();
   </script>
 </body>
 </html>
