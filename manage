@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your session | The U Method</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* Manage page only. Everything else comes from styles.css. */
+    .manage{padding:56px 0 90px;background:linear-gradient(180deg,var(--soft-cream) 0%,var(--paper) 200px)}
+    .manage-inner{width:min(680px,calc(100% - 40px));margin:0 auto}
+    .panel{padding:clamp(24px,4vw,36px);border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 18px 44px rgba(16,20,25,.06)}
+    .panel.top-gold{border-top:3px solid var(--mint)}
+    .panel.top-slate{border-top:3px solid var(--blue-slate)}
+    .panel.top-sage{border-top:3px solid var(--sage)}
+    .kicker{margin:0 0 8px;color:#7d6231;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .panel h1{margin:0 0 12px;font-size:clamp(26px,4vw,38px);line-height:1.08;letter-spacing:-.035em}
+    .panel p{color:var(--muted)}
+    .rows{margin:22px 0 0;border-top:1px solid var(--line)}
+    .row{display:grid;grid-template-columns:140px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+    .row dt{margin:0;color:#7d6231;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .row dd{margin:0;font-weight:700}
+    .actions-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .ghost{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid #cfd4db;border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+    .ghost:hover{border-color:rgba(217,183,94,.55);background:var(--soft-cream)}
+    .danger{color:#8b3526;border-color:rgba(139,53,38,.32)}
+    .danger:hover{background:#fff2ef;border-color:rgba(139,53,38,.5)}
+    .note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+    .note a{font-weight:800;color:var(--blue-slate)}
+    .block{display:none;margin-top:16px}
+    .block.show{display:block}
+    .field{display:grid;gap:7px;margin-top:16px}
+    .field span{color:var(--blue-slate);font-size:11.5px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .field textarea{width:100%;min-height:88px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:#fbfcfd;font:inherit;font-size:15px;resize:vertical}
+    .field textarea:focus{outline:none;border-color:#7d6231;background:#fff;box-shadow:0 0 0 4px rgba(146,117,44,.14)}
+    .cal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 14px}
+    .cal-nav{display:flex;align-items:center;gap:6px}
+    .cal-nav button{width:38px;height:38px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);cursor:pointer}
+    .cal-nav button:disabled{opacity:.4;cursor:not-allowed}
+    .cal-nav svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .cal-month{min-width:140px;text-align:center;font-size:14px;font-weight:850;font-variant-numeric:tabular-nums}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+    .cal-dow{padding:6px 0;color:var(--muted);font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .cal-day{min-height:40px;padding:7px 0;border:1px solid transparent;border-radius:var(--radius);background:transparent;font:inherit;font-size:13.5px;font-variant-numeric:tabular-nums;cursor:pointer}
+    .cal-day.blank{color:transparent;pointer-events:none}
+    .cal-day.blank:disabled{color:transparent}
+    .cal-day:disabled{color:#c3cad1;cursor:not-allowed}
+    .cal-day.open{background:var(--peach);font-weight:750}
+    .cal-day.sel{background:var(--blue-slate);color:#fff;font-weight:850}
+    .slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .slot{min-height:42px;padding:0 15px;border:1px solid var(--line);border-radius:999px;background:#fff;font:inherit;font-size:14px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums}
+    .slot:hover{border-color:var(--mint)}
+    .slot[aria-pressed="true"]{border-color:var(--blue-slate);background:var(--blue-slate);color:#fff}
+    .msg{min-height:40px;margin:14px 0 0;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px}
+    .spinner{width:15px;height:15px;border:2px solid var(--mist-blue);border-top-color:var(--blue-slate);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .error-box{margin-top:16px;padding:12px 14px;border-radius:var(--radius);background:#fff2ef;color:#8b3526;font-size:14px;font-weight:750}
+    [hidden]{display:none!important}
+    @media(max-width:560px){
+      .row{grid-template-columns:1fr;gap:3px}
+      .actions-row .ghost{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="./index.html" aria-label="The U Method home"><img src="./logo.svg" alt="" onerror="this.remove()"></a>
+      <ul class="nav-links">
+        <li><a class="nav-cta" href="./booking.html">Book</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="manage">
+    <div class="manage-inner">
+
+      <div class="panel top-slate" id="loading">
+        <p class="msg"><span class="spinner"></span><span id="loading-text">Finding your session…</span></p>
+      </div>
+
+      <div class="panel top-gold" id="view" hidden>
+        <p class="kicker">The U Method</p>
+        <h1 id="head">Your session</h1>
+        <p id="sub"></p>
+        <dl class="rows" id="rows"></dl>
+
+        <div class="actions-row" id="actions">
+          <button type="button" class="ghost" id="btn-move">Pick a new time</button>
+          <button type="button" class="ghost danger" id="btn-cancel">Cancel this session</button>
+        </div>
+
+        <div class="block" id="move">
+          <div class="cal-head">
+            <strong style="font-size:15px">Choose a new time</strong>
+            <div class="cal-nav">
+              <button type="button" id="prev" aria-label="Previous month"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+              <span class="cal-month" id="month"></span>
+              <button type="button" id="next" aria-label="Next month"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <div class="cal-grid" id="grid"></div>
+          <div id="slots-area"></div>
+          <div class="actions-row">
+            <button type="button" class="ghost" id="btn-confirm-move" disabled>Confirm new time</button>
+            <button type="button" class="ghost" id="btn-move-back">Never mind</button>
+          </div>
+        </div>
+
+        <div class="block" id="confirm-cancel">
+          <label class="field"><span>Anything you would like Juliana to know? (optional)</span><textarea id="reason"></textarea></label>
+          <div class="actions-row">
+            <button type="button" class="ghost danger" id="btn-confirm-cancel">Yes, cancel it</button>
+            <button type="button" class="ghost" id="btn-keep">Keep my session</button>
+          </div>
+        </div>
+
+        <div class="error-box" id="error" hidden></div>
+        <p class="note" id="note"></p>
+      </div>
+
+      <div class="panel top-sage" id="done" hidden>
+        <p class="kicker">The U Method</p>
+        <h1 id="done-head"></h1>
+        <p id="done-sub"></p>
+        <div class="actions-row"><a class="button secondary" href="./booking.html">Book a new time</a></div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>&copy; <span data-year></span> The U Method. All rights reserved.</span>
+      <div class="footer-links"><a href="./index.html">Home</a><a href="./booking.html">Book</a></div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+  <script>
+  (function () {
+    var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwOxlkGEQ4tUy2c1edESv4PI0aoV0yAWg8yLJAgT9pRxCXDasUW83Tb0jnk_Dg-rjVnwg/exec';
+    var TZ = 'America/Toronto';
+
+    var $ = function (id) { return document.getElementById(id); };
+    var token = new URLSearchParams(location.search).get('token') || '';
+    var booking = null, pt = false;
+    var state = { month: null, dateKey: null, slotIso: null, cache: {}, hops: 0, days: null };
+
+    var T = {
+      en: {
+        finding: 'Finding your session…',
+        head: 'Your session', sub: 'Change it or cancel it below — no need to email.',
+        lblSession: 'Session', lblWhen: 'When', lblMeet: 'Google Meet',
+        move: 'Pick a new time', cancel: 'Cancel this session',
+        note: 'Anything else, just reply to your confirmation email.',
+        lateNote: 'This session is within {h} hours, so it can no longer be changed here. Email {e} and Juliana will sort it out with you.',
+        chooseDay: 'Select a day to see open times.', loading: 'Checking the calendar…',
+        noSlots: 'No openings on this day. Try another date.',
+        confirmMove: 'Confirm new time', neverMind: 'Never mind',
+        moving: 'Moving your session…', cancelling: 'Cancelling…',
+        movedHead: 'Moved.', movedSub: 'Your session is now {when}. A fresh confirmation and invite are on their way.',
+        cancelledHead: 'Cancelled.', cancelledSub: 'Your session is cancelled and the time is released. Nothing further to do.',
+        goneHead: 'That link is no longer valid.',
+        gone: 'The session may already have been cancelled, or the link has expired. If you think it should still work, email {e}.',
+        failed: 'That could not be completed. Please try again, or email {e}.',
+        taken: 'That time was just taken. Please pick another.'
+      },
+      pt: {
+        finding: 'Buscando sua sessão…',
+        head: 'Sua sessão', sub: 'Altere ou cancele abaixo — sem precisar enviar e-mail.',
+        lblSession: 'Sessão', lblWhen: 'Quando', lblMeet: 'Google Meet',
+        move: 'Escolher outro horário', cancel: 'Cancelar esta sessão',
+        note: 'Qualquer outra coisa, basta responder ao e-mail de confirmação.',
+        lateNote: 'Esta sessão acontece em menos de {h} horas, então não pode mais ser alterada aqui. Escreva para {e} e a Juliana resolve com você.',
+        chooseDay: 'Selecione um dia para ver os horários.', loading: 'Consultando a agenda…',
+        noSlots: 'Sem horários neste dia. Tente outra data.',
+        confirmMove: 'Confirmar novo horário', neverMind: 'Deixa pra lá',
+        moving: 'Movendo sua sessão…', cancelling: 'Cancelando…',
+        movedHead: 'Movida.', movedSub: 'Sua sessão agora é {when}. Uma nova confirmação e convite estão a caminho.',
+        cancelledHead: 'Cancelada.', cancelledSub: 'Sua sessão foi cancelada e o horário está liberado. Nada mais a fazer.',
+        goneHead: 'Este link não é mais válido.',
+        gone: 'A sessão pode já ter sido cancelada, ou o link expirou. Se acha que deveria funcionar, escreva para {e}.',
+        failed: 'Não foi possível concluir. Tente novamente ou escreva para {e}.',
+        taken: 'Esse horário acabou de ser ocupado. Escolha outro.'
+      }
+    };
+    function t() { return pt ? T.pt : T.en; }
+    function loc() { return pt ? 'pt-BR' : 'en-CA'; }
+    function fill(s, map) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return map[k] || ''; }); }
+
+    function fmtLong(iso) {
+      return new Intl.DateTimeFormat(loc(), { weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit', timeZone: TZ }).format(new Date(iso));
+    }
+    function fmtTime(iso) {
+      return new Intl.DateTimeFormat(loc(), { hour: 'numeric', minute: '2-digit', timeZone: TZ }).format(new Date(iso));
+    }
+    function fmtDay(key) {
+      var p = key.split('-').map(Number);
+      return new Intl.DateTimeFormat(loc(), { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(p[0], p[1] - 1, p[2]));
+    }
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    function keyOf(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+
+    function post(payload) {
+      return fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json(); });
+    }
+
+    function showError(msg) {
+      var el = $('error');
+      el.textContent = msg || '';
+      el.hidden = !msg;
+    }
+
+    function fatal() {
+      $('loading').hidden = true;
+      $('view').hidden = true;
+      $('done').hidden = false;
+      $('done-head').textContent = t().goneHead;
+      $('done-sub').innerHTML = fill(t().gone, {
+        e: '<a href="mailto:hello@theumethod.ca" style="font-weight:800;color:#385768">hello@theumethod.ca</a>'
+      });
+    }
+
+    /* ---------- load ---------- */
+    if (!token) {
+      fatal();
+    } else {
+      fetch(ENDPOINT + '?action=booking&token=' + encodeURIComponent(token))
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (!data || data.ok !== true) return fatal();
+          booking = data;
+          pt = /portugu/i.test(data.language || '');
+          renderBooking();
+        })
+        .catch(function () { fatal(); });
+    }
+
+    function renderBooking() {
+      $('loading').hidden = true;
+      $('view').hidden = false;
+      $('head').textContent = t().head;
+      $('sub').textContent = booking.editable ? t().sub : '';
+      $('btn-move').textContent = t().move;
+      $('btn-cancel').textContent = t().cancel;
+      $('btn-confirm-move').textContent = t().confirmMove;
+      $('btn-move-back').textContent = t().neverMind;
+
+      var rows = [
+        [t().lblSession, booking.sessionLabel],
+        [t().lblWhen, fmtLong(booking.start) + ' · ' + TZ.replace(/_/g, ' ')]
+      ];
+      if (booking.meetUrl) rows.push([t().lblMeet, '<a href="' + booking.meetUrl + '" style="text-decoration:underline;text-underline-offset:4px;word-break:break-all">' + booking.meetUrl + '</a>']);
+      $('rows').innerHTML = rows.map(function (r) {
+        return '<div class="row"><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>';
+      }).join('');
+
+      if (booking.editable) {
+        $('note').textContent = t().note;
+      } else {
+        $('actions').hidden = true;
+        $('note').innerHTML = fill(t().lateNote, {
+          h: booking.cutoffHours,
+          e: '<a href="mailto:' + booking.ownerEmail + '">' + booking.ownerEmail + '</a>'
+        });
+      }
+    }
+
+    /* ---------- cancel ---------- */
+    $('btn-cancel').addEventListener('click', function () {
+      $('move').classList.remove('show');
+      $('confirm-cancel').classList.add('show');
+      showError('');
+    });
+    $('btn-keep').addEventListener('click', function () {
+      $('confirm-cancel').classList.remove('show');
+    });
+    $('btn-confirm-cancel').addEventListener('click', function () {
+      var btn = this;
+      btn.disabled = true;
+      btn.textContent = t().cancelling;
+      showError('');
+      post({ action: 'cancel', token: token, reason: $('reason').value.trim() })
+        .then(function (res) {
+          if (!res || res.ok !== true) throw new Error('failed');
+          $('view').hidden = true;
+          $('done').hidden = false;
+          $('done-head').textContent = t().cancelledHead;
+          $('done-sub').textContent = t().cancelledSub;
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = t().cancel;
+          showError(fill(t().failed, { e: booking.ownerEmail }));
+        });
+    });
+
+    /* ---------- reschedule ---------- */
+    $('btn-move').addEventListener('click', function () {
+      $('confirm-cancel').classList.remove('show');
+      $('move').classList.add('show');
+      showError('');
+      if (!state.month) {
+        var d = new Date(booking.start);
+        state.month = new Date(d.getFullYear(), d.getMonth(), 1);
+        loadDays();
+      }
+    });
+    $('btn-move-back').addEventListener('click', function () {
+      $('move').classList.remove('show');
+    });
+
+    function loadDays() {
+      var m = state.month;
+      var from = new Date(m.getFullYear(), m.getMonth(), 1);
+      var to = new Date(m.getFullYear(), m.getMonth() + 1, 0, 23, 59);
+      renderCal();
+      return fetch(ENDPOINT + '?action=days&session=' + encodeURIComponent(booking.sessionId) +
+        '&from=' + from.toISOString() + '&to=' + to.toISOString() + '&tz=' + encodeURIComponent(TZ))
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          state.days = Array.isArray(d.days) ? d.days : [];
+          if (!state.dateKey && state.days.length) {
+            state.hops = 0;
+            selectDay(state.days[0]);
+            return;
+          }
+          if (!state.dateKey && !state.days.length && state.hops < 3) {
+            state.hops++;
+            state.month = new Date(m.getFullYear(), m.getMonth() + 1, 1);
+            return loadDays();
+          }
+          renderCal();
+        })
+        .catch(function () { state.days = []; renderCal(); });
+    }
+
+    function renderCal() {
+      var m = state.month;
+      $('month').textContent = new Intl.DateTimeFormat(loc(), { month: 'long', year: 'numeric' }).format(m);
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      $('prev').disabled = new Date(m.getFullYear(), m.getMonth(), 1) <= new Date(today.getFullYear(), today.getMonth(), 1);
+
+      var grid = $('grid');
+      grid.innerHTML = '';
+      var dowFmt = new Intl.DateTimeFormat(loc(), { weekday: 'short' });
+      for (var i = 0; i < 7; i++) {
+        var h = document.createElement('div');
+        h.className = 'cal-dow';
+        h.textContent = dowFmt.format(new Date(2024, 8, 1 + i)).slice(0, 3);
+        grid.appendChild(h);
+      }
+      var lead = new Date(m.getFullYear(), m.getMonth(), 1).getDay();
+      for (var b = 0; b < lead; b++) {
+        var blank = document.createElement('button');
+        blank.type = 'button'; blank.className = 'cal-day blank'; blank.disabled = true;
+        grid.appendChild(blank);
+      }
+      var daysIn = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+      for (var d = 1; d <= daysIn; d++) {
+        var key = keyOf(new Date(m.getFullYear(), m.getMonth(), d));
+        var open = (state.days || []).indexOf(key) !== -1;
+        var cell = document.createElement('button');
+        cell.type = 'button';
+        cell.className = 'cal-day' + (state.dateKey === key ? ' sel' : (open ? ' open' : ''));
+        cell.disabled = !open;
+        cell.textContent = String(d);
+        if (open) cell.addEventListener('click', (function (k) { return function () { selectDay(k); }; })(key));
+        grid.appendChild(cell);
+      }
+    }
+
+    function selectDay(key) {
+      state.dateKey = key;
+      state.slotIso = null;
+      $('btn-confirm-move').disabled = true;
+      renderCal();
+      var cached = state.cache[key];
+      if (cached) return renderSlots(cached);
+      $('slots-area').innerHTML = '<p class="msg"><span class="spinner"></span>' + t().loading + '</p>';
+      fetch(ENDPOINT + '?action=slots&session=' + encodeURIComponent(booking.sessionId) +
+        '&date=' + key + '&tz=' + encodeURIComponent(TZ))
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          var slots = Array.isArray(d.slots) ? d.slots : [];
+          state.cache[key] = slots;
+          renderSlots(slots);
+        })
+        .catch(function () { renderSlots([]); });
+    }
+
+    function renderSlots(slots) {
+      var area = $('slots-area');
+      area.innerHTML = '';
+      var head = document.createElement('p');
+      head.className = 'msg';
+      head.style.fontWeight = '850';
+      head.style.color = '#101419';
+      head.textContent = state.dateKey ? fmtDay(state.dateKey) : t().chooseDay;
+      area.appendChild(head);
+      if (!slots.length) {
+        var none = document.createElement('p');
+        none.className = 'msg';
+        none.textContent = t().noSlots;
+        area.appendChild(none);
+        return;
+      }
+      var row = document.createElement('div');
+      row.className = 'slots';
+      slots.forEach(function (s) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slot';
+        b.setAttribute('aria-pressed', String(s.start === state.slotIso));
+        b.textContent = fmtTime(s.start);
+        b.addEventListener('click', function () {
+          state.slotIso = s.start;
+          state.slotEnd = s.end;
+          $('btn-confirm-move').disabled = false;
+          renderSlots(slots);
+        });
+        row.appendChild(b);
+      });
+      area.appendChild(row);
+    }
+
+    $('prev').addEventListener('click', function () {
+      state.month = new Date(state.month.getFullYear(), state.month.getMonth() - 1, 1);
+      state.dateKey = null; state.hops = 3; loadDays();
+    });
+    $('next').addEventListener('click', function () {
+      state.month = new Date(state.month.getFullYear(), state.month.getMonth() + 1, 1);
+      state.dateKey = null; state.hops = 3; loadDays();
+    });
+
+    $('btn-confirm-move').addEventListener('click', function () {
+      if (!state.slotIso) return;
+      var btn = this;
+      var when = fmtLong(state.slotIso);
+      btn.disabled = true;
+      btn.textContent = t().moving;
+      showError('');
+      post({ action: 'reschedule', token: token, start: state.slotIso, end: state.slotEnd, tz: TZ })
+        .then(function (res) {
+          if (!res || res.ok !== true) {
+            throw new Error(res && res.error === 'slot_taken' ? 'taken' : 'failed');
+          }
+          $('view').hidden = true;
+          $('done').hidden = false;
+          $('done-head').textContent = t().movedHead;
+          $('done-sub').textContent = fill(t().movedSub, { when: when });
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          btn.textContent = t().confirmMove;
+          if (String(err.message) === 'taken') {
+            state.cache = {};
+            showError(t().taken);
+            selectDay(state.dateKey);
+          } else {
+            showError(fill(t().failed, { e: booking.ownerEmail }));
+          }
+        });
+    });
+  })();
+  </script>
+  <script>
+    window.addEventListener('load', function () {
+      var y = document.querySelector('[data-year]');
+      if (y && y.textContent.trim() === '') y.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
