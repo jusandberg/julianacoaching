@@ -66,8 +66,9 @@
     .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
     .cal-dow{padding:6px 0;color:var(--muted);font-size:11.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
     .cal-day{min-height:42px;padding:8px 0;border:1px solid transparent;border-radius:var(--radius);background:transparent;font:inherit;font-size:13.5px;font-variant-numeric:tabular-nums;cursor:pointer}
-    .cal-day.blank{color:transparent;pointer-events:none}
+    .cal-day.blank{color:transparent;pointer-events:none;border-color:transparent}
     .cal-day:disabled{color:#c3cad1;cursor:not-allowed}
+    .cal-day.blank:disabled{color:transparent}
     .cal-day.open{background:var(--peach);font-weight:750}
     .cal-day.sel{background:var(--blue-slate);color:#fff;font-weight:850}
 
@@ -537,6 +538,7 @@
       slotIso: null,
       cache: {},
       availableDays: null,
+      hops: 0,
       loading: false,
       submitting: false
     };
@@ -587,7 +589,15 @@
       return fetch(url).then(function (r) { return r.json(); }).then(function (d) {
         state.availableDays = Array.isArray(d.days) ? d.days : null;
         if (!state.dateKey && state.availableDays && state.availableDays.length) {
+          state.hops = 0;
           selectDay(state.availableDays[0]);
+          return;
+        }
+        // Nothing open this month — look ahead (up to three months).
+        if (!state.dateKey && state.availableDays && !state.availableDays.length && (state.hops || 0) < 3) {
+          state.hops = (state.hops || 0) + 1;
+          state.month = new Date(state.month.getFullYear(), state.month.getMonth() + 1, 1);
+          return loadMonth().then(render);
         }
       }).catch(function () { state.availableDays = null; });
     }
@@ -705,7 +715,7 @@
       var lead = new Date(m.getFullYear(), m.getMonth(), 1).getDay();
       for (var b = 0; b < lead; b++) {
         var blank = document.createElement('button');
-        blank.type = 'button'; blank.className = 'cal-day blank'; blank.disabled = true; blank.textContent = '0';
+        blank.type = 'button'; blank.className = 'cal-day blank'; blank.disabled = true; blank.textContent = '';
         grid.appendChild(blank);
       }
       var daysIn = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
